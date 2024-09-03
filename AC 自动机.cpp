@@ -33,6 +33,7 @@ namespace AC {
         int u = 0;
         for(int i = 1; s[i]; ++i) {
             int &son = tree[u].son[s[i] - 'a'];
+            
         }
     }
 }
