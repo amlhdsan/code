@@ -32,7 +32,7 @@ namespace AC {
     void insert(char s[], int &idx) {
         int u = 0;
         for(int i = 1; s[i]; ++i) {
-            int &son = tree[u].
+            int &son = tree[u].son[s[i] - 'a'];
         }
     }
 }
