@@ -39,7 +39,6 @@ namespace AC {
             }
             u = son;
         }
-        
     }
 }
 
