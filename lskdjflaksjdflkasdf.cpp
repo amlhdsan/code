@@ -57,7 +57,19 @@ inline void mdf(int p, int l, int r, int ql, int qr, int x) {
 }
 
 inline int qry(int p, int l, int r, int ql, int qr) {
-    
+    if(ql <= l && r <= qr) 
+        return tree[p];
+
+    pushup(p);
+
+    int res = INT_MIN;
+
+    if(ql <= mid) 
+        res = max(res, qry(ls, l, mid, ql, qr));
+    if(qr > mid) 
+        res = max(res, qry(rs, mid + 1, r, ql, qr));
+
+    return res;
 }
 
 inline int read() {
