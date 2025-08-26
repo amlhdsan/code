@@ -52,7 +52,13 @@ inline void featured() {
 }
 
 inline void writeln(int p) {
-    
+    int x = p;
+    write(x);
+    putchar('\n');
+}
+
+inline void endll() {
+    putchar('\n');
 }
 
 inline void writeln(int x) {
