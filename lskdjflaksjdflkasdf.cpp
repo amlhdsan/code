@@ -7,9 +7,15 @@ using namespace std;
 int T;
 int n;
 ll a[200005], p[200005];
+int tree[200005];
 
 inline void build(int p, int l, int r) {
-    if
+    if(l == r) {
+        tree[p] = a[l];
+        return;
+    }
+
+
 }
 
 inline int read() {
