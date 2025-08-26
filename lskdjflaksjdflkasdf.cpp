@@ -1,8 +1,8 @@
-// 電影發明以後，人類的生命，比以前至少延長了三倍。
-// amlhdsan
 #include<bits/stdc++.h>
+
+#define ll long long
+
 using namespace std;
-using ll=long long;
 
 inline int read() {
     int x = 0, f = 1;
