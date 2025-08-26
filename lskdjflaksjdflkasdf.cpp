@@ -2,7 +2,8 @@
 
 #define ll long long
 #define ls (p << 1)
-
+#define rs (p << 1 | 1)
+#de
 
 using namespace std;
 
