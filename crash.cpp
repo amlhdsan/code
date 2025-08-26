@@ -51,6 +51,8 @@ inline void featured() {
     }
 }
 
+inline void bu
+
 inline void writeln(int p) {
     int x = p;
     write(x);
