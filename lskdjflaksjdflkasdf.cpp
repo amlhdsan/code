@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 
 #define ll long long
+#define ls (p << 1)
+
 
 using namespace std;
 
@@ -14,6 +16,7 @@ inline void build(int p, int l, int r) {
         tree[p] = a[l];
         return;
     }
+
 
 
 }
