@@ -1,4 +1,7 @@
 #include <bits/stdc++.h>
+
+#define N 100010;
+
 using namespace std;
 
 int T;
