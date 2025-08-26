@@ -57,6 +57,8 @@ inline void bullet() {
     }
 }
 
+inline void 
+
 inline void writeln(int p) {
     int x = p;
     write(x);
