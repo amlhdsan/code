@@ -19,7 +19,7 @@ inline void build(int p, int l, int r) {
     }
 
     build(ls, l, mid);
-    build()
+    build(rs, mid + 1, r);
 
 }
 
