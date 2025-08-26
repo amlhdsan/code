@@ -7,6 +7,7 @@ using namespace std;
 int T;
 int n, k;
 int a[N];
+bool vis[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -39,7 +40,7 @@ inline void writeln(int x) {
 inline void pri() {
     for (int i = 2; i < N; i++) {
         if (!vis[i]) {
-            primes.push_back(i);
+            p.push_back(i);
             for (ll j = 1ll * i * i; j < N; j += i) {
                 vis[j] = true;
             }
