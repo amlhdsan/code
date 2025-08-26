@@ -28,7 +28,9 @@ inline void build(int p, int l, int r) {
     upd(p);
 }
 
-inline void mdf()
+inline void mdf(int p, int l, int r, int ql, int qr, int x) {
+    
+}
 
 inline int read() {
     int x = 0, f = 1;
