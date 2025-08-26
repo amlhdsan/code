@@ -42,13 +42,17 @@ int main() {
 
     while (T--) {
         n = read();
-        for(int i = 1; i <= n; i++) 
+        for(int i = 1; i <= n; ++i) 
             a[i] = read();
-        ll ops = 0;
+            
+        ll op = 0;
         ll mx = LLONG_MIN / 4;
+
         p[0] = 0;
-        for (int i = 1; i <= n; i++) {
-            if (i >= 2) mx = max(mx, p[i - 2]);
+
+        for (int i = 1; i <= n; ++i) {
+            if (i >= 2) 
+                mx = max(mx, p[i - 2]);
             int s = (i % 2 == 0) ? 1 : -1;
             p[i] = p[i - 1] + s * a[i];
             if (p[i] < mx) {
@@ -56,18 +60,19 @@ int main() {
                 if (i % 2 == 1) {
                     ll dec = min(need, a[i]);
                     a[i] -= dec;
-                    ops += dec;
+                    op += dec;
                     p[i] += dec;
-                } else {
+                } 
+                else {
                     ll dec = min(need, a[i - 1]);
                     a[i - 1] -= dec;
-                    ops += dec;
+                    op += dec;
                     p[i - 1] += dec;
                     p[i] += dec;
                 }
             }
         }
-        writeln(ops);
+        writeln(op);
     }
     return 0;
 }
