@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-#define N 100010;
+#define N 100010
 
 using namespace std;
 
