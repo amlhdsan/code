@@ -11,6 +11,7 @@ int T;
 int n;
 ll a[200005], p[200005];
 int tree[200005];
+int lazy[]
 
 inline void upd(int p) {
     tree[p] = max(tree[ls], tree[rs]);
@@ -29,7 +30,7 @@ inline void build(int p, int l, int r) {
 }
 
 inline void mdf(int p, int l, int r, int ql, int qr, int x) {
-    
+
 }
 
 inline int read() {
