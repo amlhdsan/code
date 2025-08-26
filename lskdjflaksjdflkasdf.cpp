@@ -30,7 +30,20 @@ inline void build(int p, int l, int r) {
 }
 
 inline void mdf(int p, int l, int r, int ql, int qr, int x) {
+    if(ql <= l && r <= qr) {
+        tree[p] += x;
+        lazy[p] += x;
+        return;
+    }
 
+    pushup(p);
+
+    if(ql <= mid) 
+        mdf(ls, l, mid, ql, qr, x);
+    if(qr > mid) 
+        mdf(rs, mid + 1, r, ql, qr, x);
+
+    upd(p);
 }
 
 inline int read() {
