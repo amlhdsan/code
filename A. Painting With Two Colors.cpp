@@ -36,7 +36,9 @@ int main() {
 
     T = read();
     while(T--) {
-        
+        n = read();
+        a = read();
+        b = read();
     }
 
     return 0;
