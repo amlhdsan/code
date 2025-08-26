@@ -1,39 +1,68 @@
+// 電影發明以後，人類的生命，比以前至少延長了三倍。
+// amlhdsan
 #include<bits/stdc++.h>
 using namespace std;
 using ll=long long;
-#define IOS ios::sync_with_stdio(0);cin.tie(0)
-#define fr(i,l,r) for(int i=(l);i<=(r);++i)
-int main(){
-    IOS;
-    int T; if(!(cin>>T)) return 0;
-    while(T--){
-        int n; cin>>n;
-        vector<ll>a(n+2,0);
-        fr(i,1,n) cin>>a[i];
-        ll ops=0;
-        vector<ll> p(n+2,0);
-        ll mx = LLONG_MIN/4;
-        fr(i,1,n){
-            if(i>=2) mx = max(mx, p[i-2]);
-            int s = (i%2==0)?1:-1;
-            p[i] = p[i-1] + s * a[i];
-            if(p[i] < mx){
+
+inline int read() {
+    int x = 0, f = 1;
+    char ch = getchar();
+    while (ch < '0' || ch > '9') {
+        if (ch == '-') f = -1;
+        ch = getchar();
+    }
+    while (ch >= '0' && ch <= '9') {
+        x = (x << 3) + (x << 1) + (ch ^ 48);
+        ch = getchar();
+    }
+    return x * f;
+}
+
+inline void write(ll x) {
+    if (x < 0) {
+        putchar('-');
+        x = -x;
+    }
+    if (x > 9) write(x / 10);
+    putchar(x % 10 + '0');
+}
+
+inline void writeln(ll x) {
+    write(x);
+    putchar('\n');
+}
+
+ll a[200005], p[200005];
+
+int main() {
+    int T = read();
+    while (T--) {
+        int n = read();
+        for (int i = 1; i <= n; i++) a[i] = read();
+        ll ops = 0;
+        ll mx = LLONG_MIN / 4;
+        p[0] = 0;
+        for (int i = 1; i <= n; i++) {
+            if (i >= 2) mx = max(mx, p[i - 2]);
+            int s = (i % 2 == 0) ? 1 : -1;
+            p[i] = p[i - 1] + s * a[i];
+            if (p[i] < mx) {
                 ll need = mx - p[i];
-                if(i%2==1){
+                if (i % 2 == 1) {
                     ll dec = min(need, a[i]);
                     a[i] -= dec;
                     ops += dec;
                     p[i] += dec;
                 } else {
-                    ll dec = min(need, a[i-1]);
-                    a[i-1] -= dec;
+                    ll dec = min(need, a[i - 1]);
+                    a[i - 1] -= dec;
                     ops += dec;
-                    p[i-1] += dec;
+                    p[i - 1] += dec;
                     p[i] += dec;
                 }
             }
         }
-        cout<<ops<<"\n";
+        writeln(ops);
     }
     return 0;
 }
