@@ -12,6 +12,10 @@ int n;
 ll a[200005], p[200005];
 int tree[200005];
 
+inline void upd(int p) {
+    
+}
+
 inline void build(int p, int l, int r) {
     if(l == r) {
         tree[p] = a[l];
