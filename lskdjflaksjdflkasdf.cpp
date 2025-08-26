@@ -8,6 +8,10 @@ int T;
 int n;
 ll a[200005], p[200005];
 
+inline void build(int p, int l, int r) {
+    if
+}
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
