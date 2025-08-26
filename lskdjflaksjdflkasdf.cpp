@@ -3,7 +3,7 @@
 #define ll long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
-#de
+#define mid ((l + r) >> 1)
 
 using namespace std;
 
