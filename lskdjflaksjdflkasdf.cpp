@@ -56,7 +56,9 @@ inline void mdf(int p, int l, int r, int ql, int qr, int x) {
     upd(p);
 }
 
-inline int qry(int p, int )
+inline int qry(int p, int l, int r, int ql, int qr) {
+    
+}
 
 inline int read() {
     int x = 0, f = 1;
