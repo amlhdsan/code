@@ -62,7 +62,7 @@ inline int qry(int p, int l, int r, int ql, int qr) {
 
     pushup(p);
 
-    int res = INT_MIN;
+    int res = -0x7fffffff;
 
     if(ql <= mid) 
         res = max(res, qry(ls, l, mid, ql, qr));
