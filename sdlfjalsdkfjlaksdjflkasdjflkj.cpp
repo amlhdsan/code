@@ -57,18 +57,22 @@ int main() {
         queue<int> q;
         for (int i = 1; i <= n; ++i) 
         if ((int)adj[i].size() > 2) q.push(i);
-        vector<array<int,3> > ops;
+
+        vector<array<int,3> > op;
+
         while (!q.empty()) {
             int b = q.front(); q.pop();
-            if ((int)adj[b].size() <= 2) continue;
+            if ((int)adj[b].size() <= 2) 
+                continue;
             auto it = adj[b].begin();
-            int a = *it; ++it;
+            int a = *it; 
+            ++it;
             int c = *it;
-            vector<int> tomove;
+            vector<int> tm;
             for (int x : adj[b]) 
                 if (x != a && x != c) 
-                    tomove.push_back(x);
-            for (int d : tomove) {
+                    tm.push_back(x);
+            for (int d : tm) {
                 adj[b].erase(d);
                 adj[d].erase(b);
                 if (!adj[c].count(d)) {
@@ -76,15 +80,20 @@ int main() {
                     adj[d].insert(c);
                 }
             }
-            ops.push_back({a,b,c});
-            if ((int)adj[c].size() > 2) q.push(c);
-            if ((int)adj[b].size() > 2) q.push(b);
+            op.push_back({a,b,c});
+            if ((int)adj[c].size() > 2) 
+                q.push(c);
+            if ((int)adj[b].size() > 2) 
+                q.push(b);
         }
-        if (ops.empty()) writeln(-1);
+        if (op.empty()) 
+            writeln(-1);
         else {
-            write(ops[0][0]); putchar(' ');
-            write(ops[0][1]); putchar(' ');
-            writeln(ops[0][2]);
+            write(op[0][0]); 
+                putchar(' ');
+            write(op[0][1]); 
+                putchar(' ');
+            writeln(op[0][2]);
         }
     }
     return 0;
