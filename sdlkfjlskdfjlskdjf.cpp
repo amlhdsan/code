@@ -38,16 +38,7 @@ int a[N];
 bool vis[N];
 vector<int> primes;
 
-void sieve() {
-    for (int i = 2; i < N; i++) {
-        if (!vis[i]) {
-            primes.push_back(i);
-            for (ll j = 1ll * i * i; j < N; j += i) {
-                vis[j] = true;
-            }
-        }
-    }
-}
+
 
 int main() {
     sieve();

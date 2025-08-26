@@ -36,6 +36,17 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void pri() {
+    for (int i = 2; i < N; i++) {
+        if (!vis[i]) {
+            primes.push_back(i);
+            for (ll j = 1ll * i * i; j < N; j += i) {
+                vis[j] = true;
+            }
+        }
+    }
+}
+
 int main() {
 
     T = read();
