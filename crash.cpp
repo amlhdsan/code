@@ -51,6 +51,10 @@ inline void featured() {
     }
 }
 
+inline void writeln(int p) {
+    
+}
+
 inline void writeln(int x) {
     write(x);
     putchar('\n');
