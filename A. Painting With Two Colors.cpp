@@ -57,6 +57,24 @@ int main() {
                 }
             }
         }
+        else {
+            if(b >= a) {
+                if(b % 2 == 1) {
+                    puts("yes");
+                }
+                else {
+                    puts("no");
+                }
+            }
+            else {
+                if(a % 2 == 1 && b % 2 == 1) {
+                    puts("yes");
+                }
+                else {
+                    puts("no");
+                }
+            }
+        }
     }
 
     return 0;
