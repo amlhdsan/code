@@ -1,10 +1,13 @@
 // 電影發明以後，人類的生命，比以前至少延長了三倍。
 // amlhdsan
 #include <bits/stdc++.h>
+
+#define N 200010
+
 using namespace std;
 
-const int MAXN = 200000 + 5;
-set<int> adj[MAXN];
+set<int> adj[N];
+int T, n;
 
 inline int read() {
     int x = 0, f = 1;
@@ -35,12 +38,15 @@ inline void writeln(int x) {
 }
 
 int main() {
-    int T = read();
+    T = read();
     while (T--) {
-        int n = read();
-        for (int i = 1; i <= n; ++i) adj[i].clear();
+        n = read();
+        for (int i = 1; i <= n; ++i) 
+            adj[i].clear();
         for (int i = 1; i <= n - 1; ++i) {
-            int u = read(), v = read();
+            int u, v;
+            u = read();
+            v = read();
             adj[u].insert(v);
             adj[v].insert(u);
         }
@@ -49,8 +55,9 @@ int main() {
             continue;
         }
         queue<int> q;
-        for (int i = 1; i <= n; ++i) if ((int)adj[i].size() > 2) q.push(i);
-        vector<array<int,3>> ops;
+        for (int i = 1; i <= n; ++i) 
+        if ((int)adj[i].size() > 2) q.push(i);
+        vector<array<int,3> > ops;
         while (!q.empty()) {
             int b = q.front(); q.pop();
             if ((int)adj[b].size() <= 2) continue;
