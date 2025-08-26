@@ -57,7 +57,9 @@ inline void bullet() {
     }
 }
 
-inline void 
+inline void intmsin(int p) {
+        
+}
 
 inline void writeln(int p) {
     int x = p;
