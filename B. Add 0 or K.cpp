@@ -46,7 +46,26 @@ int main() {
         for(int i = 1; i <= n; i++) {
             a[i] = read();
         }
-
+        if(k % 2 == 0) {
+            for(int i = 1; i <= n; i++) {
+                if(a[i] % 3 == 1) {
+                    a[i] += k;
+                }
+                else if(a[i] % 3 == 2) {
+                    a[i] += 2 * k;
+                }
+            }
+            puts("yes");
+        }
+        else {
+            for(int i = 1; i <= n; i++) {
+                if(a[i] % 2 == 0) {
+                    puts("no");
+                    goto end;
+                }
+            }
+            puts("yes");
+        }
     }
 
     return 0;
