@@ -56,19 +56,19 @@ int main() {
             int s = (i % 2 == 0) ? 1 : -1;
             p[i] = p[i - 1] + s * a[i];
             if (p[i] < mx) {
-                ll need = mx - p[i];
+                ll myb = mx - p[i];
                 if (i % 2 == 1) {
-                    ll dec = min(need, a[i]);
-                    a[i] -= dec;
-                    op += dec;
-                    p[i] += dec;
+                    ll d = min(myb, a[i]);
+                    a[i] -= d;
+                    op += d;
+                    p[i] += d;
                 } 
                 else {
-                    ll dec = min(need, a[i - 1]);
-                    a[i - 1] -= dec;
-                    op += dec;
-                    p[i - 1] += dec;
-                    p[i] += dec;
+                    ll d = min(myb, a[i - 1]);
+                    a[i - 1] -= d;
+                    op += d;
+                    p[i - 1] += d;
+                    p[i] += d;
                 }
             }
         }
