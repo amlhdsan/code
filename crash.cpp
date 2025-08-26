@@ -3,6 +3,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+inline void stdint()
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -58,7 +60,7 @@ inline void bullet() {
 }
 
 inline void intmsin(int p) {
-        
+
 }
 
 inline void writeln(int p) {
