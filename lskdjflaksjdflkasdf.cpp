@@ -11,7 +11,7 @@ int T;
 int n;
 ll a[200005], p[200005];
 int tree[200005];
-int lazy[]
+int lazy[200005];
 
 inline void upd(int p) {
     tree[p] = max(tree[ls], tree[rs]);
