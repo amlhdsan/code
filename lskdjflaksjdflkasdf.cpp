@@ -18,6 +18,7 @@ inline void build(int p, int l, int r) {
         return;
     }
 
+    build(ls, l, mid);
     build()
 
 }
