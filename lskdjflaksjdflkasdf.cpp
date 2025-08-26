@@ -6,6 +6,7 @@ using namespace std;
 
 int T;
 int n;
+ll a[200005], p[200005];
 
 inline int read() {
     int x = 0, f = 1;
@@ -35,14 +36,14 @@ inline void writeln(ll x) {
     putchar('\n');
 }
 
-ll a[200005], p[200005];
-
 int main() {
 
     T = read();
+
     while (T--) {
-        int n = read();
-        for (int i = 1; i <= n; i++) a[i] = read();
+        n = read();
+        for(int i = 1; i <= n; i++) 
+            a[i] = read();
         ll ops = 0;
         ll mx = LLONG_MIN / 4;
         p[0] = 0;
