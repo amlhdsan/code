@@ -1,52 +1,83 @@
-#include<bits/stdc++.h>
+// 電影發明以後，人類的生命，比以前至少延長了三倍。
+// amlhdsan
+#include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-#define IOS ios::sync_with_stdio(0);cin.tie(0)
-int main(){
-    IOS;
-    int T; if(!(cin>>T)) return 0;
-    while(T--){
-        int n; cin>>n;
-        vector<vector<int>> g(n+1);
-        for(int i=0,u,v;i<n-1;i++){
-            cin>>u>>v;
-            g[u].push_back(v);
-            g[v].push_back(u);
+
+const int MAXN = 200000 + 5;
+set<int> adj[MAXN];
+
+inline int read() {
+    int x = 0, f = 1;
+    char ch = getchar();
+    while (ch < '0' || ch > '9') {
+        if (ch == '-') f = -1;
+        ch = getchar();
+    }
+    while (ch >= '0' && ch <= '9') {
+        x = (x << 3) + (x << 1) + (ch ^ 48);
+        ch = getchar();
+    }
+    return x * f;
+}
+
+inline void write(int x) {
+    if (x < 0) {
+        putchar('-');
+        x = -x;
+    }
+    if (x > 9) write(x / 10);
+    putchar(x % 10 + '0');
+}
+
+inline void writeln(int x) {
+    write(x);
+    putchar('\n');
+}
+
+int main() {
+    int T = read();
+    while (T--) {
+        int n = read();
+        for (int i = 1; i <= n; ++i) adj[i].clear();
+        for (int i = 1; i <= n - 1; ++i) {
+            int u = read(), v = read();
+            adj[u].insert(v);
+            adj[v].insert(u);
         }
-        if(n<=2){ cout << -1 << '\n'; continue; }
-        vector<unordered_set<int>> adj(n+1);
-        for(int i=1;i<=n;i++){
-            for(int v:g[i]) adj[i].insert(v);
+        if (n <= 2) {
+            writeln(-1);
+            continue;
         }
         queue<int> q;
-        for(int i=1;i<=n;i++) if((int)adj[i].size()>2) q.push(i);
-        vector<tuple<int,int,int>> ops;
-        while(!q.empty()){
+        for (int i = 1; i <= n; ++i) if ((int)adj[i].size() > 2) q.push(i);
+        vector<array<int,3>> ops;
+        while (!q.empty()) {
             int b = q.front(); q.pop();
-            if((int)adj[b].size()<=2) continue;
+            if ((int)adj[b].size() <= 2) continue;
             auto it = adj[b].begin();
             int a = *it; ++it;
             int c = *it;
-            // collect neighbors to move (all except a and c)
             vector<int> tomove;
-            for(int x: adj[b]) if(x!=a && x!=c) tomove.push_back(x);
-            for(int d: tomove){
+            for (int x : adj[b]) 
+                if (x != a && x != c) 
+                    tomove.push_back(x);
+            for (int d : tomove) {
                 adj[b].erase(d);
                 adj[d].erase(b);
-                // attach d to c
-                if(adj[c].find(d)==adj[c].end()){
+                if (!adj[c].count(d)) {
                     adj[c].insert(d);
                     adj[d].insert(c);
                 }
             }
-            ops.emplace_back(a,b,c);
-            if((int)adj[c].size()>2) q.push(c);
-            if((int)adj[b].size()>2) q.push(b);
+            ops.push_back({a,b,c});
+            if ((int)adj[c].size() > 2) q.push(c);
+            if ((int)adj[b].size() > 2) q.push(b);
         }
-        if(ops.empty()) cout<<-1<<'\n';
-        else{
-            auto [a,b,c] = ops[0];
-            cout<<a<<' '<<b<<' '<<c<<'\n';
+        if (ops.empty()) writeln(-1);
+        else {
+            write(ops[0][0]); putchar(' ');
+            write(ops[0][1]); putchar(' ');
+            writeln(ops[0][2]);
         }
     }
     return 0;
