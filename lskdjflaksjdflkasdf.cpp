@@ -17,6 +17,10 @@ inline void upd(int p) {
     tree[p] = max(tree[ls], tree[rs]);
 }
 
+inline void pushup(int p) {
+    
+}
+
 inline void build(int p, int l, int r) {
     if(l == r) {
         tree[p] = a[l];
