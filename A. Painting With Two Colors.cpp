@@ -39,6 +39,24 @@ int main() {
         n = read();
         a = read();
         b = read();
+        if(n % 2 == 0) {
+            if(b >= a) {
+                if(b % 2 == 0) {
+                    puts("yes");
+                }
+                else {
+                    puts("no");
+                }
+            }
+            else {
+                if(a % 2 == 0 && b % 2 == 0) {
+                    puts("yes");
+                }
+                else {
+                    puts("no");
+                }
+            }
+        }
     }
 
     return 0;
