@@ -5,7 +5,7 @@
 using namespace std;
 
 int T;
-int n;
+int n, k;
 int a[N];
 
 inline int read() {
@@ -42,11 +42,11 @@ int main() {
 
     while(T--) {
         n = read();
+        k = read();
         for(int i = 1; i <= n; i++) {
             a[i] = read();
         }
 
-        
     }
 
     return 0;
