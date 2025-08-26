@@ -34,5 +34,10 @@ inline void writeln(int x) {
 
 int main() {
 
+    T = read();
+    while(T--) {
+        
+    }
+
     return 0;
 }
