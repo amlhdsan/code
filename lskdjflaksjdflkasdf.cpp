@@ -4,6 +4,9 @@
 
 using namespace std;
 
+int T;
+int n;
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -35,7 +38,8 @@ inline void writeln(ll x) {
 ll a[200005], p[200005];
 
 int main() {
-    int T = read();
+
+    T = read();
     while (T--) {
         int n = read();
         for (int i = 1; i <= n; i++) a[i] = read();
