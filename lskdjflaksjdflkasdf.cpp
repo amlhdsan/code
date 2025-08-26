@@ -13,7 +13,7 @@ ll a[200005], p[200005];
 int tree[200005];
 
 inline void upd(int p) {
-    
+    tree[p] = max(tree[ls], tree[rs]);
 }
 
 inline void build(int p, int l, int r) {
@@ -27,6 +27,8 @@ inline void build(int p, int l, int r) {
 
     upd(p);
 }
+
+inline void mdf()
 
 inline int read() {
     int x = 0, f = 1;
