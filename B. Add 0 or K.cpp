@@ -1,13 +1,8 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 
-#define N 100010
+#define long long ll
 
 using namespace std;
-
-int T;
-int n, k;
-int a[N];
-bool vis[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -23,7 +18,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(int x) {
+inline void write(ll x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -32,53 +27,55 @@ inline void write(int x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(int x) {
+inline void writeln(ll x) {
     write(x);
     putchar('\n');
 }
 
-inline void pri() {
-    for (int i = 2; i < N; i++) {
-        if (!vis[i]) {
-            p.push_back(i);
-            for (ll j = 1ll * i * i; j < N; j += i) {
-                vis[j] = true;
-            }
+const int N = 100010;
+const int pr[10] = {2,3,5,7,11,13,17,19,23,29};
+ll a[N];
+
+ll mpow(ll a, ll b, ll m) {
+    ll r = 1 % m;
+    a %= m;
+    while (b) {
+        if (b & 1) r = r * a % m;
+        a = a * a % m;
+        b >>= 1;
+    }
+    return r;
+}
+
+void solve() {
+    int n = read();
+    ll k;
+    cin >> k;
+    for (int i = 0; i < n; i++) a[i] = read();
+    int p = -1;
+    for (int i = 0; i < 10; i++) {
+        if (pr[i] <= k + 1 && k % pr[i]) {
+            p = pr[i];
+            break;
         }
+    }
+    if (p == -1) p = 2;
+    ll kp = k % p, inv = 1;
+    if (kp) inv = mpow(kp, p - 2, p);
+    for (int i = 0; i < n; i++) {
+        int r = a[i] % p;
+        int nd = kp ? ((ll)(p - r) % p * inv % p) : 0;
+        a[i] += 1ll * nd * k;
+    }
+    for (int i = 0; i < n; i++) {
+        write(a[i]);
+        if (i == n - 1) putchar('\n');
+        else putchar(' ');
     }
 }
 
 int main() {
-
-    T = read();
-
-    while(T--) {
-        n = read();
-        k = read();
-        for(int i = 1; i <= n; i++) {
-            a[i] = read();
-        }
-        if(k % 2 == 0) {
-            for(int i = 1; i <= n; i++) {
-                if(a[i] % 3 == 1) {
-                    a[i] += k;
-                }
-                else if(a[i] % 3 == 2) {
-                    a[i] += 2 * k;
-                }
-            }
-            puts("yes");
-        }
-        else {
-            for(int i = 1; i <= n; i++) {
-                if(a[i] % 2 == 0) {
-                    puts("no");
-                    goto end;
-                }
-            }
-            puts("yes");
-        }
-    }
-
+    int t = read();
+    while (t--) solve();
     return 0;
 }
