@@ -1,8 +1,12 @@
 #include<bits/stdc++.h>
 
 #define ll long long 
+#define N 100010
 
 using namespace std;
+
+int pr[10] = {2,3,5,7,11,13,17,19,23,29};
+ll a[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -32,11 +36,7 @@ inline void writeln(ll x) {
     putchar('\n');
 }
 
-const int N = 100010;
-const int pr[10] = {2,3,5,7,11,13,17,19,23,29};
-ll a[N];
-
-ll mpow(ll a, ll b, ll m) {
+inline ll mpow(ll a, ll b, ll m) {
     ll r = 1 % m;
     a %= m;
     while (b) {
@@ -47,7 +47,7 @@ ll mpow(ll a, ll b, ll m) {
     return r;
 }
 
-void solve() {
+inline void solve() {
     int n = read();
     ll k;
     cin >> k;
@@ -72,6 +72,7 @@ void solve() {
         if (i == n - 1) putchar('\n');
         else putchar(' ');
     }
+    return;
 }
 
 int main() {
