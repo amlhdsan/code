@@ -36,6 +36,8 @@ multiset<int> cntms;
 set<pair<int,int>> head;
 
 int main(){
+    freopen("food.in", "r", stdin);
+    
     N = read();
     for(int i=1;i<=N;i++){
         int a = read();
