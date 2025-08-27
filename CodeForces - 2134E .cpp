@@ -2,6 +2,7 @@
 using namespace std;
 
 int n;
+int d[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -34,6 +35,8 @@ inline void writeln(int x) {
 int main() {
 
     n = read();
+
+
 
     return 0;
 }
