@@ -31,7 +31,7 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int a[200005], jumps[200005];
+int a[200005], d[200005];
 int n, t;
 
 void Swap(int x) {
@@ -62,11 +62,11 @@ int main() {
         n = read();
         for (int i = 0; i < n; i++) a[i] = 0;
         for (int i = n - 1; i >= 0; i--) {
-            if (jumps[i + 1] == jumps[i + 2]) {
-                jumps[i] = jumps[i + 1] + 1;
+            if (d[i + 1] == d[i + 2]) {
+                d[i] = d[i + 1] + 1;
             } else {
-                jumps[i] = Throw(i);
-                if (jumps[i] == jumps[i + 1] + 1) a[i] = 1;
+                d[i] = Throw(i);
+                if (d[i] == d[i + 1] + 1) a[i] = 1;
                 else a[i] = 2;
             }
         }
@@ -74,7 +74,7 @@ int main() {
             if (a[i] == 0) {
                 Swap(i);
                 int jumps_i = Throw(i + 1);
-                if (jumps_i == jumps[i + 2] + 1) a[i] = 1;
+                if (jumps_i == d[i + 2] + 1) a[i] = 1;
                 else a[i] = 2;
             }
         }
