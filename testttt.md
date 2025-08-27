@@ -1,0 +1,1 @@
+$\left(\cfrac{a}{\sqrt{2-a^4}}\right)'= $
