@@ -1,14 +1,7 @@
+// 電影發明以後，人類的生命，比以前至少延長了三倍。
+// amlhdsan
 #include <bits/stdc++.h>
-
-#define N 1010
-
 using namespace std;
-
-int T;
-int n;
-int d[N];
-int a[N];
-bool tag[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -38,62 +31,58 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-inline void init() {
-    memset(d, 0, sizeof(d));
-    memset(a, 0, sizeof(a));
-    memset(tag, 0, sizeof(tag));
+int a[200005], jumps[200005];
+int n, t;
+
+void Swap(int x) {
+    printf("swap %d\n", x + 1);
+    fflush(stdout);
+}
+
+int Throw(int x) {
+    printf("throw %d\n", x + 1);
+    fflush(stdout);
+    int ret = read();
+    return ret;
+}
+
+void Answer() {
+    putchar('!');
+    for (int i = 0; i < n; i++) {
+        putchar(' ');
+        write(a[i]);
+    }
+    putchar('\n');
+    fflush(stdout);
 }
 
 int main() {
-
-    T = read();
-
-    while(T--) {
-
-        init();
-
+    t = read();
+    while (t--) {
         n = read();
-        d[n + 1] = d[n + 2] = 0;
-        for(int i = n; i >= 1; --i) {
-            cout << "throw " << i << endl;
-            d[i] = read();
+        for (int i = 0; i < n; i++) a[i] = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            if (jumps[i + 1] == jumps[i + 2]) {
+                jumps[i] = jumps[i + 1] + 1;
+            } else {
+                jumps[i] = Throw(i);
+                if (jumps[i] == jumps[i + 1] + 1) a[i] = 1;
+                else a[i] = 2;
+            }
         }
-
-        for(int i = 1; i <= n - 1; ++i) {
-            if(d[i] != d[i + 1]) {
-                if(d[i] == d[i + 1] + 1) {
-                    a[i] = 1;
-                }
-                else {
-                    a[i] = 2;
-                }
+        for (int i = 0; i + 1 < n; i++) {
+            if (a[i] == 0) {
+                Swap(i);
+                int jumps_i = Throw(i + 1);
+                if (jumps_i == jumps[i + 2] + 1) a[i] = 1;
+                else a[i] = 2;
             }
-            else {
-                cout << "swap " << i << endl;
-                cout << "throw " << i + 1 << endl;
-                int dd = read();
-                if(dd == d[i + 1] + 1) {
-                    a[i] = 1;
-                }
-                else {
-                    a[i] = 2;
-                }
-            }
-            cout << "swap " << n - 1 << endl;
-            cout << "throw " << n - 1 << endl;
-            int dd = read();
-            if(dd == d[n] + 1) {
-                a[n] = 1;
-            }
-            else {
-                a[n] = 2;
-            }
-
         }
-
-        
-        fflush(stdout);
+        Swap(n - 2);
+        int jumps_last = Throw(n - 2);
+        if (jumps_last == 2) a[n - 1] = 1;
+        else a[n - 1] = 2;
+        Answer();
     }
-
     return 0;
 }
