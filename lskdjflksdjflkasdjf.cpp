@@ -1,10 +1,18 @@
 #include <iostream>
-#include <vector>
 
 // 使用 long long 防止中间计算溢出
 using ll = long long;
 
+// 根据典型问题限制定义一个足够大的数组大小
+// N*M + 2*N 的最大值，例如 N=1000, M=1000 -> 1002000
+// 我们取一个更安全的大值
+const int MAX_SIZE = 2000005;
+
 ll N, M, P;
+
+// 预计算阶乘和阶乘的逆元的数组
+ll fact[MAX_SIZE];
+ll invFact[MAX_SIZE];
 
 // 模块化快速幂: 计算 (base^exp) % P
 ll power(ll base, ll exp) {
@@ -24,12 +32,7 @@ ll modInverse(ll n) {
 }
 
 // 预计算阶乘和阶乘的逆元
-std::vector<ll> fact;
-std::vector<ll> invFact;
-
 void precompute_factorials(int max_n) {
-    fact.resize(max_n + 1);
-    invFact.resize(max_n + 1);
     fact[0] = 1;
     invFact[0] = 1;
     for (int i = 1; i <= max_n; i++) {
@@ -56,7 +59,7 @@ int main() {
     std::cin.tie(NULL);
 
     std::cin >> N >> M >> P;
-    
+
     // 处理 n=0 的特殊情况
     if (N == 0) {
         std::cout << 0 << std::endl;
@@ -65,6 +68,14 @@ int main() {
 
     // 组合数 C(n, k) 需要 n 最大达到 N*M + 2*N - 1
     ll max_comb_n = N * M + 2 * N;
+
+    // 确保我们定义的数组大小足够
+    if (max_comb_n >= MAX_SIZE) {
+        // 在实际竞赛中，这通常表示需要一种不同的方法或更大的常量
+        // 这里我们假设 MAX_SIZE 足够大
+        return 1; // 错误退出
+    }
+    
     precompute_factorials(max_comb_n);
 
     ll count_tie = 0;
