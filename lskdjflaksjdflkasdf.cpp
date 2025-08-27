@@ -42,7 +42,7 @@ void add(int u, int v) {
     head[u] = tot;
 }
 
-void dfs(int u, int fa) {
+inline void dfs(int u, int fa) {
     p[u] = fa;
     for (int i = head[u]; i; i = nxt[i]) {
         int v = ver[i];
