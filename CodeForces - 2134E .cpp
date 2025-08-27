@@ -4,6 +4,7 @@
 
 using namespace std;
 
+int T;
 int n;
 int d[N];
 
@@ -37,9 +38,15 @@ inline void writeln(int x) {
 
 int main() {
 
-    n = read();
+    T = read();
 
-
+    while(T--) {
+        n = read();
+        d[n + 1] = d[n + 2] = 0;
+        for(int i = n; i >= 1; --i) {
+            cout << 
+        }
+    }
 
     return 0;
 }
