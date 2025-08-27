@@ -43,6 +43,7 @@ int main(){
         int a = read();
         pos[a].insert(i);
         cnt[a]++;
+        // cnt[b]++;
     }
     for(auto &p: cnt){
         cntms.insert(p.second);
