@@ -7,6 +7,8 @@ using namespace std;
 int T;
 int n;
 int d[N];
+int a[N];
+bool tag[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -44,8 +46,24 @@ int main() {
         n = read();
         d[n + 1] = d[n + 2] = 0;
         for(int i = n; i >= 1; --i) {
-            cout << 
+            cout << "throw " << i << endl;
+            d[i] = read();
         }
+
+        for(int i = 1; i <= n - 1; ++i) {
+            if(d[i] != d[i + 1]) {
+                if(d[i] == d[i + 1] + 1) {
+                    a[i] = 1;
+                }
+                else {
+                    a[i] = 2;
+                }
+            }
+            else {
+
+            }
+        }
+        fflush(stdout);
     }
 
     return 0;
