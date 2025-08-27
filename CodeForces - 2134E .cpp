@@ -38,11 +38,20 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void init() {
+    memset(d, 0, sizeof(d));
+    memset(a, 0, sizeof(a));
+    memset(tag, 0, sizeof(tag));
+}
+
 int main() {
 
     T = read();
 
     while(T--) {
+
+        init();
+
         n = read();
         d[n + 1] = d[n + 2] = 0;
         for(int i = n; i >= 1; --i) {
@@ -60,9 +69,19 @@ int main() {
                 }
             }
             else {
-
+                cout << "swap " << i << endl;
+                cout << "throw " << i + 1 << endl;
+                int dd = read();
+                if(dd == d[i + 1] + 1) {
+                    a[i] = 1;
+                }
+                else {
+                    a[i] = 2;
+                }
             }
         }
+
+        
         fflush(stdout);
     }
 
