@@ -79,6 +79,16 @@ int main() {
                     a[i] = 2;
                 }
             }
+            cout << "swap " << n - 1 << endl;
+            cout << "throw " << n - 1 << endl;
+            int dd = read();
+            if(dd == d[n] + 1) {
+                a[n] = 1;
+            }
+            else {
+                a[n] = 2;
+            }
+
         }
 
         
