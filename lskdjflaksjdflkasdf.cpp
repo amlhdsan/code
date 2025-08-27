@@ -1,76 +1,7 @@
-#include<bits/stdc++.h>
-
-#define ll long long
-#define ls (p << 1)
-#define rs (p << 1 | 1)
-#define mid ((l + r) >> 1)
-
+// 電影發明以後，人類的生命，比以前至少延長了三倍。
+// amlhdsan
+#include <bits/stdc++.h>
 using namespace std;
-
-int T;
-int n;
-ll a[200005], p[200005];
-int tree[200005];
-int lazy[200005];
-
-inline void upd(int p) {
-    tree[p] = max(tree[ls], tree[rs]);
-}
-
-inline void pushup(int p) {
-    if(lazy[p]) {
-        tree[ls] += lazy[p];
-        lazy[ls] += lazy[p];
-        tree[rs] += lazy[p];
-        lazy[rs] += lazy[p];
-        lazy[p] = 0;
-    }
-}
-
-inline void build(int p, int l, int r) {
-    if(l == r) {
-        tree[p] = a[l];
-        return;
-    }
-
-    build(ls, l, mid);
-    build(rs, mid + 1, r);
-
-    upd(p);
-}
-
-inline void mdf(int p, int l, int r, int ql, int qr, int x) {
-    if(ql <= l && r <= qr) {
-        tree[p] += x;
-        lazy[p] += x;
-        return;
-    }
-
-    pushup(p);
-
-    if(ql <= mid) 
-        mdf(ls, l, mid, ql, qr, x);
-    if(qr > mid) 
-        mdf(rs, mid + 1, r, ql, qr, x);
-
-    upd(p);
-}
-
-inline int qry(int p, int l, int r, int ql, int qr) {
-    if(ql <= l && r <= qr) 
-        return tree[p];
-
-    pushup(p);
-
-    int res = -0x7fffffff;
-
-    if(ql <= mid) 
-        res = max(res, qry(ls, l, mid, ql, qr));
-    if(qr > mid) 
-        res = max(res, qry(rs, mid + 1, r, ql, qr));
-
-    return res;
-}
 
 inline int read() {
     int x = 0, f = 1;
@@ -86,7 +17,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(ll x) {
+inline void write(int x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -95,48 +26,76 @@ inline void write(ll x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(ll x) {
+inline void writeln(int x) {
     write(x);
     putchar('\n');
 }
 
-int main() {
+const int N = 200005;
+int n, t;
+int head[N], ver[N << 1], nxt[N << 1], tot;
+int dist[N], p[N], on_diameter[N];
 
-    T = read();
+void add(int u, int v) {
+    ver[++tot] = v;
+    nxt[tot] = head[u];
+    head[u] = tot;
+}
 
-    while (T--) {
-        n = read();
-        for(int i = 1; i <= n; ++i) 
-            a[i] = read();
-            
-        ll op = 0;
-        ll mx = LLONG_MIN / 4;
-
-        p[0] = 0;
-
-        for (int i = 1; i <= n; ++i) {
-            if (i >= 2) 
-                mx = max(mx, p[i - 2]);
-            int s = (i % 2 == 0) ? 1 : -1;
-            p[i] = p[i - 1] + s * a[i];
-            if (p[i] < mx) {
-                ll myb = mx - p[i];
-                if (i % 2 == 1) {
-                    ll d = min(myb, a[i]);
-                    a[i] -= d;
-                    op += d;
-                    p[i] += d;
-                } 
-                else {
-                    ll d = min(myb, a[i - 1]);
-                    a[i - 1] -= d;
-                    op += d;
-                    p[i - 1] += d;
-                    p[i] += d;
-                }
-            }
+void dfs(int u, int fa) {
+    p[u] = fa;
+    for (int i = head[u]; i; i = nxt[i]) {
+        int v = ver[i];
+        if (v != fa) {
+            dist[v] = dist[u] + 1;
+            dfs(v, u);
         }
-        writeln(op);
+    }
+}
+
+int main() {
+    t = read();
+    while (t--) {
+        n = read();
+        tot = 0;
+        for (int i = 1; i <= n; i++) head[i] = 0, on_diameter[i] = 0;
+
+        for (int i = 1; i < n; i++) {
+            int u = read(), v = read();
+            add(u, v), add(v, u);
+        }
+
+        dist[1] = 0;
+        dfs(1, 0);
+        int x = 1;
+        for (int i = 1; i <= n; i++) if (dist[i] > dist[x]) x = i;
+
+        dist[x] = 0;
+        dfs(x, 0);
+        int y = 1;
+        for (int i = 1; i <= n; i++) if (dist[i] > dist[y]) y = i;
+
+        if (dist[y] == n - 1) {
+            writeln(-1);
+        } else {
+            int now = y;
+            while (now) {
+                on_diameter[now] = 1;
+                now = p[now];
+            }
+            int a = -1, b = -1, c = -1;
+            for (int u = 1; u <= n; u++) {
+                for (int i = head[u]; i; i = nxt[i]) {
+                    int v = ver[i];
+                    if (on_diameter[u] && !on_diameter[v]) {
+                        a = p[u], b = u, c = v;
+                        break;
+                    }
+                }
+                if (a != -1) break;
+            }
+            write(a), putchar(' '), write(b), putchar(' '), writeln(c);
+        }
     }
     return 0;
 }
