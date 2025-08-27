@@ -1,5 +1,3 @@
-// 電影發明以後，人類的生命，比以前至少延長了三倍。
-// amlhdsan
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -48,7 +46,7 @@ int Throw(int x) {
 
 void Answer() {
     putchar('!');
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         putchar(' ');
         write(a[i]);
     }
@@ -73,14 +71,14 @@ int main() {
         for (int i = 0; i + 1 < n; i++) {
             if (a[i] == 0) {
                 Swap(i);
-                int jumps_i = Throw(i + 1);
-                if (jumps_i == d[i + 2] + 1) a[i] = 1;
+                int j = Throw(i + 1);
+                if (j == d[i + 2] + 1) a[i] = 1;
                 else a[i] = 2;
             }
         }
         Swap(n - 2);
-        int jumps_last = Throw(n - 2);
-        if (jumps_last == 2) a[n - 1] = 1;
+        int j = Throw(n - 2);
+        if (j == 2) a[n - 1] = 1;
         else a[n - 1] = 2;
         Answer();
     }
