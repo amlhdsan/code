@@ -38,11 +38,14 @@ int jmp[N];
 
 void swp(int x) {
    printf("swap %d\n", x + 1);
+   fflush(stdout);
 }
 
 int thrw(int x) {
    printf("throw %d\n", x + 1);
-   return read();
+   fflush(stdout);
+   int ret = read();
+   return ret;
 }
 
 void ans() {
@@ -52,6 +55,7 @@ void ans() {
        write(a[i]);
    }
    putchar('\n');
+   fflush(stdout);
 }
 
 int main() {
