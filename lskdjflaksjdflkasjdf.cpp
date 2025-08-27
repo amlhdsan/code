@@ -37,7 +37,7 @@ set<pair<int,int>> head;
 
 int main(){
     freopen("food.in", "r", stdin);
-    
+    freopen("food.out", "w", stdout);
     N = read();
     for(int i=1;i<=N;i++){
         int a = read();
