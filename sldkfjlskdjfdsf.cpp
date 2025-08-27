@@ -35,6 +35,8 @@ const int N = 2000005;
 int a[N];
 
 int main() {
+    freopen("sequence.in", "r", stdin);
+    freopen("sequence.out", "w", stdout);
     int n = read();
     for (int i = 1; i <= n; i++) a[i] = read();
     int tot2 = 0;
