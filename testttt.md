@@ -1,1 +1,1 @@
-$\left(\cfrac{a}{\sqrt{2-a^4}}\right)' = \cfrac{2 + a^4}{(2 - a^4)}$
+$\left(\cfrac{a}{\sqrt{2-a^4}}\right)' = \cfrac{2 + a^4}{(2 - a^4)^{\frac{3}{2}}}$
