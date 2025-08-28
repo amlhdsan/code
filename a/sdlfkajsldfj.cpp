@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 inline int read() {
@@ -30,8 +31,17 @@ inline void writeln(int x) {
 }
 
 int main() {
-
-    i
-
+    int t = read();
+    
+    while(t--) {
+        int a = read(), b = read(), c = read(), d = read();
+        
+        if(abs(a - b) >= 3 || abs((c - a) - (d - b)) >= 3) {
+            puts("No");
+        } else {
+            puts("Yes");
+        }
+    }
+    
     return 0;
 }
