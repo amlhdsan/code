@@ -1,5 +1,6 @@
+// 電影發明以後，人類的生命，比以前至少延長了三倍。
+// amlhdsan
 #include <bits/stdc++.h>
-
 using namespace std;
 
 inline int read() {
@@ -30,18 +31,25 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
+inline bool ok(int x,int y){
+    int m = x>y?x:y;
+    int n = x>y?y:x;
+    return m <= 2*n + 2;
+}
+
+int main(){
     int t = read();
-    
-    while(t--) {
-        int a = read(), b = read(), c = read(), d = read();
-        
-        if(abs(a - b) >= 3 || abs((c - a) - (d - b)) >= 3) {
-            puts("No");
-        } else {
-            puts("Yes");
-        }
+    for (int i = 0; i < t; i++) {
+        int a = read();
+        int b = read();
+        int c = read();
+        int d = read();
+        int x1 = a;
+        int y1 = b;
+        int x2 = c - a;
+        int y2 = d - b;
+        if (ok(x1,y1) && ok(x2,y2)) puts("yes");
+        else puts("no");
     }
-    
     return 0;
 }
