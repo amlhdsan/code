@@ -50,7 +50,7 @@ void solve() {
     while (!q.empty()) {
         int u = q.front();
         q.pop();
-    
+
         for (int v : adj[u]) {
             if (!is_tree_vertex[v]) {
                 current_deg[v]--;
