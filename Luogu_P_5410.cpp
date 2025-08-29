@@ -67,5 +67,11 @@ int main() {
     z_a();
 
     int ans1 = 0;
+
+    for(int i = 1; i <= n; ++i) {
+        ans1 ^= (i * (z[i] + 1));
+    }
+
+    writeln(ans1);
     return 0;
 }
