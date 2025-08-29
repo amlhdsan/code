@@ -1,7 +1,11 @@
 #include <bits/stdc++.h>
+
+#define N 20000010
+
 using namespace std;
 
 
+int z[N];
 
 inline int read() {
     int x = 0, f = 1;
