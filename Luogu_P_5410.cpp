@@ -41,7 +41,9 @@ inline void z_a(string str) {
     z[1] = n;
 
     for(int i = 2, l = 0, r = 0; i <= n; ++i) {
-
+        if(i <= r) {
+            
+        }
     }
 }
 
