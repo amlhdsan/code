@@ -36,15 +36,23 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-inline void z_a(string str) {
+inline void z_a() {
     memset(z, 0, sizeof(z));
     z[1] = n;
 
     for(int i = 2, l = 0, r = 0; i <= n; ++i) {
         if(i <= r) {
-            
+            z[i] = min(z[i - l + 1], r - i + 1);
+        }
+        while(i + z[i] <= n && str[z[i] + 1] == str[i + z[i]]) {
+            ++z[i];
+        }
+        if(i + z[i] - 1 > r) {
+            l = i;
+            r = i + z[i] - 1;
         }
     }
+    return;
 }
 
 int main() {
@@ -56,8 +64,8 @@ int main() {
     str = " " + str;
     n = str.size() - 1;
 
-    z_a(str);
+    z_a();
 
-
+    int ans1 = 0;
     return 0;
 }
