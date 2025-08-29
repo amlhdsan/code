@@ -36,7 +36,7 @@ inline void writeln(int x) {
 }
 
 inline void z_a(string str) {
-
+    
 }
 
 int main() {
@@ -46,6 +46,10 @@ int main() {
 
     cin >> str;
 
+    str = " " + str;
+
     z_a(str);
+
+
     return 0;
 }
