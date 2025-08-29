@@ -100,7 +100,7 @@ int main() {
 
     int ans2 = 0;
 
-    for(int i = 1; i <= n; ++i) {
+    for(int i = 1; i <= m; ++i) {
         ans2 ^= (i * (p[i] + 1));
     }
 
