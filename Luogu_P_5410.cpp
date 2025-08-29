@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string a;
+string a, b;
 int n;
 int z[N];
 
@@ -60,7 +60,7 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    cin >> a;
+    cin >> a >> b;
     a = " " + a;
     n = a.size() - 1;
 
