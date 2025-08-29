@@ -36,7 +36,7 @@ inline void writeln(int x) {
 }
 
 inline void z_a(string str) {
-    
+    memset(z, 0, sizeof(z));
 }
 
 int main() {
