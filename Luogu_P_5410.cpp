@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 20000010
+#define int long long
 
 using namespace std;
 
@@ -62,7 +63,7 @@ inline void p_a() {
         if(i <= r) {
             p[i] = min(z[i - l + 1], r - i + 1);
         }
-        while(i + p[i] <= m && a[p[i] + i] == b[1 + p[i]]) {
+        while(i + p[i] <= m && p[i] < n && a[p[i] + i] == b[1 + p[i]]) {
             ++p[i];
         }
         if(i + p[i] - 1 > r) {
