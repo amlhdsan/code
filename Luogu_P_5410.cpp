@@ -5,8 +5,9 @@
 using namespace std;
 
 string b, a;
-int n;
+int n, m;
 int z[N];
+int p[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -55,6 +56,23 @@ inline void z_a() {
     return;
 }
 
+inline void p_a() {
+    memset(p, 0, sizeof(p));
+    for(int i = 1, l = 0, r = 0; i <= m; ++i) {
+        if(i <= r) {
+            p[i] = min(z[i - l + 1], r - i + 1);
+        }
+        while(i + p[i] <= m && a[p[i] + i] == b[1 + p[i]]) {
+            ++p[i];
+        }
+        if(i + p[i] - 1 > r) {
+            l = i;
+            r = i + p[i] - 1;
+        }
+    }
+    return;
+}
+
 int main() {
 
     ios::sync_with_stdio(false);
@@ -62,7 +80,9 @@ int main() {
 
     cin >> a >> b;
     b = " " + b;
+    a = " " + a;
     n = b.size() - 1;
+    m = a.size() - 1;
 
     z_a();
 
@@ -73,5 +93,18 @@ int main() {
     }
 
     writeln(ans1);
+
+    // 匹配 a 串
+
+    p_a();
+
+    int ans2 = 0;
+
+    for(int i = 1; i <= n; ++i) {
+        ans2 ^= (i * (p[i] + 1));
+    }
+
+    writeln(ans2);
+
     return 0;
 }
