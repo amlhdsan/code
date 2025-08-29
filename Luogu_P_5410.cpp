@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string str;
+string a;
 int n;
 int z[N];
 
@@ -44,7 +44,7 @@ inline void z_a() {
         if(i <= r) {
             z[i] = min(z[i - l + 1], r - i + 1);
         }
-        while(i + z[i] <= n && str[z[i] + 1] == str[i + z[i]]) {
+        while(i + z[i] <= n && a[z[i] + 1] == a[i + z[i]]) {
             ++z[i];
         }
         if(i + z[i] - 1 > r) {
@@ -60,9 +60,9 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    cin >> str;
-    str = " " + str;
-    n = str.size() - 1;
+    cin >> a;
+    a = " " + a;
+    n = a.size() - 1;
 
     z_a();
 
