@@ -5,6 +5,7 @@
 using namespace std;
 
 string str;
+int n;
 int z[N];
 
 inline int read() {
@@ -37,6 +38,11 @@ inline void writeln(int x) {
 
 inline void z_a(string str) {
     memset(z, 0, sizeof(z));
+    z[1] = n;
+
+    for(int i = 2, l = 0, r = 0; i <= n; ++i) {
+
+    }
 }
 
 int main() {
@@ -45,8 +51,8 @@ int main() {
     cin.tie(0);
 
     cin >> str;
-
     str = " " + str;
+    n = str.size() - 1;
 
     z_a(str);
 
