@@ -74,7 +74,7 @@ inline void p_a() {
     return;
 }
 
-sign main() {
+signe main() {
 
     ios::sync_with_stdio(false);
     cin.tie(0);
