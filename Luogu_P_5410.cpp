@@ -4,7 +4,7 @@
 
 using namespace std;
 
-
+string str;
 int z[N];
 
 inline int read() {
