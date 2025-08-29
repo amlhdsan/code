@@ -41,5 +41,9 @@ inline void z_a(string str) {
 
 int main() {
 
+    ios::sync_with_stdio(false);
+    cin >> str;
+
+
     return 0;
 }
