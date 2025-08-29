@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -27,6 +29,10 @@ inline void write(int x) {
 inline void writeln(int x) {
     write(x);
     putchar('\n');
+}
+
+inline void z_a(string str) {
+
 }
 
 int main() {
