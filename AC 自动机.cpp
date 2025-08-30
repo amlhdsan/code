@@ -39,9 +39,10 @@ namespace AC {
             }
             u = son;
         }
-        if(!tree[u].son[s[u]-'a']) {
-            
+        if(!tree[u].idx) {
+            tree[u].idx = ++pidx;
         }
+        idx = tree[u].idx;
     }
 }
 
