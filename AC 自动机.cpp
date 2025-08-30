@@ -18,9 +18,9 @@ namespace AC {
 
         void init() {
             memset(son, 0, sizeof(son));
-            ans = fail = idx = du = 0;
+            ans = fail = idx = 0;
         }
-    }
+    }tree[SIZE];
 }
 
 inline int read() {
