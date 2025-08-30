@@ -13,6 +13,13 @@ namespace AC {
         int son[26];
         int ans;
         int fail;
+        int du;
+        int idx;
+
+        void init() {
+            memset(son, 0, sizeof(son));
+            ans = fail = idx = du = 0;
+        }
     }
 }
 
