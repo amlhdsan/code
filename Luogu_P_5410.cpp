@@ -74,7 +74,7 @@ inline void p_a() {
     return;
 }
 
-inline voi
+inline v
 
 signed main() {
 
