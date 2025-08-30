@@ -75,7 +75,6 @@ inline void p_a() {
 }
 
 
-
 signed main() {
 
     ios::sync_with_stdio(false);
