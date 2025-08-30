@@ -9,7 +9,9 @@ using namespace std;
 int n;
 
 namespace AC {
-    
+    struct node {
+        
+    }
 }
 
 inline int read() {
