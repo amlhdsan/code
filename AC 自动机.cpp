@@ -8,6 +8,10 @@ using namespace std;
 
 int n;
 
+namespace AC {
+    
+}
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
