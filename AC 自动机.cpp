@@ -56,6 +56,7 @@ namespace AC {
 
         while(!q.empty()) {
             int u = q.front();
+            q.pop();
             
         }
     }
