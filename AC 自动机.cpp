@@ -10,7 +10,8 @@ int n;
 
 namespace AC {
     struct node {
-        
+        int son[26];
+        int ans;
     }
 }
 
