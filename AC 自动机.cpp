@@ -1,4 +1,7 @@
 #include <bits/stdc++.h>
+
+#define N 2000010
+
 using namespace std;
 
 inline int read() {
@@ -31,7 +34,7 @@ inline void writeln(int x) {
 
 int main() {
 
-    
+
 
     return 0;
 }
