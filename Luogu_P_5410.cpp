@@ -74,7 +74,7 @@ inline void p_a() {
     return;
 }
 
-inline void stdout
+inline void stdou
 
 signed main() {
 
