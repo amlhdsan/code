@@ -31,6 +31,9 @@ namespace AC {
 
     void insert(char s[], int &idx) {
         int u = 0;
+        for(int i = 1; s[i]; ++i) {
+            
+        }
     }
 }
 
