@@ -21,6 +21,8 @@ namespace AC {
             ans = fail = idx = 0;
         }
     }tree[SIZE];
+
+    int tot, ans[N], pidx;
 }
 
 inline int read() {
