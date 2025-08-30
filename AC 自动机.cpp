@@ -37,8 +37,9 @@ namespace AC {
                 son = ++tot;
                 tree[son].init();
             }
-            
+            u = son;
         }
+        
     }
 }
 
