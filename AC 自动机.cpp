@@ -23,6 +23,11 @@ namespace AC {
     }tree[SIZE];
 
     int tot, ans[N], pidx;
+
+    void init() {
+        tot = pidx = 0;
+        tree[0].init();
+    }
 }
 
 inline int read() {
