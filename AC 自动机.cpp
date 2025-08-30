@@ -47,7 +47,12 @@ namespace AC {
 
     void build() {
         queue<int> q;
-        
+
+        for(int i = 0; i < 26; ++i) {
+            if(tree[0].son[i]) {
+                q.push(tree[0].son[i]);
+            }
+        }
     }
 }
 
