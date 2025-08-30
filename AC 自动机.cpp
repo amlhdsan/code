@@ -29,7 +29,9 @@ namespace AC {
         tree[0].init();
     }
 
-    void insert
+    void insert() {
+        
+    }
 }
 
 inline int read() {
