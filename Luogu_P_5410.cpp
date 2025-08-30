@@ -74,7 +74,7 @@ inline void p_a() {
     return;
 }
 
-inline void stdou
+inline void std
 
 signed main() {
 
