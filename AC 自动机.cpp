@@ -57,9 +57,28 @@ namespace AC {
         while(!q.empty()) {
             int u = q.front();
             q.pop();
-            
+            for(int i = 0; i < 26; ++i) {
+                if(tree[u].son[i]) {
+                    tree[tree[u].son[i]].fail = tree[tr[u].fail].son[i];
+                    tree[tree[tr[u].fail].son[i]].du++;
+                    q.push(tree[u].son[i]);
+                }
+                else {
+                    tree[u].son[i] = tree[tree[u].fail].son[i];
+                }
+            }
         }
     }
+
+    void qry(char t[]) {
+        int u = 0;
+        for(int i = 1; t[i]; ++i) {
+            u = tree[u].son[t[i] - 'a'];  // 转移
+            tr[u].ans++;
+        }
+    }
+
+    void
 }
 
 inline int read() {
