@@ -39,6 +39,7 @@ namespace AC {
             }
             u = son;
         }
+        if(!tree[u].)
     }
 }
 
