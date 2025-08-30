@@ -28,6 +28,8 @@ namespace AC {
         tot = pidx = 0;
         tree[0].init();
     }
+
+    void insert
 }
 
 inline int read() {
