@@ -54,7 +54,8 @@ namespace AC {
             }
         }
 
-        for(int i = 1; i <= n; ++i) {
+        while(!q.empty()) {
+            int u = q.front();
             
         }
     }
