@@ -75,8 +75,8 @@ inline void p_a() {
 }
 
 inline void stdoutt() {
-    
-}
+
+
 
 signed main() {
 
