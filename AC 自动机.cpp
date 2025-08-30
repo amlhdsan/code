@@ -2,7 +2,7 @@
 
 #define N 200010
 #define LEN 2000010
-#define 
+#define SIZE 200010
 
 using namespace std;
 
