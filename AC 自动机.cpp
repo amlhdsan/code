@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 
-#define N 2000010
+#define N 200010
+#define LEN 2000010
+#define 
 
 using namespace std;
 
