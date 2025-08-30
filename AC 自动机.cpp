@@ -44,6 +44,10 @@ namespace AC {
         }
         idx = tree[u].idx;
     }
+
+    void build() {
+        
+    }
 }
 
 inline int read() {
