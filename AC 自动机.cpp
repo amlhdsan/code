@@ -76,12 +76,8 @@ namespace AC {
         int u = 0;
         for(int i = 1; t[i]; ++i) {
             u = tree[u].son[t[i] - 'a'];  // 转移
-            tr[u].ans++;
+            tree[u].ans++;
         }
-    }
-    
-    void speed {
-        
     }
 
     void topu() {
@@ -131,7 +127,7 @@ inline void writeln(int x) {
 
 int main() {
 
-
+    
 
     return 0;
 }
