@@ -136,7 +136,16 @@ int main() {
         AC :: ans[i] = 0;
     }
 
-    
+    AC :: build();
 
+    cin >> s + 1;
+
+    AC :: qry(s);
+    AC :: topu();
+
+    for (int i = 1; i <= n; +i) {
+        writeln(AC :: ans[idx[i]]);
+    }
+    
     return 0;
 }
