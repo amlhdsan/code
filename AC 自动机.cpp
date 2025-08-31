@@ -133,7 +133,10 @@ int main() {
     for(int i = 1; i <= n; ++i) {
         cin >> s + 1;
         AC :: insert(s, idx[i]);
+        AC :: ans[i] = 0;
     }
+
+    
 
     return 0;
 }
