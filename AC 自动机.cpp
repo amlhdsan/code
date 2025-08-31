@@ -7,6 +7,8 @@
 using namespace std;
 
 int n;
+char s[LEN];
+int idx[N];
 
 namespace AC {
     struct node {
@@ -78,7 +80,21 @@ namespace AC {
         }
     }
 
-    void
+    void topu() {
+        queue<int> q;
+        for(int i = 0; i <= tot; i++)
+            if(tree[i].du == 0) 
+                q.push(i);
+        while(!q.empty()) {
+            int u = q.front();
+            q.pop();
+            ans[tree[u].idx] = tree[u].ans;
+            int v = tree[u].fail;
+            tree[v].ans += tree[u].ans;
+            if(!--tree[v].du) 
+                q.push(v);
+        }
+    }
 }
 
 inline int read() {
