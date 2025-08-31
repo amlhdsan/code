@@ -79,6 +79,10 @@ namespace AC {
             tr[u].ans++;
         }
     }
+    
+    void speed {
+        
+    }
 
     void topu() {
         queue<int> q;
