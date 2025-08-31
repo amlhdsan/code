@@ -61,7 +61,7 @@ namespace AC {
             q.pop();
             for(int i = 0; i < 26; ++i) {
                 if(tree[u].son[i]) {
-                    tree[tree[u].son[i]].fail = tree[tr[u].fail].son[i];
+                    tree[tree[u].son[i]].fail = tree[tree[u].fail].son[i];
                     tree[tree[tr[u].fail].son[i]].du++;
                     q.push(tree[u].son[i]);
                 }
@@ -146,6 +146,6 @@ int main() {
     for (int i = 1; i <= n; +i) {
         writeln(AC :: ans[idx[i]]);
     }
-    
+
     return 0;
 }
