@@ -126,8 +126,9 @@ inline void writeln(int x) {
 }
 
 int main() {
+    AC :: init();
 
-    
+    n = read();
 
     return 0;
 }
