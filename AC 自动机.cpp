@@ -62,7 +62,7 @@ namespace AC {
             for(int i = 0; i < 26; ++i) {
                 if(tree[u].son[i]) {
                     tree[tree[u].son[i]].fail = tree[tree[u].fail].son[i];
-                    tree[tree[tr[u].fail].son[i]].du++;
+                    tree[tree[tree[u].fail].son[i]].du++;
                     q.push(tree[u].son[i]);
                 }
                 else {
@@ -143,7 +143,7 @@ int main() {
     AC :: qry(s);
     AC :: topu();
 
-    for (int i = 1; i <= n; +i) {
+    for (int i = 1; i <= n; ++i) {
         writeln(AC :: ans[idx[i]]);
     }
 
