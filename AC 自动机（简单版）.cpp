@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 
-#define N 200010
+#define N 2000100
 #define LEN 2000010
-#define SIZE 200010
+#define SIZE 2000100
 
 using namespace std;
 
@@ -143,9 +143,15 @@ int main() {
     AC :: qry(s);
     AC :: topu();
 
+    int sum = 0;
+
     for(int i = 1; i <= n; ++i) {
-        writeln(AC :: ans[idx[i]]);
+        if(AC :: ans[idx[i]]) {
+            ++sum;
+        }
     }
+
+    writeln(sum);
 
     return 0;
 }

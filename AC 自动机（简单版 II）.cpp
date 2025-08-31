@@ -1,10 +1,9 @@
 #include <bits/stdc++.h>
+using namespace std;
 
 #define N 200010
-#define LEN 2000010
+#define LEN 1000010
 #define SIZE 200010
-
-using namespace std;
 
 int n;
 char s[LEN];
@@ -17,10 +16,9 @@ namespace AC {
         int fail;
         int du;
         int idx;
-
         void init() {
             memset(son, 0, sizeof(son));
-            ans = fail = idx = 0;
+            ans = fail = idx = du = 0;
         }
     }tree[SIZE];
 
@@ -49,13 +47,11 @@ namespace AC {
 
     void build() {
         queue<int> q;
-
         for(int i = 0; i < 26; ++i) {
             if(tree[0].son[i]) {
                 q.push(tree[0].son[i]);
             }
         }
-
         while(!q.empty()) {
             int u = q.front();
             q.pop();
@@ -64,8 +60,7 @@ namespace AC {
                     tree[tree[u].son[i]].fail = tree[tree[u].fail].son[i];
                     tree[tree[tree[u].fail].son[i]].du++;
                     q.push(tree[u].son[i]);
-                }
-                else {
+                } else {
                     tree[u].son[i] = tree[tree[u].fail].son[i];
                 }
             }
@@ -75,7 +70,7 @@ namespace AC {
     void qry(char t[]) {
         int u = 0;
         for(int i = 1; t[i]; ++i) {
-            u = tree[u].son[t[i] - 'a'];  // 转移
+            u = tree[u].son[t[i] - 'a'];
             tree[u].ans++;
         }
     }
@@ -83,16 +78,13 @@ namespace AC {
     void topu() {
         queue<int> q;
         for(int i = 0; i <= tot; i++)
-            if(tree[i].du == 0) 
-                q.push(i);
+            if(tree[i].du == 0) q.push(i);
         while(!q.empty()) {
-            int u = q.front();
-            q.pop();
+            int u = q.front(); q.pop();
             ans[tree[u].idx] = tree[u].ans;
             int v = tree[u].fail;
             tree[v].ans += tree[u].ans;
-            if(!--tree[v].du) 
-                q.push(v);
+            if(!--tree[v].du) q.push(v);
         }
     }
 }
@@ -125,27 +117,31 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+string pat[N];
+
 int main() {
-    AC :: init();
-
-    n = read();
-
-    for(int i = 1; i <= n; ++i) {
-        cin >> s + 1;
-        AC :: insert(s, idx[i]);
-        AC :: ans[i] = 0;
+    while(true) {
+        n = read();
+        if(!n) break;
+        AC :: init();
+        for(int i = 1; i <= n; ++i) {
+            scanf("%s", s + 1);
+            pat[i] = s + 1;
+            AC :: insert(s, idx[i]);
+            AC :: ans[i] = 0;
+        }
+        AC :: build();
+        scanf("%s", s + 1);
+        AC :: qry(s);
+        AC :: topu();
+        int mx = 0;
+        for(int i = 1; i <= n; i++) mx = max(mx, AC :: ans[idx[i]]);
+        writeln(mx);
+        for(int i = 1; i <= n; i++) {
+            if(AC :: ans[idx[i]] == mx) {
+                printf("%s\n", pat[i].c_str());
+            }
+        }
     }
-
-    AC :: build();
-
-    cin >> s + 1;
-
-    AC :: qry(s);
-    AC :: topu();
-
-    for(int i = 1; i <= n; ++i) {
-        writeln(AC :: ans[idx[i]]);
-    }
-
     return 0;
 }
