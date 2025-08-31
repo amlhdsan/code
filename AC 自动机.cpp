@@ -131,7 +131,8 @@ int main() {
     n = read();
 
     for(int i = 1; i <= n; ++i) {
-        
+        cin >> s + 1;
+        AC :: insert(s, idx[i]);
     }
 
     return 0;
