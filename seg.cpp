@@ -2,7 +2,7 @@
 using namespace std;
 
 namespace seg {
-    
+    int 
 }
 
 inline int read() {
