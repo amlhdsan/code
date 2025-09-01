@@ -120,14 +120,13 @@ int main() {
 
     seg::init();
 
-    int n = read();
+    int n = read(), m = read();
     for (int i = 1; i <= n; i++) {
         int x = read();
         seg::a[i] = x;
     }
     seg::build(1, 1, n);
 
-    int m = read();
     while (m--) {
         int op = read();
         if (op == 1) {
