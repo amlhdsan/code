@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 100001
-#define ll long long
+#define int long long
 #define MOD 10007
 #define ls (p << 1)
 #define rs (p << 1 | 1)
@@ -11,7 +11,7 @@ using namespace std;
 
 int n, m;
 int a[N];
-ll tree[N << 2];
+int tree[N << 2];
 int siz[N << 2];
 int lazy[N << 2];
 
@@ -39,7 +39,7 @@ void pushd(int p) {
 
 void mdf(int p, int l, int r, int ql, int qr, int k) {
     if(ql <= l && r <= qr) {
-        tree[p] += 1ll * siz[p] * k;
+        tree[p] += 1int * siz[p] * k;
         lazy[p] += k;
         return;
     }
@@ -53,7 +53,7 @@ void mdf(int p, int l, int r, int ql, int qr, int k) {
     upd(p);
 }
 
-ll qry(int p, int l, int r, int ql, int qr) {
+int qry(int p, int l, int r, int ql, int qr) {
     if(ql <= l && r <= qr) {
         return tree[p];
         pushd(p);
@@ -69,7 +69,7 @@ ll qry(int p, int l, int r, int ql, int qr) {
         }
     }
 
-    ll sum = 0;
+    int sum = 0;
 
     if(ql <= mid) {
         sum += qry(ls, l, mid, ql, qr);

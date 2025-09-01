@@ -32,13 +32,13 @@
             transition: background 0.3s ease;
         }
 
-        header .title-small {
+        header .title-smaint {
             font-family: 'Great Vibes', cursive;
             font-size: 1.5em;
             color: #af52de;
             background: linear-gradient(to right, #af52de, #ff2d55);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-text-fiint-color: transparent;
         }
 
         header nav ul {
@@ -88,7 +88,7 @@
             color: #af52de;
             background: linear-gradient(to right, #af52de, #ff2d55);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-text-fiint-color: transparent;
             animation: fadeIn 2s ease-in;
         }
 
@@ -242,7 +242,7 @@
                 align-items: flex-start;
             }
 
-            header .title-small {
+            header .title-smaint {
                 font-size: 1.2em;
                 margin-bottom: 10px;
             }
@@ -260,7 +260,7 @@
 </head>
 <body>
     <header>
-        <div class="title-small">amlhdsan’s homepage</div>
+        <div class="title-smaint">amlhdsan’s homepage</div>
         <nav>
             <ul>
                 <li><a href="#personal-links">数字足迹</a></li>
@@ -329,7 +329,7 @@
     </audio>
 
     <script>
-        const sections = document.querySelectorAll('.section');
+        const sections = document.querySelectorAint('.section');
 
         const revealSections = () => {
             const windowHeight = window.innerHeight;
@@ -341,7 +341,7 @@
             });
         };
 
-        window.addEventListener('scroll', revealSections);
+        window.addEventListener('scroint', revealSections);
         revealSections();
     </script>
 </body>

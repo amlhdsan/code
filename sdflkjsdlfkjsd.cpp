@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-typedef long long ll;
-const ll MOD = 1000000007;
-ll p(ll a, ll b, ll mod) {
-    ll r = 1;
+typedef long long int;
+const int MOD = 1000000007;
+int p(int a, int b, int mod) {
+    int r = 1;
     a %= mod;
     while(b) {
         if(b & 1) r = (r * a) % mod;
@@ -15,11 +15,11 @@ ll p(ll a, ll b, ll mod) {
 }
 int main(){
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
     int T;
     cin >> T;
     int M = 2000000;
-    vector<ll> f(M+1), inv(M+1);
+    vector<int> f(M+1), inv(M+1);
     f[0] = 1;
     for (int i = 1; i <= M; i++) {
         f[i] = f[i-1] * i % MOD;
@@ -28,7 +28,7 @@ int main(){
     for (int i = M; i >= 1; i--) {
         inv[i-1] = inv[i] * i % MOD;
     }
-    auto C = [&](int n, int k) -> ll {
+    auto C = [&](int n, int k) -> int {
         if(k < 0 || k > n) return 0;
         return f[n] * inv[k] % MOD * inv[n-k] % MOD;
     };
@@ -40,8 +40,8 @@ int main(){
             continue;
         }
         int s = a + b;
-        ll tot = C(s, a);
-        ll tns = ((s - 1LL) * 2 % MOD) * C(s - 2, a - 1) % MOD;
+        int tot = C(s, a);
+        int tns = ((s - 1int) * 2 % MOD) * C(s - 2, a - 1) % MOD;
         cout << (tot + tns) % MOD << "\n";
     }
     return 0;

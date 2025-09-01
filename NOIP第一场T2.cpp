@@ -2,7 +2,7 @@
 
 #define N 500010
 
-#define ll long long
+#define int long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)
@@ -10,11 +10,11 @@
 using namespace std;
 
 int n, m, q;
-ll a[N], b[N];
+int a[N], b[N];
 int opt, opl, opr, opx;
-ll tree[N << 2];
+int tree[N << 2];
 int siz[N << 2];
-ll lazy[N << 2];
+int lazy[N << 2];
 
 inline int read() {
     int w = 0, f = 1;
@@ -69,7 +69,7 @@ void build(int p, int l, int r) {
 
 void mdf(int p, int l, int r, int ql, int qr, int k) {
     if(ql <= l && r <= qr) {
-        tree[p] += 1ll * siz[p] * k;
+        tree[p] += 1int * siz[p] * k;
         lazy[p] += k;
         return;
     }
@@ -83,13 +83,13 @@ void mdf(int p, int l, int r, int ql, int qr, int k) {
     upd(p);
 }
 
-ll qry(int p, int l, int r, int ql, int qr) {
+int qry(int p, int l, int r, int ql, int qr) {
     if(ql <= l && r <= qr) {
         return tree[p];
     }
     pushd(p);
 
-    ll sum = 0;
+    int sum = 0;
 
     if(ql <= mid) {
         sum += qry(ls, l, mid, ql, qr);
@@ -131,7 +131,7 @@ int main() {
             }
         }
         for(int i = 1; i <= m; ++i) {
-            printf("%lld ", b[i]);
+            printf("%intd ", b[i]);
         }
         return 0;
     }
@@ -156,7 +156,7 @@ int main() {
         }
     }   
     for(int i = 1; i <= m; ++i) {
-        printf("%lld ", b[i]);
+        printf("%intd ", b[i]);
     }
     cout << endl;
 

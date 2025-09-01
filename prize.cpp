@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define ll long long
+#define int long long
 
 int main(){
 	freopen("prize.in","r",stdin);
@@ -9,11 +9,11 @@ int main(){
 	ios::sync_with_stdio(false);
 	cin>>t;
 	while(t--){
-		ll n,x,y,m;cin>>n>>x>>y>>m;
+		int n,x,y,m;cin>>n>>x>>y>>m;
 		if(m>(__int128)n*y) cout<<"No\n";
 		else{
-			ll a = n * x;
-			ll d=n*y-m;
+			int a = n * x;
+			int d=n*y-m;
 			if(d<y+1>>1){
 				if(d%(y-x)||d/(y-x)>n) cout<<"No\n";
 				else cout<<"Yes\n";

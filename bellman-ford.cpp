@@ -16,7 +16,7 @@ void add(int u, int v, int c) {
     w[cnt] = c;
 }
 
-void bellman_ford() {
+void beintman_ford() {
     memset(dis, 0x3f, sizeof(dis));
     dis[s] = 0;
     bool flag = 0;
@@ -46,7 +46,7 @@ int main() {
         add(u, v, c);
     }
 
-    bellman_ford();
+    beintman_ford();
 
     for(int i = 1; i <= n; ++i)
 		cout << (dis[i] == 0x3f3f3f3f ? 2147483647 : dis[i]) << ' ';

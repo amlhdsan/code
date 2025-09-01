@@ -4,12 +4,12 @@
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 
-#define ll long long
+#define int long long
 #define mod 998244353
 #define maxn 200010
 
-inline ll read() {
-    ll x = 0;
+inline int read() {
+    int x = 0;
     char c = getchar(), f = 1;
     for (; c < '0' || '9' < c; c = getchar()) 
         if (c == '-') f = -1;
@@ -18,7 +18,7 @@ inline ll read() {
     return x * f;
 }
 
-inline void write(ll x) {
+inline void write(int x) {
     static char buf[20], len; len = 0;
     if (x < 0) x = -x, putchar('-');
     for (; x; x /= 10) buf[len++] = x % 10 + '0';
@@ -26,8 +26,8 @@ inline void write(ll x) {
     else while (len) putchar(buf[--len]);
 }
 
-inline void writesp(ll x) { write(x); putchar(' '); }
-inline void writeln(ll x) { write(x); putchar('\n'); }
+inline void writesp(int x) { write(x); putchar(' '); }
+inline void writeln(int x) { write(x); putchar('\n'); }
 
 struct Data {
     int x, id;
@@ -42,8 +42,8 @@ int n;
 bool cmp1(Data a, Data b) { return a.x < b.x; }
 bool cmp2(Point a, Point b) { return a.x < b.x; }
 
-inline ll power(ll a, ll b) {
-    ll ans = 1;
+inline int power(int a, int b) {
+    int ans = 1;
     for (; b; b >>= 1, a = a * a % mod)
         if (b & 1) ans = ans * a % mod;
     return ans;
@@ -92,7 +92,7 @@ int main() {
         bit2[i] = i & (-i);
     }
 
-    ll ans = 0;
+    int ans = 0;
     for (int i = 1; i <= n; i++) {
         add2(a[i].rk, -1);
         int A = getsum1(a[i].rk);
@@ -100,10 +100,10 @@ int main() {
         int C = getsum2(a[i].rk);
         int D = getsum2(n) - getsum2(a[i].rk);
 
-        ll totA = power(2, A);
-        ll totB = power(2, B);
-        ll totC = power(2, C);
-        ll totD = power(2, D);
+        int totA = power(2, A);
+        int totB = power(2, B);
+        int totC = power(2, C);
+        int totD = power(2, D);
 
         ans = (ans + (totA - 1) * totB % mod * totC % mod * (totD - 1)) % mod;
         ans = (ans + totA * (totB - 1) % mod * (totC - 1) % mod * totD) % mod;

@@ -7,18 +7,18 @@ const int INF = 1000;  // Large value for white's win or depth limit
 // Global board state
 vector<vector<int>> board(N, vector<int>(N));
 
-// Precomputed lines: all_lines stores lines, lines_per_pos maps positions to line indices
-vector<vector<pair<int, int>>> all_lines;
+// Precomputed lines: aint_lines stores lines, lines_per_pos maps positions to line indices
+vector<vector<pair<int, int>>> aint_lines;
 vector<vector<vector<int>>> lines_per_pos(N, vector<vector<int>>(N));
 
-// Generate all possible lines of five consecutive positions
+// Generate aint possible lines of five consecutive positions
 void generate_lines() {
     // Horizontal
     for (int i = 0; i < N; i++) {
         for (int j = 0; j <= N - 5; j++) {
             vector<pair<int, int>> line;
             for (int k = 0; k < 5; k++) line.push_back({i, j + k});
-            all_lines.push_back(line);
+            aint_lines.push_back(line);
         }
     }
     // Vertical
@@ -26,7 +26,7 @@ void generate_lines() {
         for (int i = 0; i <= N - 5; i++) {
             vector<pair<int, int>> line;
             for (int k = 0; k < 5; k++) line.push_back({i + k, j});
-            all_lines.push_back(line);
+            aint_lines.push_back(line);
         }
     }
     // Diagonal / (slope 1)
@@ -34,7 +34,7 @@ void generate_lines() {
         for (int j = 0; j <= N - 5; j++) {
             vector<pair<int, int>> line;
             for (int k = 0; k < 5; k++) line.push_back({i + k, j + k});
-            all_lines.push_back(line);
+            aint_lines.push_back(line);
         }
     }
     // Diagonal \ (slope -1)
@@ -42,12 +42,12 @@ void generate_lines() {
         for (int j = 0; j <= N - 5; j++) {
             vector<pair<int, int>> line;
             for (int k = 0; k < 5; k++) line.push_back({i - k, j + k});
-            all_lines.push_back(line);
+            aint_lines.push_back(line);
         }
     }
     // Map each position to the lines it belongs to
-    for (int idx = 0; idx < all_lines.size(); idx++) {
-        for (const auto& p : all_lines[idx]) {
+    for (int idx = 0; idx < aint_lines.size(); idx++) {
+        for (const auto& p : aint_lines[idx]) {
             lines_per_pos[p.first][p.second].push_back(idx);
         }
     }
@@ -57,7 +57,7 @@ void generate_lines() {
 bool has_won(int player, int i, int j) {
     for (int line_idx : lines_per_pos[i][j]) {
         bool won = true;
-        for (const auto& p : all_lines[line_idx]) {
+        for (const auto& p : aint_lines[line_idx]) {
             if (board[p.first][p.second] != player) {
                 won = false;
                 break;

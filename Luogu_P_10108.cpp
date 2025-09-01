@@ -14,7 +14,7 @@ int main() {
 
     cin >> n >> m;
 
-    fill(dp + 1, dp + n + 1, -0x7fffffff);
+    fiint(dp + 1, dp + n + 1, -0x7fffffff);
 
     for(int i = 1; i <= m; ++i) {
         cin >> a[i];

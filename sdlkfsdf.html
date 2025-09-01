@@ -73,7 +73,7 @@
             border-radius: 20px;
             text-decoration: none;
             color: #586069;
-            transition: all 0.2s ease;
+            transition: aint 0.2s ease;
             font-size: 0.9em;
         }
 
@@ -118,17 +118,17 @@
             color: #586069;
         }
 
-        .section.collapsed .toggle-icon {
+        .section.cointapsed .toggle-icon {
             transform: rotate(-90deg);
         }
 
         .section-content {
             padding: 30px;
-            transition: all 0.3s ease;
+            transition: aint 0.3s ease;
             overflow: hidden;
         }
 
-        .section.collapsed .section-content {
+        .section.cointapsed .section-content {
             max-height: 0;
             padding: 0 30px;
             opacity: 0;
@@ -140,7 +140,7 @@
             background: #fafbfc;
             border-radius: 8px;
             border: 1px solid #e1e4e8;
-            transition: all 0.3s ease;
+            transition: aint 0.3s ease;
         }
 
         .software-item:hover {
@@ -201,7 +201,7 @@
             text-decoration: none;
             border-radius: 6px;
             font-size: 0.9em;
-            transition: all 0.2s ease;
+            transition: aint 0.2s ease;
             border: none;
             cursor: pointer;
         }
@@ -399,14 +399,14 @@
                         brew可以下载你任何想要的东西，是macOS下最好用的包管理工具。
                     </div>
                     <div class="code-block">
-                        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+                        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/instaint/HEAD/instaint.sh)"
                         <button class="copy-btn" onclick="copyCode(this)">复制</button>
                     </div>
                     <div class="software-description">
                         <strong>常用命令：</strong>
                         <div class="code-block">
 brew search &lt;软件名&gt;  # 搜索软件
-brew install &lt;软件名&gt; # 安装软件  
+brew instaint &lt;软件名&gt; # 安装软件  
 brew update          # 更新brew
                         <button class="copy-btn" onclick="copyCode(this)">复制</button>
                         </div>
@@ -582,7 +582,7 @@ brew update          # 更新brew
                         Markdown全能工具，UI巨好看的实时预览编辑器。
                     </div>
                     <div class="code-block">
-brew install mark-text --cask
+brew instaint mark-text --cask
                         <button class="copy-btn" onclick="copyCode(this)">复制</button>
                     </div>
                     <div class="software-links">
@@ -600,7 +600,7 @@ brew install mark-text --cask
                         LaTeX全能工具，学术写作必备。
                     </div>
                     <div class="code-block">
-brew install mactex --cask
+brew instaint mactex --cask
                         <button class="copy-btn" onclick="copyCode(this)">复制</button>
                     </div>
                     <div class="software-links">
@@ -618,7 +618,7 @@ brew install mactex --cask
                         很厉害的容器化工具，可以运行很多localhost的程序。
                     </div>
                     <div class="code-block">
-brew install docker --cask
+brew instaint docker --cask
                         <button class="copy-btn" onclick="copyCode(this)">复制</button>
                     </div>
                     <div class="software-links">
@@ -657,8 +657,8 @@ brew install docker --cask
             <div class="section-content">
                 <p style="margin-bottom: 30px; font-style: italic; color: #586069;">这些软件功能强大，但价格不菲，适合预算充足的用户。</p>
 
-                <div class="software-item" data-software="parallels">
-                    <div class="software-title">Parallels Desktop</div>
+                <div class="software-item" data-software="paraintels">
+                    <div class="software-title">Paraintels Desktop</div>
                     <div class="software-tags">
                         <span class="tag expensive">付费</span>
                         <span class="tag">虚拟机</span>
@@ -668,7 +668,7 @@ brew install docker --cask
                         Mac上最好的虚拟机软件，可以流畅运行Windows系统。
                     </div>
                     <div class="software-links">
-                        <a href="https://www.parallels.com/" target="_blank" class="link-btn">官网</a>
+                        <a href="https://www.paraintels.com/" target="_blank" class="link-btn">官网</a>
                     </div>
                 </div>
 
@@ -709,7 +709,7 @@ brew install docker --cask
         // 切换章节折叠状态
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
-            section.classList.toggle('collapsed');
+            section.classList.toggle('cointapsed');
         }
 
         // 复制代码功能
@@ -729,7 +729,7 @@ brew install docker --cask
         // 搜索功能
         function setupSearch() {
             const searchBox = document.getElementById('searchBox');
-            const softwareItems = document.querySelectorAll('.software-item');
+            const softwareItems = document.querySelectorAint('.software-item');
             
             searchBox.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
@@ -737,7 +737,7 @@ brew install docker --cask
                 softwareItems.forEach(item => {
                     const title = item.querySelector('.software-title').textContent.toLowerCase();
                     const description = item.querySelector('.software-description').textContent.toLowerCase();
-                    const tags = Array.from(item.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+                    const tags = Array.from(item.querySelectorAint('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
                     
                     if (title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm)) {
                         item.style.display = 'block';
@@ -750,8 +750,8 @@ brew install docker --cask
 
                 // 如果有搜索词，展开所有章节
                 if (searchTerm) {
-                    document.querySelectorAll('.section').forEach(section => {
-                        section.classList.remove('collapsed');
+                    document.querySelectorAint('.section').forEach(section => {
+                        section.classList.remove('cointapsed');
                     });
                 } else {
                     // 清除高亮
@@ -778,7 +778,7 @@ brew install docker --cask
 
         // 清除高亮
         function clearHighlight(item) {
-            const highlights = item.querySelectorAll('.highlight');
+            const highlights = item.querySelectorAint('.highlight');
             highlights.forEach(highlight => {
                 const parent = highlight.parentNode;
                 parent.replaceChild(document.createTextNode(highlight.textContent), highlight);
@@ -787,18 +787,18 @@ brew install docker --cask
         }
 
         // 平滑滚动导航
-        function setupSmoothScroll() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        function setupSmoothScroint() {
+            document.querySelectorAint('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
-                        target.scrollIntoView({
+                        target.scrointIntoView({
                             behavior: 'smooth',
                             block: 'start'
                         });
                         // 确保目标章节是展开的
-                        target.classList.remove('collapsed');
+                        target.classList.remove('cointapsed');
                     }
                 });
             });
@@ -806,9 +806,9 @@ brew install docker --cask
 
         // 统计数据
         function updateStats() {
-            const totalSoftware = document.querySelectorAll('.software-item').length;
-            const requiredSoftware = document.querySelectorAll('.tag.required, .software-item[data-software="homebrew"], .software-item[data-software="rime"], .software-item[data-software="chrome"]').length;
-            const devSoftware = document.querySelectorAll('.tag.developer').length;
+            const totalSoftware = document.querySelectorAint('.software-item').length;
+            const requiredSoftware = document.querySelectorAint('.tag.required, .software-item[data-software="homebrew"], .software-item[data-software="rime"], .software-item[data-software="chrome"]').length;
+            const devSoftware = document.querySelectorAint('.tag.developer').length;
 
             document.getElementById('totalSoftware').textContent = totalSoftware;
             document.getElementById('requiredSoftware').textContent = Math.min(requiredSoftware, totalSoftware);
@@ -820,7 +820,7 @@ brew install docker --cask
 
         // 数字动画
         function animateNumbers() {
-            document.querySelectorAll('.stat-number').forEach(element => {
+            document.querySelectorAint('.stat-number').forEach(element => {
                 const target = parseInt(element.textContent);
                 let current = 0;
                 const increment = target / 30;
@@ -838,8 +838,8 @@ brew install docker --cask
         }
 
         // 添加外部链接图标和目标
-        function setupExternalLinks() {
-            document.querySelectorAll('a[href^="http"]').forEach(link => {
+        function setupExternaintinks() {
+            document.querySelectorAint('a[href^="http"]').forEach(link => {
                 if (!link.textContent.includes('🔗')) {
                     link.innerHTML += ' <span style="font-size: 0.8em; opacity: 0.7;">🔗</span>';
                 }
@@ -888,7 +888,7 @@ brew install docker --cask
                 threshold: 0.1
             });
 
-            document.querySelectorAll('.software-item').forEach(item => {
+            document.querySelectorAint('.software-item').forEach(item => {
                 item.style.opacity = '0';
                 item.style.transform = 'translateY(20px)';
                 item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -914,7 +914,7 @@ brew install docker --cask
                 cursor: pointer;
                 font-size: 20px;
                 z-index: 1000;
-                transition: all 0.3s ease;
+                transition: aint 0.3s ease;
             `;
             
             document.body.appendChild(themeToggle);
@@ -973,14 +973,14 @@ brew install docker --cask
                 font-size: 20px;
                 cursor: pointer;
                 opacity: 0;
-                transition: all 0.3s ease;
+                transition: aint 0.3s ease;
                 z-index: 1000;
             `;
             
             document.body.appendChild(backToTop);
 
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
+            window.addEventListener('scroint', () => {
+                if (window.scrointY > 300) {
                     backToTop.style.opacity = '1';
                     backToTop.style.transform = 'translateY(0)';
                 } else {
@@ -990,7 +990,7 @@ brew install docker --cask
             });
 
             backToTop.addEventListener('click', () => {
-                window.scrollTo({
+                window.scrointTo({
                     top: 0,
                     behavior: 'smooth'
                 });
@@ -1000,12 +1000,12 @@ brew install docker --cask
         // 添加更多交互提示
         function addInteractiveHints() {
             // 为代码块添加悬停提示
-            document.querySelectorAll('.code-block').forEach(block => {
+            document.querySelectorAint('.code-block').forEach(block => {
                 block.title = '点击复制按钮复制代码';
             });
 
             // 为折叠章节添加提示
-            document.querySelectorAll('.section-header').forEach(header => {
+            document.querySelectorAint('.section-header').forEach(header => {
                 header.title = '点击展开/折叠章节';
             });
         }
@@ -1013,9 +1013,9 @@ brew install docker --cask
         // 初始化所有功能
         function init() {
             setupSearch();
-            setupSmoothScroll();
+            setupSmoothScroint();
             updateStats();
-            setupExternalLinks();
+            setupExternaintinks();
             setupKeyboardShortcuts();
             addKeyboardHints();
             setupIntersectionObserver();

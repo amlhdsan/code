@@ -81,7 +81,7 @@ int querySeg(int p, int l, int r, int ql, int qr) {
 
 signed main(){
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
 
     cin >> n >> m >> r;
     for (int i = 1; i <= n; i++) {

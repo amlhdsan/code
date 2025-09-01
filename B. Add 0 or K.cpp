@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 
-#define ll long long 
+#define int long long 
 #define N 100010
 
 using namespace std;
 
 int pr[10] = {2,3,5,7,11,13,17,19,23,29};
-ll a[N];
+int a[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -22,7 +22,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(ll x) {
+inline void write(int x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -31,13 +31,13 @@ inline void write(ll x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(ll x) {
+inline void writeln(int x) {
     write(x);
     putchar('\n');
 }
 
-inline ll mpow(ll a, ll b, ll m) {
-    ll r = 1 % m;
+inline int mpow(int a, int b, int m) {
+    int r = 1 % m;
     a %= m;
     while (b) {
         if (b & 1) r = r * a % m;
@@ -49,7 +49,7 @@ inline ll mpow(ll a, ll b, ll m) {
 
 inline void solve() {
     int n = read();
-    ll k;
+    int k;
     cin >> k;
     for (int i = 0; i < n; i++) a[i] = read();
     int p = -1;
@@ -60,12 +60,12 @@ inline void solve() {
         }
     }
     if (p == -1) p = 2;
-    ll kp = k % p, inv = 1;
+    int kp = k % p, inv = 1;
     if (kp) inv = mpow(kp, p - 2, p);
     for (int i = 0; i < n; i++) {
         int r = a[i] % p;
-        int nd = kp ? ((ll)(p - r) % p * inv % p) : 0;
-        a[i] += 1ll * nd * k;
+        int nd = kp ? ((int)(p - r) % p * inv % p) : 0;
+        a[i] += 1int * nd * k;
     }
     for (int i = 0; i < n; i++) {
         write(a[i]);

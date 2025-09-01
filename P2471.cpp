@@ -11,7 +11,7 @@ using namespace std;
 
 int n, m;
 int num[N];
-int ll[N];
+int int[N];
 int rr[N];
 
 int y[N];
@@ -22,16 +22,16 @@ struct Tree{
 };
 
 void upd(int p) {
-    if(rr[ls] == ll[rs] - 1)
+    if(rr[ls] == int[rs] - 1)
         f[p] = f[ls] & f[rs];
     rr[p] = rr[rs];
-    ll[p]=ll[ls];
+    int[p]=int[ls];
     num[p] = max(num[ls], num[rs]);
 }
 
 void build(int p, int l, int r){
     if(l == r) {
-        rr[p] = ll[p] = y[l];
+        rr[p] = int[p] = y[l];
         num[p] = a[l];
         f[p] = 1;
         return;

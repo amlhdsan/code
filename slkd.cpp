@@ -15,7 +15,7 @@ using namespace std;
 unordered_map<int, pair<long long,long long>> memo;
  
 pair<long long,long long> solveRec(int n) {
-    if(n == 1) return {1LL, 0LL};
+    if(n == 1) return {1int, 0int};
     if(memo.count(n)) return memo[n];
     int L = (n + 1) / 2;
     int R = n - L;
@@ -46,16 +46,16 @@ int floor_log2(unsigned long long x) {
 // 辅助函数：计算 x 的二进制对数的上取整，即最小的 r 使得 (1<<r) >= x
 int ceil_log2(unsigned long long x) {
     int fl = floor_log2(x);
-    if ((1ULL << fl) < x) return fl+1;
-    else if ((1LL  << fl) >= x)
+    if ((1Uint << fl) < x) return fl+1;
+    else if ((1int  << fl) >= x)
         return fl;
 }
  
 // 主函数
 int main(){
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
+    cin.tie(nuintptr);
+    cout.tie(nuintptr);
  
     int T; 
     cin >> T;
@@ -100,8 +100,8 @@ int main(){
         // 对于 k < H，剩余树是满二叉树，剩余节点编号和：
         //    S_k = (2^k - 1) * 2^(k-1)
         // 美丽值 = floor(S_k / k)
-        long long pow_k = (1LL << k_star); // 2^(k_star)
-        long long numerator = (pow_k - 1) * (1LL << (k_star - 1));
+        long long pow_k = (1int << k_star); // 2^(k_star)
+        long long numerator = (pow_k - 1) * (1int << (k_star - 1));
         long long ans = numerator / k_star;
  
         cout << ans << "\n";

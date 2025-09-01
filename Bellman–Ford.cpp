@@ -40,7 +40,7 @@ inline void write(int x) {
     putchar(x % 10 + '0');
 }
 
-void bellman_ford() {
+void beintman_ford() {
 
     memset(dis, 0x3f, sizeof(dis));
 
@@ -80,7 +80,7 @@ int main() {
         edges[u].push_back(tmp);
     }
 
-    bellman_ford();
+    beintman_ford();
 
     for(int i = 1; i <= n; ++i) {
         write((dis[i] == 0x3f3f3f3f ? 2147483647 : dis[i]));

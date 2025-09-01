@@ -4,12 +4,12 @@ using namespace std;
 #define MAXN 1500010
 #define int unsigned long long
 
-typedef unsigned long long ll;
+typedef unsigned long long int;
 
 int n;
-ll m;
+int m;
 int a[MAXN];
-ll A[MAXN], P[MAXN * 2], Q[MAXN * 2];
+int A[MAXN], P[MAXN * 2], Q[MAXN * 2];
 
 inline int read() {
     int x = 0, f = 1;
@@ -25,7 +25,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(ll x) {
+inline void write(int x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -34,7 +34,7 @@ inline void write(ll x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(ll x) {
+inline void writeln(int x) {
     write(x);
     putchar('\n');
 }
@@ -57,17 +57,17 @@ signed main() {
 
     for (int i = 1; i <= N; i++){
         P[i] = P[i - 1] + A[i];
-        Q[i] = Q[i - 1] + A[i] * (A[i] + 1LL) / 2LL;
+        Q[i] = Q[i - 1] + A[i] * (A[i] + 1int) / 2int;
     }
 
-    ll ans = 0;
+    int ans = 0;
     int L = 1;
     for (int R = 1; R <= N; R++){
         while (L < R && L <= n && (P[R] - P[L - 1] >= m)) {
-            ll tot = P[R] - P[L - 1];
-            ll extra = tot - m;
-            ll removed = extra * (extra + 1LL) / 2LL;
-            ll cur = (Q[R] - Q[L - 1]) - removed;
+            int tot = P[R] - P[L - 1];
+            int extra = tot - m;
+            int removed = extra * (extra + 1int) / 2int;
+            int cur = (Q[R] - Q[L - 1]) - removed;
             ans = max(ans, cur);
             L++;
         }

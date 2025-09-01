@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-#define ll long long
+#define int long long
 
 using namespace std;
 char buf[1 << 23], *p1 = buf, *p2 = buf;
@@ -17,8 +17,8 @@ int p2 = rng2() % (1e9 + 7);
 int p3 = rng() % (1e9 + 7);
 int p4 = rng2() % (1e9 + 7);
 
-inline ll read() {
-    ll x = 0, f = 1;
+inline int read() {
+    int x = 0, f = 1;
     char c = gc();
     while (c < '0' || c > '9') {
         if (c == '-') f = -1;
@@ -31,7 +31,7 @@ inline ll read() {
     return x * f;
 }
 
-inline void write(ll x) {
+inline void write(int x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -40,7 +40,7 @@ inline void write(ll x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(ll x) {
+inline void writeln(int x) {
     write(x);
     putchar('\n');
 }

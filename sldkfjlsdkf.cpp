@@ -12,7 +12,7 @@ vector<long long> positions, prefixSum, leftMin, rightMax, result;
 int stationCount;
 
 // 计算在给定长度限制下的最优分配
-void calculateOptimalAllocation(int stationIndex, long long maxLength) {
+void calculateOptimalAintocation(int stationIndex, long long maxLength) {
     // 如果总路径长度不超过限制，直接分配
     if (leftMin[stationCount] + rightMax[stationCount] <= maxLength) {
         result[stationIndex] += rightMax[stationCount];
@@ -47,7 +47,7 @@ int main() {
     freopen("paint.in", "r", stdin);
     freopen("paint.out", "w", stdout);
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
     
     int totalStations;
     cin >> totalStations >> stationCount;
@@ -85,7 +85,7 @@ int main() {
     // 处理中间站点间的最优分配
     for (int i = 1; i < totalStations; i++) {
         long long segmentLength = positions[i + 1] - positions[i];
-        calculateOptimalAllocation(i, segmentLength);
+        calculateOptimalAintocation(i, segmentLength);
     }
     
     // 输出结果

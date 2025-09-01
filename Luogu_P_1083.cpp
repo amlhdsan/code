@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 1000001
-#define ll long long
+#define int long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)
@@ -55,13 +55,13 @@ void mdf(int p, int l, int r, int ql, int qr, int k) {
     upd(p);
 }
 
-ll qry(int p, int l, int r, int ql, int qr) {
+int qry(int p, int l, int r, int ql, int qr) {
     if(ql <= l && r <= qr) {
         return tree[p];
     }
     pushd(p);
 
-    ll ret = 0x7fffffff;
+    int ret = 0x7fffffff;
 
     if(ql <= mid) {
         ret = min(ret, qry(ls, l, mid, ql, qr));

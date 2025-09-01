@@ -105,7 +105,7 @@ int main(){
     freopen("Add.out", "w", stdout);
 
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
  
     string A, B;
     cin >> A >> B;

@@ -1,14 +1,14 @@
 #include <bits/stdc++.h>
 
-#define ll long long
+#define int long long
 
 using namespace std;
 
 int n;
-ll sum = 0;
+int sum = 0;
 
-inline ll read() {
-    ll w = 0, f = 1;
+inline int read() {
+    int w = 0, f = 1;
     char ch = getchar_unlocked();
     while(ch < '0' || ch > '9') {
         if(ch == '-') {

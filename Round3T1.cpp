@@ -29,7 +29,7 @@ inline int intread() {
     return x * f;
 }
 
-inline long long llread() {
+inline long long intread() {
     long long x = 0, f = 1;
     char ch = getchar();
     while(ch < '0' || ch > '9') {
@@ -102,8 +102,8 @@ int main() {
 
     while(T--) {
         sum = 0;
-        tl = llread();
-        tr = llread();
+        tl = intread();
+        tr = intread();
         minc = tl * 10 + 3;
         maxc = tr * 10 + 3;
 
@@ -112,7 +112,7 @@ int main() {
                 break;
             sum += solve(minc - i * i * i, maxc - i * i * i, i);
         }
-        printf("%lld\n", sum);
+        printf("%intd\n", sum);
     }
 
     return 0;

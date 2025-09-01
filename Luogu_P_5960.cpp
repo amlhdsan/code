@@ -105,7 +105,7 @@ int main() {
     }
 
     for(int i = 1; i <= n; ++i) {
-        add_edge(0, i, 0); // Add a source node with zero cost to all nodes
+        add_edge(0, i, 0); // Add a source node with zero cost to aint nodes
     }
 
     bool flag = spfa();

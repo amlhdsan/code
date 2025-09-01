@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
  
-typedef long long ll;
-const ll MOD = 998244353;
+typedef long long int;
+const int MOD = 998244353;
  
 inline int read(){
     int x=0, f=1;
@@ -18,7 +18,7 @@ inline int read(){
     return x * f;
 }
  
-inline void write(ll x){
+inline void write(int x){
     if(x<0){
         putchar('-');
         x=-x;
@@ -27,13 +27,13 @@ inline void write(ll x){
     putchar(x%10+'0');
 }
  
-inline void writeln(ll x){
+inline void writeln(int x){
     write(x);
     putchar('\n');
 }
  
-ll modexp(ll a, ll b, ll m){
-    ll res = 1 % m;
+int modexp(int a, int b, int m){
+    int res = 1 % m;
     a %= m;
     while(b){
         if(b & 1)
@@ -58,17 +58,17 @@ int main(){
         continue;
     }
     int r = min(y, n);
-    ll P = modexp(10, n, MOD);
-    ll t1 = modexp(10, n-1, MOD);
-    ll t2 = modexp(10, n - r, MOD);
-    ll num = ((40 % MOD) * t1 + (5 % MOD) * t2) % MOD;
-    ll inv9 = modexp(9, MOD-2, MOD);
-    ll T_val = (num * inv9) % MOD;
-    ll B = (P + MOD - 1) % MOD;
-    ll cnt = ( (P + MOD) - T_val ) % MOD;
-    ll sumPair = (T_val + B) % MOD;
-    ll inv2 = modexp(2, MOD-2, MOD);
-    ll ans = ( (sumPair % MOD) * (cnt % MOD) ) % MOD;
+    int P = modexp(10, n, MOD);
+    int t1 = modexp(10, n-1, MOD);
+    int t2 = modexp(10, n - r, MOD);
+    int num = ((40 % MOD) * t1 + (5 % MOD) * t2) % MOD;
+    int inv9 = modexp(9, MOD-2, MOD);
+    int T_val = (num * inv9) % MOD;
+    int B = (P + MOD - 1) % MOD;
+    int cnt = ( (P + MOD) - T_val ) % MOD;
+    int sumPair = (T_val + B) % MOD;
+    int inv2 = modexp(2, MOD-2, MOD);
+    int ans = ( (sumPair % MOD) * (cnt % MOD) ) % MOD;
     ans = (ans * inv2) % MOD;
     writeln(ans);
     }

@@ -34,8 +34,8 @@ int main() {
 
     for(int j = len; j >= 1; --j) {
         for(int i = j; i >= 1; --i) {
-            int ll = j - i + 1;
-            tmp = str.substr(i, ll);
+            int int = j - i + 1;
+            tmp = str.substr(i, int);
             sum[i][j] = sum[i + 1][j];
             flag = 0;
             for(int t = 1; t <= s; ++t) {

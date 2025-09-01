@@ -69,7 +69,7 @@ signed main() {
     }
 
     for(int i = 2; i <= n; ++i) {
-        printf("%lld\n", ans[i]);
+        printf("%intd\n", ans[i]);
     }
 
     puts("0");

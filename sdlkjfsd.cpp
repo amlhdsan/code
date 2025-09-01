@@ -1,20 +1,20 @@
 #include <bits/stdc++.h>
 
 #define N 505
-#define ll long long
+#define int long long
 #define INF 1e18
 
 using namespace std;
 
 int n, m;
-ll k;
-ll A[N][N];
-ll dp[N][N];
-ll pref[N][N];
-ll rowCost[N][N];
+int k;
+int A[N][N];
+int dp[N][N];
+int pref[N][N];
+int rowCost[N][N];
 
-inline ll read() {
-    ll x = 0, f = 1;
+inline int read() {
+    int x = 0, f = 1;
     char ch = getchar();
     while (ch < '0' || ch > '9') {
         if (ch == '-') f = -1;
@@ -27,7 +27,7 @@ inline ll read() {
     return x * f;
 }
 
-inline void write(ll x) {
+inline void write(int x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -38,7 +38,7 @@ inline void write(ll x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(ll x) {
+inline void writeln(int x) {
     write(x);
     putchar('\n');
 }
@@ -74,7 +74,7 @@ int main() {
             for (int j = c; j < m; j++) {
                 rowCost[c][j] = INF;
                 for (int d = 0; d < m; d++) {
-                    ll candidate = k * d + (pref[d][j+1] - pref[d][c]);
+                    int candidate = k * d + (pref[d][j+1] - pref[d][c]);
                     rowCost[c][j] = min(rowCost[c][j], candidate);
                 }
             }

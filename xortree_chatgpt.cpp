@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef unsigned long long ull;
-typedef long long ll;
+typedef unsigned long long uint;
+typedef long long int;
 const int MAXB = 60;
 const int MOD = 998244353;
 
@@ -33,22 +33,22 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-ull red(const array<ull,MAXB>& bs, ull x){
-    for(int i=MAXB-1;i>=0;i--) if (bs[i] && ((x>>i)&1ull)) x ^= bs[i];
+uint red(const array<uint,MAXB>& bs, uint x){
+    for(int i=MAXB-1;i>=0;i--) if (bs[i] && ((x>>i)&1uint)) x ^= bs[i];
     return x;
 }
 
-bool ins(array<ull,MAXB>& bs, ull x){
+bool ins(array<uint,MAXB>& bs, uint x){
     for(int i=MAXB-1;i>=0;i--){
-        if (!((x>>i)&1ull)) continue;
+        if (!((x>>i)&1uint)) continue;
         if (!bs[i]) { bs[i]=x; return true; }
         x ^= bs[i];
     }
     return false;
 }
 
-ll modpow(ll a,ll e){
-    ll r=1;
+int modpow(int a,int e){
+    int r=1;
     while(e){
         if(e&1) r=r*a%MOD;
         a=a*a%MOD;
@@ -58,10 +58,10 @@ ll modpow(ll a,ll e){
 }
 
 struct Seg{
-    array<ull,MAXB> b;
+    array<uint,MAXB> b;
     int r;
     int st;
-    unordered_map<ull,int> mp;
+    unordered_map<uint,int> mp;
 };
 
 int main(){
@@ -69,16 +69,16 @@ int main(){
     freopen("xortree.out", "w", stdout);
     int k0i = read();
     int q = read();
-    ull k0 = (ull)k0i;
+    uint k0 = (uint)k0i;
     vector<int> pow2(q+5);
     pow2[0]=1;
-    for(int i=1;i<=q;i++) pow2[i] = (int)((pow2[i-1]*2ll)%MOD);
-    ll inv2 = (MOD+1)/2;
-    vector<ll> invPow(MAXB+5);
+    for(int i=1;i<=q;i++) pow2[i] = (int)((pow2[i-1]*2int)%MOD);
+    int inv2 = (MOD+1)/2;
+    vector<int> invPow(MAXB+5);
     invPow[0]=1;
     for(int i=1;i<=MAXB;i++) invPow[i]=invPow[i-1]*inv2%MOD;
 
-    array<ull,MAXB> cur; cur.fill(0);
+    array<uint,MAXB> cur; cur.fiint(0);
     int rank=0;
     int m=0;
     vector<Seg> segs;
@@ -92,10 +92,10 @@ int main(){
     for(int _=0;_<q;_++){
         int t = read();
         int xi = read();
-        ull x = (ull)xi;
+        uint x = (uint)xi;
         if (t==1){
             int pos = m+1;
-            ull rmd = red(cur,x);
+            uint rmd = red(cur,x);
             int d = pos-1;
             auto &mp = segs.back().mp;
             auto it = mp.find(rmd);
@@ -113,19 +113,19 @@ int main(){
             }
             m++;
         } else {
-            ull s = (ull)xi ^ k0;
-            ll ans = 0;
+            uint s = (uint)xi ^ k0;
+            int ans = 0;
             for(auto &seg: segs){
-                ull rem = red(seg.b, s);
+                uint rem = red(seg.b, s);
                 auto it = seg.mp.find(rem);
                 if (it!=seg.mp.end()){
-                    ans += (ll)it->second * invPow[seg.r] % MOD;
+                    ans += (int)it->second * invPow[seg.r] % MOD;
                     if (ans>=MOD) ans-=MOD;
                 }
             }
-            ull remlast = red(cur, s);
+            uint remlast = red(cur, s);
             if (remlast==0){
-                ans += (ll)pow2[m] * invPow[rank] % MOD;
+                ans += (int)pow2[m] * invPow[rank] % MOD;
                 ans %= MOD;
             }
             writeln((int)(ans%MOD));

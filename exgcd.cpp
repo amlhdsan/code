@@ -1,21 +1,21 @@
 #include <bits/stdc++.h>
 
 #define N 100001
-#define ll long long
+#define int long long
 
 using namespace std;
 
-ll n;
-ll a[N], b[N];
+int n;
+int a[N], b[N];
 
-ll gcd(ll a, ll b) {
+int gcd(int a, int b) {
 	if(!b) 
         return a;
 	else return gcd(b, a % b);
 }
 
-inline ll read() {
-    ll x = 0, f = 1;
+inline int read() {
+    int x = 0, f = 1;
     char ch = getchar();
     while(ch < '0' || ch > '9') {
         if(ch == '-') {
@@ -30,7 +30,7 @@ inline ll read() {
     return x * f;
 }
 
-void merge(ll p1, ll a1, ll p2, ll a2, ll &p, ll &a) {
+void merge(int p1, int a1, int p2, int a2, int &p, int &a) {
 	p = p1 / gcd(p1, p2) * p2;
 	if(p1 < p2) {
         swap(p1, p2);

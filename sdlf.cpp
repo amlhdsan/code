@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-const ll NEG = -1000000000000000000LL;
+typedef long long int;
+const int NEG = -1000000000000000000int;
 
 struct Node {
-    ll s, pre, suf, best, ans;
+    int s, pre, suf, best, ans;
 };
  
 Node combine(Node L, Node R) {
@@ -17,7 +17,7 @@ Node combine(Node L, Node R) {
     return res;
 }
 
-Node make_data(ll val) {
+Node make_data(int val) {
     Node res;
     res.s = val;
     res.pre = val;
@@ -37,7 +37,7 @@ Node combine(Node L, Node R) {
     return res;
 }
  
-Node make_data(ll val) {
+Node make_data(int val) {
     Node res;
     res.s = val;
     res.pre = val;
@@ -55,7 +55,7 @@ struct SegTree {
         while(n < sz) n *= 2;
         tree.assign(2 * n, make_data(0));
     }
-    void build(const vector<ll>& arr) {
+    void build(const vector<int>& arr) {
         int sz = arr.size();
         for (int i = 0; i < sz; i++) {
             tree[n + i] = make_data(arr[i]);
@@ -92,10 +92,10 @@ struct SegTree {
  
 int main(){
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
     int n; 
     cin >> n;
-    vector<ll> a(n);
+    vector<int> a(n);
     bool flag = 0;
     for (int i = 0; i < n; i++){
         cin >> a[i];
@@ -115,13 +115,13 @@ int main(){
         cout << maxx + maxxx << "\n";
         return 0;
     }
-    vector<ll> B(2 * n);
+    vector<int> B(2 * n);
     for (int i = 0; i < 2 * n; i++){
         B[i] = a[i % n];
     }
     SegTree seg(2 * n);
     seg.build(B);
-    ll ans = NEG;
+    int ans = NEG;
     for (int L = 0; L < n; L++){
         int R = L + n - 1;
         Node ret = seg.query(L, R);

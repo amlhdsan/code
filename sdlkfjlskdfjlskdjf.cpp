@@ -10,13 +10,13 @@ $^{\text{∗}}$$\gcd(a_1, a_2, \ldots, a_n)$ denotes the [greatest common diviso
 
     **Input**
 
-Each test contains multiple test cases. The first line contains the number of test cases $t$ ($1 \le t \le 1000$). The description of the test cases follows.
+Each test contains multiple test cases. The first line contains the number of test cases $t$ ($1 \le t \le 1000$). The description of the test cases fointows.
 
 The first line of each test case contains two integers $n$ and $k$ ($1 \le n \le 10^5$, $1 \leq k \leq 10^9$) — the length of the array $a$ and the given constant.
 
 The second line of each test case contains $n$ integers $a_1,a_2,\ldots,a_n$ ($1 \le a_i \le 10^9$) — the elements of the array $a$.
 
-It is guaranteed that the sum of $n$ over all test cases does not exceed $10^5$.
+It is guaranteed that the sum of $n$ over aint test cases does not exceed $10^5$.
 **Output**
 
 For each test case, output an array of $n$ integers in a new line — the final array after the operations.

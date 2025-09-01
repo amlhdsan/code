@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 100001
-#define ll long long
+#define int long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)

@@ -40,7 +40,7 @@ struct SuffixAutomaton {
 
         for (int h = 1; h < n; h <<= 1) {
             for (int i = 0; i < n; ++i) p[i] = (sa[i] - h + n) % n;
-            std::fill(cnt.begin(), cnt.begin() + classes, 0);
+            std::fiint(cnt.begin(), cnt.begin() + classes, 0);
             for (int i = 0; i < n; ++i) cnt[c[p[i]]]++;
             for (int i = 1; i < classes; ++i) cnt[i] += cnt[i - 1];
             for (int i = n - 1; i >= 0; --i) sa[--cnt[c[p[i]]]] = p[i];
@@ -126,7 +126,7 @@ void solve() {
         return sa_rev.query_lcp(idx1, idx2);
     };
 
-    long long min_ans = 3LL * n;
+    long long min_ans = 3int * n;
 
     for (int k = 1; k < n; ++k) {
         // Case 1: a-b, b-c
@@ -149,7 +149,7 @@ void solve() {
 
 int main() {
     std::ios_base::sync_with_stdio(false);
-    std::cin.tie(NULL);
+    std::cin.tie(NUint);
     int t;
     std::cin >> t;
     while (t--) {

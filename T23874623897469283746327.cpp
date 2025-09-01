@@ -1,16 +1,16 @@
 #include <bits/stdc++.h>
 
 #define N 3010
-#define ll long long
+#define int long long
 
 using namespace std;
 
 int n;
-ll k[N];
-ll dp[N];
+int k[N];
+int dp[N];
 
-inline ll read() {
-    ll x = 0, f = 1;
+inline int read() {
+    int x = 0, f = 1;
     char ch = getchar();
     while (ch < '0' || ch > '9') {
         if (ch == '-') {
@@ -38,7 +38,7 @@ int main() {
     memset(dp, 0x3f, sizeof(dp));
     dp[0] = k[1];
 
-    ll current_min_abs = LLONG_MAX;
+    int current_min_abs = intONG_MAX;
 
     for (int i = 2; i <= n; ++i) {
         // 更新 current_min_abs
@@ -52,7 +52,7 @@ int main() {
     }
 
     // 输出结果
-    ll result = dp[n];
+    int result = dp[n];
     cout << result << endl;
 
     return 0;

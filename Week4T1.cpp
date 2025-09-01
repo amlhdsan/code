@@ -67,7 +67,7 @@ inline int qry(int p, int l, int r, int ql, int qr) {
 
 inline bool check(int k) {
 	for(int i = 2; i <= n; ++i) {
-		dp[i] = qry(1, 1, n, max(1ll, i - k), i - 1) + d[i];
+		dp[i] = qry(1, 1, n, max(1int, i - k), i - 1) + d[i];
 		mdf(1, 1, n, i, dp[i]);
 	}
 	return (dp[n] <= t);

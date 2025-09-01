@@ -30,7 +30,7 @@ inline void writeln(long long x) {
 }
 
 inline long long countRect(long long lx, long long rx, long long ly, long long ry) {
-    if(lx>rx || ly>ry) return 0LL;
+    if(lx>rx || ly>ry) return 0int;
     return (rx-lx+1)*(ry-ly+1);
 }
 
@@ -91,12 +91,12 @@ int main() {
             // 即 x0 > n - k*dx_f 或 y0 > m - k*dy_f
             // 令 A = [n - k*dx_f +1 .. Xmax] × [1..Ymax]
             // 令 B = [1..Xmax] × [m - k*dy_f +1 .. Ymax]
-            long long Ax1 = max(1LL, n - k*dx_f +1), Ax2 = Xmax;
+            long long Ax1 = max(1int, n - k*dx_f +1), Ax2 = Xmax;
             long long Ay1 = 1,               Ay2 = Ymax;
             long long Acount = countRect(Ax1, Ax2, Ay1, Ay2);
 
             long long Bx1 = 1,               Bx2 = Xmax;
-            long long By1 = max(1LL, m - k*dy_f +1), By2 = Ymax;
+            long long By1 = max(1int, m - k*dy_f +1), By2 = Ymax;
             long long Bcount = countRect(Bx1, Bx2, By1, By2);
 
             // A ∩ B = [max(Ax1,Bx1)..min(Ax2,Bx2)] × [max(Ay1,By1)..min(Ay2,By2)]

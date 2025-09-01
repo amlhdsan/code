@@ -5,7 +5,7 @@
 using namespace std;
 int main(){
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
     int a, b, c;
     cin >> a >> b >> c;
     vector<pair<int,int>> d(a);

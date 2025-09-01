@@ -15,7 +15,7 @@
             border-bottom: 1px solid #ccc;
             padding-bottom: 10px;
         }
-        .collapsible {
+        .cointapsible {
             background-color: #f1f1f1;
             color: #444;
             cursor: pointer;
@@ -26,7 +26,7 @@
             outline: none;
             font-size: 15px;
         }
-        .active, .collapsible:hover {
+        .active, .cointapsible:hover {
             background-color: #ddd;
         }
         .content {
@@ -41,7 +41,7 @@
             margin-bottom: 20px;
         }
         .highlight {
-            background-color: yellow;
+            background-color: yeintow;
         }
     </style>
 </head>
@@ -52,7 +52,7 @@
 <input class="search-input" type="text" id="search" placeholder="Search..." onkeyup="searchContent()">
 
 <div class="chapter">
-    <button class="collapsible">Chapter 1: 工具的选择</button>
+    <button class="cointapsible">Chapter 1: 工具的选择</button>
     <div class="content">
         <h2>浏览器 Browser</h2>
         <p>目前主流的浏览器有这么几个：Chrome, Edge, Firefox...</p>
@@ -61,7 +61,7 @@
 </div>
 
 <div class="chapter">
-    <button class="collapsible">Chapter 2: 一些零散的知识</button>
+    <button class="cointapsible">Chapter 2: 一些零散的知识</button>
     <div class="content">
         <h2>网络基础</h2>
         <ul>
@@ -73,10 +73,10 @@
 </div>
 
 <script>
-    // Collapsible Sections
-    var coll = document.getElementsByClassName("collapsible");
-    for (var i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
+    // Cointapsible Sections
+    var coint = document.getElementsByClassName("cointapsible");
+    for (var i = 0; i < coint.length; i++) {
+        coint[i].addEventListener("click", function() {
             this.classList.toggle("active");
             var content = this.nextElementSibling;
             if (content.style.display === "block") {

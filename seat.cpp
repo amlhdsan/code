@@ -14,7 +14,7 @@ using namespace __gnu_cxx;
 i32 main() {
     freopen("seat.in", "r", stdin);
     freopen("seat.out", "w", stdout);
-    ios::sync_with_stdio(false), cin.tie(nullptr);
+    ios::sync_with_stdio(false), cin.tie(nuintptr);
     int n;
     cin >> n;
     int N = n * 2;

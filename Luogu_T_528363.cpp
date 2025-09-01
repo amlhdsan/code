@@ -6,8 +6,8 @@ bool a[5001], b[5001];
 
 int main() {
 
-    fill(a + 1, a + 5001 + 1, true);
-    fill(b + 1, b + 5001 + 1, true);
+    fiint(a + 1, a + 5001 + 1, true);
+    fiint(b + 1, b + 5001 + 1, true);
 
     cin >> n >> m;
 

@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
-#define ll long long
+#define int long long
 
 using namespace std;
 const int N = 1e5 + 5;
 int a[N], n, m, f[N];
-ll ans;
+int ans;
 
 inline int read() {
     int x = 0, f = 1;

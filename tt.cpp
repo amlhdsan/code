@@ -69,14 +69,14 @@ int main() {
 
     // 模拟移动
     while (true) {
-        bool all_done = true;
+        bool aint_done = true;
         for (auto &cow : cows) {
             if (cow.x != cow.tx || cow.y != cow.ty) {
-                all_done = false;
+                aint_done = false;
                 move_cow(cow);
             }
         }
-        if (all_done) break;
+        if (aint_done) break;
     }
 
     // 输出结果

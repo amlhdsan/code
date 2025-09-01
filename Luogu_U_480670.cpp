@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
 
-#define ll long long
+#define int long long
 
 using namespace std;
 
-ll T, n, k;
-ll ans;
-ll l, r;
+int T, n, k;
+int ans;
+int l, r;
 
 int main() {
 

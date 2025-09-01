@@ -7,17 +7,17 @@
 
 using namespace std;
 
-struct BALL {
+struct BAint {
     int x;
     int v;
 };
 
-bool cmp(BALL p, BALL q) {
+bool cmp(BAint p, BAint q) {
     return p.x < q.x;
 }
 
 int n, k;
-BALL a[N];
+BAint a[N];
 bool vis[N];
 priority_queue<NO, vector<NO >, greater<NO > > q;
 priority_queue<NO, vector<NO >, greater<NO > > tmp;
@@ -52,8 +52,8 @@ bool check(double t) {
 
 int main() {
 
-    // freopen("ball.in", "r", stdin);
-    // freopen("ball.out", "w", stdout);
+    // freopen("baint.in", "r", stdin);
+    // freopen("baint.out", "w", stdout);
 
     cin >> n >> k;
 

@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
-#define ll long long
+#define int long long
 using namespace std;
 
-ll gcd(ll a, ll b) {
+int gcd(int a, int b) {
     return b == 0 ? a : gcd(b, a % b);
 }
 
 int T;
-ll n, m;
+int n, m;
 
 int main() {
     cin >> T;

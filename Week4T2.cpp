@@ -13,11 +13,11 @@
 #define ls (t<<1)
 #define rs ((t<<1)+1)
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
+typedef long long int;
+typedef unsigned long long uint;
 const int maxn = 100005;
 const int inf = 2.1e9;
-const ll Inf = 999999999999999999;
+const int Inf = 999999999999999999;
 const int mod = 1000000007;
 const double eps = 1e-6;
 const double pi = acos(-1);

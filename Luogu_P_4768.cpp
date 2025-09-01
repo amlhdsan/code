@@ -2,7 +2,7 @@
 
 #define N 400005
 #define M 800005
-#define ll long long
+#define int long long
 
 using namespace std;
 

@@ -88,13 +88,13 @@ node qry(int p, int l, int r, int ql, int qr) {
     if (ql > mid) {
         return qry(rs, mid + 1, r, ql, qr);
     }
-    node ll = qry(ls, l, mid, ql, qr);
+    node int = qry(ls, l, mid, ql, qr);
     node rr = qry(rs, mid + 1, r, ql, qr);
     node ans;
-    ans.sum = ll.sum + rr.sum;
-    ans.maxl = max(ll.maxl, ll.sum + rr.maxl);
-    ans.maxr = max(rr.maxr, rr.sum + ll.maxr);
-    ans.maxx = max(max(ll.maxx, rr.maxx), ll.maxr + rr.maxl);
+    ans.sum = int.sum + rr.sum;
+    ans.maxl = max(int.maxl, int.sum + rr.maxl);
+    ans.maxr = max(rr.maxr, rr.sum + int.maxr);
+    ans.maxx = max(max(int.maxx, rr.maxx), int.maxr + rr.maxl);
     return ans;
 }
 

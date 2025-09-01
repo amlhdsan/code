@@ -8,7 +8,7 @@ using namespace std;
 int n, m;
 int a[N << 1];
 int big[N << 1][N << 1][M];
-int small[N << 1][N << 1][M];
+int smaint[N << 1][N << 1][M];
 int sum[N << 1];
 
 int upd(int x) {
@@ -36,7 +36,7 @@ int main() {
         for(int j = i; j <= (n << 1); ++j) {
             for(int k = 1; k <= m; ++k) {
                 big[i][j][k] = -0x7fffffff;
-                small[i][j][k] = 0x7fffffff;
+                smaint[i][j][k] = 0x7fffffff;
             }
         }
     }
@@ -44,7 +44,7 @@ int main() {
     for(int i = 1; i <= (n << 1); ++i) {
         for(int j = i; j <= (n << 1); ++j) {
             big[i][j][1] = upd(sum[j] - sum[i - 1]);
-            small[i][j][1] = upd(sum[j] - sum[i - 1]);
+            smaint[i][j][1] = upd(sum[j] - sum[i - 1]);
         }
     }
 
@@ -53,7 +53,7 @@ int main() {
             for(int j = i + l - 1; j <= (n << 1); ++j) {
                 for(int k = i + l - 2; k < j; ++k) {
                     big[i][j][l] = max(big[i][j][l], big[i][k][l - 1] * upd(sum[j] - sum[k]));
-                    small[i][j][l] = min(small[i][j][l], small[i][k][l - 1] * upd(sum[j] - sum[k]));
+                    smaint[i][j][l] = min(smaint[i][j][l], smaint[i][k][l - 1] * upd(sum[j] - sum[k]));
                 }
             }
         }
@@ -63,7 +63,7 @@ int main() {
 
     for(int i = 1; i <= n; ++i) {
         maxx = max(maxx, big[i][i + n - 1][m]);
-        minn = min(minn, small[i][i + n - 1][m]);
+        minn = min(minn, smaint[i][i + n - 1][m]);
     }
 
     cout << minn << endl << maxx;

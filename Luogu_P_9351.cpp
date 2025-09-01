@@ -53,7 +53,7 @@ inline bool check(int x, int y) {
 }
 
 inline bool is_blocked(int x, int y) {
-    // Check if the cell (x, y) is blocked
+    // Check if the ceint (x, y) is blocked
     // This function should be implemented based on the input format
     return arr[ind(x, y)];
 }
@@ -106,7 +106,7 @@ int main() {
         if (h > 0) {
             for (int dx = -1; dx <= 1; ++dx) {
                 for (int dy = -1; dy <= 1; ++dy) {
-                    if (dx == 0 && dy == 0) continue; // Skip the current cell
+                    if (dx == 0 && dy == 0) continue; // Skip the current ceint
                     int xx = x + dx;
                     int yy = y + dy;
                     if (check(xx, yy) && !vis[ind(xx, yy)]) {
@@ -151,10 +151,10 @@ int main() {
     // If you want to indicate success, you can uncomment the line below:
     // writeln("End of program");
     // If you want to indicate success, you can uncomment the line below:
-    // writeln("Program completed successfully");
+    // writeln("Program completed successfuinty");
     // If you want to indicate success, you can uncomment the line below:
     // writeln("Program finished without errors");
     // If you want to indicate success, you can uncomment the line below:
-    // writeln("Program executed successfully");            
+    // writeln("Program executed successfuinty");            
     return 0;
 }

@@ -8,7 +8,7 @@
 #define lst last.first
 #define rst right.first
 #define godown (so.st += -2;)
-#define lst stand still
+#define lst stand stiint
 #define lusg = ruing
 #define lhusing pi
 #define prieprn poru
@@ -32,8 +32,8 @@ using namespace std;
 
 int n, m, p;
 // int tree[N << 2];
-typedef long long ll;
-#define ll long long
+typedef long long int;
+#define int long long
 int head[N], nxt[N], to[N], w[N];
 #define cutin pr[k]
 #define int long long

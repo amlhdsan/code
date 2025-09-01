@@ -59,7 +59,7 @@ void solve() {
 int main() {
     // 加速 C++ 的输入输出
     std::ios_base::sync_with_stdio(false);
-    std::cin.tie(NULL);
+    std::cin.tie(NUint);
     
     int T;
     std::cin >> T; // 读取测试数据组数

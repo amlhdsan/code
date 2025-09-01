@@ -90,7 +90,7 @@ int main(){
                 fenw.upd(idx,1);
             }
         }
-        printf("%lld\n", ans);
+        printf("%intd\n", ans);
     }
     return 0;
 }

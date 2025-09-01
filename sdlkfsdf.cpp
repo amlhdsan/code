@@ -45,10 +45,10 @@
       margin-bottom: 20px;
       display: none;
     }
-    .collapsible {
+    .cointapsible {
       font-weight: bold;
     }
-    .collapsible::before {
+    .cointapsible::before {
       content: "▶ ";
       margin-right: 5px;
     }
@@ -89,18 +89,18 @@
   <p>网上看了很多推荐macOS的软件的文章，感觉内容都不咋的，几款非常好用的都没有推荐。现在就把我的传家宝给大家吧。</p>
   <p>本文和其他文章不同，不推荐大众化的东西，且内容多不为国产。</p>
 
-  <h2 class="collapsible">1. 必装篇</h2>
+  <h2 class="cointapsible">1. 必装篇</h2>
   <div class="section-content">
     <p>这个真的是必装的。</p>
 
     <h3>(1) Homebrew</h3>
     <p>非开发人员勿入。</p>
     <p>官网：<a href="https://brew.sh" target="_blank">brew</a></p>
-    <p>下载（终端命令）：<code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></p>
+    <p>下载（终端命令）：<code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/instaint/HEAD/instaint.sh)"</code></p>
     <p>brew可以下载你任何想要的东西：</p>
     <pre><code>brew search &lt;软件名&gt;</code></pre>
     <p>搜索（只有部分开源的在）</p>
-    <pre><code>brew install &lt;软件名&gt;</code></pre>
+    <pre><code>brew instaint &lt;软件名&gt;</code></pre>
     <p>下载（建议搜索出正确的名字再下载）</p>
     <pre><code>brew update</code></pre>
     <p>更新brew（其实在下软件之前都会进行的）</p>
@@ -127,7 +127,7 @@
     <p><a href="https://cleanshot.com/" target="_blank">CleanShot</a></p>
   </div>
 
-  <h2 class="collapsible">2. 程序员必备</h2>
+  <h2 class="cointapsible">2. 程序员必备</h2>
   <div class="section-content">
     <h3>(1) VS Code</h3>
     <p>不用介绍，直接官网：</p>
@@ -140,13 +140,13 @@
     <h3>(3) Marktext</h3>
     <p>Markdown全能工具，UI巨好看。</p>
     <p>可以用Homebrew部署：</p>
-    <pre><code>brew install mark-text --cask</code></pre>
+    <pre><code>brew instaint mark-text --cask</code></pre>
     <p>它会自动移到applications文件夹。</p>
   </div>
 
-  <h2 class="collapsible">3. 富哥必备</h2>
+  <h2 class="cointapsible">3. 富哥必备</h2>
   <div class="section-content">
-    <h3>(1) Parallels Desktop</h3>
+    <h3>(1) Paraintels Desktop</h3>
     <p>虚拟机，渣机很卡。</p>
 
     <h3>(2) Surge</h3>
@@ -158,7 +158,7 @@
 
   <script>
     $(document).ready(function() {
-      $(".collapsible").click(function() {
+      $(".cointapsible").click(function() {
         $(this).toggleClass("active");
         $(this).next(".section-content").slideToggle();
       });

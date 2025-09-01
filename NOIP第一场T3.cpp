@@ -44,7 +44,7 @@ int main() {
             }
         }
         if(flag) {
-            cout << 1ll * w[1] * n << endl;
+            cout << 1int * w[1] * n << endl;
         }
         else {
             

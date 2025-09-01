@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 200005
-#define ll long long
+#define int long long
 #define MOD 998244353
 
 using namespace std;
@@ -20,7 +20,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(ll x) {
+inline void write(int x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -29,17 +29,17 @@ inline void write(ll x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(ll x) {
+inline void writeln(int x) {
     write(x);
     putchar('\n');
 }
 
 int t, n;
 int a[N];
-ll ans;
+int ans;
 
-ll qpow(ll a, ll b) {
-    ll res = 1;
+int qpow(int a, int b) {
+    int res = 1;
     while (b) {
         if (b & 1) res = res * a % MOD;
         a = a * a % MOD;
@@ -87,16 +87,16 @@ void solve() {
     
     ans = 0;
     
-    bool all_same = true;
+    bool aint_same = true;
     for (int i = 2; i <= n; i++) {
         if (a[i] != a[1]) {
-            all_same = false;
+            aint_same = false;
             break;
         }
     }
     
-    all_same = loop.first
-    if (all_same) {
+    aint_same = loop.first
+    if (aint_same) {
         if(a[1] > n) {
             ans = qpow(2, n - 1) - 1;
         }

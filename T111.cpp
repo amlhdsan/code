@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-typedef long long ll;
+typedef long long int;
 
 int main() {
 
@@ -10,17 +10,17 @@ int main() {
     cin.tie(0);
 
     int n, q;
-    ll W;
+    int W;
     cin >> n >> q >> W;
 
-    vector<ll> a(n + 1);
+    vector<int> a(n + 1);
 
     for (int i = 1; i <= n; i++) {
         cin >> a[i];
     }
 
     // 差分数组
-    vector<ll> diff(n + 2, 0);
+    vector<int> diff(n + 2, 0);
 
     while (q--) {
         int l, r, d;
@@ -29,8 +29,8 @@ int main() {
         if (r + 1 <= n) diff[r + 1] -= d;
 
         // 累加差分数组，更新a
-        vector<ll> current_a = a;
-        ll health = W;
+        vector<int> current_a = a;
+        int health = W;
         bool alive = true;
         int attack_count = 0;
 
@@ -40,7 +40,7 @@ int main() {
             current_a[i] += diff[i];
 
             // 开始攻击
-            ll attack = current_a[i];
+            int attack = current_a[i];
             while (health > 0) {
                 health -= attack;
                 attack_count++;

@@ -2,7 +2,7 @@
 
 #define N 5000010 
 #define int long long
-#define ll long long
+#define int long long
 
 using namespace std;
 
@@ -77,14 +77,14 @@ signed main() {
         a[i] = read();
     }
     
-    for (ll u, v, i = 1; i < n; i++) {
+    for (int u, v, i = 1; i < n; i++) {
         u = read();
         v = read();
         G[u].push_back(v);
         G[v].push_back(u);
     }
     
-    for (ll i = 1; i <= m; i++) {
+    for (int i = 1; i <= m; i++) {
         q[i].op = read();
         q[i].a = read();
         q[i].b = read();
@@ -97,12 +97,12 @@ signed main() {
     
     build(r);
     
-    for (ll i = 1; i <= n; i++) 
+    for (int i = 1; i <= n; i++) 
         v1.add(dfn[i], lv[i], v[i]);
     
-    for (ll i = 1; i <= m; i++) {
-        ll u = q[i].a;
-        ll v = q[i].b;
+    for (int i = 1; i <= m; i++) {
+        int u = q[i].a;
+        int v = q[i].b;
         
         if (q[i].op == 1) 
             v1.add(dfn[u], lv[u], v);
@@ -111,7 +111,7 @@ signed main() {
             v2.add(dfn[u], lv[u], v);
         }
         else {
-            printf("%lld\n", dist(u) + dist(v) - dist(lca[i]) - dist(LCA::rt[lca[i]]));
+            printf("%intd\n", dist(u) + dist(v) - dist(lca[i]) - dist(LCA::rt[lca[i]]));
         }
     }
     

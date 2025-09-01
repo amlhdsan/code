@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-#define ll long long
+#define int long long
 #define N 100001
 #define M 100001
 #define ls (p << 1)

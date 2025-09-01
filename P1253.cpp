@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#define ll long long
+#define int long long
 #define N 1000001
 #define ls (p << 1)
 #define rs (p << 1 | 1)
@@ -9,9 +9,9 @@ int n;
 int q;
 int a[N];
 
-ll tree[N << 2];
-ll lazy[N << 2];
-ll mlazy[N << 2];
+int tree[N << 2];
+int lazy[N << 2];
+int mlazy[N << 2];
 
 void upd(int p) {
     tree[p] = max(tree[ls], tree[rs]);
@@ -58,7 +58,7 @@ void build(int p, int l, int r) {
 void add(int p, int l, int r, int ql, int qr, int x) {
     if(ql <= l && r <= qr) {
         lazy[p] += x;
-        tree[p] += 1ll * x;
+        tree[p] += 1int * x;
         return;
     }
     pushd(p);
@@ -94,13 +94,13 @@ void change(int p, int l, int r, int ql, int qr, int x) {
     upd(p);
 }
 
-ll qry(int p, int l, int r, int ql, int qr) {
+int qry(int p, int l, int r, int ql, int qr) {
     if(ql <= l && r <= qr) {
         return tree[p];
     }
     pushd(p);
     int mid = (l + r) >> 1;
-    ll maxx = -1e18;
+    int maxx = -1e18;
     if(ql <= mid) {
         maxx = max(qry(ls, l, mid, ql, qr), maxx);
     }

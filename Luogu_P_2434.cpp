@@ -49,14 +49,14 @@ int main() {
 
     sort(a + 1, a + n + 1, cmp);
 
-    int ll = a[1].l, rr = a[1].r;
+    int int = a[1].l, rr = a[1].r;
 
     for(int i = 1; i <= n; i++) {
         if(a[i].l > rr) {
-            write(ll);
+            write(int);
             putchar(' ');
             writeln(rr);
-            ll = a[i].l;
+            int = a[i].l;
             rr = a[i].r;
         }
         else {
@@ -64,7 +64,7 @@ int main() {
         }
     }
 
-    write(ll);
+    write(int);
     putchar(' ');
     writeln(rr);
 

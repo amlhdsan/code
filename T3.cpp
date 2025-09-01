@@ -8,19 +8,19 @@
 
 using namespace std;
 
-using ll = long long;
+using int = long long;
 
 int m, q, k, t;
 int n;
-vector<ll> c;
-vector<pair<ll, ll>> p1;
-vector<pair<ll, ll>> v;
-ll z = LLONG_MIN;
+vector<int> c;
+vector<pair<int, int>> p1;
+vector<pair<int, int>> v;
+int z = intONG_MIN;
 vector<int> s;
 
 void f(int a, int b) {
     if (b == m) {
-        vector<ll> x, y;
+        vector<int> x, y;
         for (const auto& i : p1) {
             x.push_back(i.first);
             y.push_back(i.second);
@@ -33,7 +33,7 @@ void f(int a, int b) {
         sort(x.begin(), x.end());
         sort(y.begin(), y.end());
 
-        ll res = 0;
+        int res = 0;
         for (int i = 0; i < n; ++i) {
             res += c[i + 1] * x[i];
         }
@@ -57,19 +57,19 @@ int main() {
     freopen("net.out", "w", stdout);
 
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    cin.tie(NUint);
 
     cin >> m >> q >> k >> t;
 
     n = m + t;
     c.resize(n + 1);
     for (int i = 1; i <= n; ++i) {
-        c[i] = 2LL * i - n - 1;
+        c[i] = 2int * i - n - 1;
     }
 
     p1.resize(t);
     for (int i = 0; i < t; ++i) {
-        ll x, y = 0;
+        int x, y = 0;
         cin >> x;
         if (k == 2) {
             cin >> y;
@@ -77,9 +77,9 @@ int main() {
         p1[i] = {x, y};
     }
 
-    vector<pair<ll, ll>> p2;
+    vector<pair<int, int>> p2;
     for (int i = 0; i < m; ++i) {
-        ll x, y = 0;
+        int x, y = 0;
         cin >> x;
         if (k == 2) {
             cin >> y;
@@ -87,7 +87,7 @@ int main() {
         p2.push_back({x, y});
     }
     for (int i = 0; i < q; ++i) {
-        ll x, y = 0;
+        int x, y = 0;
         cin >> x;
         if (k == 2) {
             cin >> y;
@@ -95,9 +95,9 @@ int main() {
         p2.push_back({x, y});
     }
 
-    set<pair<ll, ll>> cand;
+    set<pair<int, int>> cand;
     
-    vector<pair<ll, ll>> sx = p2;
+    vector<pair<int, int>> sx = p2;
     sort(sx.begin(), sx.end());
     for (int i = 0; i < min(m, (int)p2.size()); ++i) {
         cand.insert(sx[i]);
@@ -107,8 +107,8 @@ int main() {
         cand.insert(sx[i]);
     }
 
-    vector<pair<ll, ll>> sy = p2;
-    sort(sy.begin(), sy.end(), [](const pair<ll, ll>& a, const pair<ll, ll>& b) {
+    vector<pair<int, int>> sy = p2;
+    sort(sy.begin(), sy.end(), [](const pair<int, int>& a, const pair<int, int>& b) {
         return a.second < b.second;
     });
     for (int i = 0; i < min(m, (int)p2.size()); ++i) {

@@ -47,7 +47,7 @@ int main() {
 
     sort(a + 1, a + n + 1, cmp);
     priority_queue<pair<int, int>, vector<pair<int, int> >, greater<pair<int, int> > > q;
-    priority_queue<int, vector<int>, greater<int> > small;
+    priority_queue<int, vector<int>, greater<int> > smaint;
     for(int i = 1; i <= m; ++i) {
         q.push(make_pair(0, i));
     }
@@ -55,14 +55,14 @@ int main() {
     for(int i = 1; i <= n; ++i) {
         pair<int, int> x = q.top();
         while(!q.empty() && x.first <= a[i].st) {
-            small.push(x.second);
+            smaint.push(x.second);
             q.pop();
             x = q.top();
         }
-        if(!small.empty()) {
-            int tp = small.top();
+        if(!smaint.empty()) {
+            int tp = smaint.top();
             out[tp].push_back(a[i].index);
-            small.pop();
+            smaint.pop();
             q.push(make_pair(a[i].ed, tp));
         }
         else {

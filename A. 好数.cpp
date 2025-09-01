@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 
-#define ll long long
+#define int long long
 
 using namespace std;
 
-ll n;
+int n;
 
-ll qpow(ll a, ll b) {
-	ll ans = 1;
+int qpow(int a, int b) {
+	int ans = 1;
 	while(b > 0) {
 		if(b & 1) {
 			ans *= a;
@@ -18,9 +18,9 @@ ll qpow(ll a, ll b) {
 	return ans;
 }
 
-bool test(ll p) {
-    for(ll i = 2; i <= 24; ++i) {
-        for(ll j = 1; j; ++j) {
+bool test(int p) {
+    for(int i = 2; i <= 24; ++i) {
+        for(int j = 1; j; ++j) {
             if(qpow(j, i) == p) {
                 return 1;
             }
@@ -36,7 +36,7 @@ int main() {
 
     cin >> n;
 
-    for(ll i = n; i >= 1; --i) {
+    for(int i = n; i >= 1; --i) {
         if(test(i)) {
             cout << i << endl;
             return 0;

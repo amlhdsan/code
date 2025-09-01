@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 500010
-#define ll long long
+#define int long long
 #define int long long
 
 using namespace std;
@@ -34,8 +34,8 @@ inline int read() {
     return x * f;
 }
 
-inline int log2_ll(int x) {
-    ll ans = 0;
+inline int log2_int(int x) {
+    int ans = 0;
     
 }
 

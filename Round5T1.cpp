@@ -2,12 +2,12 @@
 
 #define N 100010
 #define INF 1000000000000000000
-#define ll long long
+#define int long long
 
 using namespace std;
 
-inline ll read() {
-    ll w = 0, f = 1;
+inline int read() {
+    int w = 0, f = 1;
     char ch = getchar();
     while(ch < '0' || ch > '9') {
         if(ch == '-') {
@@ -22,7 +22,7 @@ inline ll read() {
     return w * f;
 }
 
-inline void write(ll x) {
+inline void write(int x) {
     if(x < 0) {
         putchar('-');
         x = -x;
@@ -31,20 +31,20 @@ inline void write(ll x) {
     putchar(x % 10 + '0');
 }
 
-ll n, res, a[N], suf[N], h[N], cur, sum;
+int n, res, a[N], suf[N], h[N], cur, sum;
 
 void sol() {
 	n = read();
     cur = n;
     res = sum = 0;
     a[0] = INF;
-	for(ll i = 1; i <= n; ++i) {
+	for(int i = 1; i <= n; ++i) {
 		a[i] = read();
         sum += a[i];
 		a[i] = min(a[i - 1], a[i]);
         h[i] = 0;
 	}
-	for(ll i = 1; i <= n; ++i) {
+	for(int i = 1; i <= n; ++i) {
 		while(cur && a[cur] < i) 
             cur--;      
 		if(!cur) 
@@ -56,7 +56,7 @@ void sol() {
             cur--;
         }
 	}
-	for(ll i = 1; i <= n; ++i) 
+	for(int i = 1; i <= n; ++i) 
         res += h[i];
 	write(sum - res);
     putchar('\n');
@@ -65,7 +65,7 @@ int main()
 {
 	freopen("cube.in", "r", stdin);
 	freopen("cube.out", "w", stdout);
-	ll T = read();
+	int T = read();
 	while(T--) 
         sol();
 	return 0;

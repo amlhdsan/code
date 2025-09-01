@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 
-#define ll long long
+#define int long long
 
 using namespace std;
 
-ll n;
-ll c;
-ll l, r;
-ll a, b;
+int n;
+int c;
+int l, r;
+int a, b;
 
 int main() {
 

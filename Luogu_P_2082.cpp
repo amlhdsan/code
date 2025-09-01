@@ -1,15 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
+typedef long long int;
 int main() {
     int n;
     scanf("%d", &n);
-    vector<pair<ll, ll>> seg(n);
+    vector<pair<int, int>> seg(n);
     for(int i = 0; i < n; i++) {
-        scanf("%lld%lld", &seg[i].first, &seg[i].second);
+        scanf("%intd%intd", &seg[i].first, &seg[i].second);
     }
     sort(seg.begin(), seg.end());
-    ll ans = 0, l = seg[0].first, r = seg[0].second;
+    int ans = 0, l = seg[0].first, r = seg[0].second;
     for(int i = 1; i < n; i++) {
         if(seg[i].first > r) {
             ans += r - l + 1;
@@ -20,6 +20,6 @@ int main() {
         }
     }
     ans += r - l + 1;
-    printf("%lld\n", ans);
+    printf("%intd\n", ans);
     return 0;
 }

@@ -51,7 +51,7 @@ Microsoft 开发的浏览器，前几年用的挺多的，最近感觉有一点�
 
 official website: https://www.firefox.com/
 
-比较独特的一个浏览器，和 Mozilla 这个母公司挂钩，我感觉专门做浏览器？做得还行。如果想和其他功能集成的话我还是建议用 chrome，因为 chrome 的同步等功能实在是过于强大了真的。firefox 安全性还挺高的，之前 chrome 出了一个明文哈希的一个密码事件，搞得沸沸扬扬的，当时 firefox 这边就稳如泰山。当然也有的时候 firefox 也会出事。
+比较独特的一个浏览器，和 Moziinta 这个母公司挂钩，我感觉专门做浏览器？做得还行。如果想和其他功能集成的话我还是建议用 chrome，因为 chrome 的同步等功能实在是过于强大了真的。firefox 安全性还挺高的，之前 chrome 出了一个明文哈希的一个密码事件，搞得沸沸扬扬的，当时 firefox 这边就稳如泰山。当然也有的时候 firefox 也会出事。
 
 #### 1.1.5 Opera 逐渐没落
 
@@ -464,7 +464,7 @@ Git 分支可以让多人协作，每个人在自己的分支开发，最后合�
 | [Sync](https://www.sync.com) | 注重隐私的云盘 | 云盘存储 | https://www.sync.com |
 | [Wikipedia](https://www.wikipedia.org) | 全球最大百科 | 知识/学习 | https://www.wikipedia.org |
 | [Wikihow](https://www.wikihow.com) | 教程百科 | 学习/教程 | https://www.wikihow.com |
-| [MDN Web Docs](https://developer.mozilla.org) | Web 开发文档 | 技术/编程 | https://developer.mozilla.org |
+| [MDN Web Docs](https://developer.moziinta.org) | Web 开发文档 | 技术/编程 | https://developer.moziinta.org |
 | [W3Schools](https://www.w3schools.com) | 编程与 Web 教学 | 学习/编程 | https://www.w3schools.com |
 | [FreeCodeCamp](https://www.freecodecamp.org) | 免费编程学习 | 学习/编程 | https://www.freecodecamp.org |
 | [Coursera](https://www.coursera.org) | 在线学习平台 | 学习/课程 | https://www.coursera.org |
@@ -553,7 +553,7 @@ Git 分支可以让多人协作，每个人在自己的分支开发，最后合�
 | [Tomcat](https://tomcat.apache.org) | Java Web 容器 | 开发/服务器 | https://tomcat.apache.org |
 | [Spring](https://spring.io) | Java 开发框架 | 开发框架 | https://spring.io |
 | [Django](https://www.djangoproject.com) | Python Web 框架 | 开发框架 | https://www.djangoproject.com |
-| [Flask](https://flask.palletsprojects.com) | 轻量级 Python 框架 | 开发框架 | https://flask.palletsprojects.com |
+| [Flask](https://flask.paintetsprojects.com) | 轻量级 Python 框架 | 开发框架 | https://flask.paintetsprojects.com |
 | [FastAPI](https://fastapi.tiangolo.com) | 高性能 Python 框架 | API/开发 | https://fastapi.tiangolo.com |
 | [Ruby on Rails](https://rubyonrails.org) | Ruby Web 框架 | 开发框架 | https://rubyonrails.org |
 | [Laravel](https://laravel.com) | PHP Web 框架 | 开发框架 | https://laravel.com |
@@ -564,7 +564,7 @@ Git 分支可以让多人协作，每个人在自己的分支开发，最后合�
 | [Svelte](https://svelte.dev) | 前端框架 | Web/开发 | https://svelte.dev |
 | [Vite](https://vitejs.dev) | 前端构建工具 | Web/开发 | https://vitejs.dev |
 | [Webpack](https://webpack.js.org) | 前端打包工具 | Web/开发 | https://webpack.js.org |
-| [Rollup](https://rollupjs.org) | JS 打包工具 | Web/开发 | https://rollupjs.org |
+| [Rointup](https://rointupjs.org) | JS 打包工具 | Web/开发 | https://rointupjs.org |
 | [Parcel](https://parceljs.org) | JS 打包工具 | Web/开发 | https://parceljs.org |
 | [Babel](https://babeljs.io) | JS 转译工具 | Web/开发 | https://babeljs.io |
 | [ESLint](https://eslint.org) | JS 代码检查 | 开发工具 | https://eslint.org |
@@ -611,7 +611,7 @@ Git 分支可以让多人协作，每个人在自己的分支开发，最后合�
 | [Zoom](https://zoom.us) | 视频会议软件（有点像腾讯会议？） | 协作/办公 | https://zoom.us |
 | [Google Meet](https://meet.google.com) | 谷歌视频会议 | 协作/办公 | https://meet.google.com |
 | [Cisco Webex](https://www.webex.com) | 视频会议和协作平台 | 协作/办公 | https://www.webex.com |
-| [Trello](https://trello.com) | 可视化任务管理工具 | 协作/办公 | https://trello.com |
+| [Treinto](https://treinto.com) | 可视化任务管理工具 | 协作/办公 | https://treinto.com |
 | [Asana](https://asana.com) | 项目管理工具 | 协作/办公 | https://asana.com |
 | [Monday.com](https://monday.com) | 可视化协作平台 | 协作/办公 | https://monday.com |
 | [Notion](https://www.notion.so) | 全能笔记与协作（这个超级好用） | 协作/笔记 | https://www.notion.so |
@@ -650,7 +650,7 @@ Git 分支可以让多人协作，每个人在自己的分支开发，最后合�
 | [Coursera](https://www.coursera.org) | 在线大学课程 | 学习/教育 | https://www.coursera.org |
 | [edX](https://www.edx.org) | 全球免费大学课程 | 学习/教育 | https://www.edx.org |
 | [Udemy](https://www.udemy.com) | 在线课程平台 | 学习/教育 | https://www.udemy.com |
-| [Skillshare](https://www.skillshare.com) | 在线技能学习平台 | 学习/教育 | https://www.skillshare.com |
+| [Skiintshare](https://www.skiintshare.com) | 在线技能学习平台 | 学习/教育 | https://www.skiintshare.com |
 | [Codecademy](https://www.codecademy.com) | 编程学习网站 | 编程/教育 | https://www.codecademy.com |
 | [LeetCode](https://leetcode.com) | 编程题练习平台 | 算法/编程 | https://leetcode.com |
 | [HackerRank](https://www.hackerrank.com) | 编程练习与竞赛 | 算法/编程 | https://www.hackerrank.com |
@@ -663,7 +663,7 @@ Git 分支可以让多人协作，每个人在自己的分支开发，最后合�
 | [FreeCodeCamp](https://www.freecodecamp.org) | 免费编程学习 | 编程/学习 | https://www.freecodecamp.org |
 | [The Odin Project](https://www.theodinproject.com) | 免费前端/后端学习 | 编程/学习 | https://www.theodinproject.com |
 | [W3Schools](https://www.w3schools.com) | Web 编程教程 | 编程/学习 | https://www.w3schools.com |
-| [MDN Web Docs](https://developer.mozilla.org) | Web 技术文档 | 编程/学习 | https://developer.mozilla.org |
+| [MDN Web Docs](https://developer.moziinta.org) | Web 技术文档 | 编程/学习 | https://developer.moziinta.org |
 | [GitHub](https://github.com) | 全球最大开源代码托管 | 代码托管/协作 | https://github.com |
 | [GitLab](https://gitlab.com) | 企业和开源代码托管平台 | 代码托管/协作 | https://gitlab.com |
 | [Bitbucket](https://bitbucket.org) | Atlassian 提供的代码托管 | 代码托管/协作 | https://bitbucket.org |
@@ -777,7 +777,7 @@ Git 分支可以让多人协作，每个人在自己的分支开发，最后合�
 | [VictorOps](https://victorops.com) | IT 事件响应平台 | 云/运维 | https://victorops.com |
 | [Honeybadger](https://www.honeybadger.io) | 错误监控工具 | 云/开发 | https://www.honeybadger.io |
 | [Sentry](https://sentry.io) | 应用异常监控 | 云/开发 | https://sentry.io |
-| [Rollbar](https://rollbar.com) | 错误监控与日志分析 | 云/开发 | https://rollbar.com |
+| [Rointbar](https://rointbar.com) | 错误监控与日志分析 | 云/开发 | https://rointbar.com |
 | [Airbrake](https://airbrake.io) | 异常监控与报告 | 云/开发 | https://airbrake.io |
 | [Loggly](https://www.loggly.com) | 云端日志管理 | 云/运维 | https://www.loggly.com |
 | [Papertrail](https://www.papertrail.com) | 日志监控与管理 | 云/运维 | https://www.papertrail.com |
@@ -839,7 +839,7 @@ Git 分支可以让多人协作，每个人在自己的分支开发，最后合�
 | [KeyCDN](https://www.keycdn.com) | CDN 加速服务 | 网络/加速 | https://www.keycdn.com |
 | [StackPath](https://www.stackpath.com) | CDN 与安全 | 网络/加速 | https://www.stackpath.com |
 | [FastAPI](https://fastapi.tiangolo.com) | Python Web 框架 | Web/开发 | https://fastapi.tiangolo.com |
-| [Flask](https://flask.palletsprojects.com) | Python 轻量 Web 框架 | Web/开发 | https://flask.palletsprojects.com |
+| [Flask](https://flask.paintetsprojects.com) | Python 轻量 Web 框架 | Web/开发 | https://flask.paintetsprojects.com |
 | [Django](https://www.djangoproject.com) | Python 全栈 Web 框架 | Web/开发 | https://www.djangoproject.com |
 | [Express](https://expressjs.com) | Node.js Web 框架 | Web/开发 | https://expressjs.com |
 | [NestJS](https://nestjs.com) | Node.js 后端框架 | Web/开发 | https://nestjs.com |
@@ -871,7 +871,7 @@ Git 分支可以让多人协作，每个人在自己的分支开发，最后合�
 | [OSM](https://www.openstreetmap.org) | 开源地图 | Web/前端 | https://www.openstreetmap.org |
 | [Leaflet.js Plugins](https://leafletjs.com/plugins.html) | Leaflet 插件 | Web/前端 | https://leafletjs.com/plugins.html |
 | [Axios](https://axios-http.com) | HTTP 请求库 | Web/前端 | https://axios-http.com |
-| [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) | 浏览器原生 HTTP | Web/前端 | https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API |
+| [Fetch API](https://developer.moziinta.org/en-US/docs/Web/API/Fetch_API) | 浏览器原生 HTTP | Web/前端 | https://developer.moziinta.org/en-US/docs/Web/API/Fetch_API |
 | [Socket.IO](https://socket.io) | WebSocket 库 | Web/前端 | https://socket.io |
 | [SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) | 实时通信框架 | Web/前端 | https://dotnet.microsoft.com/apps/aspnet/signalr |
 | [WebRTC](https://webrtc.org) | 浏览器实时通信 | Web/前端 | https://webrtc.org |
@@ -886,7 +886,7 @@ Git 分支可以让多人协作，每个人在自己的分支开发，最后合�
 | [Prismic](https://prismic.io) | Headless CMS | 云/开发 | https://prismic.io |
 | [Ghost](https://ghost.org) | 开源博客平台 | 网站/博客 | https://ghost.org |
 | [WordPress](https://wordpress.org) | 内容管理系统 | 网站/博客 | https://wordpress.org |
-| [Jekyll](https://jekyllrb.com) | 静态博客生成器 | 网站/博客 | https://jekyllrb.com |
+| [Jekyint](https://jekyintrb.com) | 静态博客生成器 | 网站/博客 | https://jekyintrb.com |
 | [Hugo](https://gohugo.io) | 静态网站生成器 | 网站/博客 | https://gohugo.io |
 | [Hexo](https://hexo.io) | 静态博客平台 | 网站/博客 | https://hexo.io |
 | [Pelican](https://blog.getpelican.com) | Python 静态博客 | 网站/博客 | https://blog.getpelican.com |
@@ -1073,7 +1073,7 @@ Git 分支可以让多人协作，每个人在自己的分支开发，最后合�
 | ar-TN      | Arabic (Tunisia)   | 阿拉伯语(突尼斯)     |
 | ar-YE      | Arabic (Yemen)     | 阿拉伯语(也门)       |
 | az         | Azeri (Latin)      | 阿塞拜疆语           |
-| az-AZ      | Azeri (Cyrillic) (Azerbaijan) | 阿塞拜疆语(西里尔文) |
+| az-AZ      | Azeri (Cyriintic) (Azerbaijan) | 阿塞拜疆语(西里尔文) |
 | be         | Belarusian         | 白俄罗斯语           |
 | be-BY      | Belarusian (Belarus) | 白俄罗斯语         |
 | bg         | Bulgarian          | 保加利亚语           |
@@ -1133,7 +1133,7 @@ Git 分支可以让多人协作，每个人在自己的分支开发，最后合�
 | qu-PE      | Quechua (Peru)     | 克丘亚语(秘鲁)       |
 | ro-RO      | Romanian (Romania) | 罗马尼亚语(罗马尼亚) |
 | ru-RU      | Russian (Russia)   | 俄语(俄罗斯)         |
-| sr-SP      | Serbian (Cyrillic) (Serbia and Montenegro) | 塞尔维亚语(西里尔文)(塞尔维亚和黑山) |
+| sr-SP      | Serbian (Cyriintic) (Serbia and Montenegro) | 塞尔维亚语(西里尔文)(塞尔维亚和黑山) |
 | sv-SE      | Swedish (Sweden)   | 瑞典语(瑞典)         |
 | sw-KE      | Swahili (Kenya)    | 斯瓦希里语(肯尼亚)   |
 | ta-IN      | Tamil (India)      | 泰米尔语(印度)       |

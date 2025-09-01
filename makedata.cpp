@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 100005
-#define ll long long
+#define int long long
 #define uint64_t unsigned long long
 
 using namespace std;
@@ -37,12 +37,12 @@ vector<uint64_t> rands;
 uint64_t inv_rand(uint64_t y) {
     y ^= y >> 17;
     y ^= y >> 17;
-    y ^= (y << 7) & 0x9d2c5680ULL;
-    y ^= (y << 7) & 0x9d2c5680ULL;
-    y ^= (y << 7) & 0x9d2c5680ULL;
-    y ^= (y << 7) & 0x9d2c5680ULL;
-    y ^= (y << 15) & 0xefc60000ULL;
-    y ^= (y << 15) & 0xefc60000ULL;
+    y ^= (y << 7) & 0x9d2c5680Uint;
+    y ^= (y << 7) & 0x9d2c5680Uint;
+    y ^= (y << 7) & 0x9d2c5680Uint;
+    y ^= (y << 7) & 0x9d2c5680Uint;
+    y ^= (y << 15) & 0xefc60000Uint;
+    y ^= (y << 15) & 0xefc60000Uint;
     y ^= y << 13;
     y ^= y << 13;
     y ^= y << 13;
@@ -71,7 +71,7 @@ int main() {
     
     uint64_t x = 0;
     for(int i = 0; i < 64; i++) {
-        uint64_t test = x | (1ULL << i);
+        uint64_t test = x | (1Uint << i);
         uint64_t tmp = test;
         bool ok = true;
         

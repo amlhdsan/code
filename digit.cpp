@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #include <string>
 
-#define ll long long
+#define int long long
 #define ENDL putchar('\n')
 
 using namespace std;

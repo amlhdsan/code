@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
-#define ll long long
+#define int long long
 using namespace std;
 
 int T;
-ll n, k, d;
-ll t;
+int n, k, d;
+int t;
 
 int main() {
     cin >> T;

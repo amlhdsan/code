@@ -17,19 +17,19 @@ inline void writeln(int x){
 }
 
 const int MOD=104857601;
-typedef long long ll;
-ll powmod(ll a,ll b){
-    ll r=1;
+typedef long long int;
+int powmod(int a,int b){
+    int r=1;
     while(b){if(b&1)r=r*a%MOD;a=a*a%MOD;b>>=1;}
     return r;
 }
-void prep(int n, vector<ll>& f, vector<ll>& inv){
+void prep(int n, vector<int>& f, vector<int>& inv){
     f[0]=1;
     for(int i=1;i<=n;i++)f[i]=f[i-1]*i%MOD;
     inv[n]=powmod(f[n],MOD-2);
     for(int i=n;i>0;i--)inv[i-1]=inv[i]*i%MOD;
 }
-inline ll C(const vector<ll>& f,const vector<ll>& inv,int n,int k){
+inline int C(const vector<int>& f,const vector<int>& inv,int n,int k){
     return f[n]*inv[k]%MOD*inv[n-k]%MOD;
 }
 
@@ -83,11 +83,11 @@ namespace T3{
 
 namespace T4{
     void go(){
-        prep(262144, *(new vector<ll>(262145)), *(new vector<ll>(262145)));
-        auto &f=*(vector<ll>*)(&*(new vector<ll>(262145)));
-        auto &inv=*(vector<ll>*)(&*(new vector<ll>(262145)));
-        vector<ll> ff(262145),ii(262145);
-        f=vector<ll>(262145); ii=vector<ll>(262145);
+        prep(262144, *(new vector<int>(262145)), *(new vector<int>(262145)));
+        auto &f=*(vector<int>*)(&*(new vector<int>(262145)));
+        auto &inv=*(vector<int>*)(&*(new vector<int>(262145)));
+        vector<int> ff(262145),ii(262145);
+        f=vector<int>(262145); ii=vector<int>(262145);
         prep(262144,f,ii);
         writeln(262144);
         for(int i=0;i<=262144;i++)writeln(C(f,ii,262144,i));
@@ -96,11 +96,11 @@ namespace T4{
 
 namespace T5{
     void go(){
-        vector<ll> f(131073),ii(131073);
+        vector<int> f(131073),ii(131073);
         prep(131072,f,ii);
         writeln(131072);
         for(int i=0;i<=131072;i++){
-            ll v=C(f,ii,131072,i);
+            int v=C(f,ii,131072,i);
             if(i&1)v=(MOD-v)%MOD;
             writeln(v);
         }
@@ -109,11 +109,11 @@ namespace T5{
 
 namespace T6{
     void go(){
-        vector<ll> f(177148),ii(177148);
+        vector<int> f(177148),ii(177148);
         prep(177147,f,ii);
         writeln(177147);
         for(int i=0;i<=177147;i++){
-            ll v=C(f,ii,177147,i)*powmod(23333333,177147-i)%MOD*powmod(33333333,i)%MOD;
+            int v=C(f,ii,177147,i)*powmod(23333333,177147-i)%MOD*powmod(33333333,i)%MOD;
             writeln(v);
         }
     }

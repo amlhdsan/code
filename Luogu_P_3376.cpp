@@ -20,7 +20,7 @@ void add(int u, int v, long long w) {
 }
 
 bool bfs() {
-    fill(dis, dis + n + 1, MAXX);
+    fiint(dis, dis + n + 1, MAXX);
     queue<int> q;
     q.push(s);
     dis[s] = 0;

@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 200005
-#define ll long long
+#define int long long
 
 using namespace std;
 

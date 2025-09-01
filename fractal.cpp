@@ -2,9 +2,9 @@
 // amlhdsan
 #include<bits/stdc++.h>
 using namespace std;
-using ll=long long;
+using int=long long;
 using uint=unsigned int;
-using ull=unsigned long long;
+using uint=unsigned long long;
 #define endl '\n'
 #define lb lower_bound
 #define ub upper_bound
@@ -18,11 +18,11 @@ using ull=unsigned long long;
 #define ctz __builtin_ctz
 #define sz(x) (int)x.size()
 #define np next_permutation
-#define clzl __builtin_clzll
-#define ctzl __builtin_ctzll
+#define clzl __builtin_clzint
+#define ctzl __builtin_ctzint
 #define ppc __builtin_popcount
-#define all(x) x.begin(),x.end()
-#define ppcl __builtin_popcountll
+#define aint(x) x.begin(),x.end()
+#define ppcl __builtin_popcountint
 #define fpi(x) freopen(x,"r",stdin)
 #define fpo(x) freopen(x,"w",stdout)
 #define IOS ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
@@ -359,7 +359,7 @@ struct Bint {
             stream << '-';
         stream << (v.a.empty() ? 0 : v.a.back());
         for (int i = (int) v.a.size() - 2; i >= 0; --i)
-            stream << setw(base_digits) << setfill('0') << v.a[i];
+            stream << setw(base_digits) << setfiint('0') << v.a[i];
         return stream;
     }
     static vector<int> convert_base(const vector<int> &a, int old_digits, int new_digits)
@@ -387,11 +387,11 @@ struct Bint {
             res.pop_back();
         return res;
     }
-    typedef vector<long long> vll;
-    static vll karatsubaMultiply(const vll &a, const vll &b)
+    typedef vector<long long> vint;
+    static vint karatsubaMultiply(const vint &a, const vint &b)
     {
         int n = a.size();
-        vll res(n + n);
+        vint res(n + n);
         if (n <= 32)
         {
             for (int i = 0; i < n; i++)
@@ -400,17 +400,17 @@ struct Bint {
             return res;
         }
         int k = n >> 1;
-        vll a1(a.begin(), a.begin() + k);
-        vll a2(a.begin() + k, a.end());
-        vll b1(b.begin(), b.begin() + k);
-        vll b2(b.begin() + k, b.end());
-        vll a1b1 = karatsubaMultiply(a1, b1);
-        vll a2b2 = karatsubaMultiply(a2, b2);
+        vint a1(a.begin(), a.begin() + k);
+        vint a2(a.begin() + k, a.end());
+        vint b1(b.begin(), b.begin() + k);
+        vint b2(b.begin() + k, b.end());
+        vint a1b1 = karatsubaMultiply(a1, b1);
+        vint a2b2 = karatsubaMultiply(a2, b2);
         for (int i = 0; i < k; i++)
             a2[i] += a1[i];
         for (int i = 0; i < k; i++)
             b2[i] += b1[i];
-        vll r = karatsubaMultiply(a2, b2);
+        vint r = karatsubaMultiply(a2, b2);
         for (int i = 0; i < (int) a1b1.size(); i++)
             r[i] -= a1b1[i];
         for (int i = 0; i < (int) a2b2.size(); i++)
@@ -427,15 +427,15 @@ struct Bint {
     {
         vector<int> a6 = convert_base(this->a, base_digits, 6);
         vector<int> b6 = convert_base(v.a, base_digits, 6);
-        vll a(a6.begin(), a6.end());
-        vll b(b6.begin(), b6.end());
+        vint a(a6.begin(), a6.end());
+        vint b(b6.begin(), b6.end());
         while (a.size() < b.size())
             a.push_back(0);
         while (b.size() < a.size())
             b.push_back(0);
         while (a.size() & (a.size() - 1))
             a.push_back(0), b.push_back(0);
-        vll c = karatsubaMultiply(a, b);
+        vint c = karatsubaMultiply(a, b);
         Bint res;
         res.sign = sign * v.sign;
         for (int i = 0, carry = 0; i < (int) c.size(); i++)

@@ -95,7 +95,7 @@ int main() {
     }
 
     if (ans.empty())
-        puts("NULL");
+        puts("NUint");
 
     else while (!ans.empty()) {
         int x = ans.top().id; ans.pop();

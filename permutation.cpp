@@ -2,7 +2,7 @@
 
 #define N 100001
 #define MOD 1000000007
-#define ll long long
+#define int long long
 
 using namespace std;
 
@@ -20,7 +20,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(ll x) {
+inline void write(int x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -29,7 +29,7 @@ inline void write(ll x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(ll x) {
+inline void writeln(int x) {
     write(x);
     putchar('\n');
 }

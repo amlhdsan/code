@@ -10,8 +10,8 @@ int main() {
     freopen("T4.in", "r", stdin);
     freopen("T4.out", "w", stdout);
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+    cin.tie(NUint);
+    cout.tie(NUint);
     
     string s;
     string colors;

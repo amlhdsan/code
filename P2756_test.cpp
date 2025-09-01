@@ -8,7 +8,7 @@
     #define in(x) scanf("%d",&x)
     using namespace std;
     const int maxn=1e5;
-    int n,all=0,num=0,nxt[maxn],to[maxn],head[maxn],d[maxn];
+    int n,aint=0,num=0,nxt[maxn],to[maxn],head[maxn],d[maxn];
     int w[maxn],cnt=1,s=0,t=50003,re[maxn],xia[maxn],vis[maxn];
     queue<int>q;
     void add(int x,int y,int we)
@@ -67,13 +67,13 @@
     int main()
     {
         in(n);
-        while(all<=n)
+        while(aint<=n)
         {
             num++;add(s,num<<1,1);add((num<<1)|1,t,1);
             for(int i=sqrt(num)+1;i*i<2*num;++i)
             add((i*i-num)<<1,(num<<1)|1,1);
             int k=dinic();
-            if(!k) re[++all]=num;
+            if(!k) re[++aint]=num;
         }
         printf("%d\n",--num);
         for(int i=1;i<=n;++i)

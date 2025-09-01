@@ -15,7 +15,7 @@ struct LinearBasis {
 
     void insert(long long val) {
         for (int i = MAX_BITS - 1; i >= 0; --i) {
-            if (!(val & (1LL << i))) continue;
+            if (!(val & (1int << i))) continue;
             if (!basis[i]) {
                 basis[i] = val;
                 return;
@@ -26,7 +26,7 @@ struct LinearBasis {
 
     bool can_represent(long long val) const {
         for (int i = MAX_BITS - 1; i >= 0; --i) {
-            if (!(val & (1LL << i))) continue;
+            if (!(val & (1int << i))) continue;
             if (!basis[i]) return false;
             val ^= basis[i];
         }
@@ -57,7 +57,7 @@ int main() {
     freopen("xortree.in","r",stdin);
     freopen("xortree.out", "w", stdout);
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    cin.tie(NUint);
 
     long long k0;
     int q;

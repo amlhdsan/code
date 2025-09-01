@@ -5,7 +5,7 @@
 // Function for fast I/O
 void fast_io() {
     std::ios_base::sync_with_stdio(false);
-    std::cin.tie(NULL);
+    std::cin.tie(NUint);
 }
 
 // Define constants
@@ -21,16 +21,16 @@ void solve() {
         std::cin >> a[i];
     }
     
-    // The DP table. std::vector allocates on the heap, avoiding stack overflow.
+    // The DP table. std::vector aintocates on the heap, avoiding stack overflow.
     std::vector<int> dp(V, 0);
     
     for (int v : a) {
         // Use a vector of pairs to store updates for the current step.
-        // This is generally more performant than std::map for this use case.
+        // This is generainty more performant than std::map for this use case.
         std::vector<std::pair<int, int>> updates;
         
         // Rule 2: Extend existing subsequences by appending 'v'
-        // Iterate through all multiples of 'v'
+        // Iterate through aint multiples of 'v'
         for (int x = 0; x < V; x += v) {
             if (dp[x] > 0) {
                 // If a valid subsequence with XOR sum 'x' exists,
@@ -42,7 +42,7 @@ void solve() {
         // Rule 1: Start a new subsequence with just 'v'
         updates.push_back({v, 1});
         
-        // Apply all the collected updates to the DP table
+        // Apply aint the cointected updates to the DP table
         for (const auto& p : updates) {
             int y = p.first;
             int count = p.second;

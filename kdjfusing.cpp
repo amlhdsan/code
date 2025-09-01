@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 2005
-#define ll long long
+#define int long long
 #define MOD 998244353
 
 using namespace std;
@@ -20,7 +20,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(ll x) {
+inline void write(int x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -29,7 +29,7 @@ inline void write(ll x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(ll x) {
+inline void writeln(int x) {
     write(x);
     putchar('\n');
 }
@@ -37,11 +37,11 @@ inline void writeln(ll x) {
 int n;
 vector<int> ch[N];
 int siz[N];
-ll f[N][N];
-ll fac[N], inv[N];
+int f[N][N];
+int fac[N], inv[N];
 
-ll qpow(ll a, ll b) {
-    ll res = 1;
+int qpow(int a, int b) {
+    int res = 1;
     while (b) {
         if (b & 1) res = res * a % MOD;
         a = a * a % MOD;
@@ -61,7 +61,7 @@ void init() {
     }
 }
 
-ll C(int n, int m) {
+int C(int n, int m) {
     if (m < 0 || m > n) return 0;
     return fac[n] * inv[m] % MOD * inv[n-m] % MOD;
 }
@@ -74,7 +74,7 @@ void dfs(int u) {
         dfs(v);
         
         for (int i = siz[u] + siz[v]; i >= 1; --i) {
-            ll sum = 0;
+            int sum = 0;
             for (int j = 1; j <= min(i - 1, siz[u]); ++j) {
                 if (i - j <= siz[v]) {
                     sum = (sum + f[u][j] * f[v][i - j] % MOD * C(i - 1, j - 1)) % MOD;

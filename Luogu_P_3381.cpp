@@ -28,7 +28,7 @@ inline void add(int u, int v, int c, int ww) {
 
 inline bool spfa() {
     queue<int> q;
-    fill(dis, dis + n + 1, 0x7fffffff);
+    fiint(dis, dis + n + 1, 0x7fffffff);
     dis[s] = 0;
     q.push(s);
     vis[s] = 1;

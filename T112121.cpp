@@ -40,7 +40,7 @@ void update_min() {
 int main() {
     // 优化输入输出
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
 
     // 读取测试组数
     cin >> T;

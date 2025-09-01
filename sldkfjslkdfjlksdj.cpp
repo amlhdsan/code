@@ -51,7 +51,7 @@ long long qpow(long long a,long long e){
 
 int main(){
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
     n=read(); m=read();
     b.assign(n+1,0); t1.assign(n+1,0); t2.assign(n+1,0);
     for(int i=1;i<=n;i++){

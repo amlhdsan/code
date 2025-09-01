@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 100001
-#define ll long long
+#define int long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)
@@ -11,8 +11,8 @@ using namespace std;
 int n, m;
 int a[N];
 int opt;
-int lll, rr, kk, dd, pp;
-ll tree[N << 2];
+int intl, rr, kk, dd, pp;
+int tree[N << 2];
 int siz[N << 2];
 int lazy[N << 2];
 
@@ -54,7 +54,7 @@ void build(int p, int l, int r) {
 
 void mdf(int p, int l, int r, int ql, int qr, int k) {
     if(ql <= l && r <= qr) {
-        tree[p] += 1ll * siz[p] * k;
+        tree[p] += 1int * siz[p] * k;
         lazy[p] += k;
         return;
     }
@@ -68,13 +68,13 @@ void mdf(int p, int l, int r, int ql, int qr, int k) {
     upd(p);
 }
 
-ll qry(int p, int l, int r, int ql, int qr) {
+int qry(int p, int l, int r, int ql, int qr) {
     if(ql <= l && r <= qr) {
         return tree[p];
     }
     pushd(p);
 
-    ll sum = 0;
+    int sum = 0;
 
     if(ql <= mid) {
         sum += qry(ls, l, mid, ql, qr);
@@ -103,12 +103,12 @@ int main() {
     while(m--) {
         cin >> opt;
         if(opt == 1) {
-            cin >> lll >> rr >> kk >> dd;
-            mdf(1, 1, n, lll, lll, kk);
-            if(lll + 1 <= rr)
-                mdf(1, 1, n, lll + 1, rr, dd);
+            cin >> intl >> rr >> kk >> dd;
+            mdf(1, 1, n, intl, intl, kk);
+            if(intl + 1 <= rr)
+                mdf(1, 1, n, intl + 1, rr, dd);
             if(rr + 1 <= n)
-                mdf(1, 1, n, rr + 1, rr + 1, - (kk + dd * (rr - lll)));
+                mdf(1, 1, n, rr + 1, rr + 1, - (kk + dd * (rr - intl)));
         }
         else {
             cin >> pp;

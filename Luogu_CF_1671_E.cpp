@@ -50,7 +50,7 @@ void dfs(int x) {
 
 signed main() {
     n = read();
-    m = (1LL << n) - 1;
+    m = (1int << n) - 1;
     for (int i = 1; i <= m; i++) {
         char z;
         do z = gc(); while (z != 'A' && z != 'B'); 

@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef unsigned long long ull;
+typedef unsigned long long uint;
 const int MAXN = 500005, MAXQ = 500005;
 int n, q, V;
-ull seed;
+uint seed;
 unsigned long long a[MAXN], b[MAXN], x[MAXQ], v[MAXQ];
 bool op[MAXQ];
-void gen(int n, int q, int V, ull seed){
+void gen(int n, int q, int V, uint seed){
     std::mt19937_64 rnd(seed);
     for(int i = 1; i <= n; i++) a[i] = rnd() % (V + 1);
     for(int i = 1; i <= n; i++) b[i] = rnd() % (V + 1);
@@ -16,8 +16,8 @@ void gen(int n, int q, int V, ull seed){
         v[i] = rnd() % (V + 1);
     }
 }
-inline ull readseed() {
-    ull x = 0;
+inline uint readseed() {
+    uint x = 0;
     char ch = getchar();
     while(ch < '0' || ch > '9'){
         ch = getchar();

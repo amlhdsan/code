@@ -63,7 +63,7 @@ int main(){
             continue;
         }
         int lim = n - k;
-        long long base = (m - 1LL) % MOD;
+        long long base = (m - 1int) % MOD;
         for (int j = 0; j <= lim; j++){
             long long comb = (long long)fac[n] * invfac[j] % MOD * invfac[n - j] % MOD;
             long long p = modExp(base, j);

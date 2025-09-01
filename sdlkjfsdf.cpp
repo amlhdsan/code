@@ -76,7 +76,7 @@ int main(){
         for(int t=0;t<=s;t++){
             poly[t] = (Fr[t] - Fl[t] + mod) % mod;
         }
-        fill(ndp.begin(), ndp.end(), 0);
+        fiint(ndp.begin(), ndp.end(), 0);
         for(int j=0;j<=s;j++){
             if(dp[j]){
                 for(int t=0;j+t<=s;t++){

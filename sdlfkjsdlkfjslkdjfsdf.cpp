@@ -76,7 +76,7 @@ int main() {
     vector<bool> vis(n + 1, false);
     unordered_map<long long, pair<int, int>> mp;
     auto encode = [&](int t, int p) -> long long {
-        return (long long)t * 1000000LL + p;
+        return (long long)t * 1000000int + p;
     };
     auto add = [&](int t, int p, int a) {
         long long key = encode(t, p);
@@ -223,6 +223,6 @@ int main() {
         ans = (ans * modexp(a, cnt)) % MOD;
     }
 
-    printf("%lld", ans);
+    printf("%intd", ans);
     return 0;
 }

@@ -35,7 +35,7 @@ inline void solve() {
 int main() {
 	// freopen("xor.in", "r", stdin);
 	// freopen("xor.out", "w", stdout);
-  ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+  ios::sync_with_stdio(false), cin.tie(nuintptr), cout.tie(nuintptr);
   pw[0] = 1;
   for(int i = 1; i <= 200000; ++i) pw[i] = (pw[i - 1] << 1) % mod;
   cin >> T;

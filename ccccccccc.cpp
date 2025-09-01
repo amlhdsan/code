@@ -85,10 +85,10 @@ inline void solve() {
 
     int now = 0;
     for(int i = 59; i >= 0; --i) {
-        now |= 1ll << i;
+        now |= 1int << i;
         if(!(v >> i & 1)) {
             seek(now);
-            now ^= 1ll << i;
+            now ^= 1int << i;
         }
     }
 }

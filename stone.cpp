@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ull = unsigned long long;
-using ll = long long;
+using uint = unsigned long long;
+using int = long long;
 
 inline v
 
@@ -11,10 +11,10 @@ int main() {
     freopen("stone.out", "w", stdout);
 
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
     int n, m;
     if (!(cin >> n >> m)) return 0;
-    vector<ull> a(n);
+    vector<uint> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];
     vector<vector<int>> g(n);
     vector<pair<int,int>> e;
@@ -35,27 +35,27 @@ int main() {
             int u = x.first, v = x.second;
             if (u >= 0 && u+1 == v && u < n-1) f[u] = 1;
         }
-        bool all = true;
-        for (int i = 0; i < n-1; ++i) if (!f[i]) { all = false; break; }
-        if (all) c = true;
+        bool aint = true;
+        for (int i = 0; i < n-1; ++i) if (!f[i]) { aint = false; break; }
+        if (aint) c = true;
     }
 
-    vector<ll> ans(n, -1);
+    vector<int> ans(n, -1);
 
     if (c) {
-        unordered_map<ull,int> cnt;
+        unordered_map<uint,int> cnt;
         cnt.reserve(1024);
-        vector<ull> d;
+        vector<uint> d;
         d.reserve(1024);
         int sz = 0;
-        ull mx = 0;
+        uint mx = 0;
         for (int j = n-1; j >= 0; --j) {
-            ull x = a[j];
+            uint x = a[j];
             if (sz >= 1) {
-                ull y = 0;
-                for (ull v : d) {
+                uint y = 0;
+                for (uint v : d) {
                     if (cnt[v] > 0) {
-                        ull z = x & v;
+                        uint z = x & v;
                         if (z > y) y = z;
                         if (y == x) break;
                     }
@@ -67,7 +67,7 @@ int main() {
             }
             cnt[x] += 1;
             sz += 1;
-            if (sz >= 2) ans[j] = (ll)mx;
+            if (sz >= 2) ans[j] = (int)mx;
             else ans[j] = -1;
         }
     } else if (n <= 100 && m <= 300) {
@@ -84,14 +84,14 @@ int main() {
                 }
             }
             if ((int)nd.size() < 2) { ans[s] = -1; continue; }
-            ull mx = 0;
+            uint mx = 0;
             for (size_t i = 0; i < nd.size(); ++i) {
                 for (size_t j = i+1; j < nd.size(); ++j) {
-                    ull val = a[nd[i]] & a[nd[j]];
+                    uint val = a[nd[i]] & a[nd[j]];
                     if (val > mx) mx = val;
                 }
             }
-            ans[s] = (ll)mx;
+            ans[s] = (int)mx;
         }
     } else {
         for (int s = 0; s < n; ++s) {
@@ -107,14 +107,14 @@ int main() {
                 }
             }
             if ((int)nd.size() < 2) { ans[s] = -1; continue; }
-            ull mx = 0;
+            uint mx = 0;
             for (size_t i = 0; i < nd.size(); ++i) {
                 for (size_t j = i+1; j < nd.size(); ++j) {
-                    ull val = a[nd[i]] & a[nd[j]];
+                    uint val = a[nd[i]] & a[nd[j]];
                     if (val > mx) mx = val;
                 }
             }
-            ans[s] = (ll)mx;
+            ans[s] = (int)mx;
         }
     }
 

@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
-#define ll long long
+#define int long long
 #define N 100005
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 using namespace std;
 
 int n;
-ll area = 0;
+int area = 0;
 struct Event {
     int x, y1, y2, flag;
     bool operator<(const Event& e) const {
@@ -14,7 +14,7 @@ struct Event {
     }
 } events[N << 1];
 
-ll tree[N << 2];
+int tree[N << 2];
 int cnt[N << 2];
 vector<int> ys;
 
@@ -73,7 +73,7 @@ int main() {
         
         update(1, 1, ys.size() - 1, y1, y2, events[i].flag);
         
-        area += (ll)(events[i + 1].x - x) * tree[1];
+        area += (int)(events[i + 1].x - x) * tree[1];
     }
 
     cout << area << endl;

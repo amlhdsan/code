@@ -2,7 +2,7 @@
 
 #define N 3010
 #define M 4010
-#define ll long long
+#define int long long
 #define inf 0x3f3f3f3f3f3f3f3f
 
 using namespace std;
@@ -36,7 +36,7 @@ inline void writeln(int x) {
 }
 
 int n, m;
-ll dis[N][N];
+int dis[N][N];
 int s1, t1, p1, s2, t2, p2;
 
 // 链式前向星
@@ -52,7 +52,7 @@ void add_edge(int u, int v) {
 }
 
 void bfs(int s) {
-    queue<pair<int, ll>> q;
+    queue<pair<int, int>> q;
     int vis[N] = {0};
     q.push({s, 0}); 
     vis[s] = 1; 
@@ -60,7 +60,7 @@ void bfs(int s) {
     
     while (!q.empty()) {
         int u = q.front().first;
-        ll d = q.front().second;
+        int d = q.front().second;
         q.pop();
         
         for (int i = head[u]; i; i = edge[i].nxt) {
@@ -107,7 +107,7 @@ int main() {
         return 0;
     }
     
-    ll ans = inf;
+    int ans = inf;
     
     for(int x = 1; x <= n; ++x) {
         for(int y = 1; y <= n; ++y) {
@@ -120,7 +120,7 @@ int main() {
         }
     }
     
-    ll aans = dis[s1][t1] + dis[s2][t2];
+    int aans = dis[s1][t1] + dis[s2][t2];
     writeln(m - min(ans, aans));
     
     return 0;

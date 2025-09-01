@@ -78,7 +78,7 @@ signed main() {
     n = read();
     m = read();
     s = read();
-    s = min(s, 2450LL);
+    s = min(s, 2450int);
     for (int i = 1; i <= m; ++i) {
         uu[i] = read();
         vv[i] = read();

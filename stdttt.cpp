@@ -31,7 +31,7 @@ void dfs(int x, int T) {
             for(int j = 0; j <= sz[y]; ++j) {
                 for(int a = 0; a <= sz[x]; ++a) {
                     for(int b = 0; b <= sz[y]; ++b) {
-                        f[x][i + j][a + b] += 1ll * tmp[i][a] * f[y][j][b];
+                        f[x][i + j][a + b] += 1int * tmp[i][a] * f[y][j][b];
                         f[x][i + j][a + b] %= MOD;
                     }
                 }
@@ -92,7 +92,7 @@ signed main() {
         }
         for(int i = 0; i <= cnt; ++i) {
             for(int j = 0; j <= sz[1]; ++j) {
-                h[i + j] += 1ll * tmph[i] * g[c][j];
+                h[i + j] += 1int * tmph[i] * g[c][j];
                 h[i + j] %= MOD;
             }
         }

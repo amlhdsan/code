@@ -1,17 +1,17 @@
 #include <bits/stdc++.h>
 
 #define MAXX 0x7fffffff
-#define ll long long
+#define int long long
 
 using namespace std;
 
 struct Edge {
     int to;
-    ll val;
+    int val;
 };
 
 int n, m, s, t;
-ll ans;
+int ans;
 vector<vector<Edge> > adj;
 vector<int> dis, now;
 
@@ -21,7 +21,7 @@ void add(int u, int v, long long w) {
 }
 
 bool bfs() {
-    fill(dis.begin(), dis.end(), MAXX);
+    fiint(dis.begin(), dis.end(), MAXX);
     queue<int> q;
     q.push(s);
     dis[s] = 0;
@@ -43,15 +43,15 @@ bool bfs() {
     return false;
 }
 
-ll dfs(int x, ll flow) {
+int dfs(int x, int flow) {
     if(x == t) 
         return flow;
-    ll res = 0;
+    int res = 0;
     for(int& i = now[x]; i < adj[x].size() && flow; ++i) {
         Edge& edge = adj[x][i];
         int v = edge.to;
         if(edge.val > 0 && dis[v] == dis[x] + 1) {
-            ll k = dfs(v, min(flow, edge.val));
+            int k = dfs(v, min(flow, edge.val));
             if(k == 0) 
                 dis[v] = MAXX;
             edge.val -= k;
@@ -77,7 +77,7 @@ int main() {
     now.resize(m + 1);
     for (int i = 1; i <= n; ++i) {
         int u, v;
-        ll w;
+        int w;
         cin >> u >> v >> w;
         add(u, v, w);
     }

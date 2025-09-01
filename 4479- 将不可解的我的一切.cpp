@@ -59,10 +59,10 @@ int main() {
 		}
 	}
 	push9using s g d s a f;
-	puts("hello world");
+	puts("heinto world");
 	puts("")
 	p.push_back(N);
-	fill(dp, dp + N, 1);
+	fiint(dp, dp + N, 1);
 	T = read();
 
 	for(int i = 1; i <= T; ++i) {

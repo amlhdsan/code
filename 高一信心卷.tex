@@ -1,149 +1,224 @@
-\documentclass[12pt]{ctexart}
+\documentclass[12pt, a4paper]{ctexart}
+
+% Basic Packages
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{geometry}
+\usepackage{graphicx} % For including images if needed
+
+% Exam Question Packages (requires the 'exam' class or similar custom environments)
+% For this example, we will define custom environments to match your sample.
+\usepackage{environ}
+\usepackage{xcolor}
+
 \geometry{a4paper, margin=1in}
 
-\title{铜陵一中2025级高一入学信心卷 \\ 数学}
+% --- Custom Environments to match the sample ---
+
+% For multiple choice and fill-in questions
+\newcounter{questioncounter}
+\NewEnviron{question}{%
+    \stepcounter{questioncounter}%
+    \par\medskip\noindent\thequestioncounter. \BODY\par\medskip%
+}
+
+% For choice items
+\def\paren{\leavevmode\unskip\nobreak\quad(\quad\quad)}
+\newenvironment{choices}{\begin{list}{}{\setlength{\leftmargin}{2em}\setlength{\labelwidth}{1.5em}}}{\end{list}}
+\newcommand{\choice}[1]{\item[A.] #1} % Default \choice marks the correct answer with 'A.'
+\renewcommand{\item}[1]{\item[#1]} % To allow custom labels like B., C., D.
+
+% For fill-in-the-blank questions
+\newcommand{\fillin}[2][\textwidth]{\underline{\makebox[#1][c]{#2}}}
+
+% For free-response problems
+\newcounter{problemcounter}
+\setcounter{problemcounter}{14} % Starting the problem counter from 15
+\NewEnviron{problem}[1][]{%
+    \stepcounter{problemcounter}%
+    \par\bigskip\noindent\textbf{\theproblemcounter. (#1)}\par\nopagebreak\small\BODY\par\bigskip%
+}
+
+
+% --- Document Header ---
+\title{铜陵一中2025级高一入学信心卷 \\ \vspace{0.5cm} 数学}
 \author{}
 \date{}
 
+
+% --- Document Start ---
 \begin{document}
 
 \maketitle
+\thispagestyle{empty}
 
 \begin{center}
+    \large
     满分150分 \quad 时间120分钟 \\
+    \vspace{0.5cm}
     \textbf{考察范围：}必修一前三章、其他基础初等数学内容
 \end{center}
 
+\vspace{1cm}
+
 \section*{一、单项选择题（每小题5分，共8小题，40分）}
 
-\begin{enumerate}
-    \item 已知集合$A=\{x|2<x<5\}$, 集合$B=\{x|x\ge3\}$, 则$A\cap B=$（ \quad ）
-    \begin{enumerate}
+\begin{question}
+    已知集合$A=\{x|2<x<5\}$, 集合$B=\{x|x\ge3\}$, 则$A\cap B=$ \paren
+    \begin{choices}
         \item[A.] $\{x|3\le x<5\}$
         \item[B.] $\{x|x>2\}$
         \item[C.] $\{x|x\le2\}$
         \item[D.] $\{x|2<x\le3\}$
-    \end{enumerate}
+    \end{choices}
+\end{question}
 
-    \item 从集合$\{1,2,3,4,5,6,7,8,9\}$中随机地取四个互不相同的数，则其中任意两个数之和均不等于10的概率为（ \quad ）
-    \begin{enumerate}
+\begin{question}
+    从集合$\{1,2,3,4,5,6,7,8,9\}$中随机地取四个互不相同的数，则其中任意两个数之和均不等于10的概率为 \paren
+    \begin{choices}
         \item[A.] $\frac{1}{4}$
         \item[B.] $\frac{5}{21}$
         \item[C.] $\frac{8}{21}$
         \item[D.] $\frac{2}{3}$
-    \end{enumerate}
+    \end{choices}
+\end{question}
 
-    \item 函数$f(x) = \sqrt{2x^2+2} + x$的最小值为（ \quad ）
-    \begin{enumerate}
+\begin{question}
+    函数$f(x)= \sqrt{2x^2+2} +x$的最小值为 \paren
+    \begin{choices}
         \item[A.] $2\sqrt{2}$
         \item[B.] $2\sqrt{3}-1$
         \item[C.] $\sqrt{6}$
         \item[D.] $5 + 16$
-    \end{enumerate}
+    \end{choices}
+\end{question}
 
-    \item 定义在$\mathbb{R}$上的函数$f(x)$满足$f(x+1) = \frac{1}{2} + \sqrt{f(x)-[f(x)]^2}$ ,则$f(0)+f(2017)$的最大可能值为（ \quad ）
-    \begin{enumerate}
+\begin{question}
+    定义在$\mathbb{R}$上的函数$f(x)$满足$f(x+1)= \frac{1}{2} + \sqrt{f(x)-[f(x)]^2}$ ,则$f(0)+f(2017)$的最大可能值为 \paren
+    \begin{choices}
         \item[A.] $\frac{\sqrt{5}-1}{2}$
         \item[B.] $\frac{\sqrt{6}}{2}$
         \item[C.] $\frac{3\sqrt{3} - 1008}{2017}$
         \item[D.] $1+\frac{\sqrt{2}}{2}$
-    \end{enumerate}
+    \end{choices}
+\end{question}
 
-    \item 设a、b、c为正数，$a<b$，若a,b为一元二次方程 $ax^2-bx+c =0$的两个根，且a,b,c是一个三角形的三边长，则$a+b-c$的取值范围是（ \quad ）
-    \begin{enumerate}
+\begin{question}
+    设a、b、c为正数，$a<b$，若a,b为一元二次方程 $ax^2-bx+c =0$的两个根，且a,b,c是一个三角形的三边长，则$a+b-c$的取值范围是 \paren
+    \begin{choices}
         \item[A.] $(\frac{21}{16}, 2)$
         \item[B.] $(\frac{21}{16}, +\infty)$
         \item[C.] $(\frac{7}{8}, \frac{\sqrt{5}-1}{2})$
         \item[D.] $(\frac{5}{8}, \frac{\sqrt{2}+1}{2})$
-    \end{enumerate}
+    \end{choices}
+\end{question}
 
-    \item 若函数$f(x)= (2x^5+2x^4-53x^3-57x+54)^{2018}$ （$x\in\mathbb{R}$），则$f\left(\frac{\sqrt{11}-1}{2}\right)=$（ \quad ）
-    \begin{enumerate}
+\begin{question}
+    若函数$f(x)= (2x^5+2x^4-53x^3-57x+54)^{2018}$ （$x\in\mathbb{R}$），则$f\left(\frac{\sqrt{11}-1}{2}\right)=$ \paren
+    \begin{choices}
         \item[A.] 0
         \item[B.] 1
         \item[C.] 2
         \item[D.] -1
-    \end{enumerate}
+    \end{choices}
+\end{question}
 
-    \item 已知A、B、C为$\{1,2,3,4,5,6,7\}$的子集，且满足两两交集中元素个数为1，$A\cap B\cap C=\emptyset$，则这样的三元组（A,B,C）（无序）的个数为（ \quad ）
-    \begin{enumerate}
+\begin{question}
+    已知A、B、C为$\{1,2,3,4,5,6,7\}$的子集，且满足两两交集中元素个数为1，$A\cap B\cap C=\emptyset$，则这样的三元组（A,B,C）（无序）的个数为 \paren
+    \begin{choices}
         \item[A.] 14400
         \item[B.] 42300
         \item[C.] 53760
         \item[D.] 64230
-    \end{enumerate}
+    \end{choices}
+\end{question}
 
-    \item 集合$M=\left\{a\in\mathbb{Z} \left| a= \frac{x+y+z}{t} , 3^x+3^y+3^z=3^t ,x,y,z,t\in\mathbb{Z} \right.\right\}$中所有元素之和为（ \quad ）
-    \begin{enumerate}
+\begin{question}
+    集合$M=\{a\in\mathbb{Z} | a= \frac{x+y+z}{t} , 3^x+3^y+3^z=3^t ,x,y,z,t\in\mathbb{Z} \}$中所有元素之和为 \paren
+    \begin{choices}
         \item[A.] 6
         \item[B.] 9
         \item[C.] 12
         \item[D.] 15
-    \end{enumerate}
-\end{enumerate}
+    \end{choices}
+\end{question}
+
 
 \section*{二、多项选择题（每小题6分，共3小题，18分，每个小题全部选对得6分，部分选对得部分分，有错选的得0分）}
 
-\begin{enumerate}
-    \setcounter{enumi}{8}
-    \item 以下数中，在函数$f(x) = \frac{x(x^2+8)(8-x)}{x+1}$ 的值域内的是（ \quad ）
-    \begin{enumerate}
+\begin{question}
+    以下数中，在函数$f(x)= \frac{x(x^2+8)(8-x)}{x+1}$ 的值域内的是 \paren
+    \begin{choices}
         \item[A.] 0
         \item[B.] 3
         \item[C.] 6
         \item[D.] 9
-    \end{enumerate}
+    \end{choices}
+\end{question}
 
-    \item 已知数列$\{ a_n \}$满足：$a_1=1， a_2=9， a_{n+2} = 10a_{n+1} - a_n$,其中n为正整数。则下列给出的n中，满足 $a_n$ 不是3的方幂的是（即不存在非负整数k使得 $a_n = 3^k$ ）（ \quad ）
-    \begin{enumerate}
+\begin{question}
+    已知数列$\{ a_n \}$满足：$a_1 =1， a_2 =9， a_{n+2} =10 a_{n+1} - a_n$,其中n为正整数。则下列给出的n中，满足 $a_n$ 不是3的方幂的是（即不存在非负整数k使得 $a_n = 3^k$ ） \paren
+    \begin{choices}
         \item[A.] 1
         \item[B.] 18
         \item[C.] 57
         \item[D.] 126
-    \end{enumerate}
+    \end{choices}
+\end{question}
 
-    \item 如果正整数n使得任意不同于n的正整数m，均有$\{ \sqrt{2}n \} \neq \{ \sqrt{2}m \}$，则称n为“好数”，这里$\{x\}$表示x的小数部分。则下列形式的n中，一定是好数的是（ \quad ）
+\begin{question}
+    如果正整数n使得任意不同于n的正整数m，均有$\{ \sqrt{2}n \} \neq \{ \sqrt{2}m \}$，则称n为“好数”，这里$\{x\}$表示x的小数部分。则下列形式的n中，一定是好数的是 \paren
     （其中，k,t为任意正整数，p为奇素数）
-    \begin{enumerate}
+    \begin{choices}
         \item[A.] $n= (2^{2k}+1)^2$
         \item[B.] $n= 2^k \cdot 3^t$
         \item[C.] $n= \frac{2^{2k}-1}{3}$
         \item[D.] $n= \frac{3^p+2^p}{5}$
-    \end{enumerate}
-\end{enumerate}
+    \end{choices}
+\end{question}
+
 
 \section*{三、填空题（每小题5分，共3小题，15分）}
 
-\begin{enumerate}
-    \setcounter{enumi}{11}
-    \item 若函数$f(x)=2018-ax^2$（$a>0$）的图像与x轴围成的封闭图形内部和边界共有 $2018^2$ 个整点（横纵坐标都是整数的点），则a的取值范围为\underline{\hspace{5cm}}.
-    
-    \item 已知非负整数a,b,c,d满足 $a^2+b^2+c^2+d^2 =20$,则 $(a+b+c+d)^2 \cdot \left(\frac{1}{a^2+3}+\frac{1}{b^2+3}+\frac{1}{c^2+3}+\frac{1}{d^2+3}\right)$ 的最大值为\underline{\hspace{5cm}}.
+\begin{question}
+    若函数$f(x)=2018-a x^2$（$a>0$）的图像与x轴围成的封闭图形内部和边界共有 $2018^2$ 个整点（横纵坐标都是整数的点），则a的取值范围为 \fillin{               }。
+\end{question}
 
-    \item 从前2008个正整数构成的集合$M=\{1,2，...，2008\}$中取出一个k元子集A，使得A中任意两个元素之和都不能被它们的差（取正值）整除，则k的最大值为\underline{\hspace{5cm}}.
-\end{enumerate}
+\begin{question}
+    已知非负整数a,b,c,d满足 $a^2+b^2+c^2+d^2 =20$,则 $(a+b+c+d)^2 \cdot \left(\frac{1}{a^2+3}+\frac{1}{b^2+3}+\frac{1}{c^2+3}+\frac{1}{d^2+3}\right)$的最大值为 \fillin{               }。
+\end{question}
+
+\begin{question}
+    从前2008个正整数构成的集合$M=\{1,2，...，2008\}$中取出一个k元子集A，使得A中任意两个元素之和都不能被它们的差（取正值）整除，则k的最大值为 \fillin{               }。
+\end{question}
+
+\newpage
 
 \section*{四、解答题（本大题共5小题，第15小题13分，第16、17小题15分，第18、19小题17分，共77分，解答应有必要的推理过程和文字说明）}
 
-\begin{enumerate}
-    \setcounter{enumi}{14}
-    \item (13分) 已知$a>0, 12a+5b+2c>0$，证明：关于x的一元二次方程 $ax^2+bx+c =0$在（2,3）上不可能有两个不同的实数根。
+\begin{problem}[13分]
+    已知$a>0, 12a+5b+2c>0$，证明：关于x的一元二次方程 $ax^2+bx+c =0$在（2,3）上不可能有两个不同的实数根。
+\end{problem}
 
-    \item (15分) 设二次函数$f(x)= x^2+bx+c$，已知对任意实数b，均存在实数$x\in[1,2]$,使得不等式$|f(x)|\ge x$成立，求实数c的取值范围。
+\begin{problem}[15分]
+    设二次函数$f(x)= x^2+bx+c$，已知对任意实数b，均存在实数$x\in[1,2]$,使得不等式$|f(x)|\ge x$成立，求实数c的取值范围。
+\end{problem}
 
-    \item (15分) 解方程：$\frac{3x}{3+\sqrt{8x-3}} + \frac{3x}{3-\sqrt{8x-3}} = 1$
+\begin{problem}[15分]
+    解方程：$ \frac{3x}{3+\sqrt{8x-3}} + \frac{3x}{3-\sqrt{8x-3}}  = 1$
+\end{problem}
 
-    \item (17分)
+\begin{problem}[17分]
     \begin{enumerate}
         \item[(1)] 已知$x,y>0$，求证：当$x\ge y$时 $\frac{x}{y}\ge\frac{x+1}{y+1}$ ;当$x\le y$时， $\frac{x}{y}\le\frac{x+1}{y+1}$ 。
+        
         \item[(2)] 已知 $a_1,a_2,...,a_n >0$，令 $a_{n+1} = a_1$，证明：
         $$ \frac{a_2}{a_1}+\frac{a_3}{a_2}+...+\frac{a_n}{a_{n-1}}+\frac{a_{n+1}}{a_n} \ge \frac{\sqrt{a_2^2+1}}{\sqrt{a_1^2+1}}+\frac{\sqrt{a_3^2+1}}{\sqrt{a_2^2+1}}+...+\frac{\sqrt{a_n^2+1}}{\sqrt{a_{n-1}^2+1}}+\frac{\sqrt{a_{n+1}^2+1}}{\sqrt{a_n^2+1}} $$
     \end{enumerate}
+\end{problem}
 
-    \item (17分) 设A、B为正整数，S是由一些正整数构成的一个集合，具有以下性质：
+\begin{problem}[17分]
+    设A、B为正整数，S是由一些正整数构成的一个集合，具有以下性质：
     \begin{enumerate}
         \item[①] 对任意非负整数k，有 $A^k \in S$；
         \item[②] 若正整数$n\in S$，则n的每个正因数均属于S；
@@ -156,6 +231,6 @@
         \item[(2)] A>1时，证明：若$n\in S$，则 $A^k n + B\frac{A^k-1}{A-1} \in S$ ，其中k为任意正整数；
         \item[(3)] A>1时，证明：与B互素的所有正整数均属于S。
     \end{enumerate}
-\end{enumerate}
+\end{problem}
 
 \end{document}

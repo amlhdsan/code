@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-#define ll long long
+#define int long long
 #define MOD 998244353
 
 using namespace std;
@@ -33,7 +33,7 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-map<int, ll> cnt;
+map<int, int> cnt;
 
 int main() {
     freopen("xortree.in","r",stdin);
@@ -47,11 +47,11 @@ int main() {
         
         if (op == 1) {
             int x = read();
-            map<int, ll> ncnt = cnt;
+            map<int, int> ncnt = cnt;
             
             for (auto& p : cnt) {
                 int val = p.first;
-                ll c = p.second;
+                int c = p.second;
                 
                 int lval = val;
                 int rval = val ^ x;

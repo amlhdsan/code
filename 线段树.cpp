@@ -1,22 +1,22 @@
 #include <bits/stdc++.h>
-#define ll long long
+#define int long long
 #define N 100005
 using namespace std;
 
-ll tree[N << 2], lazy[N << 2];
-ll a[N];
+int tree[N << 2], lazy[N << 2];
+int a[N];
 int size[N << 2];
 int n, m;
 int op, x, y;
-ll k;
+int k;
 
-void build(int p, ll l, ll r) {
+void build(int p, int l, int r) {
     if(l == r) {
         tree[p] = a[l];
         size[p] = 1;
         return;
     }
-    ll mid = (l + r) >> 1;
+    int mid = (l + r) >> 1;
     build(2 * p, l, mid);
     build(2 * p + 1, mid + 1, r);
     size[p] = size[2 * p] + size[2 * p + 1];
@@ -35,7 +35,7 @@ void pushd(int p) {
 void mdf(int p, int l, int r, int ql, int qr, int k) {
     if(ql <= l && qr >= r) {
         lazy[p] += k;
-        tree[p] += 1ll * size[p] * k;
+        tree[p] += 1int * size[p] * k;
         return;
     }
     pushd(p);
@@ -47,12 +47,12 @@ void mdf(int p, int l, int r, int ql, int qr, int k) {
     tree[p] = tree[p * 2] + tree[p * 2 + 1];
 }
 
-ll qry(int p, int l, int r, int ql, int qr) {
+int qry(int p, int l, int r, int ql, int qr) {
     if(ql <= l && r <= qr) {
         return tree[p];
     }
     int mid = (l + r) >> 1;
-    ll ans = 0;
+    int ans = 0;
     pushd(p);
     if(ql <= mid)
         ans += qry(2 * p, l, mid, ql, qr);

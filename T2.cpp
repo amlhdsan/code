@@ -20,7 +20,7 @@ inline void add_edge()
 int main() {
     // 提高 IO 效率
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    cin.tie(NUint);
 
 
     cin >> n >> m;

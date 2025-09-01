@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 
 #define N 1010
-#define ll long long
+#define int long long
 
 using namespace std;
 
-ll n, m, k, p;
-ll a[N][N];
-ll lsum[N], hsum[N];
+int n, m, k, p;
+int a[N][N];
+int lsum[N], hsum[N];
 
 int main() {
 
@@ -16,8 +16,8 @@ int main() {
 
     cin >> n >> m >> k >> p;
 
-    for(ll i = 1; i <= n; ++i) {
-        for(ll j = 1; j <= m; ++j) {
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= m; ++j) {
             cin >> a[i][j];
             lsum[j] += a[i][j];
             hsum[i] += a[i][j];
@@ -25,11 +25,11 @@ int main() {
     }
 
     if(p == 0) {
-        ll maxx = -0x7fffffff;
-        for(ll i = 1; i <= n; ++i) {
+        int maxx = -0x7fffffff;
+        for(int i = 1; i <= n; ++i) {
             maxx = max(maxx, hsum[i]);
         }
-        for(ll i = 1; i <= m; ++i) {
+        for(int i = 1; i <= m; ++i) {
             maxx = max(maxx, lsum[i]);
         }
         cout << maxx * k << endl;

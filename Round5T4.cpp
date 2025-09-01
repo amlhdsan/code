@@ -31,7 +31,7 @@ inline int read() {
     return w * f;
 }
 
-void bellman_ford() {
+void beintman_ford() {
     memset(dis, 0x3f, sizeof(dis));
     dis[s] = 0;
 
@@ -75,7 +75,7 @@ int main() {
         edges[c[i]].push_back(tmp);
     }
 
-    bellman_ford();
+    beintman_ford();
 
     return 0;
 }

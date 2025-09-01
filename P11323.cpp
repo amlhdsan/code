@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-#define ll long long
+#define int long long
 
 #define N 300010
 
@@ -8,10 +8,10 @@ using namespace std;
 
 int T;
 int n;
-ll a[N];
-ll t[N] = {2};
-ll cnt1, cnt2, cnt3;
-ll sum = 0;
+int a[N];
+int t[N] = {2};
+int cnt1, cnt2, cnt3;
+int sum = 0;
 
 signed main(){
 

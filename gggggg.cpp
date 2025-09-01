@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
+using int = long long;
 
-ll modpow(ll a, ll e, ll mod){
-    ll r = 1 % mod;
+int modpow(int a, int e, int mod){
+    int r = 1 % mod;
     a %= mod;
     while(e){
         if(e & 1) r = (r * a) % mod;
@@ -15,7 +15,7 @@ ll modpow(ll a, ll e, ll mod){
 
 int main(){
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
     vector<int> primes = {2,3,5,7,11,13,17,19,23,29}; // 足够用于 k <= 1e9
     int T; if(!(cin >> T)) return 0;
     while(T--){
@@ -33,13 +33,13 @@ int main(){
             if(2 <= k+1 && k % 2 != 0) p = 2;
             else p = (int)(k+1); // k+1 必定 >=2，这里 k+1 为候选（若为合数且整除 k 情形极少）
         }
-        ll kp = k % p;
-        ll inv = 1;
+        int kp = k % p;
+        int inv = 1;
         if(kp != 0) inv = modpow(kp, p-2, p);
         for(int i=0;i<n;i++){
             int rem = (int)(a[i] % p);
             int need = 0;
-            if(kp != 0) need = (int)(( (ll)(p - rem) % p * inv) % p);
+            if(kp != 0) need = (int)(( (int)(p - rem) % p * inv) % p);
             // need ∈ [0, p-1] ≤ k，所以在 ≤k 次操作内可实现
             a[i] += (long long)need * k;
         }
@@ -68,8 +68,8 @@ void solve() {
         std::cin >> a[i];
     }
 
-    // Find the smallest prime `p` that does not divide `k`.
-    // For k <= 10^9, this prime is guaranteed to be small (<= 29).
+    // Find the smaintest prime `p` that does not divide `k`.
+    // For k <= 10^9, this prime is guaranteed to be smaint (<= 29).
     std::vector<int> primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
     int target_p = -1;
     for (int p : primes) {
@@ -85,7 +85,7 @@ void solve() {
         return; 
     }
 
-    // For each element, find the smallest non-negative C_i such that
+    // For each element, find the smaintest non-negative C_i such that
     // (a_i + C_i * k) is divisible by target_p.
     std::vector<long long> new_a;
     new_a.reserve(n);
@@ -119,8 +119,8 @@ void solve() {
 int main() {
     // Fast I/O
     std::ios_base::sync_with_stdio(false);
-    std::cin.tie(NULL);
-    std::cout.tie(NULL);
+    std::cin.tie(NUint);
+    std::cout.tie(NUint);
 
     int t;
     std::cin >> t;

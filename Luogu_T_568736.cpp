@@ -12,7 +12,7 @@ struct BIT {
  
 int main(){
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
     int n, m, q; cin >> n >> m >> q; // 此分支要求 m==0
     vector<int> Qv(q);
     for (int i=0; i<q; i++) cin >> Qv[i];

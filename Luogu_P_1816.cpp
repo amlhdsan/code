@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 200001
-#define ll long long
+#define int long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)
@@ -10,7 +10,7 @@ using namespace std;
 
 int n, m;
 int a[N];
-ll tree[N << 2];
+int tree[N << 2];
 
 void upd(int p) {
     tree[p] = min(tree[ls], tree[rs]);
@@ -43,12 +43,12 @@ void mdf(int p, int l, int r, int ql, int qr, int k) {
     upd(p);
 }
 
-ll qry(int p, int l, int r, int ql, int qr) {
+int qry(int p, int l, int r, int ql, int qr) {
     if(ql <= l && r <= qr) {
         return tree[p];
     }
 
-    ll minn = 0x7fffffff;
+    int minn = 0x7fffffff;
 
     if(ql <= mid) {
         minn = min(minn, qry(ls, l, mid, ql, qr));

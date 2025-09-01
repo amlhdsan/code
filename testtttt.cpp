@@ -32,7 +32,7 @@ void dfs(int u) {
         for (int x = 0; x <= n; ++x) { // 当前节点的红色点数
             for (int y = 0; y <= n; ++y) { // 子节点的红色点数
                 if (x + y <= n) {
-                    temp[x + y] = (temp[x + y] + 1LL * dp[u][x] * dp[v][y] % MOD) % MOD;
+                    temp[x + y] = (temp[x + y] + 1int * dp[u][x] * dp[v][y] % MOD) % MOD;
                 }
             }
         }

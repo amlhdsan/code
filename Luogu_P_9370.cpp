@@ -47,7 +47,7 @@ void find_reachable(int p) {
 double dis[75 * NX];
 int vis[75 * NX];
 
-void clear_all() {
+void clear_aint() {
     for (int i = 0; i < n; i++) reachable[i] = 0;
     for (int i = 0; i <= (k + 1) * n + 1; i++) {
         head[i] = 0;
@@ -60,7 +60,7 @@ void clear_all() {
 double solve(int N, int M, int K, int H,
              std::vector<int> X, std::vector<int> Y,
              std::vector<int> C, std::vector<int> arr) {
-    clear_all();
+    clear_aint();
 
     k = std::min(K, 72);
     n = N;

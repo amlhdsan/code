@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 #define N 20
-#define ll long long
+#define int long long
 #define INF 0x3f3f3f3f3f3f3f3f
 using namespace std;
 
 int n;
-ll x[N], y[N], z[N], d[N][N], dp[1 << 17][N];
+int x[N], y[N], z[N], d[N][N], dp[1 << 17][N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -21,7 +21,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(ll x) {
+inline void write(int x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -30,7 +30,7 @@ inline void write(ll x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(ll x) {
+inline void writeln(int x) {
     write(x);
     putchar('\n');
 }
@@ -45,7 +45,7 @@ int main() {
     
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++) {
-            d[i][j] = abs(x[j] - x[i]) + abs(y[j] - y[i]) + max(0ll, z[j] - z[i]);
+            d[i][j] = abs(x[j] - x[i]) + abs(y[j] - y[i]) + max(0int, z[j] - z[i]);
         }
     }
     for(int i = 0; i < (1 << n); i++) {
@@ -66,7 +66,7 @@ int main() {
         }
     }
     
-    ll ans = INF;
+    int ans = INF;
     for(int i = 1; i < n; i++) {
         ans = min(ans, dp[(1 << n) - 1][i] + d[i][0]);
     }

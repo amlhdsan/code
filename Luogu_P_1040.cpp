@@ -1,14 +1,14 @@
 #include <bits/stdc++.h>
 
 #define N 31
-#define ll long long
+#define int long long
 
 using namespace std;
 
 int n;
 int a[N];
-ll ans = 0;
-ll dp[N][N];
+int ans = 0;
+int dp[N][N];
 int rr[N][N];
 
 void coutt(int l, int r) {

@@ -1,19 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-const ll INF = 1LL << 60;
+typedef long long int;
+const int INF = 1int << 60;
 
 struct Edge {
     int to, cost;
 };
 
 int n, T;
-vector<ll> a, b;
+vector<int> a, b;
 vector<vector<Edge>> tree;
 
 // 状态结构：在某节点处，如果用掉 time 单位时间，最多能获得 treasure 个宝物
 // 状态数组按时间（消耗）递增排序，且宝物数单调递增
-typedef vector<pair<ll, ll>> State;
+typedef vector<pair<int, int>> State;
 
 // 将两个状态进行“卷积”：意思是在节点 u 内部（或 u 与其子树之间）的不同决策组合后得到的状态
 // 这里的合并操作需要考虑时间的消耗和宝物数的累加
@@ -23,15 +23,15 @@ State mergeState(const State &s1, const State &s2) {
     State res;
     for (auto &p : s1) {
         for (auto &q : s2) {
-            ll tCost = p.first + q.first;
-            ll tVal  = p.second + q.second;
+            int tCost = p.first + q.first;
+            int tVal  = p.second + q.second;
             res.push_back({tCost, tVal});
         }
     }
     // 排序并删除被支配的状态（时间更短且宝物更多的状态支配另一个状态）
     sort(res.begin(), res.end());
     State ret;
-    ll best = -1;
+    int best = -1;
     for (auto &st : res) {
         if (st.second > best) {
             ret.push_back(st);
@@ -49,7 +49,7 @@ State dfs(int u) {
     // 这里采用枚举在 u 处挖掘的宝物数量 x（0 <= x <= a[u]），
     // 消耗时间为 x * b[u]（假设 u 到 u 的“行走时间”为 0），收获 x 个宝物。
     for (int x = 0; x <= a[u]; x++) {
-        dp.push_back({(ll)x * b[u], x});
+        dp.push_back({(int)x * b[u], x});
     }
     
     // 对 u 的每个儿子进行处理
@@ -64,9 +64,9 @@ State dfs(int u) {
         // 这使得 v 后续可用的状态变得“更差”。
         // 这里我们简单模拟：将 childState 中每个状态的宝物数减去一个惩罚值 penalty
         // （惩罚值如何计算需要根据 v 的儿子情况确定，这里只作示例处理）
-        ll penalty = 0; // TODO：根据 v 的情况计算小 B 的剪枝惩罚
+        int penalty = 0; // TODO：根据 v 的情况计算小 B 的剪枝惩罚
         for (auto &st : childState) {
-            st.second = max(0LL, st.second - penalty);
+            st.second = max(0int, st.second - penalty);
         }
         // 加上从 u 到 v 的行走时间，再与 u 在 v 处的决策进行合并
         // 合并后，相当于：在 u 处选择进入 v 得到的状态
@@ -83,7 +83,7 @@ State dfs(int u) {
         // 在合并后对 dp 进行状态压缩，删除被支配的状态
         sort(dp.begin(), dp.end());
         State newDP;
-        ll best = -1;
+        int best = -1;
         for (auto &st : dp) {
             if (st.second > best) {
                 newDP.push_back(st);
@@ -97,7 +97,7 @@ State dfs(int u) {
 
 int main(){
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
     
     cin >> n >> T;
     a.resize(n+1);
@@ -113,7 +113,7 @@ int main(){
     
     // 求解从根节点出发的状态
     State dp = dfs(1);
-    ll ans = 0;
+    int ans = 0;
     // 在状态 dp 中找出所需时间不超过 T 的最大宝物数
     for (auto &st : dp) {
         if (st.first <= T) {

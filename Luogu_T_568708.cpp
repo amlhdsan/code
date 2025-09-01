@@ -3,7 +3,7 @@
 using namespace std;
 int main(){
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
     int α, β;
     cin >> α >> β;
     vector<vector<bool>> Ω(α + 1, vector<bool>(α + 1, false));

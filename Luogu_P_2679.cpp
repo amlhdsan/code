@@ -1,14 +1,14 @@
 #include <bits/stdc++.h>
 
-#define ll long long
+#define int long long
 #define MOD 1000000007
 #define N 210
 #define M 1010
 
 using namespace std;
 
-ll dp[N][N];
-ll sum[N][N];
+int dp[N][N];
+int sum[N][N];
 int n, m, t;
 char a[M], b[N];
 

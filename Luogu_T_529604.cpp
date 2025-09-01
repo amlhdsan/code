@@ -3,21 +3,21 @@
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)
-#define ll long long
+#define int long long
 using namespace std;
 
-ll n, q, w;
+int n, q, w;
 int a[N];
 int lss, rss, d;
-ll tree[N << 2];
-ll lazy[N << 2];
+int tree[N << 2];
+int lazy[N << 2];
 int siz[N];
-ll ww;
-ll ans;
+int ww;
+int ans;
 int lun;
-ll summ = 0;
+int summ = 0;
 int ttt;
-int lll, rr, midd;
+int intl, rr, midd;
 
 void upds(int p) {
     siz[p] = siz[ls] + siz[rs];
@@ -28,8 +28,8 @@ void upd(int p) {
 }
 
 void pushd(int p) {
-    tree[ls] += 1ll * lazy[p] * siz[ls];
-    tree[rs] += 1ll * lazy[p] * siz[rs];
+    tree[ls] += 1int * lazy[p] * siz[ls];
+    tree[rs] += 1int * lazy[p] * siz[rs];
 
     lazy[ls] += lazy[p];
     lazy[rs] += lazy[p];
@@ -52,7 +52,7 @@ void build(int p, int l, int r) {
 
 void mdf(int p, int l, int r, int ql, int qr, int x) {
     if(ql <= l && r <= qr) {
-        tree[p] += 1ll * x * siz[p];
+        tree[p] += 1int * x * siz[p];
         lazy[p] += x;
         return;
     }
@@ -66,7 +66,7 @@ void mdf(int p, int l, int r, int ql, int qr, int x) {
     upd(p);
 }
 
-ll qry(int p, int l, int r, int ql, int qr) {
+int qry(int p, int l, int r, int ql, int qr) {
 
     if(ql <= l && r <= qr) {
         return tree[p];
@@ -74,7 +74,7 @@ ll qry(int p, int l, int r, int ql, int qr) {
 
     pushd(p);
 
-    ll sum = 0;
+    int sum = 0;
 
     if(ql <= mid) {
         sum += qry(ls, l, mid, ql, qr);
@@ -119,28 +119,28 @@ int main() {
         lss = read();
         rss = read();
         d = read();
-        summ += 1ll * (rss - lss + 1) * d;
+        summ += 1int * (rss - lss + 1) * d;
         mdf(1, 1, n, lss, rss, d);
         ww = w;
         while(1) {
-            if(ww > summ * (1ll << lun)) {
+            if(ww > summ * (1int << lun)) {
                 ans += n;
-                ww -= summ * (1ll << lun);
+                ww -= summ * (1int << lun);
                 ++lun;
             }
             else {
-                lll = 1;
+                intl = 1;
                 rr = n;
-                while(lll <= rr) {
-                    midd = (lll + rr) >> 1;
-                    if(1ll * qry(1, 1, n, 1, midd) * (1ll << lun) >= ww) {
+                while(intl <= rr) {
+                    midd = (intl + rr) >> 1;
+                    if(1int * qry(1, 1, n, 1, midd) * (1int << lun) >= ww) {
                         rr = midd - 1;
                     }
                     else {
-                        lll = midd + 1;
+                        intl = midd + 1;
                     }
                 }
-                ans += lll - 1;
+                ans += intl - 1;
                 printf("%d\n", ans);
                 break;
             }

@@ -3,8 +3,8 @@
 #include <algorithm>
 using namespace std;
 
-typedef long long ll;
-const ll INF = 1LL << 60;
+typedef long long int;
+const int INF = 1int << 60;
 
 // 边结构：保存孩子节点和从父节点到该孩子的行走时间
 struct Edge {
@@ -12,12 +12,12 @@ struct Edge {
 };
 
 int n, T;
-vector<ll> a, b;              // a[i]: i节点宝物数；b[i]:每个宝物挖掘所需时间
+vector<int> a, b;              // a[i]: i节点宝物数；b[i]:每个宝物挖掘所需时间
 vector<vector<Edge>> tree;
 
 // 状态定义：一个状态表示花费 time 时间获得 treasure 个宝物
 // 一个节点返回的状态集合表示从该节点出发到返回该节点期间所有可能的选择方案
-typedef vector<pair<ll, ll>> State;
+typedef vector<pair<int, int>> State;
 
 /*
  * mergeState：将两个状态集合进行合并，枚举所有方案组合
@@ -28,14 +28,14 @@ State mergeState(const State &s1, const State &s2) {
     State merged;
     for (auto &p : s1) {
         for (auto &q : s2) {
-            ll newTime = p.first + q.first;
-            ll newTreasure = p.second + q.second;
+            int newTime = p.first + q.first;
+            int newTreasure = p.second + q.second;
             merged.push_back({newTime, newTreasure});
         }
     }
     sort(merged.begin(), merged.end());
     State result;
-    ll bestTreasure = -1;
+    int bestTreasure = -1;
     for (auto &st : merged) {
         if (st.second > bestTreasure) {
             result.push_back(st);
@@ -54,7 +54,7 @@ State dfs(int u) {
     // 方案一：在 u 节点处直接挖宝后原路返回（不进入子树）
     // 枚举在 u 节点挖掘 x 个宝物，耗时 x * b[u]，获得 x 个宝物
     for (int x = 0; x <= a[u]; x++) {
-        dp.push_back({(ll)x * b[u], x});
+        dp.push_back({(int)x * b[u], x});
     }
     
     // 遍历 u 的所有子节点
@@ -66,9 +66,9 @@ State dfs(int u) {
         
         // 模拟小 B 的剪枝策略：小 B 会剪掉对小 A 最有利的一支，
         // 这里简单以一个惩罚值 penalty 表示，实际问题中可能需要根据 v 的具体情况计算
-        ll penalty = 0; // TODO: 根据实际情况调整惩罚策略
+        int penalty = 0; // TODO: 根据实际情况调整惩罚策略
         for (auto &st : childState) {
-            st.second = max(0LL, st.second - penalty);
+            st.second = max(0int, st.second - penalty);
         }
         
         // 从 u 进入子树 v 需要先支付行走时间 travelCost，
@@ -81,7 +81,7 @@ State dfs(int u) {
         // 压缩 dp 状态，删除劣势方案（时间更长但宝物更少）
         sort(dp.begin(), dp.end());
         State newDP;
-        ll best = -1;
+        int best = -1;
         for (auto &st : dp) {
             if (st.second > best) {
                 newDP.push_back(st);
@@ -95,7 +95,7 @@ State dfs(int u) {
 
 int main(){
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nuintptr);
     
     cin >> n >> T;
     a.resize(n + 1);
@@ -114,7 +114,7 @@ int main(){
     
     // 从根节点开始 DFS 得到所有可能状态
     State res = dfs(1);
-    ll answer = 0;
+    int answer = 0;
     // 在所有方案中选出耗时不超过 T 的最大宝物数
     for (auto &st : res) {
         if (st.first <= T)

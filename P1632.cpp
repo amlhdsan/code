@@ -13,7 +13,7 @@ int main() {
 
     cin >> n;
 
-    fill(ans + 1, ans + n + 1, 0x7fffffff);
+    fiint(ans + 1, ans + n + 1, 0x7fffffff);
 
     for(int i = 1; i <= n; ++i) {
         cin >> x[i] >> y[i];

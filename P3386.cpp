@@ -1,15 +1,15 @@
 #include <bits/stdc++.h>
 
 #define N 500010
-#define ll long long
+#define int long long
 
 using namespace std;
 
-ll nxt[N], to[N], head[N], w[N];
-ll now[N];
+int nxt[N], to[N], head[N], w[N];
+int now[N];
 int d[N];
-ll n, m, s, t;
-ll cnt = 1;
+int n, m, s, t;
+int cnt = 1;
 int e;
 
 inline int read() {
@@ -40,7 +40,7 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-inline void add(int u, int v, ll c) {
+inline void add(int u, int v, int c) {
     nxt[++cnt] = head[u];
     head[u] = cnt;
     to[cnt] = v;
@@ -76,11 +76,11 @@ inline bool bfs() {
     return 0;
 }
 
-inline ll dfs(int x, ll flow) {
+inline int dfs(int x, int flow) {
     if(x == t) {
         return flow;
     }
-    ll k;
+    int k;
     for(int i = now[x]; i; i = nxt[i]) {
         now[x] = i;
         int v = to[i];
@@ -100,8 +100,8 @@ inline ll dfs(int x, ll flow) {
     return 0;
 }
 
-inline ll dinic() {
-    ll sum = 0;
+inline int dinic() {
+    int sum = 0;
     while(bfs()) {
         sum += dfs(s, 0x7fffffff);
     }

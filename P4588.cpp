@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 #define N 100001
-#define ll long long
+#define int long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 using namespace std;
 
 int T;
 int q, mod;
-ll tree[N << 2];
+int tree[N << 2];
 int op, t;
 
 void upd(int p) {

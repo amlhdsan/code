@@ -7,12 +7,12 @@
 #include<iostream>
 #include<algorithm>
 using namespace std;
-#define ll long long
+#define int long long
 const int MAX_LEN =1000 ;
 int seg_tree[MAX_LEN << 2];
 int Lazy[MAX_LEN << 2];
 int arr[MAX_LEN];
-int opt, lll, rrr;
+int opt, intl, rrr;
 //从下往上更新 节点
 void push_up (int root) {
     seg_tree[root] = max(seg_tree[root << 1], seg_tree[root << 1 | 1]);      //最小值改min
@@ -43,14 +43,14 @@ void build (int root, int L, int R) {
 }
 
 //区间查询
-//查找区间[LL,RR]的最大/小值
-int query (int root, int L, int R, int LL, int RR) {
-    if (LL <= L && R <= RR) return seg_tree[root];
+//查找区间[int,RR]的最大/小值
+int query (int root, int L, int R, int int, int RR) {
+    if (int <= L && R <= RR) return seg_tree[root];
     push_down(root, L, R);     //每次访问都去检查Lazy 标记
     int Ans = 0;
     int mid = (L + R) >> 1;
-    if(LL <= mid) Ans = max(Ans, query(root << 1, L, mid, LL, RR));    //最小值改min
-    if(RR > mid) Ans = max(Ans, query(root << 1 | 1, mid + 1, R, LL, RR)); //最小值改min
+    if(int <= mid) Ans = max(Ans, query(root << 1, L, mid, int, RR));    //最小值改min
+    if(RR > mid) Ans = max(Ans, query(root << 1 | 1, mid + 1, R, int, RR)); //最小值改min
     return Ans;
 }
 void update(int root, int L, int R, int pos, int val) {
@@ -110,9 +110,9 @@ int main()
     scanf("%d", &q);
     while(q--) {
         opt = read();
-        lll = read();
+        intl = read();
         rrr = read();
-        write(query(1, 1, n, lll, r))
+        write(query(1, 1, n, intl, r))
     }
 
     return 0;

@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 1000010
-#define ll long long
+#define int long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)
@@ -10,7 +10,7 @@ using namespace std;
 
 int n, q, root;
 int h[N], e[N << 1], ne[N << 1], idx;
-ll fw[2][N], a[N];
+int fw[2][N], a[N];
 int fa[N], dep[N], sz[N], son[N];
 int timestamp, dfn[N], top[N];
 
@@ -50,14 +50,14 @@ int lowbit(int x) {
     return x & -x;
 }
 
-void add_bit(int t, int k, ll x) {
+void add_bit(int t, int k, int x) {
     if (!k) return;
     for (; k <= n; k += lowbit(k))
         fw[t][k] += x;
 }
 
-ll sum(int t, int k) {
-    ll res = 0;
+int sum(int t, int k) {
+    int res = 0;
     for (; k; k -= lowbit(k))
         res += fw[t][k];
     return res;
@@ -108,7 +108,7 @@ int Lca(int u, int v) {
     return dep[u] < dep[v] ? u : v;
 }
 
-void update(int u, int v, ll x) {
+void update(int u, int v, int x) {
     int lca = Lca(u, v);
     add_bit(0, dfn[u], x), add_bit(0, dfn[v], x);
     add_bit(0, dfn[lca], -x), add_bit(0, dfn[fa[lca]], -x);
@@ -116,11 +116,11 @@ void update(int u, int v, ll x) {
     add_bit(1, dfn[lca], -x * dep[lca]), add_bit(1, dfn[fa[lca]], -x * dep[fa[lca]]);
 }
 
-ll querynode(int u) {
+int querynode(int u) {
     return sum(0, dfn[u] + sz[u] - 1) - sum(0, dfn[u] - 1);
 }
 
-ll querytree(int u) {
+int querytree(int u) {
     return sum(1, dfn[u] + sz[u] - 1) - sum(1, dfn[u] - 1) - querynode(u) * (dep[u] - 1);
 }
 
@@ -149,9 +149,9 @@ int main() {
             int v = read(), x = read();
             update(u, v, x);
         } else if (op == 2) {
-            printf("%lld\n", querynode(u));
+            printf("%intd\n", querynode(u));
         } else {
-            printf("%lld\n", querytree(u));
+            printf("%intd\n", querytree(u));
         }
     }
     

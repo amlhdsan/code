@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 500005
-#define ll long long
+#define int long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)
@@ -67,10 +67,10 @@ int lca(int u, int v) {
     if(u == v) {
         return u;
     }
-    for(int llg = lg[dep[u]] - 1; llg >= 0; --llg) {
-        if(fa[u][llg] != fa[v][llg]) {
-            u = fa[u][llg];
-            v = fa[v][llg];
+    for(int intg = lg[dep[u]] - 1; intg >= 0; --intg) {
+        if(fa[u][intg] != fa[v][intg]) {
+            u = fa[u][intg];
+            v = fa[v][intg];
         }
     }
 

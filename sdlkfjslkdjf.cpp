@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-const ll MOD = 1000000007;
+typedef long long int;
+const int MOD = 1000000007;
 
 inline int read(){
     int x=0,f=1; char ch=getchar();
@@ -15,27 +15,27 @@ inline int read(){
     }
     return x*f;
 }
-inline void write(ll x){
+inline void write(int x){
     if(x<0){putchar('-'); x=-x;}
     if(x>9) write(x/10);
     putchar(x%10+'0');
 }
-inline void writeln(ll x){
+inline void writeln(int x){
     write(x); putchar('\n');
 }
-ll modexp(ll a,ll b){
-    ll res=1; a%=MOD;
+int modexp(int a,int b){
+    int res=1; a%=MOD;
     while(b){
         if(b&1) res=(res*a)%MOD;
         a=(a*a)%MOD; b>>=1;
     }
     return res;
 }
-ll inv(ll x){ return modexp(x,MOD-2); }
+int inv(int x){ return modexp(x,MOD-2); }
 struct NodeRes{
     int L;
     long double F;
-    ll Fm;
+    int Fm;
 };
 int n;
 vector<vector<int>> child;
@@ -58,7 +58,7 @@ NodeRes dfs(int u){
     }
     sort(ord.begin(), ord.end(), [](auto &a, auto &b){ return a.first < b.first; });
     long double num = 0.0;
-    ll numm = 0;
+    int numm = 0;
     int sum = tot;
     for(auto &p : ord){
         int idx = p.second;
@@ -67,12 +67,12 @@ NodeRes dfs(int u){
         long double A = (cam[v]=='Y' ? 2.0 : (2.0+vec[idx].F));
         num += T * vec[idx].L + A * (sum - vec[idx].L);
         numm = numm + (( ( (1 + vec[idx].Fm) % MOD) * vec[idx].L) % MOD) % MOD;
-        ll A_mod = (cam[v]=='Y' ? 2LL : ((2 + vec[idx].Fm) % MOD));
+        int A_mod = (cam[v]=='Y' ? 2int : ((2 + vec[idx].Fm) % MOD));
         numm = (numm + (A_mod * ((sum - vec[idx].L) % MOD)) % MOD) % MOD;
         sum -= vec[idx].L;
     }
     long double Fval = num / tot;
-    ll Fmod = (numm * inv(tot)) % MOD;
+    int Fmod = (numm * inv(tot)) % MOD;
     return {tot, Fval, Fmod};
 }
 int main(){

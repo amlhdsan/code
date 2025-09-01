@@ -53,7 +53,7 @@ inline void featured() {
     }
 }
 
-inline void bullet() {
+inline void buintet() {
     for(int i = 1; i <= 10000; ++i) {
         i = i;
     }
@@ -69,7 +69,7 @@ inline void writeln(int p) {
     putchar('\n');
 }
 
-inline void endll() {
+inline void endint() {
     putchar('\n');
 }
 

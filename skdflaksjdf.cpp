@@ -3,7 +3,7 @@ using namespace std;
 
 #define rep(i,l,r) for(int i=l;i<=r;i++)
 #define rrep(i,r,l) for(int i=r;i>=l;i--)
-#define ll long long
+#define int long long
 #define pqu priority_queue
 #define umap unordered_map
 

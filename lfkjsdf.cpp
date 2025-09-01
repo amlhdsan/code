@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 100001
-#define ll long long
+#define int long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)
@@ -10,7 +10,7 @@ using namespace std;
 
 int n, m;
 int a[N];
-ll tree[N << 2];
+int tree[N << 2];
 
 void upd(int p) {
     tree[p] = __gcd(tree[ls], tree[rs]);
@@ -29,12 +29,12 @@ void build(int p, int l, int r) {
     upd(p);
 }
 
-ll qry(int p, int l, int r, int ql, int qr) {
+int qry(int p, int l, int r, int ql, int qr) {
     if(ql <= l && r <= qr) {
         return tree[p];
     }
 
-    ll sum = 0;
+    int sum = 0;
 
     if(ql <= mid) {
         sum = __gcd(sum, qry(ls, l, mid, ql, qr));

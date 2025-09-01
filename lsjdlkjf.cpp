@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 200005
-#define ll long long
+#define int long long
 
 using namespace std;
 
@@ -69,7 +69,7 @@ void solve() {
         }
     }
     
-    ll ans = 0;
+    int ans = 0;
     
     for (int i = 1; i <= n + m; i++) {
         ans += cnt[i] * (m + 1 - cnt[i]);

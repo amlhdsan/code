@@ -1,17 +1,17 @@
 #include <bits/stdc++.h>
-#define ll long long
+#define int long long
 #define N 100005
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 using namespace std;
 
 int n, q;
-ll m = 10007;
+int m = 10007;
 int a[N];
-ll tree[N << 2];
+int tree[N << 2];
 int siz[N << 2];
-ll multy_lazy[N << 2];
-ll add_lazy[N << 2];
+int multy_lazy[N << 2];
+int add_lazy[N << 2];
 int op;
 int x, y, k;
 
@@ -106,13 +106,13 @@ void add(int p, int l, int r, int ql, int qr, int c) {
     upd(p);
 }
 
-ll qry(int p, int l, int r, int ql, int qr) {
+int qry(int p, int l, int r, int ql, int qr) {
     if(ql <= l && r <= qr) {
         return tree[p];
     }
     pushd(p);
 
-    ll sum = 0;
+    int sum = 0;
     int mid = (l + r) >> 1;
 
     if(ql <= mid) {

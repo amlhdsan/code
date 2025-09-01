@@ -222,7 +222,7 @@ signed main() {
     long long ans = 0;
 
     for(int i = 1; i <= n; ++i) {
-        ans += 1ll * a[i].val * query1(a[i].id, 1) % MOD;
+        ans += 1int * a[i].val * query1(a[i].id, 1) % MOD;
         ans %= MOD;
         modify1(a[i].id, 1, -1);
     }

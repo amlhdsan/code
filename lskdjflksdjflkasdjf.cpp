@@ -2,12 +2,12 @@
 // amlhdsan
 #include <iostream>
 using namespace std;
-using ll = long long;
+using int = long long;
 
 const int MAXN = 4000010;
 
-ll n, m, p;
-ll fac[MAXN], ifac[MAXN];
+int n, m, p;
+int fac[MAXN], ifac[MAXN];
 
 inline int read() {
     int x = 0, f = 1;
@@ -37,8 +37,8 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-ll qpow(ll a, ll b) {
-    ll r = 1;
+int qpow(int a, int b) {
+    int r = 1;
     a %= p;
     while (b) {
         if (b & 1) r = r * a % p;
@@ -48,7 +48,7 @@ ll qpow(ll a, ll b) {
     return r;
 }
 
-ll inv(ll x) {
+int inv(int x) {
     return qpow(x, p - 2);
 }
 
@@ -59,7 +59,7 @@ void init(int mx) {
     for (int i = mx - 1; i >= 1; i--) ifac[i] = ifac[i + 1] * (i + 1) % p;
 }
 
-ll C(ll a, ll b) {
+int C(int a, int b) {
     if (b < 0 || b > a) return 0;
     return fac[a] * ifac[b] % p * ifac[a - b] % p;
 }
@@ -70,20 +70,20 @@ void solve() {
         writeln(0);
         return;
     }
-    ll mx = n * m + 2 * n;
+    int mx = n * m + 2 * n;
     if(mx >= MAXN) return;
-    ll cnt = 0;
-    for (ll i = 0; i <= 2 * n; i++) {
-        ll t1 = C(2 * n, i);
-        ll t2 = C(n * m - i * (m + 1) + 2 * n - 1, 2 * n - 1);
-        ll cur = t1 * t2 % p;
+    int cnt = 0;
+    for (int i = 0; i <= 2 * n; i++) {
+        int t1 = C(2 * n, i);
+        int t2 = C(n * m - i * (m + 1) + 2 * n - 1, 2 * n - 1);
+        int cur = t1 * t2 % p;
         if (i & 1) cnt = (cnt - cur + p) % p;
         else cnt = (cnt + cur) % p;
     }
-    ll tot = qpow(m + 1, 2 * n);
-    ll num = (tot - cnt + p) % p;
-    ll den = 2 * tot % p;
-    ll ans = num * inv(den) % p;
+    int tot = qpow(m + 1, 2 * n);
+    int num = (tot - cnt + p) % p;
+    int den = 2 * tot % p;
+    int ans = num * inv(den) % p;
     writeln(ans);
 }
 
