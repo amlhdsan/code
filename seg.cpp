@@ -133,7 +133,8 @@ int main() {
         if (op == 1) {
             int l = read(), r = read(), k = read();
             seg::mdf(1, 1, n, l, r, k);
-        } else {
+        } 
+        else {
             int l = read(), r = read();
             writeln(seg::qry(1, 1, n, l, r));
         }
