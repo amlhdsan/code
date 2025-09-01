@@ -2,7 +2,18 @@
 using namespace std;
 
 namespace seg {
-    int 
+
+#define ls (p << 1)
+#define rs (p << 1 | 1)
+#define mid ((l + r) >> 1)
+
+    const int N = 2e5 + 10;
+    int tree[N];
+    int lazy[N];
+
+    void build(int p, int l, int r) {
+
+    }
 }
 
 inline int read() {
