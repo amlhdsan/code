@@ -1,4 +1,11 @@
 #include <bits/stdc++.h>
+#define ll long long
+#define int long long
+
+char buf[1 << 20], *p1 = buf, *p2 = buf;
+#define gc() (p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 20, stdin), p1 == p2) ? 0 : *p1++)
+#define pc(x) putchar_unlocked(x)
+
 using namespace std;
 
 namespace seg {
@@ -6,12 +13,11 @@ namespace seg {
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)
-#define ll long long
 
     const int N = 2e5 + 10;
-    int tree[N];
-    int lazy[N];
-    int siz[N];
+    int tree[N << 2];
+    int lazy[N << 2];
+    int siz[N << 2];
     int a[N];
 
     void init() {
@@ -90,33 +96,33 @@ namespace seg {
 
 inline int read() {
     int x = 0, f = 1;
-    char ch = getchar();
+    char ch = gc();
     while (ch < '0' || ch > '9') {
         if (ch == '-') f = -1;
-        ch = getchar();
+        ch = gc();
     }
     while (ch >= '0' && ch <= '9') {
         x = (x << 3) + (x << 1) + (ch ^ 48);
-        ch = getchar();
+        ch = gc();
     }
     return x * f;
 }
 
 inline void write(int x) {
     if (x < 0) {
-        putchar('-');
+        pc('-');
         x = -x;
     }
     if (x > 9) write(x / 10);
-    putchar(x % 10 + '0');
+    pc(x % 10 + '0');
 }
 
 inline void writeln(int x) {
     write(x);
-    putchar('\n');
+    pc('\n');
 }
 
-int main() {
+signed main() {
 
     seg::init();
 
