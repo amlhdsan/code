@@ -122,7 +122,8 @@ int main() {
 
     int n = read();
     for (int i = 1; i <= n; i++) {
-        a[i] = read();
+        int x = read();
+        seg::a[i] = x;
     }
     seg::build(1, 1, n);
 
