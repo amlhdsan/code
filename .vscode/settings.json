@@ -78,6 +78,7 @@
         "strstream": "cpp",
         "d-种树": "cpp",
         "numeric": "cpp",
-        "trie": "cpp"
+        "trie": "cpp",
+        "scoped_allocator": "cpp"
     }
 }
