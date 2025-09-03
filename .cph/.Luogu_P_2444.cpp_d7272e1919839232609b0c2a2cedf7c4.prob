@@ -1,0 +1,1 @@
+{"name":"Luogu - P2444","url":"https://www.luogu.com.cn/problem/P2444","memoryLimit":512000,"timeLimit":1000,"tests":[{"input":"3\n01 \n11 \n00000\n","output":"NIE","id":1756912892182}],"group":"luogu","srcPath":"/Users/amlhdsan/code/Luogu_P_2444.cpp"}
