@@ -46,6 +46,10 @@ inline void upds(int p) {
     siz[p] = siz[ls] + siz[rs];
 }
 
+inline void pushd(int p) {
+    
+}
+
 inline void build(int p, int l, int r) {
     if(l == r) {
         tree[p] = l;
