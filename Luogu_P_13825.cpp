@@ -109,6 +109,8 @@ int main() {
     n = read();
     m = read();
 
+    build(1, 1, n);
+
     while(m--) {
         int op, l, r, k;
         op = read();
