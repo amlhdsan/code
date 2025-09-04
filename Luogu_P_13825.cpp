@@ -37,7 +37,7 @@ int main() {
     m = read();
 
     while(m--) {
-        
+
     }
 
     return 0;
