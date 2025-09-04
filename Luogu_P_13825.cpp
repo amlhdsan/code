@@ -3,10 +3,12 @@
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)
+#define N 100010
 
 using namespace std;
 
 int n, m;
+int tree[N << 2], siz[N << 2], lazy[N << 2];
 
 inline int read() {
     int x = 0, f = 1;
@@ -38,7 +40,7 @@ inline void writeln(int x) {
 
 inline void build(int p, int l, int r) {
     if(l == r) {
-        
+
     }
 }
 
