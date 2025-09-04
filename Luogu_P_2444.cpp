@@ -86,7 +86,7 @@ int main() {
         scanf("%s", s);
         ins(s);
         if(i == n) {
-            
+
         }
     }
     build();
