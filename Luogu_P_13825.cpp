@@ -37,7 +37,9 @@ inline void writeln(int x) {
 }
 
 inline void build(int p, int l, int r) {
-
+    if(l == r) {
+        
+    }
 }
 
 int main() {
