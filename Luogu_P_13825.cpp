@@ -37,7 +37,17 @@ int main() {
     m = read();
 
     while(m--) {
+        int op, l, r, k;
+        op = read();
+        if(op == 1) {
+            l = read();
+            r = read();
+            k = read();
+            mdf(1, 1, n, )
+        }
+        else {
 
+        }
     }
 
     return 0;
