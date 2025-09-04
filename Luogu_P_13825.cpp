@@ -33,7 +33,12 @@ inline void writeln(int x) {
 
 int main() {
 
-    
+    n = read();
+    m = read();
+
+    while(m--) {
+        
+    }
 
     return 0;
 }
