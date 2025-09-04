@@ -47,7 +47,7 @@ inline void upds(int p) {
 }
 
 inline void pushd(int p) {
-    
+
 }
 
 inline void build(int p, int l, int r) {
@@ -63,6 +63,10 @@ inline void build(int p, int l, int r) {
 
     upd(p);
     upds(p);
+}
+
+inline void mdf(int p, int l, int r, int ql, int qr, int x) {
+    
 }
 
 int main() {
