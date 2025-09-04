@@ -47,7 +47,14 @@ inline void upds(int p) {
 }
 
 inline void pushd(int p) {
-
+    if(lazy[p]) {
+        tree[ls] += siz[ls] * lazy[p];
+        lazy[ls] += lazy[p];
+        tree[rs] += siz[rs] * lazy[p];
+        lazy[rs] += lazy[p];
+        lazy[p] = 0;
+    }
+    return;
 }
 
 inline void build(int p, int l, int r) {
@@ -66,7 +73,20 @@ inline void build(int p, int l, int r) {
 }
 
 inline void mdf(int p, int l, int r, int ql, int qr, int x) {
-    
+    if(ql <= l && r <= qr) {
+        tree[p] += siz[p] * x;
+        lazy[p] += x;
+        return;
+    }
+
+    pushd(p);
+
+    if(ql <= mid) 
+        mdf(ls, l, mid, ql, qr, x);
+    if(qr > mid) 
+        mdf(rs, mid + 1, r, ql, qr, x);
+
+    upd(p);
 }
 
 int main() {
