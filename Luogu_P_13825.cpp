@@ -90,7 +90,18 @@ inline void mdf(int p, int l, int r, int ql, int qr, int x) {
 }
 
 inline int qry(int p, int l, int r, int ql, int qr) {
-    
+    if(ql <= l && r <= qr) 
+        return tree[p];
+
+    pushd(p);
+
+    int res = 0;
+    if(ql <= mid) 
+        res += qry(ls, l, mid, ql, qr);
+    if(qr > mid) 
+        res += qry(rs, mid + 1, r, ql, qr);
+
+    return res;
 }
 
 int main() {
@@ -110,7 +121,7 @@ int main() {
         else {
             l = read();
             r = read();
-            writeln(1, 1, n, l, r);
+            writeln(qry(1, 1, n, l, r));
         }
     }
 
