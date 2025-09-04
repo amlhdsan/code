@@ -1,4 +1,7 @@
 #include <bits/stdc++.h>
+
+#define 
+
 using namespace std;
 
 int n, m;
@@ -31,6 +34,10 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void build(int p, int l, int r) {
+
+}
+
 int main() {
 
     n = read();
@@ -43,10 +50,12 @@ int main() {
             l = read();
             r = read();
             k = read();
-            mdf(1, 1, n, )
+            mdf(1, 1, n, l, r, k);
         }
         else {
-
+            l = read();
+            r = read();
+            writeln(1, 1, n, l, r);
         }
     }
 
