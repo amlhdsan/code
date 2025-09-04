@@ -38,10 +38,27 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void upd(int p) {
+
+}
+
+inline void upds(int p) {
+    
+}
+
 inline void build(int p, int l, int r) {
     if(l == r) {
-
+        tree[p] = l;
+        lazy[p] = 0;
+        siz[p] = 1;
+        return;
     }
+
+    build(ls, l, mid);
+    build(rs, mid + 1, r);
+
+    upd(p);
+    upds(p);
 }
 
 int main() {
