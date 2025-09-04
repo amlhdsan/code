@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 
-#define 
+#define ls (p << 1)
+#define rs (p << 1 | 1)
+#define mid ((l + r) >> 1)
 
 using namespace std;
 
