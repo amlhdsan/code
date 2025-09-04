@@ -17,6 +17,13 @@ inline int read() {
     return x * f;
 }
 
+inline void dfs(int p, int cnt) {
+    if(cnt == 1000010) {
+        puts("TAK");
+        exit(0);
+    }
+}
+
 inline void write(int x) {
     if (x < 0) {
         putchar('-');
