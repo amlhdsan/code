@@ -39,11 +39,11 @@ inline void writeln(int x) {
 }
 
 inline void upd(int p) {
-
+    tree[p] = tree[ls] + tree[rs];
 }
 
 inline void upds(int p) {
-    
+    siz[p] = siz[ls] + siz[rs];
 }
 
 inline void build(int p, int l, int r) {
