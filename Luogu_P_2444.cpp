@@ -85,6 +85,9 @@ int main() {
     for (int i = 1; i <= n; i++) {
         scanf("%s", s);
         ins(s);
+        if(i == n) {
+            
+        }
     }
     build();
     puts(dfs(0) ? "TAK" : "NIE");
