@@ -3,12 +3,13 @@
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)
-#define N 100010
+#define N 10001000
+#define int long long
 
 using namespace std;
 
 int n, m;
-int tree[N << 2], siz[N << 2], lazy[N << 2];
+int tree[N * 4], siz[N * 4], lazy[N * 4];
 
 inline int read() {
     int x = 0, f = 1;
@@ -104,7 +105,7 @@ inline int qry(int p, int l, int r, int ql, int qr) {
     return res;
 }
 
-int main() {
+signed main() {
 
     n = read();
     m = read();
