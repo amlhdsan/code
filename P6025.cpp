@@ -4,7 +4,6 @@ using ull = unsigned long long;
 using ll = long long;
 
 ull pref_xor(ull x) {
-    // xor of [0..x]
     switch (x & 3ULL) {
         case 0: return x;
         case 1: return 1;
@@ -21,9 +20,6 @@ ull range_xor(ull l, ull r) {
 ull prefix_S(ull N) {
     if (N == 0) return 0;
     ull res = 0;
-    // For k>=0, numbers i with ceil(log2(i)) == k are i in (2^{k-1}, 2^k] (with k=0 meaning i=1)
-    // For such i, f(i) = i + (2^k - 1).
-    // So xor over i in [lo..hi] of f(i) = xor over consecutive numbers [lo + C, hi + C].
     for (int k = 0; k <= 60; ++k) {
         ull p = 1ULL << k; // 2^k
         ull lo = (k == 0) ? 1 : ((1ULL << (k - 1)) + 1ULL);
@@ -42,7 +38,7 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     unsigned long long l, r;
-    if (!(cin >> l >> r)) return 0;
+    cin >> l >> r;
     ull ans = prefix_S(r) ^ prefix_S(l - 1);
     cout << ans << '\n';
     return 0;
