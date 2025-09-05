@@ -1,14 +1,13 @@
-// 電影發明以後，人類的生命，比以前至少延長了三倍。
-// amlhdsan
 #include <bits/stdc++.h>
 using namespace std;
 
-inline int read() {
-    int x = 0, f = 1;
+// 快速读入优化
+inline long long read() {
+    long long x = 0, f = 1;
     char ch = getchar();
     while (ch < '0' || ch > '9') {
         if (ch == '-') f = -1;
-        ch = getchar();
+        ch = getchar(); 
     }
     while (ch >= '0' && ch <= '9') {
         x = (x << 3) + (x << 1) + (ch ^ 48);
@@ -17,6 +16,7 @@ inline int read() {
     return x * f;
 }
 
+// 输出优化
 inline void write(long long x) {
     if (x < 0) {
         putchar('-');
@@ -26,13 +26,13 @@ inline void write(long long x) {
     putchar(x % 10 + '0');
 }
 
+// 输出一个数并换行
 inline void writeln(long long x) {
     write(x);
     putchar('\n');
 }
 
-long long l, r;
-
+// 计算1到n的异或和
 long long prexor(long long n) {
     if (n % 4 == 0) return n;
     if (n % 4 == 1) return 1;
@@ -40,6 +40,7 @@ long long prexor(long long n) {
     return 0;
 }
 
+// 计算F(n)即f(1)到f(n)的异或和
 long long F(long long n) {
     if (n == 0) return 0;
     long long res = prexor(n);
@@ -54,7 +55,15 @@ long long F(long long n) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
+    // 读入区间边界l和r
+    long long l, r;
     cin >> l >> r;
+    
+    // 计算f(l)到f(r)的异或和
     writeln(F(r) ^ F(l - 1));
+    
     return 0;
 }
