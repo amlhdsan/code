@@ -7,7 +7,7 @@ inline long long read() {
     char ch = getchar();
     while (ch < '0' || ch > '9') {
         if (ch == '-') f = -1;
-        ch = getchar(); 
+        ch = getchar();
     }
     while (ch >= '0' && ch <= '9') {
         x = (x << 3) + (x << 1) + (ch ^ 48);
@@ -26,44 +26,68 @@ inline void write(long long x) {
     putchar(x % 10 + '0');
 }
 
-// 输出一个数并换行
 inline void writeln(long long x) {
     write(x);
     putchar('\n');
 }
 
-// 计算1到n的异或和
-long long prexor(long long n) {
-    if (n % 4 == 0) return n;
-    if (n % 4 == 1) return 1;
-    if (n % 4 == 2) return n + 1;
-    return 0;
+// 计算log2(n)上取整
+inline int ceil_log2(long long n) {
+    int l = 0, r = 63;
+    while (l < r) {
+        int mid = (l + r) >> 1;
+        if ((1LL << mid) < n) l = mid + 1;
+        else r = mid;
+    }
+    return l;
 }
 
-// 计算F(n)即f(1)到f(n)的异或和
-long long F(long long n) {
+// 判断是否为2的幂
+inline bool is_power_of_2(long long n) {
+    return (n & (n - 1)) == 0;
+}
+
+// 递归计算f(n)
+long long calc_f(long long n, long long depth) {
+    if (is_power_of_2(n) || is_power_of_2(n - 1)) return 2 * n - 1;
+    return calc_f(n >> 1, depth - 1) + (1LL << depth);
+}
+
+inline long long f(long long n) {
+    return calc_f(n, ceil_log2(n));
+}
+
+// 计算异或前缀和
+long long prefix_xor(long long n) {
     if (n == 0) return 0;
-    long long res = prexor(n);
-    long long p = 1;
-    while (p <= n) {
-        long long L = p, R = min(n, 2 * p - 1);
-        long long len = R - L + 1;
-        if (len & 1) res ^= (2 * p - 1);
-        p <<= 1;
+    long long ret = 0;
+    map<long long, bool> vis;
+    
+    auto add = [&](long long x) {
+        if (x <= n && !vis[x]) {
+            vis[x] = true;
+            ret ^= f(x);
+        }
+    };
+    
+    for (long long i = 1; i <= n; i <<= 1) {
+        add(i);
+        add(i + 1);
     }
-    return res;
+    
+    if ((n & 1) == 0 && !vis[n]) {
+        ret ^= f(n);
+    }
+    return ret;
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     
-    // 读入区间边界l和r
     long long l, r;
     cin >> l >> r;
-    
-    // 计算f(l)到f(r)的异或和
-    writeln(F(r) ^ F(l - 1));
+    writeln(prefix_xor(r) ^ prefix_xor(l - 1));
     
     return 0;
 }
