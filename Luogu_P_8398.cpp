@@ -1,35 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
+using ll = long long;
 
-inline int read() {
-    int x = 0, f = 1;
-    char ch = getchar();
-    while (ch < '0' || ch > '9') {
-        if (ch == '-') f = -1;
-        ch = getchar();
-    }
-    while (ch >= '0' && ch <= '9') {
-        x = (x << 3) + (x << 1) + (ch ^ 48);
-        ch = getchar();
-    }
-    return x * f;
-}
+const int N = 2e6 + 5;
+int n, c;
+int p[N];
+vector<int> pos[N];
 
-inline void write(int x) {
-    if (x < 0) {
-        putchar('-');
-        x = -x;
+ll solve() {
+    for(int i = 1; i <= n; i++) pos[p[i]].push_back(i);
+    
+    ll ans = 0;
+    for(int i = 0; i < c; i++) {
+        if(pos[i].empty()) continue;
+        for(int j = i + 1; j < c; j++) {
+            if(pos[j].empty()) continue;
+            for(int k = j + 1; k < c; k++) {
+                if(pos[k].empty()) continue;
+                if((j - i + c) % c <= c/2 && 
+                   (k - j + c) % c <= c/2 && 
+                   (i - k + c) % c <= c/2) continue;
+                ans += 1LL * pos[i].size() * pos[j].size() * pos[k].size();
+            }
+        }
     }
-    if (x > 9) write(x / 10);
-    putchar(x % 10 + '0');
-}
-
-inline void writeln(int x) {
-    write(x);
-    putchar('\n');
+    return ans;
 }
 
 int main() {
-
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cin >> n >> c;
+    for(int i = 1; i <= n; i++) cin >> p[i];
+    cout << solve() << "\n";
     return 0;
 }
