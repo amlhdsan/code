@@ -105,6 +105,8 @@ inline int qry(int p, int l, int r, int ql, int qr) {
     return res;
 }
 
+inline void 
+
 signed main() {
 
     n = read();
