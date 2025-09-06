@@ -1,37 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-
-const int N = 2e6 + 5;
-int n, c;
-int p[N];
-vector<int> pos[N];
-
-ll solve() {
-    for(int i = 1; i <= n; i++) pos[p[i]].push_back(i);
-    
-    ll ans = 0;
-    for(int i = 0; i < c; i++) {
-        if(pos[i].empty()) continue;
-        for(int j = i + 1; j < c; j++) {
-            if(pos[j].empty()) continue;
-            for(int k = j + 1; k < c; k++) {
-                if(pos[k].empty()) continue;
-                if((j - i + c) % c <= c/2 && 
-                   (k - j + c) % c <= c/2 && 
-                   (i - k + c) % c <= c/2) continue;
-                ans += 1LL * pos[i].size() * pos[j].size() * pos[k].size();
-            }
-        }
-    }
-    return ans;
-}
-
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    cin >> n >> c;
-    for(int i = 1; i <= n; i++) cin >> p[i];
-    cout << solve() << "\n";
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int n;
+    ll c;
+    if (!(cin >> n >> c)) return 0;
+    vector<ll> v(n);
+    for (int i = 0; i < n; ++i) cin >> v[i];
+    sort(v.begin(), v.end());
+    vector<ll> a(2*n);
+    for (int i = 0; i < n; ++i) { a[i] = v[i]; a[i+n] = v[i] + c; }
+    ll half = c / 2;
+    ll total = 0;
+    if (n >= 3) total = (ll)n * (n-1) * (n-2) / 6;
+    ll bad = 0;
+    int r = 0;
+    for (int l = 0; l < n; ++l) {
+        if (r < l) r = l;
+        while (r + 1 < l + n && a[r+1] - a[l] <= half) ++r;
+        ll k = r - l;
+        if (k >= 2) bad += k * (k - 1) / 2;
+    }
+    cout << (total - bad) << "\n";
     return 0;
 }
