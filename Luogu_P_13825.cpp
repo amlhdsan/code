@@ -111,6 +111,8 @@ inline void buildtree(int p) {
     lazy[p] = 0;
 }
 
+inline void 
+
 signed main() {
 
     n = read();
