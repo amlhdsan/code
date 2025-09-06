@@ -105,7 +105,11 @@ inline int qry(int p, int l, int r, int ql, int qr) {
     return res;
 }
 
-inline void 
+inline void buildtree(int p) {
+    tree[p] = tree[ls] + tree[rs];
+    siz[p] = siz[ls] + siz[rs];
+    lazy[p] = 0;
+}
 
 signed main() {
 
