@@ -33,7 +33,11 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-inline void 
+inline void stdfastIO() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+}
 
 signed main() {
     T = read();
