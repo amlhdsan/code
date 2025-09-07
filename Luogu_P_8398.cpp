@@ -49,8 +49,6 @@ int main() {
         if (m >= 2) bad += 1LL * m * (m - 1) / 2;
     }
     long long ans = total - bad;
-    // 输出可能超过 int，但题目输出要求整数，按惯例用 long long 打印
-    // 将 long long 转为字符串逐位输出
     long long x = ans;
     if (x == 0) {
         putchar('0');
