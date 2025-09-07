@@ -1,0 +1,3 @@
+Given an array $a$, let $f(x)$ be the number of occurrences of $x$ in the array $a$. For example, when $a=[1,2,3,1,4]$, then $f(1)=2$ and $f(3)=1$.
+
+You have an array $b$ of size $n$. Please determine if there is an array $a$ of size $n$ such that $f(a_i)=b_i$ for all $1 \leq i \leq n$. If there is one, construct it.

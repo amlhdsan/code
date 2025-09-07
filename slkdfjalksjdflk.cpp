@@ -33,6 +33,8 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void 
+
 signed main() {
     T = read();
     while(T--) {
