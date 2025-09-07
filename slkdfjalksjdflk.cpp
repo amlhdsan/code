@@ -41,3 +41,6 @@ signed main() {
         if(b % 3 == 0) writeln(2LL * (a / b));
         else if(b % 3 == 1) writeln(2LL * (a / b) + (2LL * a % b) / b);
         else writeln(2LL * (a / b) + (2LL * a % b + 2) / b);
+    }
+    return 0;
+}
