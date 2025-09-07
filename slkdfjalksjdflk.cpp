@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
-
 #define int long long
-
 using namespace std;
 
 int T;
@@ -35,7 +33,11 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
-
-    return 0;
-}
+signed main() {
+    T = read();
+    while(T--) {
+        a = read();
+        b = read();
+        if(b % 3 == 0) writeln(2LL * (a / b));
+        else if(b % 3 == 1) writeln(2LL * (a / b) + (2LL * a % b) / b);
+        else writeln(2LL * (a / b) + (2LL * a % b + 2) / b);
