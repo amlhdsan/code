@@ -3,6 +3,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+inline void optimizeIO() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+}
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
