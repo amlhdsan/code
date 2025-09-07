@@ -1,7 +1,11 @@
 #include <bits/stdc++.h>
+
+#define int long long
+
 using namespace std;
 
-in T;
+int T;
+int a, b;
 
 inline int read() {
     int x = 0, f = 1;
