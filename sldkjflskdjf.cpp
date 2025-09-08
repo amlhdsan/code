@@ -44,6 +44,35 @@ int main() {
         idx[a[i]] = i;
     }
     
+    int l = n + 1, r;
+
+    for(int i = n; i >= n / 2; --i) {
+        int len = r - l + 1;
+        int lack, ll, rr, ans;
+
+        l = min(l, idx[i]);
+        r = max(r, idx[i]);
+
+        lack = (n - i) * 2 + 1 - len;
+        
+        while(lack > 0) {
+            ll = min(r + lack, n) - r;
+            rr = l - max(l - lack, 1);
+            ans += max(ll + rr - lack + 1, 0);
+        }
+
+        if(i == n)
+            continue;
+
+        if(lack >= 0) {
+            ll = min(r + lack, n) - r;
+            rr = l - max(l - lack, 1);
+            ans += max(ll + rr - lack + 1, 0);
+        }
+
+    }
+
+    writeln(ans);
     
     return 0;
 }
