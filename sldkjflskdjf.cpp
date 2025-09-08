@@ -5,6 +5,7 @@
 using namespace std;
 
 int n, a[N];
+int idx[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -40,6 +41,7 @@ int main() {
 
     for(int i = 1; i <= n; i++) {
         a[i] = read();
+        idx[a[i]] = i;
     }
     
     
