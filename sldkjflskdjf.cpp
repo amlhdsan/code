@@ -39,23 +39,23 @@ int main() {
 
     n = read();
 
-    for(int i = 1; i <= n; i++) {
+    for(int i = 1; i <= n; ++i) {
         a[i] = read();
         idx[a[i]] = i;
     }
     
-    int l = n + 1, r;
+    int l = n + 1, r = 0, ans = 0;
 
     for(int i = n; i >= n / 2; --i) {
         int len = r - l + 1;
-        int lack, ll, rr, ans;
+        int lack, ll, rr;
 
         l = min(l, idx[i]);
         r = max(r, idx[i]);
 
         lack = (n - i) * 2 + 1 - len;
         
-        while(lack > 0) {
+        if(lack >= 0) {
             ll = min(r + lack, n) - r;
             rr = l - max(l - lack, 1);
             ans += max(ll + rr - lack + 1, 0);
@@ -64,14 +64,17 @@ int main() {
         if(i == n)
             continue;
 
+        lack = (n - i) * 2 - len;
+
         if(lack >= 0) {
             ll = min(r + lack, n) - r;
             rr = l - max(l - lack, 1);
             ans += max(ll + rr - lack + 1, 0);
         }
-
     }
-
+    
+    write(n * 2 + 1);
+    putchar(' ');
     writeln(ans);
     
     return 0;
