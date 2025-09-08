@@ -72,7 +72,7 @@ int main() {
             ans += max(ll + rr - lack + 1, 0);
         }
     }
-    
+
     write(n * 2 + 1);
     putchar(' ');
     writeln(ans);
