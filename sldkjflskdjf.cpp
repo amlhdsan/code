@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 1000010
+#define int long long
 
 using namespace std;
 
@@ -35,7 +36,7 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
+signed main() {
 
     n = read();
 
@@ -47,11 +48,11 @@ int main() {
     int l = n + 1, r = 0, ans = 0;
 
     for(int i = n; i >= n / 2; --i) {
-        int len = r - l + 1;
         int lack, ll, rr;
 
         l = min(l, idx[i]);
         r = max(r, idx[i]);
+        int len = r - l + 1;
 
         lack = (n - i) * 2 + 1 - len;
         
