@@ -58,8 +58,8 @@ signed main() {
         
         if(lack >= 0) {
             ll = min(r + lack, n) - r;
-            rr = l - max(l - lack, 1);
-            ans += max(ll + rr - lack + 1, 0);
+            rr = l - max(l - lack, 1LL);
+            ans += max(ll + rr - lack + 1LL, 0LL);
         }
 
         if(i == n)
@@ -69,8 +69,8 @@ signed main() {
 
         if(lack >= 0) {
             ll = min(r + lack, n) - r;
-            rr = l - max(l - lack, 1);
-            ans += max(ll + rr - lack + 1, 0);
+            rr = l - max(l - lack, 1LL);
+            ans += max(ll + rr - lack + 1, 0LL);
         }
     }
 
