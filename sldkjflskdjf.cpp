@@ -7,6 +7,7 @@ using namespace std;
 
 int n, a[N];
 int idx[N];
+
 using std :: cin;
 using std :: cout;
 
