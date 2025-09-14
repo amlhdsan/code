@@ -43,6 +43,8 @@ int main() {
     for(int i = 1; i <= n; ++i) {
         for(int j = 1; j <= n; ++j) {
             mp[i][j] = read();
+            mp1[i][j] = mp[i][j];
+            mp2[i][j] = mp[i][j];
         }
     }
 
