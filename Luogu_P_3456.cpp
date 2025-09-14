@@ -191,7 +191,42 @@ int main() {
         mp2[i][n + 1] = 0x7fffffff;
     }
 
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= n; ++j) {
+            if(!tag2[i][j]) {
+                queue<pair<int, int>> q;
+                q.push({i, j});
+                tag2[i][j] = true;
+                bool isValley = true;
+                vector<pair<int, int>> cells;
+                cells.push_back({i, j});
+                while(!q.empty()) {
+                    auto [x, y] = q.front();
+                    q.pop();
+                    int dx[] = {0, 0, 1, -1, 1, 1, -1, -1};
+                    int dy[] = {1, -1, 0, 0, 1, -1, 1, -1};
+                    for(int dir = 0; dir < 8; ++dir) {
+                        int nx = x + dx[dir];
+                        int ny = y + dy[dir];
+                        if(nx >= 0 && nx <= n + 1 && ny >= 0 && ny <= n + 1) {
+                            if(mp2[nx][ny] < mp2[i][j]) {
+                                isValley = false;
+                            } else if(mp2[nx][ny] == mp2[i][j] && !tag2[nx][ny]) {
+                                tag2[nx][ny] = true;
+                                q.push({nx, ny});
+                                cells.push_back({nx, ny});
+                            }
+                        }
+                    }
+                }
+                if(isValley) {
+                    ans2++;
+                }
+            }
+        }
+    }
 
+    writeln(ans2);
 
     return 0;
 }
