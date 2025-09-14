@@ -3,6 +3,8 @@ using namespace std;
 
 int n;
 int mp[1010][1010];
+int mp1[1010][1010];
+int mp2[1010][1010];
 
 int ans1 = 0, ans2 = 0;
 
