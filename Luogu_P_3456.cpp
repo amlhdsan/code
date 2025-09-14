@@ -4,6 +4,8 @@ using namespace std;
 int n;
 int mp[1010][1010];
 
+int ans1 = 0, ans2 = 0;
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -41,6 +43,8 @@ int main() {
             mp[i][j] = read();
         }
     }
+
+
 
     return 0;
 }
