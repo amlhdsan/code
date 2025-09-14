@@ -6,6 +6,9 @@ int mp[1010][1010];
 int mp1[1010][1010];
 int mp2[1010][1010];
 
+bool tag1[1010][1010];
+bool tag2[1010][1010];
+
 int ans1 = 0, ans2 = 0;
 
 inline int read() {
@@ -69,7 +72,14 @@ int main() {
         mp1[i][n + 1] = -1;
     }
 
+    // mp2 : 山谷(周围设置为山峰)
 
+    for(int i = 0; i <= n + 1; ++i) {
+        mp2[0][i] = 0x7fffffff;
+        mp2[n + 1][i] = 0x7fffffff;
+        mp2[i][0] = 0x7fffffff;
+        mp2[i][n + 1] = 0x7fffffff;
+    }
 
 
 
