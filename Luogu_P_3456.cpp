@@ -180,7 +180,8 @@ int main() {
         }
     }
 
-    writeln(ans1);
+    write(ans1);
+    putchar(' ');
 
     // mp2 : 山谷(周围设置为山峰)
 
