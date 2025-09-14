@@ -2,7 +2,7 @@
 using namespace std;
 
 int n;
-int map[1010][1010];
+int mp[1010][1010];
 
 inline int read() {
     int x = 0, f = 1;
@@ -33,6 +33,14 @@ inline void writeln(int x) {
 }
 
 int main() {
+
+    n = read();
+
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= n; ++j) {
+            mp[i][j] = read();
+        }
+    }
 
     return 0;
 }
