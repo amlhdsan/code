@@ -145,7 +145,40 @@ int main() {
         mp1[i][n + 1] = -1;
     }
 
-    
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= n; ++j) {
+            if(!tag1[i][j]) {
+                queue<pair<int, int>> q;
+                q.push({i, j});
+                tag1[i][j] = true;
+                bool isPeak = true;
+                vector<pair<int, int>> cells;
+                cells.push_back({i, j});
+                while(!q.empty()) {
+                    auto [x, y] = q.front();
+                    q.pop();
+                    int dx[] = {0, 0, 1, -1, 1, 1, -1, -1};
+                    int dy[] = {1, -1, 0, 0, 1, -1, 1, -1};
+                    for(int dir = 0; dir < 8; ++dir) {
+                        int nx = x + dx[dir];
+                        int ny = y + dy[dir];
+                        if(nx >= 0 && nx <= n + 1 && ny >= 0 && ny <= n + 1) {
+                            if(mp1[nx][ny] > mp1[i][j]) {
+                                isPeak = false;
+                            } else if(mp1[nx][ny] == mp1[i][j] && !tag1[nx][ny]) {
+                                tag1[nx][ny] = true;
+                                q.push({nx, ny});
+                                cells.push_back({nx, ny});
+                            }
+                        }
+                    }
+                }
+                if(isPeak) {
+                    ans1++;
+                }
+            }
+        }
+    }
 
     writeln(ans1);
 
