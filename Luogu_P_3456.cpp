@@ -151,29 +151,29 @@ int main() {
                 queue<pair<int, int>> q;
                 q.push({i, j});
                 tag1[i][j] = true;
-                bool isPeak = true;
-                vector<pair<int, int>> cells;
-                cells.push_back({i, j});
+                bool t1 = true;
+                vector<pair<int, int>> k;
+                k.push_back({i, j});
                 while(!q.empty()) {
                     auto [x, y] = q.front();
                     q.pop();
                     int dx[] = {0, 0, 1, -1, 1, 1, -1, -1};
                     int dy[] = {1, -1, 0, 0, 1, -1, 1, -1};
-                    for(int dir = 0; dir < 8; ++dir) {
-                        int nx = x + dx[dir];
-                        int ny = y + dy[dir];
+                    for(int t = 0; t < 8; ++t) {
+                        int nx = x + dx[t];
+                        int ny = y + dy[t];
                         if(nx >= 0 && nx <= n + 1 && ny >= 0 && ny <= n + 1) {
                             if(mp1[nx][ny] > mp1[i][j]) {
-                                isPeak = false;
+                                t1 = false;
                             } else if(mp1[nx][ny] == mp1[i][j] && !tag1[nx][ny]) {
                                 tag1[nx][ny] = true;
                                 q.push({nx, ny});
-                                cells.push_back({nx, ny});
+                                k.push_back({nx, ny});
                             }
                         }
                     }
                 }
-                if(isPeak) {
+                if(t1) {
                     ans1++;
                 }
             }
@@ -198,29 +198,29 @@ int main() {
                 queue<pair<int, int>> q;
                 q.push({i, j});
                 tag2[i][j] = true;
-                bool isValley = true;
-                vector<pair<int, int>> cells;
-                cells.push_back({i, j});
+                bool t2 = true;
+                vector<pair<int, int>> k;
+                k.push_back({i, j});
                 while(!q.empty()) {
                     auto [x, y] = q.front();
                     q.pop();
                     int dx[] = {0, 0, 1, -1, 1, 1, -1, -1};
                     int dy[] = {1, -1, 0, 0, 1, -1, 1, -1};
-                    for(int dir = 0; dir < 8; ++dir) {
-                        int nx = x + dx[dir];
-                        int ny = y + dy[dir];
+                    for(int t = 0; t < 8; ++t) {
+                        int nx = x + dx[t];
+                        int ny = y + dy[t];
                         if(nx >= 0 && nx <= n + 1 && ny >= 0 && ny <= n + 1) {
                             if(mp2[nx][ny] < mp2[i][j]) {
-                                isValley = false;
+                                t2 = false;
                             } else if(mp2[nx][ny] == mp2[i][j] && !tag2[nx][ny]) {
                                 tag2[nx][ny] = true;
                                 q.push({nx, ny});
-                                cells.push_back({nx, ny});
+                                k.push_back({nx, ny});
                             }
                         }
                     }
                 }
-                if(isValley) {
+                if(t2) {
                     ans2++;
                 }
             }
