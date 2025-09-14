@@ -165,7 +165,8 @@ int main() {
                         if(nx >= 0 && nx <= n + 1 && ny >= 0 && ny <= n + 1) {
                             if(mp1[nx][ny] > mp1[i][j]) {
                                 t1 = false;
-                            } else if(mp1[nx][ny] == mp1[i][j] && !tag1[nx][ny]) {
+                            } 
+                            else if(mp1[nx][ny] == mp1[i][j] && !tag1[nx][ny]) {
                                 tag1[nx][ny] = true;
                                 q.push({nx, ny});
                                 k.push_back({nx, ny});
@@ -212,7 +213,8 @@ int main() {
                         if(nx >= 0 && nx <= n + 1 && ny >= 0 && ny <= n + 1) {
                             if(mp2[nx][ny] < mp2[i][j]) {
                                 t2 = false;
-                            } else if(mp2[nx][ny] == mp2[i][j] && !tag2[nx][ny]) {
+                            } 
+                            else if(mp2[nx][ny] == mp2[i][j] && !tag2[nx][ny]) {
                                 tag2[nx][ny] = true;
                                 q.push({nx, ny});
                                 k.push_back({nx, ny});
