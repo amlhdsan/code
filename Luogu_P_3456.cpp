@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
+int n;
+int map[1010][1010];
 
 inline int read() {
     int x = 0, f = 1;
