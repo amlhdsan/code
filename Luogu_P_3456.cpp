@@ -109,7 +109,6 @@ inline void write(int x) {
 
 inline void writeln(int x) {
     write(x);
-    putchar('\n');
 }
 
 int main() {
