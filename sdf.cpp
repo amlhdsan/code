@@ -36,7 +36,7 @@ int t, n;
 int a[205], b[205];
 int dp[205][2];
 
-int addmod(int x, int y) {
+int am(int x, int y) {
     x += y;
     if (x >= MOD) x -= MOD;
     return x;
@@ -60,12 +60,12 @@ int main() {
                     int x2 = (cur == 0 ? a[i] : b[i]);
                     int y2 = (cur == 0 ? b[i] : a[i]);
                     if (x1 <= x2 && y1 <= y2) {
-                        dp[i][cur] = addmod(dp[i][cur], dp[i-1][prev]);
+                        dp[i][cur] = am(dp[i][cur], dp[i-1][prev]);
                     }
                 }
             }
         }
-        int ans = addmod(dp[n][0], dp[n][1]);
+        int ans = am(dp[n][0], dp[n][1]);
         writeln(ans);
     }
     return 0;
