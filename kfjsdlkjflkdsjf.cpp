@@ -36,19 +36,19 @@ int main() {
     while (t--) {
         int n = read();
         vector<int> p(n+1);
-        bool hasZero = false;
+        bool tag1 = false;
         for (int i = 1; i <= n; i++) {
             p[i] = read();
-            if (p[i] == 0) hasZero = true;
+            if (p[i] == 0) tag1 = true;
         }
-        bool sorted = true;
+        bool tag2 = true;
         for (int i = 1; i <= n; i++) {
             if (p[i] != i) {
-                sorted = false;
+                tag2 = false;
                 break;
             }
         }
-        if (!hasZero && sorted) writeln(0);
+        if (!tag1 && tag2) writeln(0);
         else writeln(n);
     }
     return 0;
