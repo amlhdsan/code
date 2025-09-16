@@ -47,25 +47,23 @@ inline void init(int x) {
 }
 
 inline int phi(int x) {
-    int ans = x;
-    for (int i = 2; i * i <= x; i++) {
-        if (pri[i] && x % i == 0) {
-            ans = ans / i * (i - 1);
-            while (x % i == 0) {
-                x /= i;
-            }
+    if (x == 1) return 1;
+    int t = x;
+    int res = x;
+    for (int i = 2; i * i <= t; ++i) {
+        if (pri[i] && t % i == 0) {
+            while (t % i == 0) t /= i;
+            res = res / i * (i - 1);
         }
     }
-    if (x > 1) {
-        ans = ans / x * (x - 1);
-    }
-    return ans;                  
+    if (t > 1) res = res / t * (t - 1);
+    return res;
 }
 
 inline void solve(int x) {
     int ans = 0;
     for(int i = 1; i <= x; ++i) {
-        ans += ((int) x / i) ^ 2 * phi(i);
+        ans += (((int)(x / i)) ^ 2) * phi(i);
     }
     writeln(ans);
     return;   
