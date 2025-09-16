@@ -19,7 +19,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(int x) {
+inline void write(long long x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -28,7 +28,7 @@ inline void write(int x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(int x) {
+inline void writeln(long long x) {
     write(x);
     putchar('\n');
 }
@@ -61,9 +61,10 @@ inline int phi(int x) {
 }
 
 inline void solve(int x) {
-    int ans = 0;
+    long long ans = 0;
     for(int i = 1; i <= x; ++i) {
-        ans += (((int)(x / i)) ^ 2) * phi(i);
+        int t = x / i;
+        ans += 1LL * t * t * phi(i);
     }
     writeln(ans);
     return;   
