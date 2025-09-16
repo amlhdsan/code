@@ -18,13 +18,16 @@ inline int read() {
 
 ll exgcd(ll a, ll b, ll &x, ll &y) {
     if (!b) {
-        x = 1, y = 0;
+        x = 1; y = 0;
         return a;
     }
     ll d = exgcd(b, a % b, y, x);
     y -= a / b * x;
     return d;
 }
+
+inline ll ceil_div(ll a, ll b){ return a>=0 ? (a + b - 1)/b : a/b; }
+inline ll floor_div(ll a, ll b){ return a>=0 ? a/b : (a - b + 1)/b; }
 
 int main() {
     int T = read();
@@ -36,23 +39,21 @@ int main() {
             puts("-1");
             continue;
         }
-        x *= c / d, y *= c / d;
+        x *= c / d; y *= c / d;
         ll tx = b / d, ty = a / d;
-        ll k1 = ceil((-x * 1.0) / tx);
-        ll k2 = floor((y * 1.0) / ty);
+        ll k1 = ceil_div(1 - x, tx);
+        ll k2 = floor_div(y - 1, ty);
         if (k1 > k2) {
-            ll k = ceil(-x * 1.0 / tx);
-            ll ansx = x + k * tx;
-            k = ceil(-y * 1.0 / ty);
-            ll ansy = y + k * ty;
+            ll ansx = x + k1 * tx;
+            ll ansy = y - k2 * ty;
             printf("%lld %lld\n", ansx, ansy);
             continue;
         }
         ll cnt = k2 - k1 + 1;
         ll minx = x + k1 * tx;
-        ll miny = y - k1 * ty;
         ll maxx = x + k2 * tx;
-        ll maxy = y - k2 * ty;
+        ll miny = y - k2 * ty;
+        ll maxy = y - k1 * ty;
         printf("%lld %lld %lld %lld %lld\n", cnt, minx, miny, maxx, maxy);
     }
     return 0;
