@@ -47,17 +47,19 @@ inline void init(int x) {
 }
 
 inline int phi(int x) {
-    int res = x;
+    int ans = x;
     for (int i = 2; i * i <= x; i++) {
-        if (x % i == 0) {
-            res = res / i * (i - 1);
-            while (x % i == 0) 
+        if (pri[i] && x % i == 0) {
+            ans = ans / i * (i - 1);
+            while (x % i == 0) {
                 x /= i;
+            }
         }
     }
-    if (x > 1) 
-        res = res / x * (x - 1);
-    return res;                         
+    if (x > 1) {
+        ans = ans / x * (x - 1);
+    }
+    return ans;                  
 }
 
 inline void solve(int x) {
