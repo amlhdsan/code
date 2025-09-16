@@ -54,3 +54,43 @@
 1 2 3
 ```
 */
+
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int n, m;
+    if(!(cin >> n >> m)) return 0;
+    vector<int> a(n+1);
+    for(int i=1;i<=n;i++) cin >> a[i];
+    vector<int> freq(m+1);
+    for(int i=1;i<=n;i++) if(a[i] <= m) freq[a[i]]++;
+    vector<int> cnt(m+1);
+    for(int x=1;x<=m;x++){
+        if(freq[x]==0) continue;
+        for(int d=x; d<=m; d+=x) cnt[d] += freq[x];
+    }
+    int best_d = 1, best_cnt = 0;
+    for(int d=1; d<=m; d++){
+        if(cnt[d] > best_cnt){
+            best_cnt = cnt[d];
+            best_d = d;
+        }
+    }
+    cout << best_d << " " << best_cnt << "\n";
+    if(best_cnt == 0){
+        cout << "\n";
+        return 0;
+    }
+    bool first = true;
+    for(int i=1;i<=n;i++){
+        if(best_d % a[i] == 0){
+            if(!first) cout << " ";
+            cout << i;
+            first = false;
+        }
+    }
+    cout << "\n";
+    return 0;
+}
