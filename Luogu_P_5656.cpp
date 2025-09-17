@@ -50,6 +50,7 @@ int main() {
             continue;
         }
         ll cnt = k2 - k1 + 1;
+        ll cntx = 14;
         ll minx = x + k1 * tx;
         ll maxx = x + k2 * tx;
         ll miny = y - k2 * ty;
