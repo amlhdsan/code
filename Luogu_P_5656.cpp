@@ -38,7 +38,6 @@ ll exgcd(ll a, ll b, ll &x, ll &y) {
 inline ll ceil_div(ll a, ll b){ return a>=0 ? (a + b - 1)/b : a/b; }
 inline ll floor_div(ll a, ll b){ return a>=0 ? a/b : (a - b + 1)/b; }
 
-inline ll 
 
 int main() {
     int T = read();
