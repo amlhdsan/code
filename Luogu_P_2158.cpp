@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int phi[40010];
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -29,7 +31,28 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void init(int n) {
+    for (int i = 1; i <= n; i++) 
+        phi[i] = i;
+    for (int i = 2; i <= n; i++) {
+        if (phi[i] == i) {
+            for (int j = i; j <= n; j += i) {
+                phi[j] = phi[j] / i * (i - 1);
+            }
+        }
+    }
+    return;
+}
+
+inline void 
+
 int main() {
+
+    int n = read();
+
+    init(n);
+
+    solve(n);
 
     return 0;
 }
