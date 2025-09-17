@@ -3,8 +3,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-inline int read() {
-    int x = 0, f = 1;
+inline unsigned long long read() {
+    unsigned long long x = 0, f = 1;
     char ch = getchar();
     while (ch < '0' || ch > '9') {
         if (ch == '-') f = -1;
@@ -17,7 +17,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(long long x) {
+inline void write(unsigned long long x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -26,14 +26,14 @@ inline void write(long long x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(long long x) {
+inline void writeln(unsigned long long x) {
     write(x);
     putchar('\n');
 }
 
-long long phi(long long x) {
-    long long res = x;
-    for (long long i = 2; i * i <= x; i++) {
+unsigned long long phi(unsigned long long x) {
+    unsigned long long res = x;
+    for (unsigned long long i = 2; i * i <= x; i++) {
         if (x % i == 0) {
             res = res / i * (i - 1);
             while (x % i == 0) x /= i;
@@ -44,9 +44,9 @@ long long phi(long long x) {
 }
 
 int main() {
-    long long n = read();
-    long long ans = 0;
-    for (long long i = 1; i * i <= n; i++) {
+    unsigned long long n = read();
+    unsigned long long ans = 0;
+    for (unsigned long long i = 1; i * i <= n; i++) {
         if (n % i == 0) {
             ans += i * phi(n / i);
             if (i * i != n) ans += (n / i) * phi(i);
