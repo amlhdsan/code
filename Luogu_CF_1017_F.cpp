@@ -31,6 +31,8 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void 
+
 int main() {
 
     n = read();
@@ -38,6 +40,8 @@ int main() {
     b = read();
     c = read();
     d = read();
+
+    solve(n, a, b, c, d);
 
     return 0;
 }
