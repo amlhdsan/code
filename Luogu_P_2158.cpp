@@ -44,7 +44,10 @@ inline void init(int n) {
     return;
 }
 
-inline void 
+inline void solve(int n) {
+    int ans = 2;
+    for(int i = 1; )
+}
 
 int main() {
 
