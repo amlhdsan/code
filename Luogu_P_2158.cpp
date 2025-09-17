@@ -49,7 +49,7 @@ inline void solve(int n) {
     for(int i = 1; i < n; i++) {
         ans += phi[i];
     }
-    writeln(ans << 1 | 1);
+    writeln(ans * 2 + 1);
     return;
 }
 
