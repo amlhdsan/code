@@ -45,11 +45,11 @@ inline void init(int n) {
 }
 
 inline void solve(int n) {
-    int ans = 2;
-    for(int i = 1; i <= n; i++) {
-        ans += phi[i] * 2;
+    int ans = 0;
+    for(int i = 1; i < n; i++) {
+        ans += phi[i];
     }
-    writeln(ans);
+    writeln(ans << 1 | 1);
     return;
 }
 
