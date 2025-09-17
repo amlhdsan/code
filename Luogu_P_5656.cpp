@@ -16,7 +16,14 @@ inline int read() {
     return x * f;
 }
 
-ll 
+ll exphi(ll a, ll p) {
+    ll r = 1, k = a;
+    while (p) {
+        if (p & 1) r = r * k;
+        k = k * k; p >>= 1;
+    }
+    return r;
+}
 
 ll exgcd(ll a, ll b, ll &x, ll &y) {
     if (!b) {
