@@ -45,6 +45,10 @@ inline void init(int n) {
 }
 
 inline void solve(int n) {
+    if(n == 1) {
+        writeln(0);
+        return;
+    }
     int ans = 0;
     for(int i = 1; i < n; i++) {
         ans += phi[i];
