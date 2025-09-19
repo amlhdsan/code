@@ -1,0 +1,1 @@
+{"name":"Luogu - CF2148G","url":"https://www.luogu.com.cn/problem/CF2148G","memoryLimit":256000,"timeLimit":3000,"tests":[{"id":1758294874380,"input":"3\n8\n2 4 3 6 5 7 8 6\n6\n6 6 6 6 6 6\n9\n8 4 2 6 3 9 5 7 8","output":"0 1 2 3 3 3 4 5 \n0 0 0 0 0 0 \n0 1 2 2 4 4 4 4 5"}],"group":"luogu","srcPath":"/Users/amlhdsan/code/Luogu_CF_2148_G.cpp"}

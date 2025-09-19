@@ -39,7 +39,6 @@ unsigned long long phi(unsigned long long x) {
             while (x % i == 0) x /= i;
         }
     }
-    markdown();
     if (x > 1) res = res / x * (x - 1);
     return res;
 }
