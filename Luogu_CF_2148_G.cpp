@@ -1,35 +1,55 @@
 #include <bits/stdc++.h>
 using namespace std;
+const int N = 2e5 + 10;
 
-inline int read() {
-    int x = 0, f = 1;
-    char ch = getchar();
-    while (ch < '0' || ch > '9') {
-        if (ch == '-') f = -1;
-        ch = getchar();
-    }
-    while (ch >= '0' && ch <= '9') {
-        x = (x << 3) + (x << 1) + (ch ^ 48);
-        ch = getchar();
-    }
-    return x * f;
+int n, a[N];
+vector<int> pref[N];
+vector<int> nums;
+
+int gcd(int a, int b) {
+    return b ? gcd(b, a % b) : a;
 }
 
-inline void write(int x) {
-    if (x < 0) {
-        putchar('-');
-        x = -x;
-    }
-    if (x > 9) write(x / 10);
-    putchar(x % 10 + '0');
+int find_max_k(vector<int>& arr) {
+    int len = arr.size();
+    if (len <= 1) return 0;
+    
+    int maxk = 0;
+    do {
+        int cur_gcd = arr[0];
+        for (int k = 1; k < len; k++) {
+            int next_gcd = gcd(cur_gcd, arr[k]);
+            if (next_gcd < cur_gcd) {
+                maxk = max(maxk, k);
+                break;
+            }
+            cur_gcd = next_gcd;
+        }
+    } while (next_permutation(arr.begin(), arr.end()));
+    
+    return maxk;
 }
 
-inline void writeln(int x) {
-    write(x);
-    putchar('\n');
+void solve() {
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        cin >> a[i];
+        nums.clear();
+        for (int j = 1; j <= i; j++) {
+            nums.push_back(a[j]);
+        }
+        sort(nums.begin(), nums.end());
+        cout << find_max_k(nums) << " ";
+    }
+    cout << "\n";
 }
 
 int main() {
-
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    
+    int t;
+    cin >> t;
+    while (t--) solve();
     return 0;
 }
