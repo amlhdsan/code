@@ -40,6 +40,8 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void 
+
 int main() {
 
     n = read();
