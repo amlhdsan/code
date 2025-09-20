@@ -52,7 +52,8 @@ int main() {
     }
 
     for(int i = 1; i <= n; ++i) {
-
+        l[i] = read();
+        r[i] = read();
     }
 
     return 0;
