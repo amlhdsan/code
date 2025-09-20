@@ -12,7 +12,7 @@ struct node {
     int w, v;
 }a[N];
 
-
+inline void pr
 
 inline int read() {
     int x = 0, f = 1;
