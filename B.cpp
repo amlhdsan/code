@@ -46,7 +46,8 @@ inline int qpow(int a, int b, int mod) {
 }
 
 inline void cal(int x) {
-    
+    write(qpow((m - i) * p % MOD, n));
+    putchar(' ');
 }
 
 signed main() {
