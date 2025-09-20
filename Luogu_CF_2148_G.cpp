@@ -6,8 +6,8 @@ int n, a[N];
 vector<int> pref[N];
 vector<int> nums;
 
-inline void  {
-    
+inline void init() {
+
 }
 
 int gcd(int a, int b) {
