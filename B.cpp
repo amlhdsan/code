@@ -1,11 +1,5 @@
 #include <bits/stdc++.h>
-
-#define int long long
-#define MOD 998244353
-
 using namespace std;
-
-int n, m, p;
 
 inline int read() {
     int x = 0, f = 1;
@@ -31,35 +25,64 @@ inline void write(int x) {
 }
 
 inline void writeln(int x) {
-    write(x);
+    if (x < 0) {
+        putchar('-');
+        x = -x;
+    }
+    if (x > 9) writeln(x / 10);
+    putchar(x % 10 + '0');
     putchar('\n');
 }
 
-inline int qpow(int a, int b, int mod) {
-    int res = 1;
-    while (b) {
-        if (b & 1) res = 1ll * res * a % mod;
-        a = 1ll * a * a % mod;
-        b >>= 1;
+const int MAXN = 200005;
+int arr[MAXN];
+long long vals[MAXN];
+long long freq[MAXN];
+
+void printll(long long x) {
+    if (x < 0) {
+        putchar('-');
+        x = -x;
     }
-    return res;
+    if (x > 9) printll(x / 10);
+    putchar(x % 10 + '0');
 }
 
-inline void cal(int x) {
-    write(qpow((m - x) * p % MOD, n, MOD));
-    putchar(' ');
-}
-
-signed main() {
-
-    n = read();
-    m = read();
-
-    p = qpow(m - 1, 998244351, MOD);
-
-    for(int i = 1; i <= m; ++i) {
-        cal(i);
+int main() {
+    int t = read();
+    while (t--) {
+        int n = read();
+        for (int i = 0; i < n; ++i) arr[i] = read();
+        sort(arr, arr + n);
+        int m = 0;
+        for (int i = 0; i < n; ) {
+            int j = i;
+            while (j < n && arr[j] == arr[i]) ++j;
+            vals[m] = arr[i];
+            freq[m] = j - i;
+            ++m;
+            i = j;
+        }
+        long long alice = 0, bob = 0;
+        int turn = 0;
+        for (int i = 0; i < m; ++i) {
+            long long len = vals[i];
+            long long takeA = 0, takeB = 0;
+            if (turn == 0) {
+                takeA = (len + 1) / 2;
+                takeB = len / 2;
+            } else {
+                takeB = (len + 1) / 2;
+                takeA = len / 2;
+            }
+            alice += takeA * freq[i];
+            bob += takeB * freq[i];
+            if (len % 2 == 1) turn ^= 1;
+        }
+        printll(alice);
+        putchar(' ');
+        printll(bob);
+        putchar('\n');
     }
-
     return 0;
 }
