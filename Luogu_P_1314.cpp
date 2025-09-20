@@ -40,7 +40,9 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-inline void 
+inline void calsum(int W) {
+
+}
 
 int main() {
 
@@ -57,6 +59,32 @@ int main() {
         l[i] = read();
         r[i] = read();
     }
+
+    int l = 0, r = 1000000, mid, ans;
+
+    while(l < r) {
+        mid = (l + r) >> 1;
+        int y = caly(mid);
+        if(y > s)
+            r = mid;
+        else
+            l = mid + 1;
+    }
+
+    for(int i = 1; i <= n; ++i) {
+        
+    }
+
+    while(l < r) {
+        mid = (l + r) >> 1;
+        int y = caly(mid); // 判定函数
+        if(y > s)
+            r = mid;
+        else
+            l = mid + 1;
+    }
+
+
 
     return 0;
 }
