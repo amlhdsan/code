@@ -1,10 +1,12 @@
 #include <bits/stdc++.h>
 
 #define N 200010
+#define M 200010
 
 using namespace std;
 
 int n, m, s;
+int l[M], r[M];
 
 struct node {
     int w, v;
@@ -49,7 +51,9 @@ int main() {
         a[i].v = read();
     }
 
-    
+    for(int i = 1; i <= n; ++i) {
+
+    }
 
     return 0;
 }
