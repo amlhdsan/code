@@ -17,6 +17,10 @@ int gcd(int a, int b) {
 int find_max_k(vector<int>& arr) {
     int len = arr.size();
     if (len <= 1) return 0;
+
+    else {
+        
+    }
     
     int maxk = 0;
     do {
