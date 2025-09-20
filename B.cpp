@@ -1,8 +1,11 @@
 #include <bits/stdc++.h>
 
 #define int long long
+#define MOD 998244353
 
 using namespace std;
+
+int n, m, p;
 
 inline int read() {
     int x = 0, f = 1;
@@ -43,15 +46,15 @@ inline int qpow(int a, int b, int mod) {
 }
 
 inline void cal(int x) {
-    int p = 
+    
 }
 
 signed main() {
 
-    int n, m;
-
     n = read();
     m = read();
+
+    p = qpow(m - 1, n - 1, MOD);
 
     for(int i = 1; i <= m; ++i) {
         cal(i);
