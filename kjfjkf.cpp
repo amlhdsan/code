@@ -1,5 +1,11 @@
 #include <bits/stdc++.h>
+
+#define N 
+
 using namespace std;
+
+int n;
+int p[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -30,6 +36,8 @@ inline void writeln(int x) {
 }
 
 int main() {
+
+    
 
     return 0;
 }
