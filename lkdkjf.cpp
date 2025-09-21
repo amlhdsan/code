@@ -3,10 +3,6 @@
 #include <algorithm>
 using namespace std;
 
-inline void print(auto x) {
-    codeforces(com)
-}
-
 int main() {
     int t;
     cin >> t;
