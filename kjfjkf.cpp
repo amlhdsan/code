@@ -45,7 +45,7 @@ inline int lcm(int a, int b) {
     return a / gcd(a, b) * b;
 }
 
-int main() {
+signed main() {
 
     n = read();
 
