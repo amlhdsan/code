@@ -54,7 +54,10 @@ signed main() {
         P = lcm(P, p[i]);
     }
 
-    writeln(P);
+    // writeln(P);
 
+    // find the minimum x s.t. P | (x * (x + 1))
+
+    
     return 0;
 }
