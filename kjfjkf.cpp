@@ -37,6 +37,14 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline int gcd(int a, int b) {
+    return b ? gcd(b, a % b) : a;
+}
+
+inline int lcm(int a, int b) {
+    return a / gcd(a, b) * b;
+}
+
 int main() {
 
     n = read();
