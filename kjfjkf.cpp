@@ -1,11 +1,13 @@
 #include <bits/stdc++.h>
 
 #define N 100010
+#define int long long
 
 using namespace std;
 
 int n;
 int p[N];
+int P = 1;
 
 inline int read() {
     int x = 0, f = 1;
@@ -41,7 +43,10 @@ int main() {
 
     for(int i = 1; i <= n; ++i) {
         p[i] = read();
+        P = lcm(P, p[i]);
     }
+
+    writeln(P);
 
     return 0;
 }
