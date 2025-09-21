@@ -56,8 +56,8 @@ signed main() {
 
     // writeln(P);
 
-    // find the minimum x s.t. P | (x * (x + 1))
+    // find the min x s.t. P | (x * (x + 1))
 
-    
+
     return 0;
 }
