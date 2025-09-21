@@ -2,7 +2,7 @@
 using namespace std;
 
 int n;
-int a[]
+int a[2000010];
 
 inline int read() {
     int x = 0, f = 1;
