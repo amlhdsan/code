@@ -1,4 +1,3 @@
-// ...existing code...
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -85,7 +84,7 @@ int main() {
     d = readULL();
 
     vector<ULL> pri;
-    pri.reserve((size_t)max<ULL>(1, min<ULL>(n, 100000))); // 预分配
+    pri.reserve((size_t)max<ULL>(1, min<ULL>(n, 100000)));
     init_sieve_half(n, pri);
     solve(n, pri);
     return 0;
