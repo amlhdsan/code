@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 
 #define N 300000010
-#define int long long
+#define int unsigned long long
+#define MOD (1 << 32)
 
 using namespace std;
 
@@ -51,7 +52,7 @@ inline void init() {
 }
 
 inline int f(int x) {
-    return a * x * x * x + b * x * x + c * x + d;
+    return (a * x % MOD * x % MOD * x % MOD + b * x % MOD * x % MOD + c * x % MOD + d) % MOD;
 }
 
 inline void solve(int n, int a, int b, int c, int d) {
