@@ -62,10 +62,10 @@ inline void solve(int n, int a, int b, int c, int d) {
             x += n / j;
         sum = (sum + f(pri[i]) * x % MOD) % MOD;
     }
-    writeln(sum % MOD + 1);
+    writeln(sum % MOD);
 }
 
-int main() {
+signed main() {
 
     n = read();
     a = read();
