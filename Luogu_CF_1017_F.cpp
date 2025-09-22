@@ -6,6 +6,7 @@
 using namespace std;
 
 int n, a, b, c, d;
+int sum = 0;
 bool not_pri[N];
 int pri[200010], cnt = 0;
 
