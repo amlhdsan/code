@@ -50,14 +50,21 @@ inline void init() {
 }
 
 inline void solve(int n, int a, int b, int c, int d) {
-    
+
+
 }
 
 int main() {
 
+    n = read();
+    a = read();
+    b = read();
+    c = read();
+    d = read();
+
     init();
 
-    solve(read(), read(), read(), read(), read());
+    solve(n, a, b, c, d);
 
     return 0;
 }
