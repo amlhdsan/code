@@ -1,7 +1,11 @@
 #include <bits/stdc++.h>
+
+#define N 300000010
+
 using namespace std;
 
-int n, a, b, c, d;
+bool not_pri[N];
+int pri[200010], cnt = 0;
 
 inline int read() {
     int x = 0, f = 1;
@@ -31,17 +35,29 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-inline void 
+inline void init() {
+    // 线性筛
+
+    for(int i = 2; i <= N; ++i) {
+        if(!not_pri[i]) 
+            pri[++cnt] = i;
+        for(int j = 1; j <= cnt && i * pri[j] <= N; ++j) {
+            not_pri[i * pri[j]] = true;
+            if(i % pri[j] == 0) 
+                break;
+        }
+    }
+}
+
+inline void solve(int n, int a, int b, int c, int d) {
+    
+}
 
 int main() {
 
-    n = read();
-    a = read();
-    b = read();
-    c = read();
-    d = read();
+    init();
 
-    solve(n, a, b, c, d);
+    solve(read(), read(), read(), read(), read());
 
     return 0;
 }
