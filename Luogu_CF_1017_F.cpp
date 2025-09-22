@@ -57,9 +57,12 @@ inline int f(int x) {
 
 inline void solve(int n, int a, int b, int c, int d) {
     for(int i = 1; i <= cnt; ++i) {
-
+        int x = 0;
+        for(int j = pri[i]; j <= n; j *= pri[i]) 
+            x += n / j;
+        sum = (sum + f(pri[i]) * x % MOD) % MOD;
     }
-
+    writeln(sum % MOD + 1);
 }
 
 int main() {
