@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
-#define int unsigned long long
+#define ULL unsigned long long
+#define int ULL
 #define MOD (1ULL << 32)
 
 using namespace std;
@@ -36,17 +37,17 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-inline void init_sieve(int n, vector<int> &primes) {
-    vector<bool> is_comp(n + 1, false);
-    if (n >= 0) is_comp[0] = true;
-    if (n >= 1) is_comp[1] = true;
+inline void init(int n, vector<int> &pri) {
+    vector<bool> isp(n + 1, false);
+    if (n >= 0) isp[0] = true;
+    if (n >= 1) isp[1] = true;
     for (int i = 2; i <= (int)n; ++i) {
-        if (!is_comp[i]) primes.push_back(i);
-        for (size_t j = 0; j < primes.size(); ++j) {
-            unsigned long long prod = (unsigned long long)i * primes[j];
-            if (prod > (unsigned long long)n) break;
-            is_comp[(size_t)prod] = true;
-            if (i % primes[j] == 0) break;
+        if (!isp[i]) pri.push_back(i);
+        for (size_t j = 0; j < pri.size(); ++j) {
+            ULL prod = (ULL)i * pri[j];
+            if (prod > (ULL)n) break;
+            isp[(size_t)prod] = true;
+            if (i % pri[j] == 0) break;
         }
     }
 }
@@ -55,13 +56,14 @@ inline int f(int x) {
     return (a * x % MOD * x % MOD * x % MOD + b * x % MOD * x % MOD + c * x % MOD + d) % MOD;
 }
 
-inline void solve(int n, int a, int b, int c, int d, const vector<int> &primes) {
-    for (size_t i = 0; i < primes.size(); ++i) {
-        int p = primes[i];
-        unsigned long long x = 0;
-        for (unsigned long long j = p; j <= (unsigned long long)n; j *= p) {
+inline void solve(int n, int a, int b, int c, int d, const vector<int> &pri) {
+    for (size_t i = 0; i < pri.size(); ++i) {
+        int p = pri[i];
+        ULL x = 0;
+        for (ULL j = p; j <= (ULL)n; j *= p) {
             x += n / j;
-            if (j > (unsigned long long)n / p) break; // 防止溢出
+            if (j > (ULL)n / p) {
+                break;
         }
         sum = (sum + f(p) * x % MOD) % MOD;
     }
@@ -75,11 +77,12 @@ signed main() {
     c = (int)read();
     d = (int)read();
 
-    vector<int> primes;
-    primes.reserve( (size_t)max(1u, (unsigned)min((unsigned)n, 100000u)) );
-    init_sieve((int)n, primes);
+    vector<int> pri;
+    pri.reserve( (size_t)max(1u, (unsigned)min((unsigned)n, 100000u)));
+    
+    init((int)n, pri);
 
-    solve(n, a, b, c, d, primes);
+    solve(n, a, b, c, d, pri);
 
     return 0;
 }
