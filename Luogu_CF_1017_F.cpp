@@ -1,88 +1,92 @@
+// ...existing code...
 #include <bits/stdc++.h>
 
-#define ULL unsigned long long
-#define int ULL
-#define MOD (1ULL << 32)
-
 using namespace std;
+using ULL = unsigned long long;
 
-int n, a, b, c, d;
-int sum = 0;
+const ULL MOD = (1ULL << 32);
 
-inline int read() {
-    int x = 0, f = 1;
-    char ch = getchar();
+ULL n, a, b, c, d;
+ULL sum_ans = 0;
+
+inline ULL readULL() {
+    long long x = 0, f = 1;
+    int ch = getchar();
     while (ch < '0' || ch > '9') {
         if (ch == '-') f = -1;
         ch = getchar();
     }
     while (ch >= '0' && ch <= '9') {
-        x = (x << 3) + (x << 1) + (ch ^ 48);
+        x = x * 10 + (ch - '0');
         ch = getchar();
     }
-    return x * f;
+    return (ULL)(x * f);
 }
 
-inline void write(int x) {
+inline void writeULL(ULL x) {
     if ((long long)x < 0) {
         putchar('-');
-        x = -x;
+        x = (ULL)(-(long long)x);
     }
-    if (x > 9) write(x / 10);
-    putchar(x % 10 + '0');
+    if (x > 9) writeULL(x / 10);
+    putchar(char('0' + x % 10));
 }
 
-inline void writeln(int x) {
-    write(x);
+inline void writelnULL(ULL x) {
+    writeULL(x);
     putchar('\n');
 }
 
-inline void init(int n, vector<int> &pri) {
-    vector<bool> isp(n + 1, false);
-    if (n >= 0) isp[0] = true;
-    if (n >= 1) isp[1] = true;
-    for (int i = 2; i <= (int)n; ++i) {
-        if (!isp[i]) pri.push_back(i);
-        for (size_t j = 0; j < pri.size(); ++j) {
-            ULL prod = (ULL)i * pri[j];
-            if (prod > (ULL)n) break;
-            isp[(size_t)prod] = true;
-            if (i % pri[j] == 0) break;
+inline void init_sieve_half(ULL N, vector<ULL> &pri) {
+    if (N < 2) return;
+    pri.push_back(2);
+    if (N < 3) return;
+    size_t sz = (N + 1) / 2 + 1;
+    vector<char> is_comp(sz, 0);
+    ULL limit = (ULL)floor(sqrt((long double)N));
+    for (ULL i = 3; i <= limit; i += 2) {
+        if (!is_comp[i / 2]) {
+            ULL start = i * i;
+            for (ULL j = start; j <= N; j += i << 1) { // step 2*i, 保证奇数
+                is_comp[j / 2] = 1;
+            }
         }
+    }
+    for (ULL i = 3; i <= N; i += 2) {
+        if (!is_comp[i / 2]) pri.push_back(i);
     }
 }
 
-inline int f(int x) {
-    return (a * x % MOD * x % MOD * x % MOD + b * x % MOD * x % MOD + c * x % MOD + d) % MOD;
+inline ULL f(ULL x) {
+    return ( (a * x % MOD * x % MOD * x % MOD)
+           + (b * x % MOD * x % MOD)
+           + (c * x % MOD)
+           + d ) % MOD;
 }
 
-inline void solve(int n, int a, int b, int c, int d, const vector<int> &pri) {
-    for (size_t i = 0; i < pri.size(); ++i) {
-        int p = pri[i];
+inline void solve(ULL N, const vector<ULL> &pri) {
+    for (size_t idx = 0; idx < pri.size(); ++idx) {
+        ULL p = pri[idx];
         ULL x = 0;
-        for (ULL j = p; j <= (ULL)n; j *= p) {
-            x += n / j;
-            if (j > (ULL)n / p) {
-                break;
+        for (ULL j = p; j <= N; j *= p) {
+            x += N / j;
+            if (j > N / p) break;
         }
-        sum = (sum + f(p) * x % MOD) % MOD;
+        sum_ans = (sum_ans + f(p) * x % MOD) % MOD;
     }
-    writeln(sum % MOD);
+    writelnULL(sum_ans % MOD);
 }
 
-signed main() {
-    n = (int)read();
-    a = (int)read();
-    b = (int)read();
-    c = (int)read();
-    d = (int)read();
+int main() {
+    n = readULL();
+    a = readULL();
+    b = readULL();
+    c = readULL();
+    d = readULL();
 
-    vector<int> pri;
-    pri.reserve( (size_t)max(1u, (unsigned)min((unsigned)n, 100000u)));
-    
-    init((int)n, pri);
-
-    solve(n, a, b, c, d, pri);
-
+    vector<ULL> pri;
+    pri.reserve((size_t)max<ULL>(1, min<ULL>(n, 100000))); // 预分配
+    init_sieve_half(n, pri);
+    solve(n, pri);
     return 0;
 }
