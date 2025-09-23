@@ -8,6 +8,10 @@ const ULL MOD = (1ULL << 32);
 ULL n, a, b, c, d;
 ULL sum_ans = 0;
 
+ULL inline void(int p, int l, int r) {
+    if()
+}
+
 inline ULL readULL() {
     long long x = 0, f = 1;
     int ch = getchar();
