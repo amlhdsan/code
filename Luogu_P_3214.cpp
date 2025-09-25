@@ -51,7 +51,7 @@ inline int qpow(int x, int y) {
 inline void init() {
     A[0] = 1;
     for (int i = 1; i <= 1000000; ++i) {
-        A[i] = (A[i - 1] * (qpow(2, n) - i + 1)) % MOD;
+        A[i] = (A[i - 1] * (qpow(2, n) - 1 - i + 1)) % MOD;
     }
 }
 
