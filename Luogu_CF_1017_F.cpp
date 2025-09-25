@@ -8,12 +8,6 @@ const ULL MOD = (1ULL << 32);
 ULL n, a, b, c, d;
 ULL sum_ans = 0;
 
-inline void(int p, int l, int r) {
-    if(l <= r) {
-
-    }
-}
-
 inline ULL readULL() {
     long long x = 0, f = 1;
     int ch = getchar();
@@ -27,6 +21,8 @@ inline ULL readULL() {
     }
     return (ULL)(x * f);
 }
+
+inline void 
 
 inline void writeULL(ULL x) {
     if ((long long)x < 0) {
