@@ -39,7 +39,7 @@ inline void writeln(int x) {
 }
 
 inline int qpow(int x, int y) {
-    res = 1;
+    int res = 1;
     while (y) {
         if (y & 1) res = (1LL * res * x) % MOD;
         x = (1LL * x * x) % MOD;
