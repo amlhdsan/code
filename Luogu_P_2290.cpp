@@ -3,7 +3,6 @@
 using namespace std;
 
 int n;
-int ans = 1;
 int a[200];
 
 inline int read() {
@@ -20,19 +19,65 @@ inline int read() {
     return x * f;
 }
 
-inline void write(int x) {
-    if (x < 0) {
-        putchar('-');
-        x = -x;
-    }
-    if (x > 9) write(x / 10);
-    putchar(x % 10 + '0');
-}
+inline void writeChar(char c) { putchar(c); }
+inline void writeStr(const string &s) { for (char c : s) putchar(c); }
 
-inline void writeln(int x) {
-    write(x);
-    putchar('\n');
-}
+struct BigInt {
+    static const int BASE = 10000;
+    static const int WIDTH = 4;
+    vector<int> d;
+
+    BigInt(int x = 0) { *this = x; }
+
+    BigInt& operator=(int x) {
+        d.clear();
+        if (x == 0) d.push_back(0);
+        while (x > 0) {
+            d.push_back(x % BASE);
+            x /= BASE;
+        }
+        return *this;
+    }
+
+    void normalize() {
+        while (d.size() > 1 && d.back() == 0) d.pop_back();
+    }
+
+    void mul(int m) {
+        if (m == 0) { d.assign(1,0); return; }
+        long long carry = 0;
+        for (size_t i = 0; i < d.size(); ++i) {
+            long long cur = 1LL * d[i] * m + carry;
+            d[i] = int(cur % BASE);
+            carry = cur / BASE;
+        }
+        while (carry) {
+            d.push_back(int(carry % BASE));
+            carry /= BASE;
+        }
+    }
+
+    void div(int v) {
+        long long carry = 0;
+        for (int i = (int)d.size() - 1; i >= 0; --i) {
+            long long cur = d[i] + carry * BASE;
+            d[i] = int(cur / v);
+            carry = cur % v;
+        }
+        normalize();
+    }
+
+    string toString() const {
+        stringstream ss;
+        int n = d.size();
+        if (n == 0) return "0";
+        ss << d.back();
+        for (int i = n - 2; i >= 0; --i) {
+            ss << setw(WIDTH) << setfill('0') << d[i];
+        }
+        return ss.str();
+    }
+};
 
 int main() {
 
@@ -40,17 +85,20 @@ int main() {
     for(int i = 1; i <= n; ++i) 
         a[i] = read();
 
-    for(int i = 1; i <= n - 2; ++i) {
-        ans *= i;
+    BigInt ans(1);
+
+    for (int k = 2; k <= max(0, n - 2); ++k) {
+        ans.mul(k);
     }
 
-    for(int i = 1; i <= n; ++i) {
-        for(int i = 1; i <= a[i] - 1; ++i) {
-            ans /= i;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 2; j <= a[i] - 1; ++j) {
+            ans.div(j);
         }
     }
 
-    writeln(ans);
+    writeStr(ans.toString());
+    writeChar('\n');
 
     return 0;
 }
