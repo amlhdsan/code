@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 
-#define int __int128
-
 using namespace std;
 
 int n;
@@ -36,7 +34,7 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-signed main() {
+int main() {
 
     n = read();
     for(int i = 1; i <= n; ++i) 
