@@ -5,6 +5,8 @@
 using namespace std;
 
 int n;
+int ans = 1;
+int a[200];
 
 inline int read() {
     int x = 0, f = 1;
@@ -34,7 +36,13 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
+signed main() {
+
+    n = read();
+    for(int i = 1; i <= n; ++i) 
+        a[i] = read();
+
+    
 
     return 0;
 }
