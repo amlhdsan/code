@@ -1,1 +1,1 @@
-{"name":"Luogu - P2290","url":"https://www.luogu.com.cn/problem/P2290","memoryLimit":524288,"timeLimit":1000,"tests":[{"input":"4                     \n2 1 2 1\n","output":"2","id":1758896510635}],"group":"luogu","srcPath":"/Users/amlhdsan/code/Luogu_P_2290.cpp"}
+{"name":"Luogu - P2290","url":"https://www.luogu.com.cn/problem/P2290","memoryLimit":524288,"timeLimit":1000,"tests":[{"id":1758896510635,"input":"4                     \n2 1 2 1\n","output":"2"}],"group":"luogu","srcPath":"/Users/amlhdsan/code/Luogu_P_2290.cpp"}
