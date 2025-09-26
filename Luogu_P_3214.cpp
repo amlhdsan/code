@@ -55,6 +55,10 @@ inline void init() {
     }
 }
 
+inline void c(int n, int m) {
+
+}
+
 signed main() {
 
     n = read();
