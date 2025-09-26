@@ -42,7 +42,9 @@ signed main() {
     for(int i = 1; i <= n; ++i) 
         a[i] = read();
 
-    
+    for(int i = 1; i <= n; ++i) {
+        
+    }
 
     return 0;
 }
