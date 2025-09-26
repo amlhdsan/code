@@ -1,5 +1,10 @@
 #include <bits/stdc++.h>
+
+#define int __int128
+
 using namespace std;
+
+int n;
 
 inline int read() {
     int x = 0, f = 1;
