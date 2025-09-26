@@ -86,7 +86,13 @@ int main() {
     int sum = 0;
     for(int i = 1; i <= n; ++i) 
         a[i] = read(), sum += a[i];
-    
+
+    if(sum != 2 * (n - 1)) {
+        writeChar('0');
+        writeChar('\n');
+        return 0;
+    }
+
     if(n == 1) {
         if(a[1] == 0) {
             writeChar('1');
@@ -98,12 +104,6 @@ int main() {
             writeChar('\n');
             return 0;
         }
-    }
-
-    if(sum != 2 * (n - 1)) {
-        writeChar('0');
-        writeChar('\n');
-        return 0;
     }
 
     BigInt ans(1);
