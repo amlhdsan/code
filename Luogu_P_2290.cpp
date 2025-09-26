@@ -82,8 +82,21 @@ struct BigInt {
 int main() {
 
     n = read();
+    if(n == 1) {
+        writeChar('1');
+        writeChar('\n');
+        return 0;
+    }
+
+    int sum = 0;
     for(int i = 1; i <= n; ++i) 
-        a[i] = read();
+        a[i] = read(), sum += a[i];
+
+    if(sum != 2 * (n - 1)) {
+        writeChar('0');
+        writeChar('\n');
+        return 0;
+    }
 
     BigInt ans(1);
 
