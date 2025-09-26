@@ -106,6 +106,19 @@ int main() {
         }
     }
 
+    if(n == 2) {
+        if(a[1] == 1 && a[2] == 1) {
+            writeChar('1');
+            writeChar('\n');
+            return 0;
+        }
+        else {
+            writeChar('0');
+            writeChar('\n');
+            return 0;
+        }
+    }
+
     BigInt ans(1);
 
     for (int k = 2; k <= max(0, n - 2); ++k) {
