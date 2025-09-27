@@ -48,12 +48,7 @@ inline void solve(int x, int y) {
 
     // ans = \sum C_{ai + y - 1}^{y - 1} % MOD * 2^(y - 1) % MOD
 
-    int ans = 0;
-    for (int i = 1; i <= x; i++) {
-        ans += )
-    }
-
-    writeln(ans * qpow(2, y - 1) % MOD);
+    
 }
 
 int main() {
