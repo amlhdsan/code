@@ -1,4 +1,7 @@
 #include <bits/stdc++.h>
+
+#define 
+
 using namespace std;
 
 inline int read() {
@@ -30,7 +33,9 @@ inline void writeln(int x) {
 }
 
 inline void solve(int x, int y) {
-    
+    // x = p1^a1 * p2^a2 * ... * pk^ak
+
+    // ans = \sum C_{a1 + y - 1}^{y - 1}
 }
 
 int main() {
