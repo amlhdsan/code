@@ -17,7 +17,39 @@ inline int read() {
     }
     return x * f;
 }
-    char ch = getchar();
+
+inline void write(int x) {
+    if (x < 0) {
+        putchar('-');
+        x = -x;
+    }
+    if (x > 9) write(x / 10);
+    putchar(x % 10 + '0');
+}
+
+inline void writeln(int x) {
+    write(x);
+    putchar('\n');
+}
+
+inline void solve(int x, int y) {
+    // x = p1^a1 * p2^a2 * ... * pk^ak
+
+    // ans = \sum C_{a1 + y - 1}^{y - 1}
+}
+
+int main() {
+
+    int T = read();
+
+    while(T--) {
+        int x = read();
+        int y = read();
+        solve(x, y);
+    }
+
+    return 0;
+}
     while (ch < '0' || ch > '9') {
         if (ch == '-') f = -1;
         ch = getchar();
