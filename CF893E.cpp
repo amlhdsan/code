@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 #define MOD 1000000007
+#define int long long
 
 using namespace std;
 
@@ -78,7 +79,7 @@ inline void solve(int x, int y) {
     writeln((int)ans * qpow(2, y - 1) % MOD);
 }
 
-int main() {
+signed main() {
 
     int T = read();
 
