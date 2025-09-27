@@ -32,6 +32,20 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline int qpow(int a, int b) {
+    int res = 1;
+    while (b) {
+        if (b & 1) res = (1LL * res * a) % MOD;
+        a = (1LL * a * a) % MOD;
+        b >>= 1;
+    }
+    return res;
+}
+
+inline void read() {
+    
+}
+
 inline void solve(int x, int y) {
     // x = p1^a1 * p2^a2 * ... * pk^ak
 
@@ -49,7 +63,7 @@ inline void solve(int x, int y) {
         }
     }
 
-    writeln(ans);
+    writeln(ans * qpow(2, y - 1) % MOD);
 }
 
 int main() {
