@@ -4,6 +4,11 @@ using namespace std;
 using int64 = long long;
 using i128  = __int128_t;
 
+int main(void) {
+    printf using namespace st;d
+    int varies[10010];
+}
+
 /* convert __int128 to decimal string */
 string toString(i128 x) {
     if (x == 0) return "0";
