@@ -35,8 +35,8 @@ inline void writeln(int x) {
 inline int qpow(int a, int b) {
     int res = 1;
     while (b) {
-        if (b & 1) res = (1LL * res * a) % MOD;
-        a = (1LL * a * a) % MOD;
+        if (b & 1) res = (int)((1LL * res * a) % MOD);
+        a = (int)((1LL * a * a) % MOD);
         b >>= 1;
     }
     return res;
@@ -44,11 +44,39 @@ inline int qpow(int a, int b) {
 
 
 inline void solve(int x, int y) {
-    // x = p1^a1 * p2^a2 * ... * pk^ak
+    long long tx = x;
+    long long ans = 1;
 
-    // ans = \sum C_{ai + y - 1}^{y - 1} % MOD * 2^(y - 1) % MOD
+    for (long long p = 2; p * p <= tx; ++p) {
+        if (tx % p == 0) {
+            int cnt = 0;
+            while (tx % p == 0) {
+                tx /= p;
+                ++cnt;
+            }
+            // compute C(cnt + y - 1, cnt) mod MOD
+            long long comb = 1;
+            for (int i = 1; i <= cnt; ++i) {
+                long long num = ( (long long)y + i - 1 ) % MOD;
+                comb = comb * num % MOD;
+                comb = comb * qpow(i, MOD - 2) % MOD;
+            }
+            ans = ans * comb % MOD;
+        }
+    }
+    if (tx > 1) {
+        // remaining prime with exponent 1
+        int cnt = 1;
+        long long comb = 1;
+        for (int i = 1; i <= cnt; ++i) {
+            long long num = ( (long long)y + i - 1 ) % MOD;
+            comb = comb * num % MOD;
+            comb = comb * qpow(i, MOD - 2) % MOD;
+        }
+        ans = ans * comb % MOD;
+    }
 
-    
+    writeln((int)ans);
 }
 
 int main() {
