@@ -42,7 +42,6 @@ inline int qpow(int a, int b) {
     return res;
 }
 
-
 inline void solve(int x, int y) {
     long long tx = x;
     long long ans = 1;
@@ -76,7 +75,7 @@ inline void solve(int x, int y) {
         ans = ans * comb % MOD;
     }
 
-    writeln((int)ans);
+    writeln((int)ans * qpow(2, y - 1) % MOD);
 }
 
 int main() {
