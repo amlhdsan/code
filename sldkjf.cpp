@@ -58,7 +58,7 @@ signed main() {
 
     int cnt = 0;
 
-    for(n = 1; n <= 1000; ++n) {
+    for(n = 1; n <= 10000; ++n) {
         int x = 0, y = 0;
 
         for(int i = 1; i <= n; ++i) {
@@ -68,7 +68,7 @@ signed main() {
         }
 
         if(x * y >= n * n * n) {
-            writeln(1.0 * x * y / n * n * n);
+            cout << (1.0 * 1.0 * x * 1.0 * y / (1.0 * n * n * n)) << endl;
         }
     }
 
