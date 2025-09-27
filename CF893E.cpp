@@ -29,7 +29,19 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void solve(int x, int y) {
+    
+}
+
 int main() {
+
+    int T = read();
+
+    while(T--) {
+        int x = read();
+        int y = read();
+        solve(x, y);
+    }
 
     return 0;
 }
