@@ -46,11 +46,11 @@ inline int qpow(int a, int b) {
 inline void solve(int x, int y) {
     // x = p1^a1 * p2^a2 * ... * pk^ak
 
-    // ans = \sum C_{ai + y - 1}^{y - 1} % MOD
+    // ans = \sum C_{ai + y - 1}^{y - 1} % MOD * 2^(y - 1) % MOD
 
     int ans = 0;
     for (int i = 1; i <= x; i++) {
-        ans = (ans + 1LL * qpow(i, y - 1) * qpow(i, x / i)) % MOD;
+        ans += )
     }
 
     writeln(ans * qpow(2, y - 1) % MOD);
