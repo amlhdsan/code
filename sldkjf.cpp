@@ -58,6 +58,8 @@ signed main() {
 
     int cnt = 0;
 
+    cnt = l + 1;
+
     for(n = 1; n <= 10000; ++n) {
         int x = 0, y = 0;
 
