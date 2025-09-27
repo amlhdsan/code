@@ -42,25 +42,15 @@ inline int qpow(int a, int b) {
     return res;
 }
 
-inline void read() {
-    
-}
 
 inline void solve(int x, int y) {
     // x = p1^a1 * p2^a2 * ... * pk^ak
 
-    // ans = \sum C_{a1 + y - 1}^{y - 1} % MOD
+    // ans = \sum C_{ai + y - 1}^{y - 1} % MOD
 
-    int ans = 1;
-    for (int i = 2; i * i <= x; i++) {
-        if (x % i == 0) {
-            int cnt = 0;
-            while (x % i == 0) {
-                x /= i;
-                cnt++;
-            }
-            ans = (ans * (cnt + y - 1)) % MOD;
-        }
+    int ans = 0;
+    for (int i = 1; i <= x; i++) {
+        ans = (ans + 1LL * qpow(i, y - 1) * qpow(i, x / i)) % MOD;
     }
 
     writeln(ans * qpow(2, y - 1) % MOD);
