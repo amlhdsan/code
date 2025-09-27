@@ -54,9 +54,11 @@ inline int gcd(int a, int b) {
 
 signed main() {
 
+    freopen("AAAAoutput.cpp", "w", stdout);
+
     int cnt = 0;
 
-    for(n = 1; n <= 10000; ++n) {
+    for(n = 1; n <= 1000; ++n) {
         int x = 0, y = 0;
 
         for(int i = 1; i <= n; ++i) {
@@ -66,11 +68,11 @@ signed main() {
         }
 
         if(x * y >= n * n * n) {
-            cnt++;
+            writeln(1.0 * x * y / n * n * n);
         }
     }
 
-    writeln(cnt);
+    // writeln(cnt);
 
     return 0;
 }
