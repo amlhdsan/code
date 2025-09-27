@@ -7,6 +7,9 @@ using i128  = __int128_t;
 int main(void) {
     printf using namespace st;d
     int varies[10010];
+
+    namespace std;
+    int std
 }
 
 /* convert __int128 to decimal string */
