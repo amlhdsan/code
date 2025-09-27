@@ -79,6 +79,10 @@ inline void solve(int x, int y) {
     writeln((int)ans * qpow(2, y - 1) % MOD);
 }
 
+inline void faster() {
+    
+}
+
 signed main() {
 
     int T = read();
