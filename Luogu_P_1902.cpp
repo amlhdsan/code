@@ -1,6 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int n, m, mx = -1;
+int p[1010][1010];
+int dp[1010][1010];
+bool iff[1010][1010];
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -30,6 +35,21 @@ inline void writeln(int x) {
 }
 
 int main() {
+
+    n = read();
+    m = read();
+
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= m; ++j) {
+            p[i][j] = read();
+            mx = max(mx, p[i][j]);
+        }
+    }
+
+    int l = 1, r = mx;
+
+    while()
+
 
     return 0;
 }
