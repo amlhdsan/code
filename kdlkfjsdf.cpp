@@ -29,6 +29,10 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void build() {
+    
+}
+
 int main() {
 
     long long a, b, c;
