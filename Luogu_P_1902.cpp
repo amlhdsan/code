@@ -3,7 +3,6 @@ using namespace std;
 
 int n, m, mx = -1;
 int p[1010][1010];
-int dp[1010][1010];
 bool iff[1010][1010];
 
 inline int read() {
@@ -34,6 +33,39 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+int dx[4] = {0, 0, 1, -1};
+int dy[4] = {1, -1, 0, 0};
+
+inline bool dfs(int x, int y, int px, int py) {
+    if(x == n && y == m) {
+        return true;
+    }
+
+    for(int i = 0; i < 4; ++i) {
+        int nx = x + dx[i];
+        int ny = y + dy[i];
+        if(nx >= 1 && nx <= n && ny >= 1 && ny <= m && !iff[nx][ny]) {
+            iff[nx][ny] = true;
+            if(dfs(nx, ny, x, y)) return true;
+        }
+    }
+    return false;
+}
+
+inline void solve(int x, int y) {
+    
+}
+
+inline bool check(int x) {
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= m; ++j) {
+            iff[i][j] = (p[i][j] <= x);
+        }
+    }
+
+    return dfs(1, 1);
+}
+
 int main() {
 
     n = read();
@@ -46,9 +78,18 @@ int main() {
         }
     }
 
-    int l = 1, r = mx;
+    int l = 1, r = mx, ans;
 
-    while()
+    while(l < r) {
+        int mid = (l + r) >> 1;
+        if(check(mid)) {
+            ans = mid;
+            r = mid;
+        }
+        else {
+            l = mid + 1;
+        }
+    }
 
 
     return 0;
