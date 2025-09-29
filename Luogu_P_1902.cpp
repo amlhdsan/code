@@ -66,6 +66,10 @@ inline bool check(int x) {
     return dfs(1, 1);
 }
 
+inline void dpp() {
+    
+}
+
 int main() {
 
     n = read();
