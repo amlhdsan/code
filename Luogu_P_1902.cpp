@@ -67,6 +67,10 @@ inline bool check(int x) {
 }
 
 inline void dpp() {
+
+}
+
+inline void dp2() {
     
 }
 
