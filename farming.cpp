@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int n;
+int n, tmp, ans;
 int a[N];
 int s[N];
 int mx[N];
@@ -41,12 +41,24 @@ inline void writeln(int x) {
 signed main() {
 
     n = read();
-    memset(mx, 0x3f, sizeof(mx));
+    for(int i = 0; i <= n; ++i) {
+        mx[i] = -100000000000000000;
+    }
 
     for(int i = 1; i <= n; ++i) {
         a[i] = read();
         s[i] = s[i - 1] + a[i];
+        mx[i] = max(mx[i - 1], s[i]);
     }
+
+    if(mx[N] <= 0 || s[n] < 0) {
+        writeln(-1);
+        return 0;
+    }
+
+    ans = n - 1;
+
+
 
     return 0;
 }
