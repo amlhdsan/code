@@ -7,7 +7,7 @@ using namespace std;
 
 int n, tmp, ans;
 int a[N];
-int s[N];
+int s[N], ss[N];
 int mx[N];
 
 inline int read() {
@@ -49,6 +49,9 @@ inline int f(int a, int b) { // ceil(a / b)
 
 signed main() {
 
+    freopen("farming.in", "r", stdin);
+    freopen("farming.out", "w", stdout);
+
     n = read();
     for(int i = 0; i <= n; ++i) {
         mx[i] = -100000000000000000;
@@ -57,29 +60,25 @@ signed main() {
     for(int i = 1; i <= n; ++i) {
         a[i] = read();
         s[i] = s[i - 1] + a[i];
+        ss[i] = ss[i - 1] + s[i];
         mx[i] = max(mx[i - 1], s[i]);
     }
 
-    if(mx[n] == 0 || s[n] == 0) {
-        writeln(n - 1);
-        return 0;
-    }
-
-    if(mx[n] <= 0 || s[n] < 0) {
+    if(s[n] < 0) {
         writeln(-1);
         return 0;
     }
 
-    ans = n - 1;
+    ans = n;
 
     for(int i = 1; i <= n; ++i) {
-        if(s[i] + tmp < 0) {
+        if(ss[i] + tmp < 0) {
             if(mx[i] <= 0) {
                 writeln(-1);
                 return 0;
             }
-            ans += f(-(s[i] + tmp), mx[i]);
-            tmp += f(-(s[i] + tmp), mx[i]) * mx[i];
+            ans += f(-(ss[i] + tmp), mx[i]);
+            tmp += f(-(ss[i] + tmp), mx[i]) * mx[i];
         }
     }
 
