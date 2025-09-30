@@ -73,10 +73,17 @@ signed main() {
     ans = n - 1;
 
     for(int i = 1; i <= n; ++i) {
-        if(s[i] + tmp <= 0) {
-
+        if(s[i] + tmp < 0) {
+            if(mx[i] <= 0) {
+                writeln(-1);
+                return 0;
+            }
+            ans += f(-(s[i] + tmp), mx[i]);
+            tmp += f(-(s[i] + tmp), mx[i]) * mx[i];
         }
     }
+
+    writeln(ans);
 
     return 0;
 }
