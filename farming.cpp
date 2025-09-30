@@ -38,6 +38,12 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline int f(int a, int b) { // ceil(a / b)
+    if(a % b == 0) {
+        
+    }
+}
+
 signed main() {
 
     n = read();
@@ -58,7 +64,11 @@ signed main() {
 
     ans = n - 1;
 
+    for(int i = 1; i <= n; ++i) {
+        if(s[i] + tmp <= 0) {
 
+        }
+    }
 
     return 0;
 }
