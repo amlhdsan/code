@@ -40,7 +40,7 @@ inline void writeln(int x) {
 
 inline int f(int a, int b) { // ceil(a / b)
     if(a % b == 0) {
-        
+
     }
 }
 
@@ -57,7 +57,12 @@ signed main() {
         mx[i] = max(mx[i - 1], s[i]);
     }
 
-    if(mx[N] <= 0 || s[n] < 0) {
+    if(mx[n] == 0 || s[n] == 0) {
+        writeln(n - 1);
+        return 0;
+    }
+
+    if(mx[n] <= 0 || s[n] < 0) {
         writeln(-1);
         return 0;
     }
