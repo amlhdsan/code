@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 1000010
-#define int long lon
+#define int long long
 
 using namespace std;
 
@@ -40,6 +40,11 @@ inline void writeln(int x) {
 signed main() {
 
     n = read();
+
+    for(int i = 1; i <= n; ++i) {
+        a[i] = read();
+        s[i] = s[i - 1] + a[i];
+    }
 
     return 0;
 }
