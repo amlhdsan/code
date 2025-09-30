@@ -40,7 +40,10 @@ inline void writeln(int x) {
 
 inline int f(int a, int b) { // ceil(a / b)
     if(a % b == 0) {
-
+        return a / b;
+    }
+    else {
+        return (int)(a / b) + 1;
     }
 }
 
