@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-#define int unsigned long long
+#define int long long
 
 using namespace std;
 
@@ -32,7 +32,7 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-inline void exgcd(int a, int b, int &x, int &y) {
+inline void exgcd(int a, int b, __int128 &x, __int128 &y) {
     if(!b) {
         x = 1;
         y = 0;
@@ -44,7 +44,7 @@ inline void exgcd(int a, int b, int &x, int &y) {
 }
 
 inline int inverse(int a, int m) { // ax = 1 mod m
-    int x, y;
+    __int128 x, y;
     exgcd(a, m, x, y);
     return (x % m + m) % m;
 }
@@ -53,8 +53,8 @@ inline int qpow(int a, int b, int mod) {
     int res = 1;
     while(b > 0) {
         if(b & 1)
-            res = res * a % mod;
-        a = a * a % mod;
+            res = (__int128)res * a % mod;
+        a = (__int128) a * a % mod;
         b >>= 1;
     }
     return res;
@@ -62,11 +62,15 @@ inline int qpow(int a, int b, int mod) {
 
 signed main() {
 
-    int p, q, e, n, phin, d;
+    freopen("encrypt.in", "r", stdin);
+    freopen("encrypt.out", "w", stdout);
+
+    int p, q, e;
+    __int128 d;
     p = read();
     q = read();
-    n = p * q;
-    phin = (p - 1) * (q - 1);
+    __int128 n = p * q;
+    __int128 phin = (p - 1) * (q - 1);
     e = read();
     d = inverse(e, phin);
 

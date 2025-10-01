@@ -1,0 +1,1 @@
+{"name":"Local: encrypt","url":"/Users/amlhdsan/code/encrypt.cpp","tests":[{"id":1759246829416,"input":"11 13 79\n8\n96 54 105 5 4 67 105 84","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/amlhdsan/code/encrypt.cpp","group":"local","local":true}
