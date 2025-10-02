@@ -65,7 +65,18 @@ inline void dfs(int p) {
 
     if(low[p] == dfn[p]) {
         ++sum;
+        bl[sum].push_back(p);
 
+        while(sk[top] != p) {
+            ans[sk[top]] = sum;
+            insk[sk[top]] = 0;
+            bl[sum].push_back(s[top]);
+            --top;
+        }
+
+        --top;
+        insk[p] = 0;
+        ans[p] = sum;
     }
 }
 
@@ -85,6 +96,16 @@ int main() {
         if(!dfn[i]) {
             dfs(i);
         }
+    }
+
+    writeln(sum);
+
+    for(int i = 1; i <= sum; ++i) {
+        sort(bl[i].begin(), bl[i].end());
+    }
+
+    for(int i = 1; i <= n; ++i) {
+        
     }
 
     return 0;
