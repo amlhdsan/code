@@ -13,6 +13,7 @@ int sum = 0;
 int sk[N], top = 0, insk[N];
 vector<int> bl[N];
 int ans[N];
+bool fk[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -70,7 +71,7 @@ inline void dfs(int p) {
         while(sk[top] != p) {
             ans[sk[top]] = sum;
             insk[sk[top]] = 0;
-            bl[sum].push_back(s[top]);
+            bl[sum].push_back(sk[top]);
             --top;
         }
 
@@ -105,11 +106,14 @@ int main() {
     }
 
     for(int i = 1; i <= n; ++i) {
-        for(int t : bl[ans[i]]) {
-            write(t);
-            putchar(' ');
+        if(!fk[ans[i]]) {
+            for(int t : bl[ans[i]]) {
+                write(t);
+                putchar(' ');
+            }
+            putchar('\n');
+            fk[ans[i]] = 1;
         }
-        putchar('\n');
     }
 
     return 0;
