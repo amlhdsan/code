@@ -7,7 +7,12 @@ using namespace std;
 
 int n, m;
 int head[M], to[M], e = 0, nxt[M];
-int dfn[N];
+int dfn[N], low[N];
+int cnt = 0;
+int sum = 0;
+int sk[N], top = 0, insk[N];
+vector<int> bl[N];
+int ans[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -43,6 +48,27 @@ inline void add_edge(int u, int v) {
     to[e] = v;
 }
 
+inline void dfs(int p) {
+    dfn[p] = low[p] = ++cnt;
+    sk[++top] = p, insk[p] = 1;
+
+    for(int i = head[p]; i; i = nxt[i]) {
+        int v = to[i];
+        if(!dfn[v]) {
+            dfs(v);
+            low[p] = min(low[p], low[v]);
+        }
+        else if(insk[v]) {
+            low[p] = min(low[p], low[v]);
+        }
+    }
+
+    if(low[p] == dfn[p]) {
+        ++sum;
+
+    }
+}
+
 int main() {
 
     n = read();
@@ -55,7 +81,11 @@ int main() {
         add_edge(u, v);
     }
 
-
+    for(int i = 1; i <= n; ++i) {
+        if(!dfn[i]) {
+            dfs(i);
+        }
+    }
 
     return 0;
 }
