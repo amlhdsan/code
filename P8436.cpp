@@ -1,5 +1,11 @@
 #include <bits/stdc++.h>
+
+#define N 4000010
+
 using namespace std;
+
+int n, m;
+int head[N], nxt[N], to[N], e = 0;
 
 inline int read() {
     int x = 0, f = 1;
@@ -29,7 +35,24 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void add_edge(int u, int v) {
+    nxt[++e] = head[u];
+    head[u] = e;
+    to[e] = v;
+}
+
 int main() {
+
+    n = read();
+    m = read();
+
+    for(int i = 1; i <= m; ++i) {
+        int u, v;
+        u = read();
+        v = read();
+        add_edge(u, v);
+        add_edge(v, u);
+    }
 
     return 0;
 }
