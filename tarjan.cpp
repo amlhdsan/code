@@ -105,7 +105,11 @@ int main() {
     }
 
     for(int i = 1; i <= n; ++i) {
-        if(bl[])
+        for(int t : bl[ans[i]]) {
+            write(t);
+            putchar(' ');
+        }
+        putchar('\n');
     }
 
     return 0;
