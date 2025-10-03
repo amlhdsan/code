@@ -8,6 +8,10 @@ int n, m;
 int head[N], nxt[N], to[N], e = 0;
 int dfn[N], low[N], cnt = 0;
 stack<int> st;
+int dcc[N];
+bool iff[N];
+vector<vector<int>> ans;
+int sum = 0;
 
 inline int read() {
     int x = 0, f = 1;
@@ -43,12 +47,33 @@ inline void add_edge(int u, int v) {
     to[e] = v;
 }
 
-inline void tarjan(int p) {
+inline void tarjan(int p, int pre) {
     dfn[p] = low[p] = ++cnt;
     st.push(p);
 
     for(int i = head[p]; i; i = nxt[i]) {
-        if()
+        int v = to[i];
+        if(!dfn[v]) {
+            tarjan(v, i);
+            if(dfn[p] < low[v]) {
+                iff[i] = iff[i ^ 1] = 1;
+            }
+            low[p] = min(low[p], low[v]);
+        }
+        else if(i != (pre ^ 1)) {
+            low[p] = min(low[p], dfn[v]);
+        }
+    }
+}
+
+inline void dfs(int p) {
+    dcc[p] = sum;
+    ans[sum - 1].push_back(p);
+    for(int i = head[p]; i; i = nxt[i]) {
+        int v = to[i];
+        if(!(dcc[v] || d[i])) {
+            dfs(v);
+        }
     }
 }
 
@@ -67,9 +92,26 @@ int main() {
 
     for(int i = 1; i <= n; ++i) {
         if(!dfn[i]) {
-            tarjan(i);
+            tarjan(i, 0);
         }
     }
 
+    for(int i = 1; i <= n; ++i) {
+        if(!dcc[i]) {
+            ans.emplace_back();
+            ++sum;
+            dfs(i);
+        }
+    }
+
+    writeln(sum);
+    for(int i = 0; i < sum; ++i) {
+        write(ans[i].size());
+        for(int j : ans[i]) {
+            putchar(' ');
+            write(j);
+        }
+        putchar('\n');
+    }
     return 0;
 }
