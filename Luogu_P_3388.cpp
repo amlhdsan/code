@@ -46,6 +46,9 @@ inline void add_edge(int u, int v) {
 }
 
 inline void tarjan(int p, bool flag) {
+
+    int ind = 0;
+
     dfn[p] = low[p] = ++tot;
     sk.push(p);
     iff[p] = 1;
@@ -58,10 +61,17 @@ inline void tarjan(int p, bool flag) {
             if(low[v] >= dfn[p] && !flag) {
                 ans[++sum] = p;
             }
+            if(flag) {
+                ++ind;
+            }
         }
         else if(iff[v]) {
             low[p] = min(low[p], dfn[v]);
         }
+    }
+
+    if(flag && ind > 1) {
+        ans[++sum] = p;
     }
 }
 
@@ -83,6 +93,8 @@ int main() {
     }
 
     writeln(sum);
+
+    sort(ans + 1, ans + sum + 1);
 
     for(int i = 1; i <= sum; ++i) {
         write(ans[i]);
