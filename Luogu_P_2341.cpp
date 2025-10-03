@@ -1,17 +1,15 @@
 #include <bits/stdc++.h>
 
-#define N 4000010
+#define N 100010
 
 using namespace std;
 
 int n, m;
-int head[N], nxt[N], to[N], e = 1;
-int dfn[N], low[N], cnt = 0;
-stack<int> st;
-int dcc[N];
+int head[N], nxt[N], to[N], e = 0;
+int dfn[N], low[N], tot = 0;
+stack<int> sk;
 bool iff[N];
-vector<vector<int>> ans;
-int sum = 0;
+int cnt = 0;
 
 inline int read() {
     int x = 0, f = 1;
@@ -47,32 +45,26 @@ inline void add_edge(int u, int v) {
     to[e] = v;
 }
 
-inline void tarjan(int p, int pre) {
-    dfn[p] = low[p] = ++cnt;
+inline void tarjan(int p) {
+    dfn[p] = low[p] = ++tot;
+    sk.push(p);
+    iff[p] = 1;
 
     for(int i = head[p]; i; i = nxt[i]) {
         int v = to[i];
         if(!dfn[v]) {
-            tarjan(v, i);
-            if(dfn[p] < low[v]) {
-                iff[i] = iff[i ^ 1] = 1;
-            }
+            tarjan(v);
             low[p] = min(low[p], low[v]);
         }
-        else if(i != (pre ^ 1)) {
+        else if(iff[v]) {
             low[p] = min(low[p], dfn[v]);
         }
     }
-}
 
-inline void dfs(int p) {
-    dcc[p] = sum;
-    ans[sum - 1].push_back(p);
-    for(int i = head[p]; i; i = nxt[i]) {
-        int v = to[i];
-        if(!(dcc[v] || iff[i])) {
-            dfs(v);
-        }
+    int tmp;
+
+    if(low[p] == dfn[p]) {
+
     }
 }
 
@@ -86,31 +78,13 @@ int main() {
         u = read();
         v = read();
         add_edge(u, v);
-        add_edge(v, u);
     }
 
     for(int i = 1; i <= n; ++i) {
         if(!dfn[i]) {
-            tarjan(i, 0);
+            tarjan(i);
         }
     }
 
-    for(int i = 1; i <= n; ++i) {
-        if(!dcc[i]) {
-            ans.emplace_back();
-            ++sum;
-            dfs(i);
-        }
-    }
-
-    writeln(sum);
-    for(int i = 0; i < sum; ++i) {
-        write(ans[i].size());
-        for(int j : ans[i]) {
-            putchar(' ');
-            write(j);
-        }
-        putchar('\n');
-    }
     return 0;
 }
