@@ -6,6 +6,8 @@ using namespace std;
 
 int n, m;
 int head[N], nxt[N], to[N], e = 0;
+int dfn[N], low[N], cnt = 0;
+stack<int> st;
 
 inline int read() {
     int x = 0, f = 1;
@@ -41,6 +43,15 @@ inline void add_edge(int u, int v) {
     to[e] = v;
 }
 
+inline void tarjan(int p) {
+    dfn[p] = low[p] = ++cnt;
+    st.push(p);
+
+    for(int i = head[p]; i; i = nxt[i]) {
+        if()
+    }
+}
+
 int main() {
 
     n = read();
@@ -52,6 +63,12 @@ int main() {
         v = read();
         add_edge(u, v);
         add_edge(v, u);
+    }
+
+    for(int i = 1; i <= n; ++i) {
+        if(!dfn[i]) {
+            tarjan(i);
+        }
     }
 
     return 0;
