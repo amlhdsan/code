@@ -10,6 +10,9 @@ int dfn[N], low[N], tot = 0;
 stack<int> sk;
 bool iff[N];
 int cnt = 0;
+int bl[N];
+int sum[N];
+int dg[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -64,7 +67,14 @@ inline void tarjan(int p) {
     int tmp;
 
     if(low[p] == dfn[p]) {
-
+        ++cnt;
+        do {
+            tmp = sk.top();
+            sk.pop();
+            iff[tmp] = 0;
+            bl[tmp] = cnt;
+            ++sum[cnt];
+        } while(tmp != p);
     }
 }
 
@@ -85,6 +95,29 @@ int main() {
             tarjan(i);
         }
     }
+
+    for(int p = 1; p <= n; ++p) {
+        for(int i = head[p]; i; i = nxt[i]) {
+            int v = to[i];
+            if(bl[p] != bl[v]) {
+                ++dg[bl[p]];
+            }
+        }
+    }
+
+    int index = 0;
+
+    for(int i = 1; i <= cnt; ++i) {
+        if(dg[i] == 0) {
+            if(index != 0) {
+                writeln(0);
+                return 0;
+            }
+            index = i;
+        }
+    }
+
+    writeln(sum[index]);
 
     return 0;
 }
