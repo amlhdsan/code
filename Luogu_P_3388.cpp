@@ -36,7 +36,9 @@ inline void writeln(int x) {
 }
 
 inline void add_edge(int u, int v) {
-    
+    nxt[++e] = head[u];
+    head[u] = e;
+    to[e] = v;
 }
 
 int main() {
