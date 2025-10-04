@@ -95,7 +95,7 @@ inline void dfs(int p, int pre) {
     }
 }
 
-inline void faster() {
+inline void dp() {
     
 }
 
