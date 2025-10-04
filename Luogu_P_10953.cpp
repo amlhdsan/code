@@ -15,7 +15,6 @@ int bl[N], sum = 0;
 vector<int> edges[M];
 int fa[M][21];
 int dep[M];
-int vis[M];
 
 inline int read() {
     int x = 0, f = 1;
@@ -90,11 +89,13 @@ inline void dfs(int p, int pre) {
     }
 
     for(int v : edges[p]) {
-        if(v != pre) {
+        if(v != pre && !dep[v]) {
             dfs(v, p);
         }
     }
 }
+
+inline void fa
 
 inline int lca(int u, int v) {
     if(dep[u] < dep[v]) {
@@ -155,8 +156,7 @@ int main() {
     }
 
     for(int i = 1; i <= sum; ++i) {
-        if(!vis[i]) {
-            vis[i] = 1;
+        if(!dep[i]) {
             dfs(i, 0);
         }
     }
