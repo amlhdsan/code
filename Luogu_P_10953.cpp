@@ -14,7 +14,8 @@ stack<int> sk;
 int bl[N], sum = 0;
 
 vector<int> edges[M];
-int fa[M][20];
+int fa[M][21];
+int dep[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -86,6 +87,46 @@ inline void addedge(int u, int v) {
     edges[v].push_back(u);
 }
 
+inline void dfs(int p, int pre) {
+    dep[p] = dep[pre] + 1;
+    fa[p][0] = pre;
+
+    for(int i = 1; i <= 20; ++i) {
+        fa[p][i] = fa[fa[p][i - 1]][i - 1];
+    }
+
+    for(int v : edges[p]) {
+        if(v != pre) {
+            dfs(v, p);
+        }
+    }
+}
+
+inline int lca(int u, int v) {
+    if(dep[u] < dep[v]) {
+        swap(u, v);
+    }
+
+    for(int i = 20; i >= 0; --i) {
+        if(dep[v] <= dep[u] - (1 << i)) {
+            u = fa[u][i];
+        }
+    }
+
+    if(u == v) {
+        return u;
+    }
+
+    for(int i = 20; i >= 0; --i) {
+        if(fa[u][i] != fa[v][i]) {
+            u = fa[u][i];
+            v = fa[v][i];
+        }
+    }
+
+    return fa[u][0];
+}
+
 int main() {
 
     n = read();
@@ -111,7 +152,18 @@ int main() {
         }
     }
 
-    
+    dfs(1, 0);
+
+    int q = read();
+
+    while(q--) {
+        int u, v;
+        u = read();
+        v = read();
+        u = bl[u];
+        v = bl[v];
+        writeln(dep[u] + dep[v] - 2 * lca(u, v));
+    }
 
     return 0;
 }
