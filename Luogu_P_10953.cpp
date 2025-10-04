@@ -95,7 +95,9 @@ inline void dfs(int p, int pre) {
     }
 }
 
-inline void fa
+inline void faster() {
+    
+}
 
 inline int lca(int u, int v) {
     if(dep[u] < dep[v]) {
