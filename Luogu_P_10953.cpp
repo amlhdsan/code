@@ -9,13 +9,13 @@ int n, m;
 int uu[N], vv[N];
 int head[N], nxt[N], to[N], e = 1;
 int dfn[N], low[N], tot = 0;
-int iff[N];
 stack<int> sk;
 int bl[N], sum = 0;
 
 vector<int> edges[M];
 int fa[M][21];
-int dep[N];
+int dep[M];
+int vis[M];
 
 inline int read() {
     int x = 0, f = 1;
@@ -58,12 +58,11 @@ inline void tarjan(int p, int pre) {
     for(int i = head[p]; i; i = nxt[i]) {
         int v = to[i];
 
-        if(v == pre) {
+        if(i == (pre ^ 1)) 
             continue;
-        }
 
         if(!dfn[v]) {
-            tarjan(v, p);
+            tarjan(v, i);
             low[p] = min(low[p], low[v]);
         }
         else {
@@ -80,11 +79,6 @@ inline void tarjan(int p, int pre) {
         }
         sk.pop();
     }
-}
-
-inline void addedge(int u, int v) {
-    edges[u].push_back(v);
-    edges[v].push_back(u);
 }
 
 inline void dfs(int p, int pre) {
@@ -146,13 +140,26 @@ int main() {
         }
     }
 
-    for(int i = 1; i <= n; ++i) {
-        if(bl[vv[i]] != bl[uu[i]]) {
-            addedge(bl[uu[i]], bl[vv[i]]);
+    set<pair<int,int>> st;
+    for(int i = 1; i <= m; ++i) {
+        int u = bl[uu[i]];
+        int v = bl[vv[i]];
+        if(u != v) {
+            if(u > v) swap(u, v);
+            if(st.find({u, v}) == st.end()) {
+                st.insert({u, v});
+                edges[u].push_back(v);
+                edges[v].push_back(u);
+            }
         }
     }
 
-    dfs(1, 0);
+    for(int i = 1; i <= sum; ++i) {
+        if(!vis[i]) {
+            vis[i] = 1;
+            dfs(i, 0);
+        }
+    }
 
     int q = read();
 
@@ -162,7 +169,7 @@ int main() {
         v = read();
         u = bl[u];
         v = bl[v];
-        writeln(dep[u] + dep[v] - 2 * lca(u, v));
+        writeln(dep[u] + dep[v] - 2 * dep[lca(u, v)]);
     }
 
     return 0;
