@@ -7,8 +7,6 @@ using namespace std;
 int n, m;
 int head[N], to[N], nxt[N], e = 0;
 int dfn[N], low[N], tot = 0;
-stack<int> sk;
-bool iff[N];
 int sum = 0, ans[N];
 
 inline int read() {
@@ -50,8 +48,6 @@ inline void tarjan(int p, bool flag) {
     int ind = 0;
 
     dfn[p] = low[p] = ++tot;
-    sk.push(p);
-    iff[p] = 1;
 
     for(int i = head[p]; i; i = nxt[i]) {
         int v = to[i];
@@ -65,7 +61,7 @@ inline void tarjan(int p, bool flag) {
                 ++ind;
             }
         }
-        else if(iff[v]) {
+        else {
             low[p] = min(low[p], dfn[v]);
         }
     }
@@ -92,12 +88,20 @@ int main() {
         }
     }
 
-    writeln(sum);
+    int tmp[N];
 
     sort(ans + 1, ans + sum + 1);
 
     for(int i = 1; i <= sum; ++i) {
-        write(ans[i]);
+        tmp[i] = ans[i];
+    }
+
+    int l = unique(tmp + 1, tmp + sum + 1) - tmp - 1;
+
+    writeln(l);
+
+    for(int i = 1; i <= l; ++i) {
+        write(tmp[i]);
         putchar(' ');
     }
 
