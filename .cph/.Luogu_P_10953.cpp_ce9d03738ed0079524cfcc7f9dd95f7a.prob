@@ -1,0 +1,1 @@
+{"name":"Luogu - P10953","url":"https://www.luogu.com.cn/problem/P10953","memoryLimit":524288,"timeLimit":1000,"tests":[{"input":"5 5\n1 2\n1 3\n2 4\n3 4\n4 5\n2\n1 4\n2 5","output":"0\n1","id":1759544590850}],"group":"luogu","srcPath":"/Users/amlhdsan/code/Luogu_P_10953.cpp"}
