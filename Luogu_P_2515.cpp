@@ -4,6 +4,8 @@ using namespace std;
 int n, m;
 int W[110], V[110], D[110];
 int head[1010], nxt[1010], to[1010], e = 0;
+int dfn[1010], low[1010], tot = 0;
+
 
 inline int read() {
     int x = 0, f = 1;
@@ -34,7 +36,9 @@ inline void writeln(int x) {
 }
 
 inline void add_edge(int u, int v) {
-    
+    nxt[++e] = head[u];
+    head[u] = e;
+    to[e] = v;
 }
 
 int main() {
@@ -54,7 +58,16 @@ int main() {
         D[i] = read();
     }
 
+    for(int i = 1; i <= n; ++i) {
+        if(D[i] == 0) {
+            continue;
+        }
+        add_edge(i, D[i]);
+    }
 
+    for(int i = 1; i <= n; ++i) {
+
+    }
 
     return 0;
 }
