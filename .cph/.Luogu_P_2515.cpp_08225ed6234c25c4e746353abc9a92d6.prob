@@ -1,0 +1,1 @@
+{"name":"Luogu - P2515","url":"https://www.luogu.com.cn/problem/P2515","memoryLimit":128000,"timeLimit":1000,"tests":[{"id":1759654294898,"input":"3 10\n5 5 6\n2 3 4\n0 1 1","output":"5"}],"group":"luogu","srcPath":"/Users/amlhdsan/code/Luogu_P_2515.cpp"}
