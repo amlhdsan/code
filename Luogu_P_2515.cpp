@@ -10,6 +10,8 @@ bool iff[1010];
 int bl[1010];
 
 int sum = 0; // 新图中的点的个数。
+int dp[110][1010];
+vector<int> edges[110];
 
 inline int read() {
     int x = 0, f = 1;
@@ -43,6 +45,11 @@ inline void add_edge(int u, int v) {
     nxt[++e] = head[u];
     head[u] = e;
     to[e] = v;
+}
+
+inline void addedge(int u, int v) {
+    edges[u].push_back(v);
+    edges[v].push_back(u);
 }
 
 inline void tarjan(int p) {
