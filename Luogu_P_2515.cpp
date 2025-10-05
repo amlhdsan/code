@@ -7,6 +7,7 @@ int head[1010], nxt[1010], to[1010], e = 0;
 int dfn[1010], low[1010], tot = 0;
 stack<int> sk;
 bool iff[1010];
+int bl[1010];
 
 int sum = 0; // 新图中的点的个数。
 
@@ -61,7 +62,14 @@ inline void tarjan(int p) {
     }
 
     if(low[p] == dfn[p]) {
-
+        ++sum;
+        bl[p] = sum;
+        while(sk.top() != p) {
+            iff[sk.top()] = 0;
+            bl[sk.top()] = sum;
+            sk.pop();
+        }
+        sk.pop();
     }
 }
 
