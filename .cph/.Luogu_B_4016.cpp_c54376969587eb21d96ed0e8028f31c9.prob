@@ -1,1 +1,1 @@
-{"name":"Luogu - B4016","url":"https://www.luogu.com.cn/problem/B4016","memoryLimit":131072,"timeLimit":1000,"tests":[{"input":"5\n1 2\n2 4\n4 5\n2 3","output":"3","id":1759653068183}],"group":"luogu","srcPath":"/Users/amlhdsan/code/Luogu_B_4016.cpp"}
+{"name":"Luogu - B4016","url":"https://www.luogu.com.cn/problem/B4016","memoryLimit":131072,"timeLimit":1000,"tests":[{"id":1759653068183,"input":"5\n1 2\n2 4\n4 5\n2 3","output":"3"}],"group":"luogu","srcPath":"/Users/amlhdsan/code/Luogu_B_4016.cpp"}

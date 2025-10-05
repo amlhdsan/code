@@ -76,7 +76,7 @@ int main() {
 
     dfs(ind, 0);
 
-    writeln(md);
+    writeln(md - 1);
 
     return 0;
 }
