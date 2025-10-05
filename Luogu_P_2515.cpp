@@ -3,6 +3,7 @@ using namespace std;
 
 int n, m;
 int W[110], V[110], D[110];
+int w[110], v[110];
 int head[1010], nxt[1010], to[1010], e = 0;
 int dfn[1010], low[1010], tot = 0;
 stack<int> sk;
@@ -75,9 +76,27 @@ inline void tarjan(int p) {
         while(sk.top() != p) {
             iff[sk.top()] = 0;
             bl[sk.top()] = sum;
+            w[sum] += W[sk.top()];
+            v[sum] += V[sk.top()];
             sk.pop();
         }
         sk.pop();
+    }
+}
+
+inline void dfs(int p, int pre) {
+    for(int i = w[p]; i <= m; ++i) {
+        dp[p][i] = v[p];
+    }
+
+    for(int i = head[p]; i; i = nxt[i]) {
+        int v = to[i];
+        dfs(v, p);
+        for(int i = m - w[p]; i >= 0; --i) {
+            for(int j = 0; j <= i; ++j) {
+                dp[p][i + w[p]] = max(dp[p][i + w[p]], dp[v][j] + dp[p][i + w[p] - j]);
+            }
+        }
     }
 }
 
@@ -120,10 +139,14 @@ int main() {
     }
 
     for(int i = 1; i <= sum; ++i) {
-        if(deg[bl[i]]) {
-            
+        if(deg[bl[i]] == 0) {
+            addedge(0, bl[i]);
         }
     }
+
+    dfs(0, 0);
+
+    writeln(dp[0][m]);
 
     return 0;
 }
