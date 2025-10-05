@@ -30,10 +30,6 @@ inline int read() {
     return x * f;
 }
 
-inline void output() {
-    
-}
-
 inline void write(int x) {
     if (x < 0) {
         putchar('-');
