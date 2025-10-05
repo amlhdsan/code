@@ -8,6 +8,8 @@ int dfn[1010], low[1010], tot = 0;
 stack<int> sk;
 bool iff[1010];
 
+int sum = 0; // 新图中的点的个数。
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -48,7 +50,18 @@ inline void tarjan(int p) {
     iff[p] = 1;
 
     for(int i = head[p]; i; i = nxt[i]) {
-        
+        int v = to[i];
+        if(!dfn[v]) {
+            tarjan(v);
+            low[p] = min(low[p], low[v]);
+        }
+        if(!iff[v]) {
+            low[p] = min(low[p], dfn[v]);
+        }
+    }
+
+    if(low[p] == dfn[p]) {
+
     }
 }
 
