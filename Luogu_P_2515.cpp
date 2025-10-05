@@ -54,6 +54,27 @@ inline void addedge(int u, int v) {
     edges[v].push_back(u);
 }
 
+inline void print() {
+    for(int i = 1; i <= n; ++i) {
+        printf("i=%d dfn=%d low=%d bl=%d\n", i, dfn[i], low[i], bl[i]);
+    }
+
+    // for(int i = 1; i <= n; ++i) {
+
+    // }
+}
+
+inline void dfs2(int p, int pre) {
+    for(int v : edges[p]) {
+        if(v != pre) {
+
+        }
+    }
+    for(int i = head[p]; i; i = nxt[i]) {
+
+    }
+}
+
 inline void tarjan(int p) {
     dfn[p] = low[p] = ++tot;
     sk.push(p);
