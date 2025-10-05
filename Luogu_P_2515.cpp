@@ -5,7 +5,7 @@ int n, m;
 int W[110], V[110], D[110];
 int head[1010], nxt[1010], to[1010], e = 0;
 int dfn[1010], low[1010], tot = 0;
-
+stack[]
 
 inline int read() {
     int x = 0, f = 1;
@@ -41,6 +41,11 @@ inline void add_edge(int u, int v) {
     to[e] = v;
 }
 
+inline void tarjan(int p) {
+    dfn[p] = low[p] = ++tot;
+
+}
+
 int main() {
 
     n = read();
@@ -66,7 +71,9 @@ int main() {
     }
 
     for(int i = 1; i <= n; ++i) {
-
+        if(!dfn[i]) {
+            tarjan(i);
+        }
     }
 
     return 0;
