@@ -12,6 +12,7 @@ int bl[1010];
 int sum = 0; // 新图中的点的个数。
 int dp[110][1010];
 vector<int> edges[110];
+int deg[110]; // 记录入度。
 
 inline int read() {
     int x = 0, f = 1;
@@ -107,6 +108,20 @@ int main() {
     for(int i = 1; i <= n; ++i) {
         if(!dfn[i]) {
             tarjan(i);
+        }
+    }
+
+    for(int i = 1; i <= n; ++i) {
+        if(D[i] == 0) continue;
+        if(bl[i] != bl[D[i]]) {
+            addedge(bl[D[i]], bl[i]);
+            ++deg[bl[i]];
+        }
+    }
+
+    for(int i = 1; i <= sum; ++i) {
+        if(deg[bl[i]]) {
+            
         }
     }
 
