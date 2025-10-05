@@ -65,22 +65,21 @@ inline void tarjan(int p) {
             tarjan(v);
             low[p] = min(low[p], low[v]);
         }
-        if(!iff[v]) {
+        if(iff[v]) {
             low[p] = min(low[p], dfn[v]);
         }
     }
 
     if(low[p] == dfn[p]) {
         ++sum;
-        bl[p] = sum;
-        while(sk.top() != p) {
-            iff[sk.top()] = 0;
-            bl[sk.top()] = sum;
-            w[sum] += W[sk.top()];
-            v[sum] += V[sk.top()];
-            sk.pop();
-        }
-        sk.pop();
+        int x;
+        do {
+            x = sk.top(); sk.pop();
+            iff[x] = 0;
+            bl[x] = sum;
+            w[sum] += W[x];
+            v[sum] += V[x];
+        } while(x != p);
     }
 }
 
@@ -89,8 +88,8 @@ inline void dfs(int p, int pre) {
         dp[p][i] = v[p];
     }
 
-    for(int i = head[p]; i; i = nxt[i]) {
-        int v = to[i];
+    for(int v : edges[p]) {
+        if(v == pre) continue;
         dfs(v, p);
         for(int i = m - w[p]; i >= 0; --i) {
             for(int j = 0; j <= i; ++j) {
