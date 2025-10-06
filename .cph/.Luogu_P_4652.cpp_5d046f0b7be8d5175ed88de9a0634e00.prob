@@ -1,0 +1,1 @@
+{"name":"Luogu - P4652","url":"https://www.luogu.com.cn/problem/P4652","memoryLimit":262144,"timeLimit":3000,"tests":[{"id":1759728738597,"input":"5 6\n1 2\n1 2\n4 3\n2 3\n1 3\n5 1\n2\n4 5\n1 3","output":"BBRBBL"}],"group":"luogu","srcPath":"/Users/amlhdsan/code/Luogu_P_4652.cpp"}
