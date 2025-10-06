@@ -42,7 +42,7 @@ inline void add_edge(int u, int v) {
 }
 
 inline void dfs(int p, int pre) {
-    
+
 }
 
 inline void tarjan(int p) {
