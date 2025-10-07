@@ -59,7 +59,9 @@ signed main() {
 
     gen();
 
-    
+    for(int i = 1; i <= n; ++i) {
+        
+    }
 
     output();
 
