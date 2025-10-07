@@ -38,9 +38,26 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
+inline bool cmp(int x, int y) {
+    return x > y;
+}
 
+signed main() {
 
+    T = read();
+
+    while(T--) {
+        ans = 0;
+        n = read();
+        for(int i = 1; i <= n; ++i) {
+            a[i] = read();
+        }
+        sort(a + 1, a + n + 1, cmp);
+        for(int i = 1; i <= n; ++i) {
+            ans += max(0, a[i] - i - 1);
+        }
+        writeln(ans);
+    }
 
     return 0;
 }
