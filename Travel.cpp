@@ -37,25 +37,37 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void add_edge(int u, int v) {
+    nxt[++e] = head[u];
+    head[u] = e;
+    to[e] = v;
+}
+
 int main() {
 
     n = read();
     m = read();
 
-    for(int i = 1; i <= 20; ++i) {
-        
-    }
-
     for(int i = 1; i <= n; ++i) {
         a[i] = read();
-        if()
     }
 
     for(int i = 1; i <= m; ++i) {
         int u, v;
         u = read();
         v = read();
+        add_edge(u, v);
+        add_edge(v, u);
+    }
 
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= n; ++j) {
+            if(j != i) {
+                if((a[i] & a[j]) == a[j]) {
+                    
+                }
+            }
+        }
     }
 
     return 0;
