@@ -1,7 +1,14 @@
 #include <bits/stdc++.h>
+
+#define N 100010
+#define int long long
+
 using namespace std;
 
-int 
+int T;
+int n;
+int a[N];
+int ans = 0;
 
 inline int read() {
     int x = 0, f = 1;
