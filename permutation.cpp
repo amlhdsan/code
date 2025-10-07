@@ -54,7 +54,7 @@ signed main() {
         }
         sort(a + 1, a + n + 1, cmp);
         for(int i = 1; i <= n; ++i) {
-            ans += max(0, a[i] - i - 1);
+            ans += max(0LL, a[i] - i - 1);
         }
         writeln(ans);
     }
