@@ -6,6 +6,8 @@ using namespace std;
 
 int n, m;
 int a[N];
+int dep[N];
+bool vis[N];
 bool bbbbb[N];
 int head[N], nxt[N], to[N], e = 0;
 
@@ -43,6 +45,17 @@ inline void add_edge(int u, int v) {
     to[e] = v;
 }
 
+inline void dfs(int p, int pre) {
+    dep[p] = dep[pre] + 1;
+    vis[p] = 1;
+    for(int i = head[p]; i; i = nxt[i]) {
+        int v = to[i];
+        if(!vis[v]) {
+            dfs(v, p);
+        }
+    }
+}
+
 int main() {
 
     n = read();
@@ -64,10 +77,18 @@ int main() {
         for(int j = 1; j <= n; ++j) {
             if(j != i) {
                 if((a[i] & a[j]) == a[j]) {
-                    
+                    add_edge(i, j);
                 }
             }
         }
+    }
+
+    dep[0] = -1;
+
+    dfs(1, 0);
+
+    for(int i = 1; i <= n; ++i) {
+        writeln(dep[i]);
     }
 
     return 0;
