@@ -39,6 +39,10 @@ inline void print() {
     }
 }
 
+inline void scan() {
+    int p = 0;
+}
+
 inline void writeln(int x) {
     write(x);
     putchar('\n');
