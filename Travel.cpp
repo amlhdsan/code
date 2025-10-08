@@ -33,6 +33,12 @@ inline void write(int x) {
     putchar(x % 10 + '0');
 }
 
+inline void print() {
+    for(int i = 1; i <= n; ++i) {
+        
+    }
+}
+
 inline void writeln(int x) {
     write(x);
     putchar('\n');
