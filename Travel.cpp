@@ -35,7 +35,7 @@ inline void write(int x) {
 
 inline void print() {
     for(int i = 1; i <= n; ++i) {
-        
+        writeln(i);
     }
 }
 
