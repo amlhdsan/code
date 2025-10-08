@@ -1,0 +1,1 @@
+{"name":"Local: travel","url":"/Users/amlhdsan/code/travel.cpp","tests":[{"id":1759851675671,"input":"5 5\n6 3 5 2 7\n1 2\n1 3\n2 4\n3 4\n2 5","output":""},{"id":1759852066902,"input":"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/amlhdsan/code/travel.cpp","group":"local","local":true}

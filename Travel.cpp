@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-#define N 1000010
+#define N 30000010
 
 using namespace std;
 
@@ -8,7 +8,6 @@ int n, m;
 int a[N];
 int dep[N];
 bool vis[N];
-bool bbbbb[N];
 int head[N], nxt[N], to[N], e = 0;
 
 inline int read() {
@@ -45,18 +44,29 @@ inline void add_edge(int u, int v) {
     to[e] = v;
 }
 
-inline void dfs(int p, int pre) {
-    dep[p] = dep[pre] + 1;
-    vis[p] = 1;
-    for(int i = head[p]; i; i = nxt[i]) {
-        int v = to[i];
-        if(!vis[v]) {
-            dfs(v, p);
+inline void bfs(int s) {
+    queue<int> q;
+    dep[s] = 0;
+    vis[s] = 1;
+    q.push(s);
+    while(!q.empty()) {
+        int u = q.front();
+        q.pop();
+        for(int i = head[u]; i; i = nxt[i]) {
+            int v = to[i];
+            if(!vis[v]) {
+                vis[v] = 1;
+                dep[v] = dep[u] + 1;
+                q.push(v);
+            }
         }
     }
 }
 
 int main() {
+
+    freopen("travel.in", "r", stdin);
+    freopen("travel.out", "w", stdout);
 
     n = read();
     m = read();
@@ -75,17 +85,15 @@ int main() {
 
     for(int i = 1; i <= n; ++i) {
         for(int j = 1; j <= n; ++j) {
-            if(j != i) {
-                if((a[i] & a[j]) == a[j]) {
-                    add_edge(i, j);
-                }
+            if((a[i] & a[j]) == a[j]) {
+                add_edge(i, j);
             }
         }
     }
 
-    dep[0] = -1;
+    // dep[0] = -1;
 
-    dfs(1, 0);
+    bfs(1);
 
     for(int i = 1; i <= n; ++i) {
         writeln(dep[i]);
