@@ -99,6 +99,10 @@ string f2(string A, const string &S) {
     return A;
 }
 
+inline void pixiv() {
+    system("open kms.cx");
+}
+
 int main(){
 
     freopen("Add.in", "r", stdin);
