@@ -3,7 +3,7 @@ using namespace std;
 
 string f5(const string &s) {
     int i = 0;
-    while(i < s.size() && s[i]=='0') i++;
+    while(i < s.size() && s[i]=='0') ++i;
     return (i==s.size() ? "0" : s.substr(i));
 }
 
