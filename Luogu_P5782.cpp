@@ -27,8 +27,12 @@ inline void write(int x) {
     putchar(x % 10 + '0');
 }
 
-inline void push() {
-    
+inline void pushh() {
+    for(int i = 1; i <= n; ++i) {
+        if(i % (i - 3) == 0) {
+            
+        }
+    }
 }
 
 inline void writeln(int x) {
