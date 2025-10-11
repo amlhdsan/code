@@ -40,6 +40,7 @@ inline void solve() {
     n = read();
     int minn = 0x7fffffff;
     int cnt = 0;
+    bool flag = 1;
     string str;
     cin >> str;
     for(int i = 1; i <= n; ++i) {
@@ -53,6 +54,16 @@ inline void solve() {
         if(cnt <= -2) {
             puts("No");
             return;
+        }
+        if(cnt == -1 && str[i] == '(') {
+            if(flag) {
+                flag = 0;
+                str[i - 1] = ')';
+            }
+            else {
+                puts("No");
+                return;
+            }
         }
     }
     if(cnt != 0) {

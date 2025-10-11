@@ -1,0 +1,1 @@
+{"name":"Local: sdfsdf","url":"/Users/amlhdsan/code/sdfsdf.cpp","tests":[{"id":1760191299341,"input":"2\n6\n())(()\n6\n()))((","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/amlhdsan/code/sdfsdf.cpp","group":"local","local":true}
