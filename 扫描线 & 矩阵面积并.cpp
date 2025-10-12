@@ -57,14 +57,26 @@ inline void build(int p, int l, int r) {
     tree[p].cnt = 0;
     tree[p].len = 0;
 
-    if(l == r) 
+    if(l == r)
         return;
 
     build(ls, l, mid);
     build(rs, mid + 1, r);
 }
 
-inline void upd(int p) {
+inline void mdf(int p, int l, int r, int ql, int qr, int x) {
+    if(ql <= l && r <= qr) {
+        tree[p].cnt += x;
+    }
+    else {
+        if(ql <= mid) {
+            mdf(ls, l, mid, ql, qr, x);
+        }
+        if(qr > mid) {
+            mdf(rs, mid + 1, r, ql, qr, x);
+        }
+    }
+
     if(tree[p].cnt) {
         tree[p].len = xx[r + 1] - xx[l];
     }
@@ -76,23 +88,6 @@ inline void upd(int p) {
             tree[p].len = tree[ls].len + tree[rs].len;
         }
     }
-}
-
-inline void mdf(int p, int l, int r, int ql, int qr, int x) {
-    if(ql <= l && r <= qr) {
-        tree[p].cnt += x;
-        // upd(p);
-        // return;
-    }
-
-    else if(ql <= mid) {
-        mdf(ls, l, mid, ql, qr, x);
-    }
-    else if(qr > mid) {
-        mdf(rs, mid + 1, r, ql, qr, x);
-    }
-
-    upd(p);
 }
 
 signed main() {
