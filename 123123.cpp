@@ -1,38 +1,44 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-int mlerab = 0;
-int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    int n,m;
-    string A,B;
-    cin>>A>>B;
-    vector<int>a(n), b(m);
-    for(int i=0;i<n;i++) a[i] = (A[i]=='R'?0:(A[i]=='P'?1:2));
-    for(int i=0;i<m;i++) b[i] = (B[i]=='R'?0:(B[i]=='P'?1:2));
-    int g = std::__gcd(n,m);
-    long long ans = 0;
-    for(int r=0;r<g;r++){
-        int ca[3]={0,0,0}, cb[3]={0,0,0};
-        int na=0, nb=0;
-        for(int i=r;i<n;i+=g){ ca[a[i]]++; na++; }
-        for(int j=r;j<m;j+=g){ cb[b[j]]++; nb++; }
-        int best = na+nb;
-        for(int sa=0; sa<8; ++sa){
-            for(int sb=0; sb<8; ++sb){
-                if(sa & sb) continue;
-                if(sa==0 && sb==0) continue;
-                int keepA=0, keepB=0;
-                for(int c=0;c<3;c++){
-                    if(sa>>c & 1) keepA += ca[c];
-                    if(sb>>c & 1) keepB += cb[c];
-                }
-                int cost = (na - keepA) + (nb - keepB);
-                if(cost < best) best = cost;
-            }
-        }
-        ans += best;
+int zzxc(int x,int y){
+	if(x==0)return y;
+	else return zzxc(y%x,x);
+}
+
+inline void q(int x, int y) {
+
+}
+
+inline void build(int p, int l, int r) {
+    if(l == r) {
+        tree[p] = a[l];
+        return;
     }
-    cout<<ans<<"\n";
-    return 0;
+    build(ls, l, mid);
+    build(rs, mid + 1, r);
+    tree[p] = tree[ls] + tree[rs];
+}
+int main(){
+	int n,m;
+	cin>>n>>m;
+	int a,top,toq,xa,xb,ya,yb,za,zb,ans=0;
+	a=zzxc(n,m);  //求最大公因数。
+	char ch[500005],sh[500005];
+	cin>>ch>>sh;
+	for(int i=1;i<=a;i++){   //一组一组统计答案。
+		xa=xb=ya=yb=za=zb=0;
+		for(int j=i-1;j<n;j+=a){
+			if(ch[j]=='R')xa++;
+			if(ch[j]=='P')ya++;
+			if(ch[j]=='S')za++;
+		}
+		for(int j=i-1;j<m;j+=a){
+			if(sh[j]=='R')xb++;
+			if(sh[j]=='P')yb++;
+			if(sh[j]=='S')zb++;
+		}
+        ans+=min(min(min(xa+ya+zb,xa+yb+zb),xa+yb+za),min(min(xb+ya+zb,xb+ya+za),xb+yb+za));   //一共有六种可能，进行选择，找出不会出现平局的最少修改次数。
+	}
+	cout<<ans<<endl;
+	return 0;
 }
