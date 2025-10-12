@@ -4,6 +4,7 @@
 #define int long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
+#define mid ((l + r) >> 1)
 
 using namespace std;
 
@@ -52,6 +53,48 @@ inline bool cmp(linee a, linee b) {
     return a.h < b.h;
 }
 
+inline void build(int p, int l, int r) {
+    tree[p].cnt = 0;
+    tree[p].len = 0;
+
+    if(l == r) 
+        return;
+
+    build(ls, l, mid);
+    build(rs, mid + 1, r);
+}
+
+inline void upd(int p) {
+    if(tree[p].cnt) {
+        tree[p].len = xx[r + 1] - xx[l];
+    }
+    else {
+        if(l == r) {
+            tree[p].len = 0;
+        }
+        else {
+            tree[p].len = tree[ls].len + tree[rs].len;
+        }
+    }
+}
+
+inline void mdf(int p, int l, int r, int ql, int qr, int x) {
+    if(ql <= l && r <= qr) {
+        tree[p].cnt += x;
+        // upd(p);
+        // return;
+    }
+
+    else if(ql <= mid) {
+        mdf(ls, l, mid, ql, qr, x);
+    }
+    else if(qr > mid) {
+        mdf(rs, mid + 1, r, ql, qr, x);
+    }
+
+    upd(p);
+}
+
 signed main() {
 
     n = read();
@@ -71,5 +114,19 @@ signed main() {
     sort(xx + 1, xx + xxx + 1);
     xxx = unique(xx + 1, xx + xxx + 1) - xx - 1;
     sort(line + 1, line + 2 * n + 1, cmp);
+
+    build(1, 1, xxx - 1);
+
+    int ar = 0;
+
+    for(int i = 1; i <= 2 * n - 1; ++i) {
+        int l = lower_bound(xx + 1, xx + xxx + 1, line[i].l) - xx;
+        int r = lower_bound(xx + 1, xx + xxx + 1, line[i].r) - xx;
+        mdf(1, 1, xxx - 1, l, r - 1, line[i].tag);
+        ar += tree[1].len * (line[i + 1].h - line[i].h);
+    }
+
+    writeln(ar);
+
     return 0;
 }
