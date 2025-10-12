@@ -8,7 +8,17 @@
 using namespace std;
 
 int n;
-int xx[N]; // 离散化 x
+int xx[N], xxx = 0; // 离散化 x
+
+struct linee {
+    int l, r;
+    int h;
+    int tag;
+}line[N];
+
+struct treee {
+    int cnt, len;
+}tree[N << 2];
 
 inline int read() {
     int x = 0, f = 1;
@@ -38,6 +48,10 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline bool cmp(linee a, linee b) {
+    return a.h < b.h;
+}
+
 signed main() {
 
     n = read();
@@ -48,7 +62,14 @@ signed main() {
         b1 = read();
         a2 = read();
         b2 = read();
+        xx[++xxx] = a1;
+        xx[++xxx] = a2;
+        line[i * 2 - 1] = {a1, a2, b1, 1};
+        line[i * 2] = {a1, a2, b2, -1};
     }
 
+    sort(xx + 1, xx + xxx + 1);
+    xxx = unique(xx + 1, xx + xxx + 1) - xx - 1;
+    sort(line + 1, line + 2 * n + 1, cmp);
     return 0;
 }
