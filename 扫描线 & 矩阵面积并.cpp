@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 
+#define int long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 
@@ -33,7 +34,7 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
+signed main() {
 
     return 0;
 }
