@@ -1,7 +1,10 @@
 #include <bits/stdc++.h>
+
+#define N 400010
 using namespace std;
 
 int n;
+int xx[N], xxx = 0;
 
 struct linee {
     int l, r;
@@ -43,12 +46,16 @@ int main() {
 
     for(int i = 1; i <= n; ++i) {
         int s, d, f, g;
+        int x1, y1, x2, y2;
         s = read();
         d = read();
         f = read();
         g = read();
-        if(s == f) {
-            
+        if(s == f) { // 平行于 y 轴
+            if(d > g) {
+                swap(d, g);
+            }
+            x1 = 
         }
     }
 
