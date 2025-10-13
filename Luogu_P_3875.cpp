@@ -4,7 +4,9 @@ using namespace std;
 int n;
 
 struct linee {
-
+    int l, r;
+    int h;
+    int tag;
 }line;
 
 inline int read() {
