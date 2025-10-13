@@ -1,0 +1,1 @@
+{"name":"Luogu - P3875","url":"https://www.luogu.com.cn/problem/P3875","memoryLimit":128000,"timeLimit":1000,"tests":[{"input":"3\n1 3 4 3\n6 7 6 3\n4 6 7 6\n","output":"16","id":1760367429609}],"group":"luogu","srcPath":"/Users/amlhdsan/code/Luogu_P_3875.cpp"}
