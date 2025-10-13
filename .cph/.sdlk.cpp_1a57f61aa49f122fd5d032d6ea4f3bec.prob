@@ -1,0 +1,1 @@
+{"name":"Local: sdlk","url":"/Users/amlhdsan/code/sdlk.cpp","tests":[{"id":1760281441976,"input":"2\n5\n0 1 2 3 4 \n5\n0 3 5 6 8\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/amlhdsan/code/sdlk.cpp","group":"local","local":true}
