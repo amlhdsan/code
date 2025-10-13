@@ -42,7 +42,14 @@ int main() {
     n = read();
 
     for(int i = 1; i <= n; ++i) {
-
+        int s, d, f, g;
+        s = read();
+        d = read();
+        f = read();
+        g = read();
+        if(s == f) {
+            
+        }
     }
 
     return 0;
