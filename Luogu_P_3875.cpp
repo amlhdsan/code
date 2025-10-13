@@ -64,7 +64,29 @@ inline void build(int p, int l, int r) {
 }
 
 inline void mdf(int p, int l, int r, int ql, int qr, int x) {
-    
+    if(ql <= l && r <= qr) {
+        tree[p].cnt += x;
+    }
+    else {
+        if(ql <= mid) {
+            mdf(ls, l, mid, ql, qr, x);
+        }
+        if(qr > mid) {
+            mdf(rs, mid + 1, r, ql, qr, x);
+        }
+    }
+
+    if(tree[p].cnt) {
+        tree[p].len = xx[r + 1] - xx[l];
+    }
+    else {
+        if(l == r) {
+            tree[p].len = 0;
+        }
+        else {
+            tree[p].len = tree[ls].len + tree[rs].len;
+        }
+    }
 }
 
 signed main() {
@@ -97,5 +119,16 @@ signed main() {
     sort(line + 1, line + 2 * n + 1, cmp);
 
     build(1, 1, xxx - 1);
+
+    int ar = 0;
+
+    for(int i = 1; i <= 2 * n - 1; ++i) {
+        int ll = lower_bound(xx + 1, xx + xxx + 1, line[i].l) - xx;
+        int rr = lower_bound(xx + 1, xx + xxx + 1, line[i].r) - xx;
+        mdf(1, 1, xxx - 1, l, r - 1,  line[i].tag);
+        ar += tree[1].len * (line[i + 1].h - line[i].h);
+    }
+
+    writeln(ar);
     return 0;
 }
