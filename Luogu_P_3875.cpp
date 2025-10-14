@@ -89,6 +89,10 @@ inline void mdf(int p, int l, int r, int ql, int qr, int x) {
     }
 }
 
+inline void pushup() {
+    
+}
+
 signed main() {
 
     n = read();
@@ -104,7 +108,7 @@ signed main() {
             x1 = s - 1, x2 = s + 1;
             y1 = min(d, g), y2 = max(d, g);
         }
-        else {
+        else { // 平行于 x 轴
             x1 = min(s, f), x2 = max(s, f);
             y1 = d - 1, y2 = d + 1;
         }
@@ -125,7 +129,7 @@ signed main() {
     for(int i = 1; i <= 2 * n - 1; ++i) {
         int ll = lower_bound(xx + 1, xx + xxx + 1, line[i].l) - xx;
         int rr = lower_bound(xx + 1, xx + xxx + 1, line[i].r) - xx;
-        mdf(1, 1, xxx - 1, l, r - 1,  line[i].tag);
+        mdf(1, 1, xxx - 1, ll, rr - 1,  line[i].tag);
         ar += tree[1].len * (line[i + 1].h - line[i].h);
     }
 
