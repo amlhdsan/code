@@ -89,10 +89,6 @@ inline void mdf(int p, int l, int r, int ql, int qr, int x) {
     }
 }
 
-inline void pushup() {
-    
-}
-
 signed main() {
 
     n = read();
