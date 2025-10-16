@@ -35,6 +35,12 @@ inline int read() {
     return x * f;
 }
 
+inline void build(int p) {
+    int l;
+    int r;
+    int t;
+}
+
 inline void write(int x) {
     if (x < 0) {
         putchar('-');
