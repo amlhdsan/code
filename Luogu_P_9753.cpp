@@ -42,7 +42,9 @@ int main() {
     cin >> str;
     str = " " + str;
 
-    
+    for(int i = 1; i <= n; ++i) {
+        g[i] = i - 1;
+    }
 
     return 0;
 }
