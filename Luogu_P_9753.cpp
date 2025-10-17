@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 2000010
+#define int long long
 
 using namespace std;
 
@@ -36,15 +37,30 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
+signed main() {
 
     n = read();
     cin >> str;
     str = " " + str;
 
-    for(int i = 1; i <= n; ++i) {
+    for(int i = 2; i <= n; ++i) {
         g[i] = i - 1;
+        while(str[i] != str[g[i]]) {
+            g[i] = g[g[i]] - 1;
+        }
     }
+
+    for(int i = 2; i <= n; ++i) {
+        dp[i] = dp[g[i]] + 1;
+    }
+
+    int sum = 0;
+
+    for(int i = 1; i <= n; ++i) {
+        sum += dp[i];
+    }
+
+    writeln(sum);
 
     return 0;
 }
