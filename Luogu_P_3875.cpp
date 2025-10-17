@@ -41,6 +41,8 @@ inline void build(int p) {
     int t;
 }
 
+inline void print()
+
 inline void write(int x) {
     if (x < 0) {
         putchar('-');
