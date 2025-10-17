@@ -45,13 +45,13 @@ signed main() {
 
     for(int i = 2; i <= n; ++i) {
         g[i] = i - 1;
-        while(str[i] != str[g[i]]) {
+        while(g[i] > 0 && str[i] != str[g[i]]) {
             g[i] = g[g[i]] - 1;
         }
     }
 
     for(int i = 2; i <= n; ++i) {
-        dp[i] = dp[g[i]] + 1;
+        dp[i] = dp[g[i] - 1] + 1;
     }
 
     int sum = 0;
