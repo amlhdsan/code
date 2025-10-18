@@ -1,13 +1,15 @@
+// 電影發明以後，人類的生命，比以前至少延長了三倍。
+// amlhdsan
 #include <bits/stdc++.h>
-
 #define N 2000010
 #define int long long
-
 using namespace std;
 
+
+
 int n;
-string str;
-int dp[N], g[N];
+char s[N];
+int las[N], cnt[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -40,27 +42,27 @@ inline void writeln(int x) {
 signed main() {
 
     n = read();
-    cin >> str;
-    str = " " + str;
+    for(int i = 1; i <= n; ++i) {
+        cin >> s[i];
+    }
 
-    for(int i = 2; i <= n; ++i) {
-        g[i] = i - 1;
-        while(g[i] > 0 && str[i] != str[g[i]]) {
-            g[i] = g[g[i]] - 1;
+    int res = 0;
+
+    for(int i = 1; i <= n; ++i) {
+        int j = i - 1;
+        while(j > 0) {
+            if(s[j] == s[i]) break;
+            j = las[j] - 1;
+        }
+        if(j <= 0) {
+            las[i] = 0;
+        } else {
+            las[i] = j;
+            cnt[i] = cnt[j - 1] + 1;
+            res += cnt[i];
         }
     }
 
-    for(int i = 2; i <= n; ++i) {
-        dp[i] = dp[g[i] - 1] + 1;
-    }
-
-    int sum = 0;
-
-    for(int i = 1; i <= n; ++i) {
-        sum += dp[i];
-    }
-
-    writeln(sum);
-
+    writeln(res);
     return 0;
 }
