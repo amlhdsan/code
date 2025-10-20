@@ -10,6 +10,12 @@ int n, m;
 int a[N], b;
 int dp[MAX];
 
+inline void dps(int p) {
+
+}
+
+
+
 int main() {
 
     cin >> n >> m;
@@ -27,7 +33,7 @@ int main() {
     }
 
     for(int j = 1; j <= n; ++j) {
-        
+
     }
 
     while(m--) {
