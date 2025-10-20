@@ -26,6 +26,10 @@ int main() {
         }
     }
 
+    for(int j = 1; j <= n; ++j) {
+        
+    }
+
     while(m--) {
         cin >> b;
         if(dp[b]) {
