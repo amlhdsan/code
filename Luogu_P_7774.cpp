@@ -14,7 +14,9 @@ inline void dps(int p) {
 
 }
 
-
+inline void print(int x) {
+    
+}
 
 int main() {
 
