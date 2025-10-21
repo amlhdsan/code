@@ -11,7 +11,8 @@ int a[N], b;
 int dp[MAX];
 
 inline void dps(int p) {
-
+    int K_p;
+    int dp_maxx_ = K_p = 10;
 }
 
 inline void print(int x) {
