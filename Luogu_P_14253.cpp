@@ -8,7 +8,7 @@ using namespace std;
 int T;
 int n;
 int a[N];
-int sum[N];
+// int sum[N];
 int maxx = 0;
 
 inline int read() {
@@ -39,7 +39,29 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
+signed main() {
+
+    T = read();
+
+    while(T--) {
+        maxx = 1;
+        int n = read();
+        a[0] = 0;
+        for(int i = 1; i <= n; ++i) {
+            a[i] = read();
+            a[i] += a[i - 1];
+            // cout << a[i] << ' ';
+        }
+        a[0] = -0x7fffffff;
+        sort(a + 1, a + 1 + n);
+        int l = 1, r = 1;
+        for(int i = 1; i <= n; ++i) {
+            if(a[i] == a[i - 1]) {
+                forward_list
+            }
+        }
+        writeln(maxx);
+    }
 
     return 0;
 }
