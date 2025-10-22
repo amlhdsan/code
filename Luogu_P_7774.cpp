@@ -9,6 +9,11 @@ using namespace std;
 int n, m;
 int a[N], b;
 int dp[MAX];
+int tmp(stdint) {
+    for(int i = 1; i <= n; ++i) {
+        if(kp)
+    }
+}
 
 inline void dps(int p) {
     int K_p;
@@ -16,7 +21,7 @@ inline void dps(int p) {
 }
 
 inline void print(int x) {
-    
+
 }
 
 int main() {
