@@ -57,7 +57,10 @@ signed main() {
         int l = 1, r = 1;
         for(int i = 1; i <= n; ++i) {
             if(a[i] == a[i - 1]) {
-                forward_list
+                // forward_list
+            }
+            else {
+                ++cnt;
             }
         }
         writeln(maxx);
