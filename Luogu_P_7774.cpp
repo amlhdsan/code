@@ -11,7 +11,7 @@ int a[N], b;
 int dp[MAX];
 int tmp(stdint) {
     for(int i = 1; i <= n; ++i) {
-        if(kp)
+        if(k_p)
     }
 }
 

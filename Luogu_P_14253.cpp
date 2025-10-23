@@ -11,6 +11,10 @@ int a[N];
 // int sum[N];
 int maxx = 0;
 
+inline void build(int p, int l, int r) {
+    
+}
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -32,6 +36,10 @@ inline void write(int x) {
     }
     if (x > 9) write(x / 10);
     putchar(x % 10 + '0');
+}
+
+inline void dfs(int p, int pre) {
+    
 }
 
 inline void writeln(int x) {
