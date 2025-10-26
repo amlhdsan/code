@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 
 #define MOD 1000000007
+#define int long long
 
 using namespace std;
 
 int T;
-int n;
+int n, m;
 int res;
 
 inline int read() {
@@ -46,14 +47,18 @@ inline int qpow(int a, int b) {
     return res;
 }
 
-int main() {
+signed main() {
+
+    freopen("construct.in", "r", stdin);
+    freopen("construct.out", "w", stdout);
 
     T = read();
     while(T--) {
         n = read();
+        m = read();
         int k = qpow(2, n - 1);
         res = 0;
-        for (int i = 1; i <= n; ++i) {
+        for (int i = 1; i <= m; ++i) {
             int l, r, x;
             l = read();
             r = read();
