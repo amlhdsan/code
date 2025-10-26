@@ -36,7 +36,7 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-inline void qpow(int a, int b) {
+inline int qpow(int a, int b) {
     int res = 1;
     while (b) {
         if (b & 1) res = (1LL * res * a) % m;
@@ -44,18 +44,6 @@ inline void qpow(int a, int b) {
         b >>= 1;
     }
     return res;
-}
-
-inline int f(int x, int y) {
-    int t1, t2;
-    // t1 = (j choose k) = j! / (k! * (j - k)!)
-    t1 = 1;
-    for (int i = 0; i < y; ++i) {
-        t1 = (1LL * t1 * (x - i)) % m;
-    }
-    t2 = qpow(2, y - 1);
-    
-    return (t1 * t2) % m;
 }
 
 signed main() {
@@ -66,19 +54,18 @@ signed main() {
     n = read();
     m = read();
 
-    for(int i = 1; i <= n; ++i) {
+    dp[1][1] = 1;
+
+    for(int i = 2; i <= n; ++i) {
         for(int j = 1; j <= i; ++j) {
-            for(int k = 1; i - k - 1 >= 0 && j - k >= 0; ++k) {
-                dp[i][j] += dp[i - k - 1][j - k] * f(j, k) % m;
-                dp[i][j] %= m;
-            }
+            dp[i][j] = (2 * dp[i - 1][j] + dp[i - 2][j - 1]) * j % m;
         }
     }
 
     int res = 0;
 
-    for(int j = 1; j <= n; ++j) {
-        res = (res + dp[n][j]) % m;
+    for(int i = 1; i <= n; ++i) {
+        res = (res + dp[n][i]) % m;
     }
 
     writeln(res);
