@@ -9,6 +9,9 @@ int n, k;
 int a[N];
 int dp[N][K];
 
+int ql = 1, qr = 0;
+int t = 0;
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -37,8 +40,27 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-inline void wk(int k, int l, int r, int ql, int qr) {
+inline int cal(int l, int r) {
+    while(ql > l) t += cnt[a[--ql]]++;
+    while(qr < r) t += cnt[a[++qr]]++;
+    while(ql < l) t -= --cnt[a[ql++]];
+    while(qr > r) t -= --cnt[a[qr--]];
+    return t;
+}
 
+inline void wk(int k, int l, int r, int dl, int dr) {
+    if(l > r) return;
+    int mid = (l + r) >> 1;
+    int pos = 0; // 默认不分割
+    for(int i = ql; i <= min(mid - 1, qr); ++i) {
+        int cst = cal(i + 1, mid);
+        if(dp[mid][k] > dp[i][k - 1] + cst) {
+            dp[mid][k] = dp[i][k - 1] + cst;
+            pos = i;
+        }
+    }
+    wk(k, l, mid - 1, dl, pos);
+    wk(k, mid + 1, r, pos, dr);
 }
 
 int main() {
@@ -58,6 +80,8 @@ int main() {
     for(int i = 1; i <= k; ++i) {
         wk(i, 1, n, 0, n - 1);
     }
+
+    writeln(dp[n][k]);
 
     return 0;
 }
