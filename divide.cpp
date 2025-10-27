@@ -11,6 +11,7 @@ int dp[N][K];
 
 int ql = 1, qr = 0;
 int t = 0;
+int cnt[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -52,7 +53,7 @@ inline void wk(int k, int l, int r, int dl, int dr) {
     if(l > r) return;
     int mid = (l + r) >> 1;
     int pos = 0; // 默认不分割
-    for(int i = ql; i <= min(mid - 1, qr); ++i) {
+    for(int i = dl; i <= min(mid - 1, dr); ++i) {
         int cst = cal(i + 1, mid);
         if(dp[mid][k] > dp[i][k - 1] + cst) {
             dp[mid][k] = dp[i][k - 1] + cst;
@@ -74,6 +75,8 @@ int main() {
     for(int i = 1; i <= n; ++i) {
         a[i] = read();
     }
+
+    memset(dp, 0x3f, sizeof(dp));
 
     dp[0][0] = 0;
 
