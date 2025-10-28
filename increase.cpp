@@ -6,6 +6,7 @@ using namespace std;
 
 int ans[N];
 int n, m;
+bool tag[N];
 
 struct edges{
     int u, v;
