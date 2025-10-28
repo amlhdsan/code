@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 
-#define N 2000010
+#define N 200010
 
 using namespace std;
 
-int ans[N];
+pair<int, int> ans[N];
 int n, m;
 bool tag[N];
 
@@ -47,6 +47,9 @@ inline bool cmp(edges a, edges b) {
 
 int main() {
 
+    // freopen("increase.in", "r", stdin);
+    // freopen("increase.out", "w", stdout);
+
     n = read();
     m = read();
 
@@ -59,31 +62,29 @@ int main() {
     sort(a + 1, a + m + 1, cmp);
 
     for(int l = 1; l <= m; ++l) {
-        memset(tag, 0, sizeof(tag));
         int r = l;
         while(r + 1 <= m && a[r + 1].c == a[l].c)
             ++r;
         // a[l...r] 的 c 相同
         for(int i = l; i <= r; ++i) {
-            tag[a[i].u] = true;
-            tag[a[i].v] = true;
+            int u = a[i].u;
+            int v = a[i].v;
+            ans[u].second = max(ans[u].second, ans[v].first + 1);
+            ans[v].second = max(ans[v].second, ans[u].first + 1);
         }
         for(int i = l; i <= r; ++i) {
-            if(tag[a[i].u]) {
-                ++ans[a[i].u];
-                tag[a[i].u] = false;
-            }
-            if(tag[a[i].v]) {
-                ++ans[a[i].v];
-                tag[a[i].v] = false;
-            }
+            int u = a[i].u;
+            int v = a[i].v;
+            ans[u].first = max(ans[u].first, ans[u].second);
+            ans[v].first = max(ans[v].first, ans[v].second);
         }
+        l = r;
     }
 
     int maxx = -1;
 
     for(int i = 1; i <= n; ++i) {
-        maxx = max(maxx, ans[i]);
+        maxx = max(maxx, ans[i].first);
     }
 
     writeln(maxx);
