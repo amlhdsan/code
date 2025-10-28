@@ -37,6 +37,9 @@ inline void writeln(int x) {
 }
 
 int main() {
+    
+    // freopen("wargame.in", "r", stdin);
+    // freopen("wargame.out", "w", stdout);
 
     n = read();
     m = read();
