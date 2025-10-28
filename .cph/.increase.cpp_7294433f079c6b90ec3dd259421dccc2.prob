@@ -1,0 +1,1 @@
+{"name":"Local: increase","url":"/Users/amlhdsan/code/increase.cpp","tests":[{"id":1761660597004,"input":"6 7\n1 2 1\n3 2 5\n2 4 2\n2 5 2\n2 6 9\n5 4 3\n4 3 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/amlhdsan/code/increase.cpp","group":"local","local":true}
