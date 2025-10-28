@@ -58,9 +58,35 @@ int main() {
 
     sort(a + 1, a + m + 1, cmp);
 
-    for(int i = 1; i <= m; ++i) {
-        
+    for(int l = 1; l <= m; ++l) {
+        memset(tag, 0, sizeof(tag));
+        int r = l;
+        while(r + 1 <= m && a[r + 1].c == a[l].c)
+            ++r;
+        // a[l...r] 的 c 相同
+        for(int i = l; i <= r; ++i) {
+            tag[a[i].u] = true;
+            tag[a[i].v] = true;
+        }
+        for(int i = l; i <= r; ++i) {
+            if(tag[a[i].u]) {
+                ++ans[a[i].u];
+                tag[a[i].u] = false;
+            }
+            if(tag[a[i].v]) {
+                ++ans[a[i].v];
+                tag[a[i].v] = false;
+            }
+        }
     }
+
+    int maxx = -1;
+
+    for(int i = 1; i <= n; ++i) {
+        maxx = max(maxx, ans[i]);
+    }
+
+    writeln(maxx);
 
     return 0;
 }
