@@ -1,7 +1,12 @@
 #include <bits/stdc++.h>
+
+#define N 100010
+
 using namespace std;
 
 int n, m;
+string s[N];
+int dp[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -37,7 +42,7 @@ int main() {
     m = read();
 
     for(int i = 1; i <= n; ++i) {
-        
+        cin >> s[i];
     }
 
     return 0;
