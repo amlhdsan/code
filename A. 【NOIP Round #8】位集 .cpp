@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
+int n, m;
 
 inline int read() {
     int x = 0, f = 1;
@@ -32,6 +32,11 @@ inline void writeln(int x) {
 }
 
 int main() {
+
+    n = read();
+    m = read();
+
+    for(int i = 1; i <= )
 
     return 0;
 }
