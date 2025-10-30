@@ -5,8 +5,6 @@
 using namespace std;
 
 int n, m;
-string s[N];
-int dp[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -41,8 +39,15 @@ int main() {
     n = read();
     m = read();
 
+    int dp[n + 10][m + 10];
+    int a[n + 10][m + 10];
+
     for(int i = 1; i <= n; ++i) {
-        cin >> s[i];
+        string s;
+        cin >> s;
+        for(int j = 0; j < m; ++j) {
+            a[i + 1][j + 1] = s[j] - '0';
+        }
     }
 
     return 0;
