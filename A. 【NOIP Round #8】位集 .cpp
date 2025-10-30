@@ -36,7 +36,9 @@ int main() {
     n = read();
     m = read();
 
-    for(int i = 1; i <= )
+    for(int i = 1; i <= n; ++i) {
+        
+    }
 
     return 0;
 }
