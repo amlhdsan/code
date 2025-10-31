@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 
-#define N 1000010;
+#define N 1000010
 
 using namespace std;
 
-int n;
+int n, m;
 int a[N];
 
 inline int read() {
@@ -38,9 +38,26 @@ inline void writeln(int x) {
 int main() {
 
     n = read();
+    m = read();
 
     for(int i = 1; i <= n; ++i) {
         a[i] = read();
+    }
+
+    while(m--) {
+        int x = read();
+        int l = 1, r = n, ans = 1;
+        while(l <= r) {
+            int mid = (l + r) >> 1;
+            if(a[mid] >= x) { // 满足条件的第一个
+                ans = mid;
+                r = mid - 1;
+            }
+            else {
+                l = mid + 1;
+            }
+        }
+        writeln(a[ans]);
     }
 
     return 0;
