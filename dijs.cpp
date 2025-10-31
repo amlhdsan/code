@@ -86,7 +86,7 @@ signed main() {
     dijsktra();
 
     for(int i = 1; i <= n; ++i) {
-        if(dis[i] == 0x3f3f3f3f) {
+        if(dis[i] == 0x3f3f3f3f3f3f3f3f) {
             write(2147483647);
             putchar(' ');
             continue;
