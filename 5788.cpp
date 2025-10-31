@@ -45,7 +45,19 @@ int main() {
         a[i] = read();
     }
 
+    for(int i = 1; i <= n; ++i) {
+        while(!sk.empty() && a[i] > a[sk.top()]) {
+            ans[sk.top()] = i;
+            sk.pop();
+        }
+        if(sk.empty()) {
+            sk.push(i);
+        }
+    }
 
+    for(int i = 1; i <= n; ++i) {
+        write(ans[i]);
+    }
 
     return 0;
 }
