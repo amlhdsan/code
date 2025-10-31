@@ -6,6 +6,8 @@ using namespace std;
 
 int n;
 int a[N];
+stack<int> sk;
+int ans[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -43,7 +45,7 @@ int main() {
         a[i] = read();
     }
 
-    
+
 
     return 0;
 }
