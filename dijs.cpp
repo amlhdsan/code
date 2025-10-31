@@ -51,7 +51,8 @@ inline void dijsktra() {
     q.push(make_pair(s, 0));
     dis[s] = 0;
     while(!q.empty()) {
-
+        int p = q.top();
+        
     }
 }
 
