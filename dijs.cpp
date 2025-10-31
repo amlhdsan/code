@@ -48,11 +48,22 @@ inline void add_edge(int u, int v, int c) {
 
 inline void dijsktra() {
     priority_queue<PII, vector<PII>, greater<PII>> q;
-    q.push(make_pair(s, 0));
+    q.push(make_pair(0, s));
     dis[s] = 0;
     while(!q.empty()) {
-        int p = q.top();
-        
+        int u = q.top().second;
+        q.pop();
+        if(vis[u]) {
+            continue;
+        }
+        vis[u] = 1;
+        for(int i = head[u]; i; i = nxt[i]) {
+            int v = to[i];
+            if(dis[v] > dis[u] + w[i]) {
+                dis[v] = dis[u] + w[i];
+                q.push(make_pair(dis[v], v));
+            }
+        }
     }
 }
 
@@ -69,6 +80,11 @@ int main() {
         cc = read();
 
         add_edge(aa, bb, cc);
+    }
+
+    for(int i = 1; i <= n; ++i) {
+        write(dis[i]);
+        putchar(' ');
     }
 
     return 0;
