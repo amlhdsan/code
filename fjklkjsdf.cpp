@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 1000010
+#define int long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)
@@ -69,7 +70,7 @@ inline void mdf(int p, int l, int r, int ql, int qr, int x) {
             mdf(ls, l, mid, ql, qr, x);
         }
         if(qr > mid) {
-            mdf(rs, mid + 1, rs, ql, qr, x);
+            mdf(rs, mid + 1, r, ql, qr, x);
         }
     }
 
@@ -86,7 +87,7 @@ inline void mdf(int p, int l, int r, int ql, int qr, int x) {
     }
 }
 
-int main() {
+signed main() {
 
     n = read();
 

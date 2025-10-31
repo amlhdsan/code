@@ -1,0 +1,1 @@
+{"name":"Local: fjklkjsdf","url":"/Users/amlhdsan/code/fjklkjsdf.cpp","tests":[{"id":1761921718115,"input":"2\n100 100 200 200\n150 150 250 255\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/amlhdsan/code/fjklkjsdf.cpp","group":"local","local":true}
