@@ -47,6 +47,7 @@ inline void add_edge(int u, int v, int c) {
 }
 
 inline void dijsktra() {
+    memset(dis, 0x3f, sizeof(dis));
     priority_queue<PII, vector<PII>, greater<PII>> q;
     q.push(make_pair(0, s));
     dis[s] = 0;
@@ -67,7 +68,7 @@ inline void dijsktra() {
     }
 }
 
-int main() {
+signed main() {
 
     n = read();
     m = read();
@@ -82,7 +83,14 @@ int main() {
         add_edge(aa, bb, cc);
     }
 
+    dijsktra();
+
     for(int i = 1; i <= n; ++i) {
+        if(dis[i] == 0x3f3f3f3f) {
+            write(2147483647);
+            putchar(' ');
+            continue;
+        }
         write(dis[i]);
         putchar(' ');
     }
