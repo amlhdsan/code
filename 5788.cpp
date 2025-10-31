@@ -46,7 +46,7 @@ int main() {
     }
 
     for(int i = 1; i <= n; ++i) {
-        while(!sk.empty() && a[i] > a[sk.top()]) {
+        while(!sk.empty() && a[i] >= a[sk.top()]) {
             ans[sk.top()] = i;
             sk.pop();
         }
@@ -57,6 +57,7 @@ int main() {
 
     for(int i = 1; i <= n; ++i) {
         write(ans[i]);
+        putchar(' ');
     }
 
     return 0;
