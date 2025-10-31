@@ -1,5 +1,15 @@
 #include <bits/stdc++.h>
+
+#define N 1000010
+#define int long long
+#define PII pair<int, int>
+
 using namespace std;
+
+int n, m, s;
+int dis[N];
+bool vis[N];
+int head[N], nxt[N], to[N], w[N], e = 0;
 
 inline int read() {
     int x = 0, f = 1;
@@ -29,7 +39,36 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void add_edge(int u, int v, int c) {
+    nxt[++e] = head[u];
+    head[u] = e;
+    to[e] = v;
+    w[e] = c;
+}
+
+inline void dijsktra() {
+    priority_queue<PII, vector<PII>, greater<PII>> q;
+    q.push(make_pair(s, 0));
+    dis[s] = 0;
+    while(!q.empty()) {
+
+    }
+}
+
 int main() {
+
+    n = read();
+    m = read();
+    s = read();
+
+    for(int i = 1; i <= m; ++i) {
+        int aa, bb, cc;
+        aa = read();
+        bb = read();
+        cc = read();
+
+        add_edge(aa, bb, cc);
+    }
 
     return 0;
 }
