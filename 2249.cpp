@@ -57,6 +57,9 @@ int main() {
                 l = mid + 1;
             }
         }
+        if(x >= a[n]) {
+            ans = -1;
+        }
         writeln(a[ans]);
     }
 
