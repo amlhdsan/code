@@ -2,7 +2,7 @@
 using namespace std;
 
 int T;
-string str;
+// string str;
 
 inline int read() {
     int x = 0, f = 1;
@@ -34,21 +34,30 @@ inline void writeln(int x) {
 
 int main() {
 
-    ios::sync_with_stdio(flase);
+    // freopen("string.in", "r", stdin);
+    // freopen("string.out", "w", stdout);
+
+    ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
 
     T = read();
 
     while(T--) {
+        string str;
         cin >> str;
+        bool flag = 0;
+        int n = str.size();
         str = " " + str;
-        int n = str.size() - 1;
-        for(int i = 1; i <= n; ++i) {
+        for(int i = 2; i <= n; ++i) {
             if(str[i] != str[1]) {
                 writeln(2 * n - i + 1);
+                flag = 1;
+                break;
             }
         }
+        if(!flag)
+            writeln(n - 1);
     }
 
     return 0;
