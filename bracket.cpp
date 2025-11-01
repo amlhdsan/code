@@ -51,17 +51,20 @@ inline int qpow(int a, int b) {
 
 signed main() {
 
+    freopen("bracket.in", "r", stdin);
+    freopen("bracket.out", "w", stdout);
+
     n = read();
     k = read();
 
-    for(int i = n + 1; i <= n * 2; ++i) {
+    for(int i = n + 2; i <= n * 2; ++i) {
         ans = ans * i % MOD;
     }
-    for(int i = 1; i <= n + 1; ++i) {
+    for(int i = 1; i <= n; ++i) {
         ans = ans * qpow(i, MOD - 2) % MOD;
     }
 
-    ans = ans * qpow(n, k) % MOD;
+    ans = ans * qpow(k, n) % MOD;
 
     writeln(ans);
 
