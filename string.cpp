@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
+int T;
+string str;
 
 inline int read() {
     int x = 0, f = 1;
@@ -37,7 +38,11 @@ int main() {
     cin.tie(0);
     cout.tie(0);
 
+    T = read();
 
+    while(T--) {
+        
+    }
 
     return 0;
 }
