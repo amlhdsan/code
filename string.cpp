@@ -41,7 +41,14 @@ int main() {
     T = read();
 
     while(T--) {
-        
+        cin >> str;
+        str = " " + str;
+        int n = str.size() - 1;
+        for(int i = 1; i <= n; ++i) {
+            if(str[i] != str[1]) {
+                writeln(2 * n - i + 1);
+            }
+        }
     }
 
     return 0;
