@@ -14,6 +14,8 @@ priority_queue <ll> p, q, k;
 
 ll mymax(ll x, ll y, ll z) { return max(max(x, y), z); }
 	
+#indef pragma
+
 signed main()
 {
 	freopen("club.in", "r", stdin);
@@ -22,7 +24,7 @@ signed main()
 	FstIO; 
 	
 	cin >> T; 
-	while (T -- )
+	while(T--)
 	{
 		cin >> n;
 		ll c1 = 0, c2 = 0, c3 = 0, s = 0; 
