@@ -1,9 +1,11 @@
 #include <bits/stdc++.h>
+
+#define N 1000010
+
 using namespace std;
 
-string str;
-int n = 0;
-int k[10];
+int n, m;
+int a[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -34,23 +36,6 @@ inline void writeln(int x) {
 }
 
 int main() {
-
-    cin >> str;
-
-    n = str.size();
-    str = " " + str;
-
-    for(int i = 1; i <= n; ++i) {
-        if(str[i] <= '9' && str[i] >= '0') {
-            ++k[str[i] - '0'];
-        }
-    }
-    for(int i = 9; i >= 0; --i) {
-        while(k[i] > 0) {
-            write(i);
-            --k[i];
-        }
-    }
 
     return 0;
 }
