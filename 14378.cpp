@@ -9,6 +9,8 @@ int a[N];
 int c[N], cnttt = 0;
 int tmpb[N], tmpc[N];
 
+int tree1[N << 2], tree2[N << 2], tree3[N << 2];
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -37,6 +39,10 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline bool cmp(int x, int y) {
+    return x > y;
+}
+
 int main() {
 
     n = read();
@@ -60,7 +66,9 @@ int main() {
             c[++cnttt] = tmpc[i];
     }
 
-    sort(c + 1, c + n + 1);
+    sort(c + 1, c + n + 1, cmp);
+
+
 
     return 0;
 }
