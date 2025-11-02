@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 
 #define N 1000010
+#define ls (p << 1)
+#define rs (p << 1 | 1)
+#define mid ((l + r) >> 1)
 
 using namespace std;
 
@@ -43,6 +46,31 @@ inline bool cmp(int x, int y) {
     return x > y;
 }
 
+inline void build1(int p, int l, int r) {
+    if(l == r) {
+        tree1[p] = a[l];
+        return;
+    }
+    build1(ls, l, mid);
+    build1(rs, mid + 1, r);
+}
+
+inline void build2(int p, int l, int r) {
+    if(l == r) {
+        tree2[p] = a[l - 1];
+    }
+    build2(ls, l, mid);
+    build2(rs, mid + 1, r);
+}
+
+inline void build3(int p, int l, int r) {
+    if(l == r) {
+        tree3[p] = a[l + 1];
+    }
+    build3(ls, l, mid);
+    build3(rs, mid + 1, r);
+}
+
 int main() {
 
     n = read();
@@ -68,7 +96,11 @@ int main() {
 
     sort(c + 1, c + n + 1, cmp);
 
+    sort(a + 1, a + n + 1);
 
+    build1(1, 1, n);
+    build2(1, 1, n);
+    build3(1, 1, n);
 
     return 0;
 }
