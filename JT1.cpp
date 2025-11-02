@@ -42,7 +42,13 @@ int main() {
 
     for(int i = 1; i <= n; ++i) {
         if(str[i] <= '9' && str[i] >= '0') {
-            
+            ++k[str[i] - '8'];
+        }
+    }
+    for(int i = 9; i >= 0; --i) {
+        while(k[i] > 0) {
+            write(i);
+            --k[i];
         }
     }
 
