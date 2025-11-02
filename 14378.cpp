@@ -4,9 +4,10 @@
 
 using namespace std;
 
-int n, m, k;
+int n, k, q;
 int a[N];
-int c[N];
+int c[N], cnttt = 0;
+int tmpb[N], tmpc[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -37,6 +38,29 @@ inline void writeln(int x) {
 }
 
 int main() {
+
+    n = read();
+    k = read();
+    q = read();
+
+    for(int i = 1; i <= n; ++i) {
+        a[i] = read();
+    }
+
+    for(int i = 1; i <= k; ++i) {
+        tmpb[i] = read();
+    }
+
+    for(int i = 1; i <= k; ++i) {
+        tmpc[i] = read();
+    }
+
+    for(int i = 1; i <= k; ++i) {
+        for(int j = 1; j <= tmpb[i]; ++j)
+            c[++cnttt] = tmpc[i];
+    }
+
+    sort(c + 1, c + n + 1);
 
     return 0;
 }
