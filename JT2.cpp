@@ -41,24 +41,29 @@ int main() {
     n = read();
     m = read();
 
+    swap(n, m);
+
     for(int i = 1; i <= n * m; ++i) {
         a[i] = read();
         a[i] = -a[i];
     }
     x = a[1];
     sort(a + 1, a + 1 + n * m);
+    int p;
     for(int i = 1; i <= n * m; ++i) {
         a[i] = -a[i];
+        if(x == a[i]) {
+            p = i;
+        }
     }
-    int p = lower_bound(a + 1, a + n * m + 1, p) - a - 1;
     int t = p % m;
-    write(p / m + 1);
-    putchar(' ');
     if(t & 1) { // ji
-        write(m - t + 1);
+        write(m - t);
     }
     else {
         write(t);
     }
+    putchar(' ');
+    write(p / m + 1);
     return 0;
 }
