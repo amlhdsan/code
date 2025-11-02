@@ -1,0 +1,1 @@
+{"name":"Local: 倍增 lca","url":"/Users/amlhdsan/code/倍增 lca.cpp","tests":[{"id":1761968519156,"input":"5 5 4\n3 1\n2 4\n5 1\n1 4\n2 4\n3 2\n3 5\n1 2\n4 5","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/amlhdsan/code/倍增 lca.cpp","group":"local","local":true}
