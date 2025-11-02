@@ -4,6 +4,7 @@
 
 using namespace std;
 
+int n, m, k;
 int a[N];
 int c[N];
 
