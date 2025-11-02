@@ -1,5 +1,11 @@
 #include <bits/stdc++.h>
+
+#define N 1000010
+
 using namespace std;
+
+int a[N];
+int c[N];
 
 inline int read() {
     int x = 0, f = 1;
