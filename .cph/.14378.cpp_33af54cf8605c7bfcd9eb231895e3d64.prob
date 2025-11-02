@@ -1,0 +1,1 @@
+{"name":"Local: 14378","url":"/Users/amlhdsan/code/14378.cpp","tests":[{"id":1762096521330,"input":"5 4 5\n8 4 4 4 5\n1 1 2 1\n5 4 6 4\n4 8\n4 3\n4 5\n5 8\n1 2\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/amlhdsan/code/14378.cpp","group":"local","local":true}
