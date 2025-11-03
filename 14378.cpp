@@ -1,19 +1,10 @@
 #include <bits/stdc++.h>
 
-#define N 1000010
-#define ls (p << 1)
-#define rs (p << 1 | 1)
-#define mid ((l + r) >> 1)
-#define PII pair<int, int>
+#define N 500005
+#define ll long long
+#define inf 1e18
 
 using namespace std;
-
-int n, k, q;
-int a[N], a0[N];
-int c[N], cnttt = 0;
-int tmpb[N], tmpc[N];
-
-PII tree1[N << 2], tree2[N << 2], tree3[N << 2]; // first:max second:min
 
 inline int read() {
     int x = 0, f = 1;
@@ -29,7 +20,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(int x) {
+inline void write(ll x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -38,121 +29,174 @@ inline void write(int x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(int x) {
+inline void writeln(ll x) {
     write(x);
     putchar('\n');
 }
 
-inline bool cmp(int x, int y) {
-    return x > y;
+inline int lg(int x) {
+    int res = 0;
+    while ((1 << (res + 1)) <= x) ++res;
+    return res;
 }
 
-inline void upd1(int p) {
-    tree1[p].first = max(tree1[ls].first, tree1[rs].first);
-    tree1[p].second = min(tree1[ls].second, tree1[rs].second);
+int n, k, q;
+ll a[N], g[N], val[N];
+ll mn[N], mx[N], mn2[N], mx2[N];
+ll fmn[N][20], fmx[N][20];
+ll fmn2[N][20], fmx2[N][20];
+
+struct node {
+    int cnt;
+    ll v;
+} b[N];
+
+inline bool cmp(node x, node y) {
+    return x.v < y.v;
 }
 
-inline void upd2(int p) {
-    tree2[p].first = max(tree2[ls].first, tree2[rs].first);
-    tree2[p].second = min(tree2[ls].second, tree2[rs].second);
+inline ll qmx(int l, int r) {
+    int s = lg(r - l + 1);
+    return max(fmx[l][s], fmx[r - (1 << s) + 1][s]);
 }
 
-inline void upd3(int p) {
-    tree3[p].first = max(tree3[ls].first, tree3[rs].first);
-    tree3[p].second = min(tree3[ls].second, tree3[rs].second);
+inline ll qmn(int l, int r) {
+    int s = lg(r - l + 1);
+    return min(fmn[l][s], fmn[r - (1 << s) + 1][s]);
 }
 
-inline void build1(int p, int l, int r) {
-    if(l == r) {
-        tree1[p] = {a[l] + c[l], a[l] + c[l]};
-        return;
-    }
-    build1(ls, l, mid);
-    build1(rs, mid + 1, r);
-    upd1(p);
+inline ll qmx2(int l, int r) {
+    int s = lg(r - l + 1);
+    return max(fmx2[l][s], fmx2[r - (1 << s) + 1][s]);
 }
 
-inline void build2(int p, int l, int r) {
-    if(l == r) {
-        tree2[p] = {a[l - 1] + c[l], a[l - 1] + c[l]};
-    }
-    build2(ls, l, mid);
-    build2(rs, mid + 1, r);
-    upd2(p);
-}
-
-inline void build3(int p, int l, int r) {
-    if(l == r) {
-        tree3[p] = {a[l + 1] + c[l], a[l + 1] + c[l]};
-    }
-    build3(ls, l, mid);
-    build3(rs, mid + 1, r);
-    upd3(p);
+inline ll qmn2(int l, int r) {
+    int s = lg(r - l + 1);
+    return min(fmn2[l][s], fmn2[r - (1 << s) + 1][s]);
 }
 
 int main() {
-
-    n = read();
-    k = read();
-    q = read();
-
-    for(int i = 1; i <= n; ++i) {
-        a[i] = read();
-        a0[i] = a[i];
-    }
-
-    for(int i = 1; i <= k; ++i) {
-        tmpb[i] = read();
-    }
-
-    for(int i = 1; i <= k; ++i) {
-        tmpc[i] = read();
-    }
-
-    for(int i = 1; i <= k; ++i) {
-        for(int j = 1; j <= tmpb[i]; ++j)
-            c[++cnttt] = tmpc[i];
-    }
-
-    sort(c + 1, c + n + 1, cmp);
-
-    sort(a + 1, a + n + 1);
-
-    build1(1, 1, n);
-    build2(1, 1, n);
-    build3(1, 1, n);
-
-    while(q--) {
-        int xi, vi;
-        xi = read();
-        vi = read();
-        int xx = a[xi];
-        if(vi == xx) {
-            writeln(tree1[1].first - tree1[1].second);
-        }
-        else if(vi > xx) {
-            int pos = lower_bound(a + 1, a + n + 1, vi, cmp) - a;
-            if(pos > n) {
-                writeln(tree2[1].first - tree2[1].second);
-            }
-            else {
-                int nmax = max(tree2[1].first, c[pos]);
-                int nmin = min(tree2[1].second, c[pos]);
-                writeln(nmax - nmin);
-            }
-        }
-        else {
-            int pos = upper_bound(c + 1, c + n + 1, vi, cmp) - c - 1;
-            if(pos < 1) {
-                writeln(tree3[1].first - tree3[1].second);
-            }
-            else {
-                int nmax = max(tree3[1].first, c[pos]);
-                int nmin = min(tree3[1].second, c[pos]);
-                writeln(nmax - nmin);
-            }
+    n = read(); k = read(); q = read();
+    
+    for (int i = 1; i <= n; ++i) a[i] = read(), g[i] = a[i];
+    for (int i = 1; i <= k; ++i) b[i].cnt = read();
+    for (int i = 1; i <= k; ++i) b[i].v = read();
+    
+    sort(b + 1, b + k + 1, cmp);
+    
+    int tot = 0;
+    for (int i = 1; i <= k; ++i) {
+        for (int j = 1; j <= b[i].cnt; ++j) {
+            val[++tot] = b[i].v;
         }
     }
-
+    
+    sort(g + 1, g + n + 1);
+    
+    for (int i = 0; i <= n + 2; ++i) {
+        mn[i] = mn2[i] = inf;
+        mx[i] = mx2[i] = -inf;
+    }
+    
+    for (int i = 1; i <= n; ++i) {
+        mn[i] = min(mn[i - 1], g[i] + val[n - i + 1]);
+        mx[i] = max(mx[i - 1], g[i] + val[n - i + 1]);
+    }
+    
+    for (int i = n; i >= 1; --i) {
+        mn2[i] = min(mn2[i + 1], g[i] + val[n - i + 1]);
+        mx2[i] = max(mx2[i + 1], g[i] + val[n - i + 1]);
+    }
+    
+    for (int i = 1; i <= n; ++i) {
+        if (i < n) {
+            fmx[i][0] = fmn[i][0] = g[i] + val[n - i];
+        } else {
+            fmx[i][0] = -inf;
+            fmn[i][0] = inf;
+        }
+    }
+    
+    for (int j = 1; j <= 19; ++j) {
+        for (int i = 1; i + (1 << j) - 1 <= n; ++i) {
+            fmx[i][j] = max(fmx[i][j - 1], fmx[i + (1 << (j - 1))][j - 1]);
+            fmn[i][j] = min(fmn[i][j - 1], fmn[i + (1 << (j - 1))][j - 1]);
+        }
+    }
+    
+    for (int i = 1; i <= n; ++i) {
+        if (i >= 2) {
+            fmx2[i][0] = fmn2[i][0] = g[i] + val[n - i + 2];
+        } else {
+            fmx2[i][0] = -inf;
+            fmn2[i][0] = inf;
+        }
+    }
+    
+    for (int j = 1; j <= 19; ++j) {
+        for (int i = 1; i + (1 << j) - 1 <= n; ++i) {
+            fmx2[i][j] = max(fmx2[i][j - 1], fmx2[i + (1 << (j - 1))][j - 1]);
+            fmn2[i][j] = min(fmn2[i][j - 1], fmn2[i + (1 << (j - 1))][j - 1]);
+        }
+    }
+    
+    while (q--) {
+        int i = read();
+        ll v = read();
+        
+        if (a[i] == v) {
+            writeln(mx[n] - mn[n]);
+            continue;
+        }
+        
+        ll MN = inf, MX = -inf;
+        
+        if (a[i] > v) {
+            int x = upper_bound(g + 1, g + n + 1, v) - g - 1;
+            MN = min(MN, mn[x]);
+            MX = max(MX, mx[x]);
+            MN = min(MN, v + val[n - x]);
+            MX = max(MX, v + val[n - x]);
+            
+            x = lower_bound(g + 1, g + n + 1, a[i]) - g + 1;
+            if (x <= n) {
+                MN = min(MN, mn2[x]);
+                MX = max(MX, mx2[x]);
+            }
+            
+            int l = upper_bound(g + 1, g + n + 1, v) - g;
+            int r = lower_bound(g + 1, g + n + 1, a[i]) - g - 1;
+            if (l <= r) {
+                MX = max(MX, qmx(l, r));
+                MN = min(MN, qmn(l, r));
+            }
+            
+            writeln(MX - MN);
+        } else {
+            int x = upper_bound(g + 1, g + n + 1, a[i]) - g - 2;
+            if (x > 0) {
+                MN = min(MN, mn[x]);
+                MX = max(MX, mx[x]);
+            }
+            
+            x = lower_bound(g + 1, g + n + 1, v) - g;
+            MN = min(MN, mn2[x]);
+            MX = max(MX, mx2[x]);
+            
+            x = lower_bound(g + 1, g + n + 1, v) - g - 1;
+            MN = min(MN, v + val[n - x + 1]);
+            MX = max(MX, v + val[n - x + 1]);
+            
+            int l = upper_bound(g + 1, g + n + 1, a[i]) - g;
+            int r = lower_bound(g + 1, g + n + 1, v) - g - 1;
+            if (l <= r) {
+                MX = max(MX, qmx2(l, r));
+                MN = min(MN, qmn2(l, r));
+            }
+            
+            writeln(MX - MN);
+        }
+    }
+    
     return 0;
 }
