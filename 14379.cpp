@@ -1,7 +1,19 @@
 #include <bits/stdc++.h>
+
+#define N 1000010
+#define ls (p << 1)
+#define rs (p << 1 | 1)
+#define mid ((l + r) >> 1)
+
 using namespace std;
 
 int n, q;
+int tree1[N << 2], tree2[N << 2];
+
+struct node {
+
+    
+}
 
 inline int read() {
     int x = 0, f = 1;
@@ -31,13 +43,18 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void build(int p, int l, int r) {
+    if(l == r) {
+
+    }
+}
+
 int main() {
 
     n = read();
     q = read();
-    for(int i = 1; i <= q; ++i) {
-        writeln(0);
-    }
+
+
 
     return 0;
 }
