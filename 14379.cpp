@@ -11,8 +11,8 @@ int n, q;
 int tree1[N << 2], tree2[N << 2];
 
 struct node {
+    int 
 
-    
 }
 
 inline int read() {
