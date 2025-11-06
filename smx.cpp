@@ -41,6 +41,13 @@ Updated on 4.10 by Dengduck（口胡） \& yummy（实现）：增加了一组�
 #include <bits/stdc++.h>
 using namespace std;
 
+#define N 1000010
+#define ls (p << 1)
+#define rs (p << 1 | 1)
+#define mid ((l + r) >> 1)
+
+
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -70,6 +77,53 @@ inline void writeln(int x) {
 }
 
 int main() {
+
+    return 0;
+}
+        if (ch == '-') f = -1;
+        ch = getchar();
+    }
+    while (ch >= '0' && ch <= '9') {
+        x = (x << 3) + (x << 1) + (ch ^ 48);
+        ch = getchar();
+    }
+    return x * f;
+}
+
+inline void write(int x) {
+    if (x < 0) {
+        putchar('-');
+        x = -x;
+    }
+    if (x > 9) write(x / 10);
+    putchar(x % 10 + '0');
+}
+
+inline void writeln(int x) {
+    write(x);
+    putchar('\n');
+}
+
+struct node {
+    int x, y1, y2, k;
+    bool operator<(const node &b) const {
+        return x < b.x;
+    }
+} a[N];
+
+int cnt = 0;
+
+int main() {
+
+    int n = read();
+    for (int i = 1; i <= n; i++) {
+        int x1 = read();
+        int y1 = read();
+        int x2 = read();
+        int y2 = read();
+
+    }
+
 
     return 0;
 }
