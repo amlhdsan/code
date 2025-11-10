@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 
 #define N 1000010
+#define ls (p << 1)
+
 
 using namespace std;
 
@@ -46,6 +48,8 @@ inline void build(int p, int l, int r) {
     build(rs, mid + 1, r);
     upd(p);
 }
+
+inline void prin(int )
 
 int main() {
     int cnt = 0;
