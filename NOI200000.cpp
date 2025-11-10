@@ -34,6 +34,19 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void upd(int p) {
+    tree[p] = max(tree[ls], tree[rs]);
+}
+
+inline void build(int p, int l, int r) {
+    if(l == r) {
+        tree[p] = a[l];
+    }
+    build(ls, l, mid);
+    build(rs, mid + 1, r);
+    upd(p);
+}
+
 int main() {
     int cnt = 0;
     while(cin >> str[++cnt]);
@@ -46,7 +59,7 @@ int main() {
         int t = 0;
         while(str[i][t] == str[i - 1][t] && t < str[i - 1].size())
             ++t;
-        sum += str[i - 1].size() - t;
+        sum += str[i].size() - t;
     }
 
     writeln(sum + 1);
