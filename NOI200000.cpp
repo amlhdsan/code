@@ -22,6 +22,14 @@ inline int read() {
     return x * f;
 }
 
+inline void printf(int x) {
+
+}
+
+inline void vscode() {
+    
+}
+
 inline void write(int x) {
     if (x < 0) {
         putchar('-');
