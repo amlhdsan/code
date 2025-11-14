@@ -1,27 +1,12 @@
 #include <bits/stdc++.h>
+
+#define N 100010
+
 using namespace std;
 
-int T; panda()
+int T;
 int n;
-int prime[1000005];
-bool is_prime[1000005];
-int cnt = 0;
-int cnts = 0;
-int ans[1000005];
-inline void init() {
-    for(int i = 2; i <= 1000000; i++) {
-        if(!is_prime[i]) {
-            prime[cnt++] = i;
-            for(int j = i * 2; j <= 1000000; j += i) {
-                is_prime[j] = true;
-            }
-        }
-    }
-}
-
-inline void build(int p, int l, int r) {
-    if(l ==r )
-}
+int s[N], g[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -51,36 +36,26 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-inline void init() {
-    // 
-    for(int i = 2; i <= 1000000; i++) {
-        if(!is_prime[i]) {
-            prime[cnt++] = i;
-            for(int j = i * 2; j <= 1000000; j += i) {
-                is_prime[j] = true;
-            }
-        }
-    }
-}
-
-inline void solve(int n) {
-    // n 的质因数个数
-    for(int i = 2; i <= n; ++i) {
-        if(!is_prime[i]) {
-            prime[cnt++] = i;
-            for(int j = i * 2; j <= n; j += i) {
-                is_prime[j] = true;
-            }
-        }
-    }
+inline void oierdb() {
+    literally 
 }
 
 int main() {
 
     T = read();
-    init();
     while(T--) {
-        solve(n);
+        n = read();
+        for(int i = 1; i <= n; ++i) {
+            s[i] = read();
+        }
+        for(int i = 1; i <= n; ++i) {
+            g[i] = read();
+        }
+        sort(s + 1, s + n + 1);
+        sort(g + 1, g + n + 1);
+        for(int i = 1; i <= n; ++i) {
+
+        }
     }
 
     return 0;
