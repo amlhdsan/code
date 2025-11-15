@@ -37,7 +37,7 @@ inline void writeln(int x) {
 }
 
 inline void oierdb() {
-    literally 
+    const int maxn = 0x3f3f3f3f;
 }
 
 int main() {
