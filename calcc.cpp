@@ -1,12 +1,14 @@
 #include <bits/stdc++.h>
 
-#define N 100010
+#define N 1000010
+#define int long long
 
 using namespace std;
 
-int T;
-int n;
-int s[N], g[N];
+int n, q;
+int p[N];
+int le[N], re[N];
+char op[N], xx[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -36,26 +38,20 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-inline void build(int p, int l, int r) {
-    
-}
-
 int main() {
 
-    T = read();
-    while(T--) {
-        n = read();
-        for(int i = 1; i <= n; ++i) {
-            s[i] = read();
-        }
-        for(int i = 1; i <= n; ++i) {
-            g[i] = read();
-        }
-        sort(s + 1, s + n + 1);
-        sort(g + 1, g + n + 1);
-        for(int i = 1; i <= n; ++i) {
+    n = read();
+    q = read();
 
-        }
+    for(int i = 2; i <= n; ++i) {
+        p[i] = read();
+        ll[i] = read();
+        rr[i] = read();
+    }
+
+    for(int i = 1; i <= n; ++i) {
+        cin >> op[i];
+        xx[i] = read();
     }
 
     return 0;
