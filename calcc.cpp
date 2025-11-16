@@ -38,6 +38,10 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void work(int x) {
+    
+}
+
 int main() {
 
     n = read();
@@ -52,6 +56,11 @@ int main() {
     for(int i = 1; i <= n; ++i) {
         cin >> op[i];
         xx[i] = read();
+    }
+
+    while(q--) {
+        int x = read();
+        work(x);
     }
 
     return 0;
