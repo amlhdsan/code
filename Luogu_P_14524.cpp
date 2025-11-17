@@ -1,5 +1,12 @@
 #include <bits/stdc++.h>
+
+#define int long long
+
 using namespace std;
+
+int T;
+int n;
+int a[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -29,7 +36,17 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
+signed main() {
+
+    T = read();
+
+    while(T--) {
+        n = read();
+
+        for(int i = 1; i <= n; ++i) {
+
+        }
+    }
 
     return 0;
 }
