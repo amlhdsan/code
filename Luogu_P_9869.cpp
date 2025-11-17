@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
-using namespace std;
 
-int c, t;
-int n, m;
+#define N 100005
+
+using namespace std;
 
 inline int read() {
     int x = 0, f = 1;
@@ -32,18 +32,86 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-// 哪些变量必须为 Unknown
+int n, m;
+char op[N];
+int p1[N], p2[N];
+int val[N];
+int fa[N], neg[N];
+
+int getf(int x) {
+    if (fa[x] == x) return x;
+    int f = getf(fa[x]);
+    neg[x] ^= neg[fa[x]];
+    return fa[x] = f;
+}
+
+void merge(int x, int y, int inv) {
+    int fx = getf(x), fy = getf(y);
+    if (fx == fy) {
+        if ((neg[x] ^ neg[y]) != inv) {
+            val[fx] = 2;
+        }
+        return;
+    }
+    fa[fx] = fy;
+    neg[fx] = neg[x] ^ neg[y] ^ inv;
+}
+
+void solve() {
+    n = read(); m = read();
+    
+    for (int i = 1; i <= n; i++) {
+        fa[i] = i;
+        neg[i] = 0;
+        val[i] = -1;
+    }
+    
+    for (int i = 1; i <= m; i++) {
+        char c;
+        scanf(" %c", &c);
+        op[i] = c;
+        if (c == 'T' || c == 'F' || c == 'U') {
+            p1[i] = read();
+            p2[i] = 0;
+        } else {
+            p1[i] = read();
+            p2[i] = read();
+        }
+    }
+    
+    for (int i = m; i >= 1; i--) {
+        if (op[i] == 'T') {
+            int fx = getf(p1[i]);
+            if (val[fx] == -1) val[fx] = neg[p1[i]] ? 1 : 0;
+            else if (val[fx] != (neg[p1[i]] ? 1 : 0)) val[fx] = 2;
+        } else if (op[i] == 'F') {
+            int fx = getf(p1[i]);
+            if (val[fx] == -1) val[fx] = neg[p1[i]] ? 0 : 1;
+            else if (val[fx] != (neg[p1[i]] ? 0 : 1)) val[fx] = 2;
+        } else if (op[i] == 'U') {
+            int fx = getf(p1[i]);
+            if (val[fx] == -1) val[fx] = 2;
+        } else if (op[i] == '+') {
+            merge(p1[i], p2[i], 0);
+        } else {
+            merge(p1[i], p2[i], 1);
+        }
+    }
+    
+    int ans = 0;
+    for (int i = 1; i <= n; i++) {
+        if (fa[i] == i && val[i] == 2) {
+            ans++;
+        }
+    }
+    
+    writeln(ans);
+}
 
 int main() {
-
-    c = read();
-    t = read();
-
-    while(t--) {
-        n = read();
-        m = read();
-        
+    int c = read(), t = read();
+    while (t--) {
+        solve();
     }
-
     return 0;
 }
