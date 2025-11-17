@@ -40,21 +40,54 @@ int fa[N], neg[N];
 
 int getf(int x) {
     if (fa[x] == x) return x;
-    int f = getf(fa[x]);
-    neg[x] ^= neg[fa[x]];
-    return fa[x] = f;
+    int p = fa[x];
+    int f = getf(p);
+    neg[x] ^= neg[p];
+    fa[x] = f;
+    return f;
 }
 
 void merge(int x, int y, int inv) {
     int fx = getf(x), fy = getf(y);
     if (fx == fy) {
         if ((neg[x] ^ neg[y]) != inv) {
+            // parity contradiction inside same component -> must be Unknown
             val[fx] = 2;
         }
         return;
     }
+
+    // need is parity between fx and fy after attaching fx -> fy
+    int need = neg[x] ^ neg[y] ^ inv; // value_fx = need ? !value_fy : value_fy
+
+    // save old values to compute merged constraint
+    int vx = val[fx];
+    int vy = val[fy];
+
+    // link fx under fy
     fa[fx] = fy;
-    neg[fx] = neg[x] ^ neg[y] ^ inv;
+    neg[fx] = need;
+
+    // compute new value for fy after merge
+    int newv = -1;
+    if (vx == 2 || vy == 2) {
+        newv = 2;
+    } else if (vx == -1 && vy == -1) {
+        newv = -1;
+    } else if (vx == -1 && vy != -1) {
+        newv = vy;
+    } else if (vx != -1 && vy == -1) {
+        // map vx to fy according to need
+        if (need == 0) newv = vx;
+        else newv = (vx == 0 ? 1 : 0);
+    } else {
+        // both concrete (0 or 1), check consistency after mapping vx to fy
+        int mapped_vx = (need == 0 ? vx : (vx == 0 ? 1 : 0));
+        if (mapped_vx == vy) newv = vy;
+        else newv = 2;
+    }
+
+    val[fy] = newv;
 }
 
 void solve() {
