@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 #define int long long
+#define N 1000010
 
 using namespace std;
 
@@ -39,12 +40,28 @@ inline void writeln(int x) {
 signed main() {
 
     T = read();
+    a[0] = 0x3f3f3f3f3f3f3f3f;
 
     while(T--) {
         n = read();
 
         for(int i = 1; i <= n; ++i) {
-
+            a[i] = read();
+        }
+        int cnt = 0;
+        bool flag = 0;
+        for(int i = 2; i <= n; ++i) {
+            if(a[i] > a[i - 1]) {
+                ++cnt;
+            }
+            if(a[i] <= cnt) {
+                puts("No");
+                flag = 1;
+                break;
+            }
+        }
+        if(!flag) {
+            puts("Yes");
         }
     }
 
