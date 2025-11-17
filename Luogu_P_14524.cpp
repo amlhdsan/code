@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int c, t;
-int n, m;
-
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -32,18 +29,7 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-// 哪些变量必须为 Unknown
-
 int main() {
-
-    c = read();
-    t = read();
-
-    while(t--) {
-        n = read();
-        m = read();
-        
-    }
 
     return 0;
 }

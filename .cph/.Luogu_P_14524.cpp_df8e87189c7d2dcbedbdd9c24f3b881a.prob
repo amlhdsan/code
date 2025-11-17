@@ -1,0 +1,1 @@
+{"name":"Luogu - P14524","url":"https://www.luogu.com.cn/problem/P14524","memoryLimit":524288,"timeLimit":1000,"tests":[{"input":"3\n6\n6 4 3 5 4 4\n3\n3 2 1\n4\n1 3 4 2","output":"Yes\nYes\nNo","id":1763387998430}],"group":"luogu","srcPath":"/Users/amlhdsan/code/Luogu_P_14524.cpp"}
