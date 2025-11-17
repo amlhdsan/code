@@ -123,7 +123,8 @@ void solve() {
             else if (val[fx] != (neg[p1[i]] ? 0 : 1)) val[fx] = 2;
         } else if (op[i] == 'U') {
             int fx = getf(p1[i]);
-            if (val[fx] == -1) val[fx] = 2;
+            // assignment to U forces this component to be Unknown
+            val[fx] = 2;
         } else if (op[i] == '+') {
             merge(p1[i], p2[i], 0);
         } else {
