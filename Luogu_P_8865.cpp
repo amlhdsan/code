@@ -38,6 +38,10 @@ inline void writeln(int x) {
 }
 
 inline void solve() {
+    n = read();
+    m = read();
+    c = read();
+    f = read();
     
 }
 
