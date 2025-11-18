@@ -1,7 +1,13 @@
 #include <bits/stdc++.h>
+
+#define N 1010
+#define MOD 998244353
+
 using namespace std;
 
-
+int T;
+int n, m, c, f;
+bool mp[N][N];
 
 inline int read() {
     int x = 0, f = 1;
