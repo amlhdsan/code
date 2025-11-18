@@ -44,7 +44,12 @@ inline void solve() {
     m = read();
     c = read();
     f = read();
-
+    // 从右往左扫
+    for(int i = 1; i <= n; ++i) {
+        for(int j = m; j >= 1; --j) {
+            
+        }
+    }
 }
 
 int main() {
