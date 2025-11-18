@@ -1,8 +1,33 @@
 #include <bits/stdc++.h>
 
-#define N 100005
+#define N 100010
 
 using namespace std;
+
+int c, t, n, m;
+int fa[N], siz[N], mp[N];
+
+int find(int x) {
+    if(x == fa[x]) return x;
+    return fa[x] = find(fa[x]);
+}
+
+void merge(int x, int y) {
+    int fx = find(x), fy = find(y);
+    if(fx != fy) fa[fy] = fx, siz[fx] += siz[fy];
+}
+
+bool dfs(int x, int rt, int f) {
+    if(mp[x] / 2 == rt) return f ^ (mp[x] & 1);
+    return dfs(mp[x] / 2, rt, f ^ (mp[x] & 1));
+}
+
+int opp(int x) {
+    if(x == -1) return -2;
+    if(x == -2) return -1;
+    if(x == -3) return -3;
+    return x ^ 1;
+}
 
 inline int read() {
     int x = 0, f = 1;
@@ -32,120 +57,32 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int n, m;
-char op[N];
-int p1[N], p2[N];
-int val[N];
-int fa[N], neg[N];
-
-int getf(int x) {
-    if (fa[x] == x) return x;
-    int p = fa[x];
-    int f = getf(p);
-    neg[x] ^= neg[p];
-    fa[x] = f;
-    return f;
-}
-
-void merge(int x, int y, int inv) {
-    int fx = getf(x), fy = getf(y);
-    if (fx == fy) {
-        if ((neg[x] ^ neg[y]) != inv) {
-            // parity contradiction inside same component -> must be Unknown
-            val[fx] = 2;
-        }
-        return;
-    }
-
-    // need is parity between fx and fy after attaching fx -> fy
-    int need = neg[x] ^ neg[y] ^ inv; // value_fx = need ? !value_fy : value_fy
-
-    // save old values to compute merged constraint
-    int vx = val[fx];
-    int vy = val[fy];
-
-    // link fx under fy
-    fa[fx] = fy;
-    neg[fx] = need;
-
-    // compute new value for fy after merge
-    int newv = -1;
-    if (vx == 2 || vy == 2) {
-        newv = 2;
-    } else if (vx == -1 && vy == -1) {
-        newv = -1;
-    } else if (vx == -1 && vy != -1) {
-        newv = vy;
-    } else if (vx != -1 && vy == -1) {
-        // map vx to fy according to need
-        if (need == 0) newv = vx;
-        else newv = (vx == 0 ? 1 : 0);
-    } else {
-        // both concrete (0 or 1), check consistency after mapping vx to fy
-        int mapped_vx = (need == 0 ? vx : (vx == 0 ? 1 : 0));
-        if (mapped_vx == vy) newv = vy;
-        else newv = 2;
-    }
-
-    val[fy] = newv;
-}
-
-void solve() {
-    n = read(); m = read();
-    
-    for (int i = 1; i <= n; i++) {
-        fa[i] = i;
-        neg[i] = 0;
-        val[i] = -1;
-    }
-    
-    for (int i = 1; i <= m; i++) {
-        char c;
-        scanf(" %c", &c);
-        op[i] = c;
-        if (c == 'T' || c == 'F' || c == 'U') {
-            p1[i] = read();
-            p2[i] = 0;
-        } else {
-            p1[i] = read();
-            p2[i] = read();
-        }
-    }
-    
-    for (int i = m; i >= 1; i--) {
-        if (op[i] == 'T') {
-            int fx = getf(p1[i]);
-            if (val[fx] == -1) val[fx] = neg[p1[i]] ? 1 : 0;
-            else if (val[fx] != (neg[p1[i]] ? 1 : 0)) val[fx] = 2;
-        } else if (op[i] == 'F') {
-            int fx = getf(p1[i]);
-            if (val[fx] == -1) val[fx] = neg[p1[i]] ? 0 : 1;
-            else if (val[fx] != (neg[p1[i]] ? 0 : 1)) val[fx] = 2;
-        } else if (op[i] == 'U') {
-            int fx = getf(p1[i]);
-            // assignment to U forces this component to be Unknown
-            val[fx] = 2;
-        } else if (op[i] == '+') {
-            merge(p1[i], p2[i], 0);
-        } else {
-            merge(p1[i], p2[i], 1);
-        }
-    }
-    
-    int ans = 0;
-    for (int i = 1; i <= n; i++) {
-        if (fa[i] == i && val[i] == 2) {
-            ans++;
-        }
-    }
-    
-    writeln(ans);
-}
-
 int main() {
-    int c = read(), t = read();
-    while (t--) {
-        solve();
+    c = read(), t = read();
+    while(t--) {
+        int ans = 0;
+        n = read(), m = read();
+        for(int i = 1; i <= n; ++i) mp[i] = i * 2, fa[i] = i, siz[i] = 1;
+        for(int i = 1; i <= m; ++i) {
+            char opt;
+            int x, y;
+            scanf(" %c", &opt);
+            if(opt == '+') {
+                x = read(), y = read();
+                mp[x] = mp[y];
+            }
+            else if(opt == '-') {
+                x = read(), y = read();
+                mp[x] = opp(mp[y]);
+            }
+            else if(opt == 'T') x = read(), mp[x] = -1;
+            else if(opt == 'F') x = read(), mp[x] = -2;
+            else x = read(), mp[x] = -3;
+        }
+        for(int i = 1; i <= n; ++i) if(mp[i] > 0) merge(mp[i] / 2, i);
+        for(int i = 1; i <= n; ++i) if(i == find(i) && (mp[i] == -3 || (mp[i] > 0 && dfs(i, i, 0))))
+            ans += siz[i];
+        writeln(ans);
     }
     return 0;
 }
