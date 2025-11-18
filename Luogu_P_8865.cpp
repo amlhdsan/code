@@ -37,7 +37,17 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline void solve() {
+    
+}
+
 int main() {
+
+    T = read();
+
+    while(T--) {
+        solve();
+    }
 
     return 0;
 }
