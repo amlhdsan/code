@@ -8,6 +8,8 @@ using namespace std;
 int T;
 int n, m, c, f;
 bool mp[N][N];
+int sum = 0;
+int f[N][N]; // 表示mp[i][j] 后面有多少个连续的 0
 
 inline int read() {
     int x = 0, f = 1;
@@ -42,7 +44,7 @@ inline void solve() {
     m = read();
     c = read();
     f = read();
-    
+
 }
 
 int main() {
