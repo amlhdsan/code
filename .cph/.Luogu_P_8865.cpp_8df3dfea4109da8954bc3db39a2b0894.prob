@@ -1,0 +1,1 @@
+{"name":"Luogu - P8865","url":"https://www.luogu.com.cn/problem/P8865","memoryLimit":524288,"timeLimit":1000,"tests":[{"id":1763465413752,"input":"1 0\n4 3 1 1\n001\n010\n000\n000","output":"4 2"}],"group":"luogu","srcPath":"/Users/amlhdsan/code/Luogu_P_8865.cpp"}
