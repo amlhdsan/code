@@ -12,6 +12,8 @@ int find(int x) {
     return fa[x] = find(fa[x]);
 }
 
+inline
+
 void merge(int x, int y) {
     int fx = find(x), fy = find(y);
     if(fx != fy) fa[fy] = fx, siz[fx] += siz[fy];
