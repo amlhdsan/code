@@ -52,6 +52,8 @@ void pushdown(int p1, int p2) {
 
 }
 
+void do
+
 void 
 
 void clr() {
