@@ -2,6 +2,7 @@
 
 #define N 100010
 #define MOD 1000000007
+#define int long long
 
 using namespace std;
 
@@ -23,6 +24,8 @@ inline int read() {
     }
     return x * f;
 }
+
+
 
 inline void write(int x) {
     if (x < 0) {
@@ -52,6 +55,10 @@ inline int qpow(int a, int b) {
     return res % MOD;
 }
 
+inline void mul(int &x, int y) {
+    x = (x * y) % MOD;
+}
+
 inline int f(int x) {
     return (qpow(v, 2 * x) % MOD - qpow(v, x) % MOD + qpow(v, x - 1) % MOD) % MOD;
 }
@@ -61,6 +68,8 @@ inline void work() {
     m = read();
     v = read();
 
+    int ans = 1;
+
     for(int i = 1; i <= m; ++i) {
         c[i] = read();
         read();
@@ -68,7 +77,12 @@ inline void work() {
     
     sort(c + 1, c + m + 1);
 
-    
+    mul(ans, qpow(v, c[1] - 1));
+    for(int i = 2; i <= m; ++i) {
+        mul(ans, qpow(v, c[i] - c[i - 1] - 1));
+    }
+    mul(ans, qpow(n - c[m] - 1));
+    writeln(ans);
 }
 
 int main() {
