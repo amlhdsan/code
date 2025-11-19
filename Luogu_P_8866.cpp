@@ -48,6 +48,12 @@ void mov(int p1, int p2) {
     ans.push_back(make_pair(p1, p2));
 }
 
+void pushdown(int p1, int p2) {
+
+}
+
+void 
+
 void clr() {
     while (!q.empty()) q.pop();
     for (int i = 1; i <= k; i++) id[i] = 0;
