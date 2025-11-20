@@ -1,0 +1,1 @@
+{"name":"Local: triangle","url":"/Users/amlhdsan/code/triangle.cpp","tests":[{"id":1763566612572,"input":"6\n2 2\n2 4\n5 7\n3 8\n9 11\n20 35","output":"4\n16\n464\n146\n3952\n179522"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/amlhdsan/code/triangle.cpp","group":"local","local":true}
