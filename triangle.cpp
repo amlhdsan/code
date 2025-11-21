@@ -70,10 +70,10 @@ inline void solve() {
     writeln(sum % MOD);
 }
 
-inline void tri() {
-    tri[i];
-    strage(i);
-}
+// inline void tri() {
+    // tri[i];
+    // strage(i);
+// }
 
 signed main() {
     T = read();
