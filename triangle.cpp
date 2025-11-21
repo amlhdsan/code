@@ -55,6 +55,8 @@ inline int calc(int a, int b) {
     return nx * ny;
 }
 
+inline void 
+
 // inline void build(int p, )
 
 inline void solve() {
