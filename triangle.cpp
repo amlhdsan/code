@@ -55,6 +55,8 @@ inline int calc(int a, int b) {
     return nx * ny;
 }
 
+// inline void build(int p, )
+
 inline void solve() {
     n = read();
     m = read();
@@ -66,6 +68,11 @@ inline void solve() {
         }
     }
     writeln(sum % MOD);
+}
+
+inline void tri() {
+    tri[i];
+    strage(i);
 }
 
 signed main() {
