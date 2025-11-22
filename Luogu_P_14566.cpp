@@ -1,8 +1,12 @@
 #include <bits/stdc++.h>
+
+#define N 100010
+
 using namespace std;
 
 int T;
 int n;
+int a[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -37,7 +41,18 @@ int main() {
     T = read();
 
     while(T--) {
-        
+        n = read();
+
+        int maxx = -1;
+        int minn = 1e9 + 10;
+
+        for(int i = 1; i <= n; i++) {
+            a[i] = read();
+            maxx = max(maxx, a[i]);
+            minn = min(minn, a[i]);
+        }
+
+        writeln(maxx - minn);
     }
 
     return 0;
