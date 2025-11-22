@@ -1,17 +1,18 @@
 #include <bits/stdc++.h>
 
 #define N 1000010
-#define int long long
+#define ll long long
 
 using namespace std;
 
 int n;
-int c[N];
-int v[N], f[N];
-int lst[N];
+ll c[N], v[N], f[N];
+ll cnt0[N], cnt[N];
+ll sum, ans;
+int vis[N];
 
-inline int read() {
-    int x = 0, f = 1;
+inline ll read() {
+    ll x = 0, f = 1;
     char ch = getchar();
     while (ch < '0' || ch > '9') {
         if (ch == '-') f = -1;
@@ -24,7 +25,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(int x) {
+inline void write(ll x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -33,54 +34,53 @@ inline void write(int x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(int x) {
+inline void writeln(ll x) {
     write(x);
     putchar('\n');
 }
 
-signed main() {
-
+int main() {
     n = read();
-
+    
     for(int i = 1; i <= n; ++i) {
         c[i] = read();
-        lst[c[i]] = i;
+        cnt0[c[i]]++;
     }
-
+    
     for(int i = 1; i <= n; ++i) {
         v[i] = read();
     }
-
+    
     for(int i = 1; i <= n; ++i) {
         f[i] = read();
+        ans += v[i] * c[i];
     }
-
-    int minn = 0x3f3f3f3f3f3f3f3f;
-
-    int l = 1, r = 1;
-
-    while(1) {
-        if(l >= n + 1 || r >= n + 1) {
-            break;
-        }
-        for(int i = l; i <= r && r <= n; ++i) {
-            r = max(r, lst[c[i]]);
-        }
-        int ans = 0;
-
-        for(int i = l; i <= r; ++i) {
-            ans += v[i] * f[i - l + 1];
-        }
-
-        minn = min(minn, ans);
-
+    
+    for(int i = 1; i <= n; ++i) {
+        if(vis[c[i]]) continue;
+        vis[c[i]] = 1;
         
-
-        l = r + 1;
-        r = r + 1;
+        for(int j = 1; j <= n; ++j) {
+            cnt[j] = 0;
+        }
+        
+        sum = 0;
+        cnt[c[i]]++;
+        int flag = n - 1;
+        if(cnt[c[i]] == cnt0[c[i]]) flag++;
+        sum += v[i] * f[1];
+        
+        for(int j = i + 1; j <= n && flag != n; ++j) {
+            if(!cnt[c[j]]) flag--;
+            cnt[c[j]]++;
+            if(cnt[c[j]] == cnt0[c[j]]) flag++;
+            sum += v[j] * f[j - i + 1];
+        }
+        
+        if(flag == n) ans = min(ans, sum);
     }
-
-    writeln(minn);
-
+    
+    writeln(ans);
+    
     return 0;
 }
