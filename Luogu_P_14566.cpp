@@ -53,6 +53,10 @@ signed main() {
             minn = min(minn, a[i]);
         }
 
+        if(maxx >= 2 * minn) {
+            
+        }
+
         writeln(maxx - minn);
     }
 
