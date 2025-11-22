@@ -29,9 +29,14 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-
+inline void pxinuing() {
+    // printf() {
+    // }
+}
 
 int main() {
+
+
 
     return 0;
 }
