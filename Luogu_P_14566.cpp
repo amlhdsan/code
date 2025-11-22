@@ -44,20 +44,22 @@ signed main() {
     while(T--) {
         n = read();
 
-        int maxx = -1;
-        int minn = 1e9 + 10;
-
         for(int i = 1; i <= n; i++) {
             a[i] = read();
-            maxx = max(maxx, a[i]);
-            minn = min(minn, a[i]);
         }
 
-        if(maxx >= 2 * minn) {
-            
+        sort(a + 1, a + 1 + n);
+
+        int ans = -1;
+
+        for(int i = 2; i <= n; ++i) {
+            if(a[i] != a[i - 1])
+                ans = max(ans, a[i - 1] - (a[i] - a[i - 1] - 1));
         }
 
-        writeln(maxx - minn);
+        ans = max(ans, a[n] - a[1]);
+
+        writeln(ans);
     }
 
     return 0;
