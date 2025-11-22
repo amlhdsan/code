@@ -41,6 +41,30 @@ int ask(int x, int y) {
 
 vector<int> p;
 
+inline void permit(int l, int r) {
+    random_device rd;
+    mt19937 g(rd());
+    while (l < r) {
+        int pos = uniform_int_distribution<int>(l, r)(g);
+        swap(p[l], p[pos]);
+        l++;
+    }
+}
+
+inline void permit(int l, int r) {
+    random_device rd;
+    mt19937 g(rd());
+    while (l < r) {
+        int pos = uniform_int_distribution<int>(l, r)(g);
+        swap(p[l], p[pos]);
+        l++;
+    }
+}
+
+inline int observe() {
+
+}
+
 int rt(const vector<int>& v) {
     int r = v[0];
     for (int i = 1; i < v.size(); i++) r = ask(r, v[i]);
