@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
-#define N 100010
+#define N 1000100
+#define int long long
 
 using namespace std;
 
@@ -36,7 +37,7 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
+signed main() {
 
     T = read();
 
