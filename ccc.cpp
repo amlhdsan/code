@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 
+// 优化幂的计算等方面，观察幂的性质。
+
 #define ll long long
 #define ull unsigned long long
 #define N 100005
