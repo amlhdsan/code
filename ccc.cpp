@@ -80,23 +80,31 @@ int qry(int lz[], int p, int l, int r, int pos) {
     }
 }
 
-int calc(int st, int ed) {
-    int y[M] = {0};
+int calc(int split) {
+    int y[M];
+    memset(y, 0, sizeof(y));
     
-    if(st > ed) {
-        for(int i = 0; i < m; ++i) {
-            y[i] = k[i];
-        }
-    } else {
-        for(int i = 0; i < st; ++i) {
-            y[i] = 0;
-        }
-        for(int i = st; i <= ed && i < m; ++i) {
-            y[i] = 1;
-        }
-        for(int i = ed + 1; i < m; ++i) {
-            y[i] = k[i];
-        }
+    for(int i = m - 1; i > split; --i) {
+        y[i] = k[i];
+    }
+    
+    if(split >= 0 && split < m) {
+        if(k[split] == 0) return -1;
+        y[split] = 0;
+    }
+    
+    int c = 0;
+    for(int i = 0; i <= split && i < m; ++i) {
+        int s = x[i] + y[i] + c;
+        c = s >> 1;
+    }
+    
+    for(int i = split + 1; i < m; ++i) {
+        int need = (x[i] + c) & 1 ? 0 : 1;
+        y[i] = min(need, k[i]);
+        
+        int s = x[i] + y[i] + c;
+        c = s >> 1;
     }
     
     bool ok = 1;
@@ -107,11 +115,10 @@ int calc(int st, int ed) {
         }
         if(y[i] < k[i]) break;
     }
-    
     if(!ok) return -1;
     
     int res = 0;
-    int c = 0;
+    c = 0;
     for(int i = 0; i < m; ++i) {
         int s = x[i] + y[i] + c;
         res += s & 1;
@@ -138,7 +145,7 @@ void solve() {
     
     while(q--) {
         int op = read(), l = read(), r = read();
-        
+         
         if(op == 1) {
             upd(lza, 1, 1, n, l, r);
         }
@@ -159,13 +166,10 @@ void solve() {
                 k[bp] = cb;
             }
             
-            int ans = 0;
+            int ans = calc(m);
             
             for(int i = -1; i < m; ++i) {
-                for(int j = i; j < m; ++j) {
-                    int tmp = calc(i, j);
-                    ans = max(ans, tmp);
-                }
+                ans = max(ans, calc(i));
             }
             
             writeln(ans);
