@@ -9,10 +9,8 @@ int n, q;
 int a[N], b[N];
 int lza[N << 2], lzb[N << 2];
 
-bitset<M> x, k;
 int m;
-pair<int, int> dp[M][2];
-bool vis[M][2];
+int x[M], k[M];
 
 inline int read() {
     int x = 0, f = 1;
@@ -82,48 +80,45 @@ int qry(int lz[], int p, int l, int r, int pos) {
     }
 }
 
-pair<int, int> dfs(int pos, int lim) {
-    if(pos == -1) {
-        return {0, 0};
-    }
+int calc(int st, int ed) {
+    int y[M] = {0};
     
-    if(vis[pos][lim]) {
-        return dp[pos][lim];
-    }
-    
-    if(!lim) {
-        vis[pos][0] = 1;
-        dp[pos][0] = {pos + 1, 0};
-        return dp[pos][0];
-    }
-    
-    pair<int, int> res = {-1, -1};
-    
-    int xb = x[pos];
-    int kb = k[pos];
-    int up = kb;
-    
-    for(int yb = 0; yb <= up; ++yb) {
-        int nl = (yb == kb);
-        
-        pair<int, int> sub = dfs(pos - 1, nl);
-        
-        int sp = sub.first;
-        int sc = sub.second;
-        
-        int s = xb + yb + sc;
-        int cb = s & 1;
-        int co = s >> 1;
-        
-        int tp = sp + cb;
-        
-        if(tp > res.first) {
-            res = {tp, co};
+    if(st > ed) {
+        for(int i = 0; i < m; ++i) {
+            y[i] = k[i];
+        }
+    } else {
+        for(int i = 0; i < st; ++i) {
+            y[i] = 0;
+        }
+        for(int i = st; i <= ed && i < m; ++i) {
+            y[i] = 1;
+        }
+        for(int i = ed + 1; i < m; ++i) {
+            y[i] = k[i];
         }
     }
     
-    vis[pos][1] = 1;
-    dp[pos][1] = res;
+    bool ok = 1;
+    for(int i = m - 1; i >= 0; --i) {
+        if(y[i] > k[i]) {
+            ok = 0;
+            break;
+        }
+        if(y[i] < k[i]) break;
+    }
+    
+    if(!ok) return -1;
+    
+    int res = 0;
+    int c = 0;
+    for(int i = 0; i < m; ++i) {
+        int s = x[i] + y[i] + c;
+        res += s & 1;
+        c = s >> 1;
+    }
+    res += c;
+    
     return res;
 }
 
@@ -153,9 +148,6 @@ void solve() {
         else {
             m = r - l + 1;
             
-            x.reset();
-            k.reset();
-            
             for(int i = 0; i < m; ++i) {
                 int pos = l + i;
                 int bp = m - 1 - i;
@@ -163,19 +155,18 @@ void solve() {
                 int ca = a[pos] ^ qry(lza, 1, 1, n, pos);
                 int cb = b[pos] ^ qry(lzb, 1, 1, n, pos);
                 
-                if(ca) {
-                    x.set(bp);
-                }
-                if(cb) {
-                    k.set(bp);
-                }
+                x[bp] = ca;
+                k[bp] = cb;
             }
             
-            memset(vis, 0, sizeof(vis));
+            int ans = 0;
             
-            pair<int, int> res = dfs(m - 1, 1);
-            
-            int ans = res.first + res.second;
+            for(int i = -1; i < m; ++i) {
+                for(int j = i; j < m; ++j) {
+                    int tmp = calc(i, j);
+                    ans = max(ans, tmp);
+                }
+            }
             
             writeln(ans);
         }
