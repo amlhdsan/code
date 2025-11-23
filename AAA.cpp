@@ -81,10 +81,15 @@ void solve() {
 }
 
 int main() {
+
+    freopen("elephant.in", "r", stdin);
+    freopen("elephant.out", "w", stdout);
+
     int c = read(), t = read();
     
     while(t--) {
         solve();
+        p
     }
     
     return 0;
