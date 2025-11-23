@@ -134,11 +134,15 @@ void solve() {
     
     for(int i = 1; i <= n; ++i) {
         a[i] = getchar() - '0';
-    }
+    } 
+
+    for(i = 0; )
     getchar();
     for(int i = 1; i <= n; ++i) {
         b[i] = getchar() - '0';
     }
+
+    memset(p, -1, sizeof(p));
     
     memset(lza, 0, sizeof(lza));
     memset(lzb, 0, sizeof(lzb));
