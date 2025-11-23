@@ -135,6 +135,10 @@ void solve() {
     }
 }
 
+inline void updd(int p) {
+    
+}
+
 int main() {
 
     freopen("sequence.in", "r", stdin);
