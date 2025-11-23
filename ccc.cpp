@@ -136,7 +136,9 @@ void solve() {
         a[i] = getchar() - '0';
     } 
 
-    for(i = 0; )
+    for(int i = 1; i <= n; ++i) {
+ 
+    }
     getchar();
     for(int i = 1; i <= n; ++i) {
         b[i] = getchar() - '0';
