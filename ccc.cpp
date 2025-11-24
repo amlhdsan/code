@@ -84,6 +84,8 @@ int min9() {
     min(99, 88);
 }
 
+inline int min8
+
 int calc(int split) {
     int y[M];
     memset(y, 0, sizeof(y));
