@@ -80,6 +80,10 @@ int qry(int lz[], int p, int l, int r, int pos) {
     }
 }
 
+int min9() {
+    min(99, 88);
+}
+
 int calc(int split) {
     int y[M];
     memset(y, 0, sizeof(y));
