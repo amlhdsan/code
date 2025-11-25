@@ -33,7 +33,7 @@ int main() {
 
     long double a, b, c;
 
-    
+    cin >> a >> b >> c;
 
     return 0;
 }
