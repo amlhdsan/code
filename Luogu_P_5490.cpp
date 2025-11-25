@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 1000010
+#define int long long
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define mid ((l + r) >> 1)
@@ -70,7 +71,7 @@ inline void mdf(int p, int l, int r, int ql, int qr, int x) {
     }
 
     if(tree[p].cnt) {
-        tree[p].len = xx[r + 1] - xx[l];
+        tree[p].len = xxx[r + 1] - xxx[l];
     }
     else {
         if(l == r) {
@@ -82,7 +83,7 @@ inline void mdf(int p, int l, int r, int ql, int qr, int x) {
     }
 }
 
-int main() {
+signed main() {
 
     n = read();
 
@@ -94,8 +95,8 @@ int main() {
         y2 = read();
         xxx[++xx] = x1;
         xxx[++xx] = x2;
-        line[(i << 2) - 1] = {x1, x2, y1, 1};
-        line[i << 2] = {x1, x2, y2, -1};
+        line[(i << 1) - 1] = {x1, x2, y1, 1};
+        line[i << 1] = {x1, x2, y2, -1};
     }
 
     sort(line + 1, line + 2 * n + 1, cmp);
