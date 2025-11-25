@@ -83,6 +83,8 @@ inline void mdf(int p, int l, int r, int ql, int qr, int x) {
     }
 }
 
+
+
 signed main() {
 
     n = read();
