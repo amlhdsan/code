@@ -31,7 +31,7 @@ inline void writeln(int x) {
 
 int main() {
 
-    long double 
+    long double a
 
     return 0;
 }
