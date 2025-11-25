@@ -33,5 +33,7 @@ int main() {
 
     long double a, b, c;
 
+    
+
     return 0;
 }
