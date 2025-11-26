@@ -35,7 +35,7 @@ int main() {
 
     cin >> a >> b >> c;
 
-    
+    if()
 
     return 0;
 }
