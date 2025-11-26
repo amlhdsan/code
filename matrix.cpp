@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
-using namespace std;
 
-int n, m;
-int A, B;
+#define N 1005
+#define INF 10000000
+
+using namespace std;
 
 inline int read() {
     int x = 0, f = 1;
@@ -32,20 +33,98 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
+int n, m;
+int a[N][N];
+int mi[N][N];
+int mx[N][N];
+int ok[N];
+int l[N], r[N];
 
+int main() {
     n = read();
     m = read();
-
-    int a[n + 10][m + 10];
-
+    
     for(int i = 1; i <= n; ++i) {
-        for(int j = 1; j <= n; ++j) {
+        for(int j = 1; j <= m; ++j) {
             a[i][j] = read();
         }
     }
-
-
-
+    
+    int A = 0;
+    
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= m; ++j) {
+            if(a[i][j] != 0) {
+                l[j] = a[i][j];
+                r[j] = a[i][j];
+            } else {
+                l[j] = 1;
+                r[j] = INF;
+            }
+        }
+        
+        for(int j = 2; j <= m; ++j) {
+            l[j] = max(l[j], l[j - 1]);
+        }
+        for(int j = m - 1; j >= 1; --j) {
+            r[j] = min(r[j], r[j + 1]);
+        }
+        
+        int f = 1;
+        for(int j = 1; j <= m; ++j) {
+            if(l[j] > r[j]) {
+                f = 0;
+                break;
+            }
+        }
+        
+        if(f) {
+            ok[i] = 1;
+            A++;
+            for(int j = 1; j <= m; ++j) {
+                mi[i][j] = l[j];
+                mx[i][j] = r[j];
+            }
+        }
+    }
+    
+    int B = 0;
+    for(int j = 1; j <= m; ++j) {
+        int c = -1;
+        int f = 1;
+        
+        for(int i = 1; i <= n; ++i) {
+            if(a[i][j] != 0) {
+                if(c == -1) {
+                    c = a[i][j];
+                } else if(a[i][j] != c) {
+                    f = 0;
+                    break;
+                }
+            }
+        }
+        
+        if(!f) continue;
+        
+        int lo = 1, hi = INF;
+        for(int i = 1; i <= n; ++i) {
+            if(ok[i]) {
+                lo = max(lo, mi[i][j]);
+                hi = min(hi, mx[i][j]);
+                if(lo > hi) break;
+            }
+        }
+        
+        if(c != -1) {
+            if(lo <= c && c <= hi) B++;
+        } else {
+            if(lo <= hi) B++;
+        }
+    }
+    
+    write(A);
+    putchar(' ');
+    writeln(B);
+    
     return 0;
 }
