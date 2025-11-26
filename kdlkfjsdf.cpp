@@ -35,7 +35,7 @@ int main() {
 
     cin >> a >> b >> c;
 
-    if()
+    if(sqrt(a) + )
 
     return 0;
 }
