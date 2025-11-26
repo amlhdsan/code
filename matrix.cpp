@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int n, m;
+int A, B;
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -30,6 +33,19 @@ inline void writeln(int x) {
 }
 
 int main() {
+
+    n = read();
+    m = read();
+
+    int a[n + 10][m + 10];
+
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= n; ++j) {
+            a[i][j] = read();
+        }
+    }
+
+
 
     return 0;
 }
