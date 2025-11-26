@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
-#define N 1005
-#define INF 10000000
+#define int long long
+#define INF 2147483648
 
 using namespace std;
 
@@ -34,15 +34,18 @@ inline void writeln(int x) {
 }
 
 int n, m;
-int a[N][N];
-int mi[N][N];
-int mx[N][N];
-int ok[N];
-int l[N], r[N];
 
-int main() {
+signed main() {
     n = read();
     m = read();
+
+    const int N = n + 10;
+
+    int a[N][N];
+    int mi[N][N];
+    int mx[N][N];
+    int ok[N];
+    int l[N], r[N];
     
     for(int i = 1; i <= n; ++i) {
         for(int j = 1; j <= m; ++j) {
