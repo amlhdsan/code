@@ -39,13 +39,14 @@ signed main() {
     n = read();
     m = read();
 
-    const int N = n + 10;
+    int N = n + 10;
+    int M = m + 10;
 
-    int a[N][N];
-    int mi[N][N];
-    int mx[N][N];
+    int a[N][M];
+    int mi[N][M];
+    int mx[N][M];
     int ok[N];
-    int l[N], r[N];
+    int l[M], r[M];
     
     for(int i = 1; i <= n; ++i) {
         for(int j = 1; j <= m; ++j) {
