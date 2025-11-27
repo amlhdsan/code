@@ -78,17 +78,19 @@ inline void mdf(int p, int l, int r, int ql, int qr, int x) {
         }
     }
 
-    if(tree[p].cnt) {
-        tree[p].len = xxx[r + 1] - xxx[l];
-    }
-    else {
-        if(l == r) {
-            tree[p].len = 0;
-        }
-        else {
-            tree[p].len = tree[ls].len + tree[rs].len;
-        }
-    }
+    tree[p].len = tree[p].cnt ? (xxx[r + 1] - xxx[l]) : (l == r ? 0 : (tree[ls].len + tree[rs].len));
+
+    // if(tree[p].cnt) {
+    //     tree[p].len = xxx[r + 1] - xxx[l];
+    // }
+    // else {
+    //     if(l == r) {
+    //         tree[p].len = 0;
+    //     }
+    //     else {
+    //         tree[p].len = tree[ls].len + tree[rs].len;
+    //     }
+    // }
 }
 
 signed main() {

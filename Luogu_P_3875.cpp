@@ -10,6 +10,7 @@ using namespace std;
 
 int n;
 int xxx[N], xx = 0;
+int ans = 0;
 struct linee {
     int l, r;
     int h;
@@ -77,11 +78,19 @@ inline void mdf(int p, int l, int r, int ql, int qr, int x) {
         }
     }
 
-    if(tree[p].cnt) {
-        tree[p].len = xxx[r + 1] - xxx[l];
-    }
+    tree[p].len = tree[p].cnt ? (xxx[r + 1] - xxx[l]) : (l == r ? 0 : (tree[ls].len + tree[rs].len));
 
-    
+    // if(tree[p].cnt) {
+    //     tree[p].len = xxx[r + 1] - xxx[l];
+    // }
+    // else {
+    //     if(l == r) {
+    //         tree[p].len = 0;
+    //     }
+    //     else {
+    //         tree[p].len = tree[ls].len + tree[rs].len;
+    //     }
+    // }
 }
 
 signed main() {
@@ -96,6 +105,8 @@ signed main() {
         d = read();
 
         if(a == c) {
+            if(b > d)
+                swap(b, d);
             line[(i << 1) - 1] = {a - 1, a + 1, b, 1};
             line[(i << 1)] = {a - 1, a + 1, d, -1};
             xxx[++xx] = a - 1;
@@ -103,6 +114,8 @@ signed main() {
         }
 
         if(b == d) {
+            if(a > c) 
+                swap(a, c);
             line[(i << 1) - 1] = {a, c, b - 1, 1};
             line[(i << 1)] = {a, c, b + 1, -1};
             xxx[++xx] = a;
@@ -115,7 +128,17 @@ signed main() {
     sort(xxx + 1, xxx + xx + 1);
     xx = unique(xxx + 1, xxx + xx + 1) - (xxx + 1);
 
+    build(1, 1, xx - 1);
 
+    for(int i = 1; i <= 2 * n - 1; ++i) {
+        int l = lower_bound(xxx + 1, xxx + xx + 1, line[i].l) - xxx;
+        int r = lower_bound(xxx + 1, xxx + xx + 1, line[i].r) - xxx;
+
+        mdf(1, 1, xx - 1, l, r - 1, line[i].tag);
+        ans += tree[1].len * (line[i + 1].h - line[i].h);
+    }
+
+    writeln(ans);
 
     return 0;
 }
