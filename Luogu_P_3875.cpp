@@ -77,7 +77,11 @@ inline void mdf(int p, int l, int r, int ql, int qr, int x) {
         }
     }
 
-    if()
+    if(tree[p].cnt) {
+        tree[p].len = xxx[r + 1] - xxx[l];
+    }
+
+    
 }
 
 signed main() {
