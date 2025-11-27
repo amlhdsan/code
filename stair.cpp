@@ -1,9 +1,15 @@
+// 電影發明以後，人類的生命，比以前至少延長了三倍。
+// amlhdsan
+
 #include <bits/stdc++.h>
-
-#define N 200005
-#define ll long long
-
 using namespace std;
+
+const int MAXN = 1000005;
+int n;
+int a[MAXN], b[MAXN];
+long long d[MAXN];
+int idx[MAXN];
+int s[MAXN];
 
 inline int read() {
     int x = 0, f = 1;
@@ -19,7 +25,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(ll x) {
+inline void write(int x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -28,65 +34,34 @@ inline void write(ll x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(ll x) {
+inline void writeln(int x) {
     write(x);
     putchar('\n');
 }
 
-struct Node {
-    int id, a, b;
-    ll d;
-} p[N];
-
-int n, m;
-int a[N], b[N], s[N];
-
-bool cmp(Node x, Node y) {
-    return x.d < y.d;
-}
-
 int main() {
     n = read();
-    m = 2 * n;
-    
-    for(int i = 1; i <= m; ++i) a[i] = read();
-    for(int i = 1; i <= m; ++i) b[i] = read();
-    
-    for(int i = 1; i <= m; ++i) {
-        p[i].id = i;
-        p[i].a = a[i];
-        p[i].b = b[i];
-        p[i].d = (ll)a[i] - b[i];
+    int m = 2 * n;
+    for (int i = 1; i <= m; ++i) a[i] = read();
+    for (int i = 1; i <= m; ++i) b[i] = read();
+    for (int i = 1; i <= m; ++i) {
+        d[i] = (long long)a[i] - (long long)b[i];
+        idx[i] = i;
+        s[i] = 1;
     }
-    
-    sort(p + 1, p + m + 1, cmp);
-    
-    for(int i = 1; i <= n; ++i) {
-        s[p[i].id] = 0;
+    sort(idx + 1, idx + 1 + m, [&](int x, int y){ return d[x] < d[y]; });
+    long long ans = 0;
+    for (int i = 1; i <= m; ++i) ans += b[i];
+    for (int k = 1; k <= n; ++k) {
+        int i = idx[k];
+        s[i] = 0;
+        ans += d[i];
     }
-    for(int i = n + 1; i <= m; ++i) {
-        s[p[i].id] = 1;
-    }
-    
-    ll ans = 0;
-    int cu = 0, cd = 0;
-    
-    for(int i = 1; i <= m; ++i) {
-        if(s[i] == 0) {
-            ans += (ll)a[i] * (n - cu);
-            cu++;
-        } else {
-            ans += (ll)b[i] * (n - cd);
-            cd++;
-        }
-    }
-    
-    writeln(ans);
-    for(int i = 1; i <= m; ++i) {
+    printf("%lld\n", ans);
+    for (int i = 1; i <= m; ++i) {
+        if (i > 1) putchar(' ');
         write(s[i]);
-        if(i < m) putchar(' ');
     }
     putchar('\n');
-    
     return 0;
 }
