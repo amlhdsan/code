@@ -58,6 +58,9 @@ inline bool cmp(linee x, linee y) {
 inline void build(int p, int l, int r) {
     tree[p].cnt = 0;
     tree[p].len = 0;
+    if(l == r) {
+        return;
+    }
     build(ls, l, mid);
     build(rs, mid + 1, r);
 }
