@@ -36,7 +36,7 @@ int main() {
     cin >> a >> b >> c;
 
     if(sqrt(a) + sqrt(b) < sqrt(c)) {
-        
+        puts("Yes");
     }
 
     return 0;
