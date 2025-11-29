@@ -38,6 +38,7 @@ int main() {
     if(sqrt(a) + sqrt(b) < sqrt(c)) {
         puts("Yes");
     }
+    
 
     return 0;
 }
