@@ -1,8 +1,15 @@
-// 電影發明以後,人類的生命,比以前至少延長了三倍。
-// amlhdsan
-
 #include <bits/stdc++.h>
+
+#define N 400
+
 using namespace std;
+
+int T;
+int n, m;
+int fa[N];
+int d[N];
+int nxt[N << 2], head[N << 2], to[N << 2], e = 0;
+int dp[N][N][N]; // 表示以 i 为根的子树中，有 j 个作为上推，黑点最大值为 k.
 
 inline int read() {
     int x = 0, f = 1;
@@ -18,7 +25,7 @@ inline int read() {
     return x * f;
 }
 
-inline void write(long long x) {
+inline void write(int x) {
     if (x < 0) {
         putchar('-');
         x = -x;
@@ -27,91 +34,55 @@ inline void write(long long x) {
     putchar(x % 10 + '0');
 }
 
-inline void writeln(long long x) {
+inline void writeln(int x) {
     write(x);
     putchar('\n');
 }
 
-const int N = 500000 + 5;
+inline void add_edge(int u, int v) {
+    nxt[++e] = head[u];
+    head[u] = e;
+    to[e] = v;
+}
 
-int h[N], to[N << 1], nxt[N << 1], cnt;
-int p[N], ord[N];
-long long w[N], d0[N], d1[N];
-bool used[N];
+inline void dfs(int p, int pre) {
+    for(int i = head[p]; i; i = nxt[i]) {
+        int v = to[i];
+        if(v != pre) {
+            dfs(v, p);
+            
+        }
+    }
+}
 
-inline void add(int u, int v) {
-    ++cnt;
-    to[cnt] = v;
-    nxt[cnt] = h[u];
-    h[u] = cnt;
+inline void solve() {
+    n = read();
+    m = read();
+
+    for(int i = 2; i <= n; ++i) {
+        fa[i] = read();
+        add_edge(fa[i], i);
+        add_edge(i, fa[i]);
+        ++d[fa[i]];
+        ++d[i];
+    }
+
+    for(int i = 0; i <= n; ++i) {
+        if(d[i] == 1) { // 叶子结点
+            dp[i][1][0] = 1;
+        }
+    }
+    
+    dfs(1, 0);
 }
 
 int main() {
-    int T = read();
-    while (T--) {
-        int n = read();
-        cnt = 0;
-        for (int i = 1; i <= n; i++) h[i] = 0;
 
-        for (int i = 1; i <= n; i++) w[i] = read();
+    T = read();
 
-        for (int i = 1; i < n; i++) {
-            int u = read(), v = read();
-            add(u, v);
-            add(v, u);
-        }
-
-        int top = 0;
-        p[1] = 0;
-        ord[++top] = 1;
-
-        for (int i = 1; i <= top; i++) {
-            int u = ord[i];
-            for (int e = h[u]; e; e = nxt[e]) {
-                int v = to[e];
-                if (v == p[u]) continue;
-                p[v] = u;
-                ord[++top] = v;
-            }
-        }
-
-        for (int i = top; i; i--) {
-            int u = ord[i];
-            d1[u] = w[u];
-            d0[u] = 0;
-            for (int e = h[u]; e; e = nxt[e]) {
-                int v = to[e];
-                if (v == p[u]) continue;
-                d1[u] += d0[v];
-                d0[u] += max(d0[v], d1[v]);
-            }
-        }
-
-        for (int i = 1; i <= n; i++) used[i] = false;
-
-        static int stk[N];
-        int pos = 0;
-        stk[++pos] = 1;
-
-        while (pos) {
-            int u = stk[pos--];
-            if (p[u] == 0) used[u] = d1[u] > d0[u];
-            else {
-                if (used[p[u]]) used[u] = false;
-                else used[u] = d1[u] > d0[u];
-            }
-            for (int e = h[u]; e; e = nxt[e]) {
-                int v = to[e];
-                if (v == p[u]) continue;
-                stk[++pos] = v;
-            }
-        }
-
-        long long ans = max(d0[1], d1[1]);
-        writeln(ans);
-
-        for (int i = 1; i <= n; i++) putchar(used[i] ? '1' : '0');
-        putchar('\n');
+    while(T--) {
+        solve();
     }
+
     return 0;
 }
