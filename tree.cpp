@@ -46,11 +46,15 @@ inline void add_edge(int u, int v) {
 }
 
 inline void dfs(int p, int pre) {
-    for(int i = head[p]; i; i = nxt[i]) {
-        int v = to[i];
+    for(int ee = head[p]; ee; ee = nxt[ee]) {
+        int v = to[ee];
         if(v != pre) {
             dfs(v, p);
-            
+            for(int i = 1; i <= n; ++i) {
+                for(int j = 1; j <= n; ++j) {
+                    dp[p][i][j] = 
+                }   
+            }
         }
     }
 }
