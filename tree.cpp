@@ -59,7 +59,13 @@ inline void dfs(int p, int pre) {
     }
 }
 
-inline void 
+inline void resolve() {
+
+}
+
+// 1212121122111122;
+// 前面：一堆可取 1/2 的堆，和一些只可以取 1 的堆。
+// 后面：一堆可取 1/2 的堆，和一些只可以取 2 的堆。
 
 inline void solve() {
     n = read();
