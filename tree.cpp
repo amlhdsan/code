@@ -52,12 +52,14 @@ inline void dfs(int p, int pre) {
             dfs(v, p);
             for(int i = 1; i <= n; ++i) {
                 for(int j = 1; j <= n; ++j) {
-                    dp[p][i][j] = 
+                    dp[p][i][j] = dp[v][i - 1][j + 1] + dp[p][i - 1][j - 1];
                 }   
             }
         }
     }
 }
+
+inline void 
 
 inline void solve() {
     n = read();
