@@ -2,6 +2,7 @@
 
 #define N 10010
 #define MOD 998244353
+#define int long long
 
 using namespace std;
 
@@ -87,7 +88,7 @@ inline void solve() {
                 ++pos;
             }
 
-            ans += C[n - i - 1][m - 2 - n + j] * 1LL * qpow(2, pos) % MOD;
+            ans += C[n - i - 1][m - 2 - n + j] * qpow(2, pos) % MOD;
             ans %= MOD;
         }
     }
@@ -95,7 +96,7 @@ inline void solve() {
     writeln((qpow(2, n) - ans + MOD) % MOD);
 }
 
-int main() {
+signed main() {
 
     init();
 
