@@ -10,6 +10,7 @@ int c, t;
 int n, m;
 int a[N];
 int C[N][N];
+int p2[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -52,8 +53,12 @@ inline int qpow(int a, int b) {
 }
 
 inline void init() {
+    p2[0] = 1;
+    for(int i = 1; i <= 10000; ++i) {
+        p2[i] = p2[i - 1] * 2 % MOD;
+    }
     C[0][0] = 1;
-    for(int i = 1; i <= n; ++i) {
+    for(int i = 1; i <= 5000; ++i) {
         C[i][0] = 1;
         for(int j = 1; j <= i; ++j) {
             C[i][j] = (C[i - 1][j - 1] + C[i - 1][j]) % MOD;
@@ -88,12 +93,12 @@ inline void solve() {
                 ++pos;
             }
 
-            ans += C[n - i - 1][m - 2 - n + j] * qpow(2, pos) % MOD;
+            ans += C[n - i - 1][m - 2 - n + j] * p2[pos] % MOD;
             ans %= MOD;
         }
     }
 
-    writeln((qpow(2, n) - ans + MOD) % MOD);
+    writeln((p2[n] - ans + MOD) % MOD);
 }
 
 signed main() {
