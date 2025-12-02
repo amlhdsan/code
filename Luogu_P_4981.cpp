@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 #define MOD 1000000009
+#define int long long
 
 using namespace std;
 
@@ -47,7 +48,7 @@ inline int qpow(int a, int b) {
     return ret % MOD;
 }
 
-int main() {
+signed main() {
 
     T = read();
 
