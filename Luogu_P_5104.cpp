@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 #define int long long
+#define MOD 1000000007
 
 using namespace std; 
 
@@ -42,9 +43,7 @@ signed main() {
     n = read();
     k = read();
 
-    for(int i = 1; i <= n; ++i) {
-        
-    }
+    writeln(w * qpow(qpow(2, n), MOD - 2) % MOD);
 
     return 0;
 }
