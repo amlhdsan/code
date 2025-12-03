@@ -1,7 +1,11 @@
 #include <bits/stdc++.h>
+
+#define N 110
+
 using namespace std;
 
 int n, m;
+int dp[N][N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -36,7 +40,15 @@ int main() {
     n = read();
     m = read();
 
-    
+    if(m > n) {
+        writeln(0);
+    }
+
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= min(i, m); ++j) {
+
+        }
+    }
 
     return 0;
 }
