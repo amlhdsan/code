@@ -35,7 +35,17 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-
+inline int qpow(int a, int b) {
+    int ret = 1;
+    while(b) {
+        if(b & 1) {
+            ret = ret * a % MOD;
+        }
+        a  = a * a % MOD;
+        b >>= 1;
+    }
+    return ret;
+}
 
 signed main() {
 
@@ -43,7 +53,7 @@ signed main() {
     n = read();
     k = read();
 
-    writeln(w * qpow(qpow(2, n), MOD - 2) % MOD);
+    writeln(w * qpow(qpow(2, k), MOD - 2) % MOD);
 
     return 0;
 }
