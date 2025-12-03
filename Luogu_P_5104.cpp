@@ -2,7 +2,7 @@
 
 #define int long long
 
-using namespace std;
+using namespace std; 
 
 int w, n, k;
 
@@ -34,7 +34,17 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+
+
 signed main() {
+
+    w = read(); 
+    n = read();
+    k = read();
+
+    for(int i = 1; i <= n; ++i) {
+        
+    }
 
     return 0;
 }
