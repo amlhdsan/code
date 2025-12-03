@@ -1,5 +1,14 @@
 #include <bits/stdc++.h>
+
+#define N 2010
+#define V 310
+
 using namespace std;
+
+int n, m, vv, ee;
+int c[N], d[N];
+double k[N];
+int dis[V][V];
 
 inline int read() {
     int x = 0, f = 1;
@@ -30,6 +39,45 @@ inline void writeln(int x) {
 }
 
 int main() {
+
+    n = read();
+    m = read();
+    vv = read();
+    ee = read();
+
+    for(int i = 1; i <= n; ++i) {
+        c[i] = read();
+    }
+
+    for(int i = 1; i <= n; ++i) {
+        d[i] = read();
+    }
+
+    for(int i = 1; i <= n; ++i) {
+        cin >> k[i];
+    }
+
+    for(int i = 1; i <= vv; ++i)
+        for(int j = 1; j <= vv; ++j)
+            dis[i][j] = 0x3f3f3f3f3f3f3f3f;
+
+    for(int i = 1; i <= ee; ++i) {
+        int aj, bj, wj;
+        aj = read();
+        bj = read();
+        wj = read();
+
+        dis[aj][bj] = min(dis[aj][bj], wj);
+        dis[bj][aj] = min(dis[bj][aj], wj);
+    }
+
+    for(int t = 1; t <= vv; ++t) {
+        for(int i = 1; i <= vv; ++i) {
+            for(int j = 1; j <= vv; ++j) {
+                dis[i][j] = min(dis[i][j], dis[i][t] + dis[t][j]);
+            }
+        }
+    }
 
     return 0;
 }
