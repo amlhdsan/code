@@ -2,6 +2,7 @@
 
 #define N 2010
 #define V 310
+#define int long long
 
 using namespace std;
 
@@ -38,8 +39,7 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
-
+inline void rdin() {
     n = read();
     m = read();
     vv = read();
@@ -78,6 +78,13 @@ int main() {
             }
         }
     }
+    return ;
+}
+
+signed main() {
+
+    rdin();
+
 
     return 0;
 }
