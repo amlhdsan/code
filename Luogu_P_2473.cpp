@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 20
+#define int long long
 
 using namespace std;
 
@@ -8,8 +9,6 @@ int k, n;
 int p[N];
 int s[N];
 double dp[110][80000];
-
-inline void 
 
 inline int read() {
     int x = 0, f = 1;
@@ -39,7 +38,7 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
+signed main() {
 
     k = read();
     n = read();
@@ -58,13 +57,13 @@ int main() {
                 if((s[j] & S) != s[j]) 
                     dp[i][S] += dp[i - 1][S];
                 else 
-                    dp[i][S] += max(dp[i - 1][S], p[j] + dp[i - 1][S | 1 << j]);
+                    dp[i][S] += max(dp[i - 1][S], p[j] + dp[i - 1][S | 1 << (j - 1)]);
             }
             dp[i][S] /= n * 1.0;
         }
     }
 
-    printf("%.6lf", dp[k][1]);
+    printf("%.6lf", dp[k][0]);
 
     return 0;
 }
