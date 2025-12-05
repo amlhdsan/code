@@ -9,6 +9,8 @@ int p[N];
 int s[N];
 double dp[110][80000];
 
+inline void 
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
