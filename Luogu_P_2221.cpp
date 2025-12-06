@@ -122,8 +122,6 @@ void mdf(int p, int l, int r, int ql, int qr, ll k) {
     upd3(p); 
 }
 
-ll 
-
 ll qry1(int p, int l, int r, int ql, int qr) {
     if(ql <= l && r <= qr) {
         return sum1[p];
