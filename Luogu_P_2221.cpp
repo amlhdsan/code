@@ -119,7 +119,7 @@ void mdf(int p, int l, int r, int ql, int qr, ll k) {
     
     upd1(p);
     upd2(p);
-    upd3(p);
+    upd3(p); 
 }
 
 ll qry1(int p, int l, int r, int ql, int qr) {
