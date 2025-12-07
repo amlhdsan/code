@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+[#include <bits/stdc++.h>
 
 #define N 100007
 #define ll long long
@@ -75,6 +75,14 @@ void pushd(int p, int l, int r) {
     lazy[rs] += k;
     
     lazy[p] = 0;
+}
+
+inline void print(int p) {
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= n; ++j) {
+            writeln((i + j - 1) * (lazy[ls] + lazy[rs]));
+        }
+    }
 }
 
 void build(int p, int l, int r) {
@@ -184,6 +192,12 @@ int main() {
     m = read();
     
     build(1, 1, n);
+
+    print(1);
+
+    for(int i = 1; i <= n; ++i) {
+        
+    }
     
     while(m--) {
         char op[3];
