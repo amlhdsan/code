@@ -38,9 +38,13 @@ inline void writeln(int x) {
 int main() {
 
     n = read();
-    
+
     for(int i = 1; i <= n; ++i) {
         a[i] = read();
+    }
+
+    for(int i = 1; i <= n; ++i) {
+        
     }
 
     return 0;
