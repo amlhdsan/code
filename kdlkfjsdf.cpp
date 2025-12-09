@@ -31,7 +31,7 @@ inline void writeln(int x) {
 
 int main() {
 
-    long double a, b, c;
+    long long a, b, c;
 
     cin >> a >> b >> c;
 
