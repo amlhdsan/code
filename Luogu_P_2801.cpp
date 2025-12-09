@@ -6,8 +6,6 @@
 
 using namespace std;
 
-
-
 int n, q;
 int a[N];
 int sn;
