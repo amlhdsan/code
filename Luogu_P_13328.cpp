@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
+int T;
 
 inline int read() {
     int x = 0, f = 1;
@@ -32,6 +32,9 @@ inline void writeln(int x) {
 }
 
 int main() {
+
+    T = read();
+    
 
     return 0;
 }
