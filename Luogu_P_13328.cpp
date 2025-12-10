@@ -1,7 +1,15 @@
 #include <bits/stdc++.h>
+
+#define N 1010
+
 using namespace std;
 
 int T;
+int n;
+
+struct node {
+    int l, p;
+}a[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -36,6 +44,16 @@ int main() {
     T = read();
     
     while(T--) {
+        n = read();
+
+        for(int i = 1; i <= n; ++i) {
+            a[i].l = read();
+        }
+
+        for(int i = 1; i <= n; ++i) {
+            a[i].p = read();
+        }
+
         
     }
 
