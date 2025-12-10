@@ -11,13 +11,13 @@ inline int read() {
     while (ch >= '0' && ch <= '9') {
         x = (x << 3) + (x << 1) + (ch ^ 48);
         ch = getchar();
-    }
+    } 
     return x * f;
 }
 
 inline void write(int x) {
     if (x < 0) {
-        putchar('-');
+        putchar('-'); 
         x = -x;
     }
     if (x > 9) write(x / 10);
