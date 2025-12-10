@@ -9,6 +9,7 @@ int n;
 
 struct node {
     int l, p;
+    int ind;
 }a[N];
 
 inline int read() {
@@ -39,22 +40,34 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
+inline bool cmp(node x, node y) {
+    return x.p * y.l == x.l * y.p ? x.ind < y.ind : x.p * y.l > x.l * y.p
+}
+
 int main() {
 
     T = read();
     
-    while(T--) {
+    for(int t = 1; t <= T; ++t) {
         n = read();
 
         for(int i = 1; i <= n; ++i) {
             a[i].l = read();
+            a[i].ind = i;
         }
 
         for(int i = 1; i <= n; ++i) {
             a[i].p = read();
         }
 
-        
+        sort(a + 1, a + n + 1, cmp);
+
+        printf("Case #%d:", t);
+
+        for(int i = 1; i <= n; ++i) {
+            putchar(' ');
+            write(a[i].ind - 1);
+        }
     }
 
     return 0;
