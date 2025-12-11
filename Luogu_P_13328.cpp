@@ -41,7 +41,11 @@ inline void writeln(int x) {
 }
 
 inline bool cmp(node x, node y) {
-    return x.p * y.l == x.l * y.p ? x.ind < y.ind : x.p * y.l > x.l * y.p
+    return x.p * y.l == x.l * y.p ? x.ind < y.ind : x.p * y.l > x.l * y.p;
+}
+
+inline bool cmp2(node x, node y) {
+    
 }
 
 int main() {
@@ -68,6 +72,8 @@ int main() {
             putchar(' ');
             write(a[i].ind - 1);
         }
+
+        putchar('\n');
     }
 
     return 0;
