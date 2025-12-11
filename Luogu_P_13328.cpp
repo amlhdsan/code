@@ -45,7 +45,7 @@ inline bool cmp(node x, node y) {
 }
 
 inline bool cmp2(node x, node y) {
-    
+    return  
 }
 
 int main() {
