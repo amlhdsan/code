@@ -4,7 +4,7 @@
 #define ll long long
 #define MOD 1000000000
 
-using namespace std;
+using namespace std; 
 
 ll n, m, a[N], b[N], ans = 1, g;
 bool flag = false;
@@ -67,7 +67,7 @@ int main() {
     }
 
     for(int i = 1; i <= n; ++i) {
-        
+        for(int j = )
     }
     return 0;
 }
