@@ -42,7 +42,8 @@ inline void writeln(int x) {
 inline void print() {
     for(int i = 1; i <= n; ++i) {
         for(int j = 1; j <= n; ++j)
-            write(dp[i][j]);
+            write(dp[i][j]), putchar(' ');
+        puts("");
     }
 }
 
