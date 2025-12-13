@@ -40,7 +40,10 @@ inline void writeln(int x) {
 }
 
 inline void print() {
-    
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= n; ++j)
+            write(dp[i][j]);
+    }
 }
 
 signed main() {
@@ -57,6 +60,8 @@ signed main() {
             dp[i][j] = max(max(dp[i][j], dp[i][j - 1]), sum[n] - sum[i - 1] - dp[i + j][min(j * 2, n - i - j + 1)]);
         }
     }
+
+    print();
 
     writeln(max(dp[1][1], dp[1][2]));
 
