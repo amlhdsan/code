@@ -77,6 +77,10 @@ void mdf(int p, int l, int r, int ql, int qr, ll k) {
     upd(p);
 }
 
+ll prn() {
+    
+}
+
 ll qry(int p, int l, int r, int pos) {
     if (l == r) return tree[p];
     pushd(p, l, r);
