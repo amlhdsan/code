@@ -78,7 +78,7 @@ void mdf(int p, int l, int r, int ql, int qr, ll k) {
 }
 
 ll prn() {
-    
+    printf("")
 }
 
 ll qry(int p, int l, int r, int pos) {
