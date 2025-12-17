@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int n, m, e;
+
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -30,6 +32,14 @@ inline void writeln(int x) {
 }
 
 int main() {
+
+    n = read();
+    m = read();
+    e = read();
+
+    for(int i = 1; i <= e; ++i) {
+        
+    }
 
     return 0;
 }
