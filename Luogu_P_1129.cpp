@@ -1,12 +1,14 @@
 #include <bits/stdc++.h>
 
-#define N 1000010
+#define N 210
 #define PII pair<int, int>
 
 using namespace std;
 
 int T;
 int n;
+int s, t;
+int m;
 int a[210][210];
 vector<int> e1[N];
 vector<PII> e2[N];
@@ -42,25 +44,25 @@ inline void writeln(int x) {
 inline void add_edge1(int u, int v) {
     e1[u].push_back(v);
     e1[v].push_back(u);
-    return;
-}
-
-inline void add_edge2(int u, int v, int c) {
-    e2[u].push_back(make_pair(v, c));
-    e2[v].push_back(make_pair(u, c));
-    return;
 }
 
 inline void solve() {
     n = read();
+    m = 0;
     for(int i = 1; i <= n; ++i) {
         for(int j = 1; j <= n; ++j) {
             int tmp = read();
             if(tmp) {
                 add_edge1(i, j);
+                ++m;
             }
         }
     }
+
+    s = 0;
+    t = 201;
+
+
 }
 
 int main() {
