@@ -6,7 +6,8 @@
 using namespace std;
 
 int n, m, s, t;
-int head[N], to[N], nxt[N], w[N], e = 0;
+int head[N], to[N], nxt[N], w[N], e = 1
+;
 int now[N]; // 当前弧优化
 int dep[N];
 
@@ -120,7 +121,7 @@ signed main() {
         c = read();
 
         add(u, v, c);
-        add(v, u, c);
+        add(v, u, 0);
     }
 
     writeln(dinic());
