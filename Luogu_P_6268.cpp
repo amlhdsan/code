@@ -1,12 +1,8 @@
 #include <bits/stdc++.h>
 
-#define N 2000010
+#define N 1005
 
 using namespace std;
-
-int n, m;
-bool iff[1010][1010];
-int nxt[N], head[N], to[N], e = 0;
 
 inline int read() {
     int x = 0, f = 1;
@@ -36,39 +32,66 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-inline int dinic() {
+int n, m;
+vector<int> g[N];
+int col[N];
+int mat[N];
+bool vis[N];
 
-}
-
-inline void add_edge(int u, int v) {
-
+bool dfs(int u) {
+    for(int v : g[u]) {
+        if(vis[v]) continue;
+        vis[v] = true;
+        if(mat[v] == -1 || dfs(mat[v])) {
+            mat[v] = u;
+            return true;
+        }
+    }
+    return false;
 }
 
 int main() {
-
     n = read();
     m = read();
-
-    for(int i = 1; i <= m; ++i) {
-        int u, v;
-        u = read();
-        v = read();
-
-        u += 1;
-        v += 1;
-
-        iff[u][v] = iff[v][u] = 1;
+    
+    memset(col, -1, sizeof(col));
+    
+    for(int i = 0; i < m; ++i) {
+        int u = read();
+        int v = read();
+        g[u].push_back(v);
+        g[v].push_back(u);
     }
-
-    for(int i = 1; i <= n; ++i) {
-        for(int j = 1; j <= n; ++j) {
-            if(!iff[i][j]) {
-                add_edge(i, j);
+    
+    for(int i = 0; i < n; ++i) {
+        if(col[i] == -1) {
+            queue<int> q;
+            q.push(i);
+            col[i] = 0;
+            while(!q.empty()) {
+                int u = q.front();
+                q.pop();
+                for(int v : g[u]) {
+                    if(col[v] == -1) {
+                        col[v] = col[u] ^ 1;
+                        q.push(v);
+                    }
+                }
             }
         }
     }
-
-
-
+    
+    memset(mat, -1, sizeof(mat));
+    int ans = 0;
+    
+    for(int i = 0; i < n; ++i) {
+        if(col[i] == 0) {
+            memset(vis, false, sizeof(vis));
+            if(dfs(i)) ans++;
+        }
+    }
+    
+    writeln(n - ans);
+    
     return 0;
 }
