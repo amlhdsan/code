@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 #define N 1005
+#define M 1000010
 
 using namespace std;
 
