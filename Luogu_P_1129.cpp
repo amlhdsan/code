@@ -54,7 +54,7 @@ inline void add_edge(int u, int v, int c) {
 inline bool bfs() {
     queue<int> q;
     q.push(s);
-    memset(dep, 0, sizeof(dep));
+    memset(dep, 0x3f, sizeof(dep));
     dep[s] = 0;
     now[s] = head[s];
 
@@ -63,7 +63,7 @@ inline bool bfs() {
         q.pop();
         for(int i = head[p]; i; i = nxt[i]) {
             int v = to[i];
-            if(dep[v] == 0x3f3f3f3f && w[i] > 0) {
+            if(dep[v] >= 0x3f3f3f3f && w[i] > 0) {
                 dep[v] = dep[p] + 1;
                 now[v] = head[v];
                 q.push(v);
@@ -92,6 +92,7 @@ inline int dfs(int p, int flow) {
         if(k) {
             w[i] -= k;
             w[i ^ 1] += k;
+            return k;
         }
         else {
             dep[v] = 0x3f3f3f3f;
@@ -101,10 +102,16 @@ inline int dfs(int p, int flow) {
 }
 
 inline void solve() {
+    e = 1;
     n = read();
 
     s = 0;
     t = 401;
+
+    memset(head, 0, sizeof(head));
+    memset(nxt, 0, sizeof(nxt));
+    memset(to, 0, sizeof(to));
+    memset(w, 0, sizeof(w));
 
     for(int i = 1; i <= n; ++i) {
         add_edge(s, i, 1);
@@ -125,7 +132,7 @@ inline void solve() {
         ans += dfs(s, 0x7fffffff);
     }
 
-    if(ans >= 0) {
+    if(ans >= n) {
         puts("Yes");
     }
     else {
