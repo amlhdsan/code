@@ -43,13 +43,13 @@ signed main() {
         int n = read();
         int m = read();
         
-        int limit = m / 3;
-        int maxKick = max(0, min(n, r - 1) - limit);
-        int totalKick = q * maxKick;
+        int a = m / 3;
+        int b = max(0LL, min(n, r - 1) - a);
+        int c = q * b;
         
-        int actualAdmit = min(r - 1, r - 1 - totalKick + totalKick);
+        int k = min(r - 1, r - 1 - c + c);
         
-        if(r - 1 - totalKick < m) {
+        if(r - 1 - c < m) {
             printf("Yes\n");
         } else {
             printf("No\n");
