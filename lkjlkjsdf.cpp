@@ -43,28 +43,27 @@ signed main() {
         int n = read();
         int m = read();
         
-        int lim = m / 3;
-        int pos = r - 1;
-        int skp = 0;
+        int a = m / 3;
+        int b = r - 1;
+        int c = 0;
         
-        if(n > lim && q > 0) {
-            int per = n - lim;
-            int ful = min(pos / n, q);
-            skp += ful * per;
+        if(n > a && q > 0) {
+            int k = n - a;
+            int ful = min(b / n, q);
+            c += ful * k;
             
-            int rem = pos - ful * n;
+            int p = b - ful * n;
             int rst = q - ful;
             
-            if(rst > 0 && rem > lim) {
-                skp += rem - lim;
+            if(rst > 0 && p > a) {
+                c += p - a;
             }
         }
         
-        int adm = pos - skp;
-        
-        if(adm < m) {
+        if(b - c < m) {
             puts("Yes");
-        } else {
+        } 
+        else {
             puts("No");
         }
     }
