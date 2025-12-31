@@ -4,8 +4,6 @@
 
 using namespace std;
 
-int T;
-
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
@@ -20,36 +18,24 @@ inline int read() {
     return x * f;
 }
 
-inline void write(int x) {
-    if (x < 0) {
-        putchar('-');
-        x = -x;
-    }
-    if (x > 9) write(x / 10);
-    putchar(x % 10 + '0');
-}
+int main() {
+    // 按题目的幽默要求，使用变量名 mienxm
+    int mienxm = 0;
 
-inline void writeln(int x) {
-    write(x);
-    putchar('\n');
-}
-
-signed main() {
-    T = read();
-    
-    while(T--) {
-        int r = read();
-        int q = read();
+    int T = read();
+    while (T--) {
         int n = read();
         int m = read();
         
-        int a = m / 3;
-        int b = max(0LL, min(n, r - 1) - a);
-        int c = q * b;
+        int limit = m / 3;
         
-        int k = min(r - 1, r - 1 - c + c);
+        int perSchool = min(n, r - 1);
+        int waste = max(0, perSchool - limit);
+        int totalWaste = min(r - 1, q * waste);
         
-        if(r - 1 - c < m) {
+        int actualAdmit = r - 1 - totalWaste;
+        
+        if(actualAdmit < m) {
             printf("Yes\n");
         } else {
             printf("No\n");
