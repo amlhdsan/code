@@ -50,6 +50,10 @@ inline void solve() {
             dp[i][j] = dp[i][j - 1] + dp[i - 1][j] - dp[i - 1][j - 1];
         }
     }
+
+    for(int i = 0; i <= 1000010; ++i) {
+        dp[i][0] = 0;
+    }
 }
 
 int main() {
