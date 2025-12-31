@@ -42,7 +42,11 @@ inline void solve() {
         a[i] = read();
     }
 
-    
+    sort(a + 1, a + n + 1);
+
+    for(int i = 1; i <= 2 * n; ++i) {
+
+    }
 }
 
 int main() {
