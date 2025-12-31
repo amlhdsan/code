@@ -7,6 +7,7 @@ using namespace std;
 int T;
 int n;
 int a[N];
+int dp[2 * N][2 * N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -45,7 +46,9 @@ inline void solve() {
     sort(a + 1, a + n + 1);
 
     for(int i = 1; i <= 2 * n; ++i) {
-
+        for(int j = 1; j <= 2 * n; ++j) {
+            dp[i][j] = dp[i][j - 1] + dp[i - 1][j] - dp[i - 1][j - 1];
+        }
     }
 }
 
