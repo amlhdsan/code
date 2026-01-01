@@ -67,7 +67,7 @@ inline void solve() {
     
     for(int i = 0; i <= n + 2; ++i) {
         ll num = n - d[i];
-        ll mx = max((i == 0 ? -1000000000000000000LL : pre[i - 1]), suf[i + 1]) - i;
+        ll mx = max((i == 0 ? -0x7fffffffffffffffLL : pre[i - 1]), suf[i + 1]) - i;
         ans[num] = max(ans[num], mx);
     }
     
@@ -85,6 +85,10 @@ int main() {
     int T = read();
     
     while(T--) {
+        memset(c, 0, sizeof(c));
+        memset(d, 0, sizeof(d));
+        memset(pre, 0, sizeof(pre));
+        memset(suf, 0, sizeof(suf));
         solve();
     }
     return 0;
