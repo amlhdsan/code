@@ -53,6 +53,11 @@ inline void solve() {
 
     for(int i = 0; i <= 1000010; ++i) {
         dp[i][0] = 0;
+        dp[0][i] = 0;
+    }
+
+    for(int i = 1; i <= n; ++i) {
+
     }
 }
 
