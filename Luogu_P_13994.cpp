@@ -38,7 +38,7 @@ ll c[1000010], d[1000010];
 ll pre[1000010], suf[1000010];
 ll ans[1000010];
 
-int main() {
+inline void solve() {
     n = read();
     
     for(int i = 0; i <= n + 5; ++i) {
@@ -78,6 +78,14 @@ int main() {
     for(int i = 1; i <= n; ++i) {
         writeln(ans[i]);
     }
+}
+
+int main() {
+
+    int T = read();
     
+    while(T--) {
+        solve();
+    }
     return 0;
 }
