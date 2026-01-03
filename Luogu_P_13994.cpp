@@ -40,6 +40,10 @@ ll ans[1000010];
 
 inline void solve() {
     n = read();
+
+    for(int i = 0; i <= n + 5; ++i) {
+        a[i] = b[i] = d[i] = 0;
+    }
     
     for(int i = 0; i <= n + 5; ++i) {
         ans[i] = c[i] = pre[i] = suf[i] = -1e18;
@@ -85,10 +89,7 @@ int main() {
     int T = read();
     
     while(T--) {
-        memset(c, 0, sizeof(c));
-        memset(d, 0, sizeof(d));
-        memset(pre, 0, sizeof(pre));
-        memset(suf, 0, sizeof(suf));
+        
         solve();
     }
     return 0;
