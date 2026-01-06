@@ -30,20 +30,18 @@ inline void write(int x) {
     putchar(x % 10 + '0');
 }
 
-bool check() {
-    for (int i = 0; i < 5; ++i)
-        for (int j = 0; j < 7; ++j)
-            if (g[i][j]) return false;
-    return true;
-}
-
-void down() {
+void upd() {
     for (int i = 0; i < 5; ++i) {
         int t = 0;
         for (int j = 0; j < 7; ++j) {
-            if (g[i][j]) g[i][t++] = g[i][j];
+            if (g[i][j]) {
+                if (j != t) {
+                    g[i][t] = g[i][j];
+                    g[i][j] = 0;
+                }
+                t++;
+            }
         }
-        while (t < 7) g[i][t++] = 0;
     }
 }
 
@@ -51,84 +49,98 @@ bool del() {
     bool vis[N][N] = {0}, flag = 0;
     
     for (int i = 0; i < 5; ++i) {
+        for (int j = 0; j < 5; ++j) {
+            if (g[i][j] && g[i][j] == g[i][j + 1] && g[i][j] == g[i][j + 2]) {
+                vis[i][j] = vis[i][j + 1] = vis[i][j + 2] = 1;
+                flag = 1;
+            }
+        }
+    }
+    
+    for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 7; ++j) {
-            if (!g[i][j]) break;
-            int k = j;
-            while (k < 7 && g[i][k] == g[i][j]) ++k;
-            if (k - j >= 3) {
+            if (g[i][j] && g[i][j] == g[i + 1][j] && g[i][j] == g[i + 2][j]) {
+                vis[i][j] = vis[i + 1][j] = vis[i + 2][j] = 1;
                 flag = 1;
-                for (int t = j; t < k; ++t) vis[i][t] = 1;
             }
-            j = k - 1;
         }
     }
     
-    for (int j = 0; j < 7; ++j) {
-        for (int i = 0; i < 5; ++i) {
-            if (!g[i][j]) break;
-            int k = i;
-            while (k < 5 && g[k][j] == g[i][j]) ++k;
-            if (k - i >= 3) {
-                flag = 1;
-                for (int t = i; t < k; ++t) vis[t][j] = 1;
-            }
-            i = k - 1;
-        }
-    }
-    
-    if (!flag) return false;
+    if (!flag) return 0;
     
     for (int i = 0; i < 5; ++i)
         for (int j = 0; j < 7; ++j)
             if (vis[i][j]) g[i][j] = 0;
     
-    return true;
+    return 1;
 }
 
-void clear() {
-    while (del()) down();
+void proc() {
+    upd();
+    while (del()) upd();
 }
 
-bool dfs(int dep) {
-    if (check()) return true;
-    if (dep == n) return false;
+bool check() {
+    for (int i = 0; i < 5; ++i)
+        if (g[i][0]) return 0;
+    return 1;
+}
+
+bool chk() {
+    int cnt[11] = {0};
+    for (int i = 0; i < 5; ++i)
+        for (int j = 0; j < 7; ++j)
+            if (g[i][j]) cnt[g[i][j]]++;
+    
+    for (int i = 1; i <= 10; ++i)
+        if (cnt[i] > 0 && cnt[i] < 3) return 0;
+    return 1;
+}
+
+void dfs(int dep) {
+    if (check()) {
+        if (dep == n) {
+            for (int i = 0; i < n; ++i) {
+                write(ans[i][0]), putchar(' ');
+                write(ans[i][1]), putchar(' ');
+                write(ans[i][2]), putchar('\n');
+            }
+            exit(0);
+        }
+        return;
+    }
+    
+    if (dep == n) return;
+    if (!chk()) return;
     
     int tmp[N][N];
     memcpy(tmp, g, sizeof(g));
     
-    for (int x = 0; x < 5; ++x) {
-        for (int y = 0; y < 7; ++y) {
-            if (!g[x][y]) break;
+    for (int i = 0; i < 5; ++i) {
+        for (int j = 0; j < 7; ++j) {
+            if (!g[i][j]) continue;
             
-            for (int d = -1; d <= 1; d += 2) {
-                int nx = x + d;
-                if (nx < 0 || nx >= 5) continue;
-                
+            if (i < 4) {
+                swap(g[i][j], g[i + 1][j]);
+                ans[dep][0] = i;
+                ans[dep][1] = j;
+                ans[dep][2] = 1;
+                proc();
+                dfs(dep + 1);
                 memcpy(g, tmp, sizeof(g));
-                
-                if (g[nx][y]) {
-                    swap(g[x][y], g[nx][y]);
-                } else {
-                    g[nx][0] = g[x][y];
-                    for (int k = y; k < 6; ++k) g[x][k] = g[x][k + 1];
-                    g[x][6] = 0;
-                }
-                
-                down();
-                clear();
-                
-                if (dfs(dep + 1)) {
-                    ans[dep][0] = x;
-                    ans[dep][1] = y;
-                    ans[dep][2] = d;
-                    return true;
-                }
+            }
+            
+            if (i > 0 && !g[i - 1][j]) {
+                swap(g[i][j], g[i - 1][j]);
+                ans[dep][0] = i;
+                ans[dep][1] = j;
+                ans[dep][2] = -1;
+                proc();
+                dfs(dep + 1);
+                memcpy(g, tmp, sizeof(g));
             }
         }
     }
-    
-    memcpy(g, tmp, sizeof(g));
-    return false;
 }
 
 int main() {
@@ -139,16 +151,9 @@ int main() {
         while ((x = read())) g[i][j++] = x;
     }
     
-    if(dfs(0)) {
-        for(int i = 0; i < n; ++i) {
-            write(ans[i][0]), putchar(' ');
-            write(ans[i][1]), putchar(' ');
-            write(ans[i][2]), putchar('\n');
-        }
-    } 
-    else {
-        write(-1), putchar('\n');
-    }
+    dfs(0);
+    
+    write(-1), putchar('\n');
     
     return 0;
 }
