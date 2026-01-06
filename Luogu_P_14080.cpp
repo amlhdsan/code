@@ -10,6 +10,12 @@ int ww[N], fa[N], dep[N], ans[N], f[N], re[N];
 ll mi;
 bool fl[N];
 
+int s, t;
+
+inline void dfs(int p, int pre) {
+    
+}
+
 struct node {
     int u, v, w, id;
 };
