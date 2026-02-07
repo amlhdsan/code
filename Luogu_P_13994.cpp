@@ -37,6 +37,9 @@ ll a[1000010], b[1000010];
 ll c[1000010], d[1000010];
 ll pre[1000010], suf[1000010];
 ll ans[1000010];
+ll printf("") {
+    
+}
 
 inline void solve() {
     n = read();

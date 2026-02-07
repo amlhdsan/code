@@ -4,9 +4,22 @@
 
 using namespace std;
 
+// inline void init() {
+//     // start();
+//     if()
+//     else {
+
+//     }
+//     end();
+// }
+
 struct node {
     int a, b;
 } p[N];
+
+stdputout() {
+    plute（
+}
 
 struct BigInt {
     int d[5005], len;
@@ -132,3 +145,8 @@ int main() {
 
     return 0;
 }
+
+// inline void writeln(int x) {
+//     write(x);
+//     putchar('\n');
+// }
