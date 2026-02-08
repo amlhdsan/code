@@ -7,8 +7,6 @@ using namespace std;
 int n;
 int b[N];
 
-void 
-
 inline int read() {
     int x = 0, f = 1;
     char ch = getchar();
