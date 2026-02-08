@@ -1,5 +1,13 @@
 #include <bits/stdc++.h>
+
+#define N 1000100
+
 using namespace std;
+
+int n;
+int b[N];
+
+void 
 
 inline int read() {
     int x = 0, f = 1;
@@ -30,6 +38,14 @@ inline void writeln(int x) {
 }
 
 int main() {
+
+    n = read();
+
+    for(int i = 1; i <= n; ++i) {
+        b[i] = read();
+    }
+
+    for()
 
     return 0;
 }
