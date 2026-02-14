@@ -64,9 +64,10 @@ int main() {
 
     for(int i = 1; i <= m; ++i) {
         int u = read(), v = read();
+        add_edge(u, v);
     }
 
-    
+
 
     return 0;
 }
