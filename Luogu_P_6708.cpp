@@ -111,6 +111,7 @@ inline int read() {
     return x * f;
 }
 
+
 inline void write(int x) {
     if (x < 0) {
         putchar('-');
@@ -133,7 +134,7 @@ int main() {
         b[i] = read();
     }
 
-    
+    for()
 
     return 0;
 }
