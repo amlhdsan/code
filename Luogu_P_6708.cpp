@@ -111,6 +111,9 @@ inline int read() {
     return x * f;
 }
 
+inline void build() {
+    
+}
 
 inline void write(int x) {
     if (x < 0) {
