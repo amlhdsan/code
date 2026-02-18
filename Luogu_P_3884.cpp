@@ -114,6 +114,16 @@ inline void bfs(int s) {
     }
 }
 
+inline int lca(int x, int y) {
+    while (dep[x] > dep[y]) x = e[x][0];
+    while (dep[y] > dep[x]) y = e[y][0];
+    while (x != y) {
+        x = e[x][0];
+        y = e[y][0];
+    }
+    return x;
+}
+
 int main() {
 
     n = read();
@@ -146,8 +156,8 @@ int main() {
 
     writeln(ans);
 
-    // x, y;
     int x = read(), y = read();
 
+    writeln((dep[x] - dep[lca(x, y)]) * 2 + (dep[y] - dep[lca(x, y)]));
     return 0;
 }
