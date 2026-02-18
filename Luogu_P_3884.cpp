@@ -149,8 +149,5 @@ int main() {
     // x, y;
     int x = read(), y = read();
 
-    
-
-
     return 0;
 }
