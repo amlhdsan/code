@@ -92,7 +92,10 @@ int main() {
 
     // dis[x, y]
 
-    
+    memset(dep, 0, sizeof(dep));
+
+    bfs(x);
+    writeln(dep[y]);
 
     return 0;
 }
