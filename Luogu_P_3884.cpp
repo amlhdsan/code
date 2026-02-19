@@ -66,6 +66,7 @@ using namespace std;
 int n;
 vector<int> e[N];
 int dep[N];
+int parent[N]; // store parent in tree
 int num[N];
 
 inline int read() {
@@ -100,6 +101,7 @@ inline void bfs(int s) {
     queue<int> q;
     q.push(s);
     dep[s] = 1;
+    parent[s] = 0; // root has no parent
 
     while (!q.empty()) {
         int u = q.front();
@@ -108,6 +110,7 @@ inline void bfs(int s) {
         for (int v : e[u]) {
             if (!dep[v]) {
                 dep[v] = dep[u] + 1;
+                parent[v] = u;
                 q.push(v);
             }
         }
@@ -115,13 +118,14 @@ inline void bfs(int s) {
 }
 
 inline int lca(int x, int y) {
-    while (dep[x] > dep[y]) x = e[x][0];
-    while (dep[y] > dep[x]) y = e[y][0];
-    while (x != y) {
-        x = e[x][0];
-        y = e[y][0];
+    // climb deeper node up to same depth
+    while (dep[x] > dep[y]) x = parent[x];
+    while (dep[y] > dep[x]) y = parent[y];
+    while (x && y && x != y) {
+        x = parent[x];
+        y = parent[y];
     }
-    return x;
+    return x; // if tree guaranteed, x==y at root eventually
 }
 
 int main() {
@@ -134,27 +138,28 @@ int main() {
         e[v].push_back(u);
     }
 
-    // 求宽度（层数）最大的层
+    // run BFS from root to compute depth/parent
 
     bfs(1);
+
+    // 深度
+    int ans = 0;
+    for (int i = 1; i <= n; i++)
+        ans = max(ans, dep[i]);
+    writeln(ans);
+
+    // 宽度：统计每层节点数
     for (int i = 1; i <= n; i++) {
-        num[dep[i]]++;
+        if (dep[i] > 0) num[dep[i]]++;
     }
-    int md = -1;
-    for (int i = 1; i <= n; i++) {
+    int md = 1;
+    for (int i = 2; i <= n; i++) {
         if (num[i] > num[md]) {
             md = i;
         }
     }
-    writeln(num[md]);
-
-    // 深度
     
-    int ans = 0;
-    for (int i = 1; i <= n; i++)
-        ans = max(ans, dep[i]);
-
-    writeln(ans);
+    writeln(num[md]);
 
     int x = read(), y = read();
 
