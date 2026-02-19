@@ -158,7 +158,7 @@ int main() {
             md = i;
         }
     }
-    
+    for(int i = 1; i <= n; ++i)
     writeln(num[md]);
 
     int x = read(), y = read();
