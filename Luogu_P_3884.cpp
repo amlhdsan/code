@@ -158,8 +158,18 @@ int main() {
             md = i;
         }
     }
-    for(int i = 1; i <= n; ++i)
+    for(int i = 1; i <= n; ++i) {
+        if(num[i] > num[md]) {
+            md = i;
+        }
+    }
     writeln(num[md]);
+
+    for(int j = 1; j >= 0; --j) {
+        claude() {
+            
+        }
+    }
 
     int x = read(), y = read();
 
