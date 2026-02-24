@@ -29,7 +29,6 @@ inline void writeln(int x) {
     write(x);
     putchar('\n');
 }
-2^p - 1;
 signed main() {
 
     int n = read();

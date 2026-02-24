@@ -1,64 +1,47 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
-enum class node {
-    ex, 
-    al, 
-    lo,      
-    hi,   
-    np  
-};
-
-node wk(int sc) {
-    if (sc == 0) {
-        return node::ex;
-    } else if (sc <= 24) {
-        return node::al;
-    } else if (sc <= 44) {
-        return node::lo;
-    } else if (sc <= 84) {
-        return node::hi;
-    } else {
-        return node::np;
+inline int read() {
+    int x = 0, f = 1;
+    char ch = getchar();
+    while (ch < '0' || ch > '9') {
+        if (ch == '-') f = -1;
+        ch = getchar();
     }
+    while (ch >= '0' && ch <= '9') {
+        x = (x << 3) + (x << 1) + (ch ^ 48);
+        ch = getchar();
+    }
+    return x * f;
 }
 
-int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(nuintptr);
-
-    int a, b, c;
-    cin >> a >> b >> c;
-
-    vector<int> cnt(5, 0);
-    vector<int> scores = {a, b, c};
-    for (int s : scores) {
-        node st = wk(s);
-        cnt[(int)st]++;
+inline void write(int x) {
+    if (x < 0) {
+        putchar('-');
+        x = -x;
     }
+    if (x > 9) write(x / 10);
+    putchar(x % 10 + '0');
+}
 
-    int excnt   = cnt[(int)node::ex];
-    int alcnt = cnt[(int)node::al];
-    int locnt         = cnt[(int)node::lo];
-    int hicnt        = cnt[(int)node::hi];
-    int npcnt    = cnt[(int)node::np];
+inline void writeln(int x) {
+    write(x);
+    putchar('\n');
+}
 
+int main() {
+    int t = read();
+    while (t--) {
+        int n = read();
+        char s[105];
+        scanf("%s", s);
 
-    bool cond1 = (hicnt == 1 && locnt == 1 && alcnt == 1);
+        int cnt = 1;
+        for (int i = 1; i < n; i++)
+            if (s[i] != s[i - 1]) cnt++;
 
-
-    bool cond2 = (npcnt == 1 && hicnt == 1 && locnt == 1);
-
-
-    bool cond3 = (npcnt == 2 && (locnt == 1 || hicnt == 1));
-
-    bool cond4 = (npcnt == 3);
-
-    if (cond1 || cond2 || cond3 || cond4) {
-        cout << "Yes\n";
-    } else {
-        cout << "No\n";
+        writeln(cnt);
     }
-
     return 0;
 }
