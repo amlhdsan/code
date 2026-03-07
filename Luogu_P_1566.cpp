@@ -1,11 +1,9 @@
+// 電影發明以後，人類的生命，比以前至少延長了三倍。
+// amlhdsan
 #include <bits/stdc++.h>
-
-#define N 35
-
 using namespace std;
 
-int t, m;
-int a[N];
+typedef long long ll;
 
 inline int read() {
     int x = 0, f = 1;
@@ -19,6 +17,10 @@ inline int read() {
         ch = getchar();
     }
     return x * f;
+}
+
+inline void build() {
+    
 }
 
 inline void write(int x) {
@@ -35,35 +37,36 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
-    t = read();
-    
-    while(t--) {
-        m = read();
-        
-        for(int i = 1; i <= m; ++i) {
-            a[i] = read();
-        }
-        
-        int ans = 0;
-        
-        for(int i = 1; i <= m; ++i) {
-            bitset<30001> dp;
-            dp[0] = 1;
-            
-            for(int j = 1; j <= m; ++j) {
-                if(i != j) {
-                    dp |= (dp << a[j]);
-                }
-            }
-            
-            if(dp[a[i]]) {
-                ans++;
-            }
-        }
-        
-        writeln(ans);
+const int N = 35;
+const int M = 1005;
+
+int m;
+int a[N];
+ll dp[M];
+
+void solve() {
+    m = read();
+    int mx = 0;
+    for (int i = 0; i < m; i++) {
+        a[i] = read();
+        if (a[i] > mx) mx = a[i];
     }
-    
+    for (int i = 0; i <= mx; i++) dp[i] = 0;
+    dp[0] = 1;
+    for (int i = 0; i < m; i++) {
+        for (int j = mx; j >= a[i]; j--) {
+            dp[j] += dp[j - a[i]];
+        }
+    }
+    ll ans = 0;
+    for (int i = 0; i < m; i++) {
+        ans += dp[a[i]] - 1;
+    }
+    writeln(ans);
+}
+
+int main() {
+    int t = read();
+    while (t--) solve();
     return 0;
 }
