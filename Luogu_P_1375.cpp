@@ -36,13 +36,21 @@ inline void writeln(int x) {
 }
 
 inline int qpow(int a, int b) {
-
+    int ans = 1;
+    while(b > 0) {
+        if(b & 1) {
+            ans = ans * a % p;
+        }
+        a = a * a % p;
+        b >>= 1;
+    }
+    return ans;
 }
 
 signed main() {
 
     n = read();
-    p = read();
+    p = 1000000007;
     int k1 = 1;
     for(int i = 2; i <= n * 2; ++i) {
         k1 = k1 * i % p;
@@ -52,12 +60,15 @@ signed main() {
         k2 = k2 * i % p;
     }
 
-    int k2 = 1;
+    int k3 = 1;
     for(int i = 2; i <= n + 1; ++i) {
-        k2 = k2 * i % p;
+        k3 = k3 * i % p;
     }
 
-    
+    int pp = k1 * qpow(k2, p - 2) % p;
+    pp = pp * qpow(k3, p - 2) % p;
+
+    writeln(pp);
 
     return 0;
 }
