@@ -31,5 +31,11 @@ inline void writeln(int x) {
 
 int main() {
 
+    int x = 1;
+
+    for(int i = 1; i <= n; ++i) {
+        
+    }
+
     return 0;
 }
