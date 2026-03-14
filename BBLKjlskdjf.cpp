@@ -1,12 +1,10 @@
 #include <bits/stdc++.h>
 
-#define N 110
+#define int long long
 
 using namespace std;
 
-int n;
-int a[N][N];
-int t[N * N];
+int n, k, p, m;
 
 inline int read() {
     int x = 0, f = 1;
@@ -37,31 +35,10 @@ inline void writeln(int x) {
 }
 
 inline void solve() {
-
-    memset(t, 0, sizeof t);
     n = read();
-    for(int i = 1; i <= n; ++i) {
-        for(int j = 1; j <= n; ++j) {
-            a[i][j] = read();
-            t[a[i][j]] += 1;
-        }
-    }
-
-    int maxx = -1;
-
-    for(int i = 1; i <= N * N - 1; ++i) {
-        maxx = max(maxx, t[i]);
-    }
-
-    if(maxx <= n * n - n) {
-        puts("YES");
-    }
-    else {
-        puts("NO");
-    }
 }
 
-int main() {
+signed main() {
 
     int T = read();
 
