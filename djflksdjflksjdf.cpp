@@ -1,12 +1,10 @@
 #include <bits/stdc++.h>
 
-#define int long long
-#define N 5010
+#define int unsigned long long
 
 using namespace std;
 
-int n, k, p, m;
-int a[N];
+int n, k;
 
 inline int read() {
     int x = 0, f = 1;
@@ -39,52 +37,40 @@ inline void writeln(int x) {
 inline void solve() {
     n = read();
     k = read();
-    p = read();
-    m = read();
+    int ans = 0;
 
-    for(int i = 1; i <= n; ++i) {
-        a[i] = read();
-    }
-
-    int kk = a[p];
-
-    int sk = kk;
-
-    if(p > k) {
-        vector<int> v;
-        for(int i = 1; i <= p - 1; ++i) {
-            v.push_back(a[i]);
+    while(k > 0) {
+        if(n == 1) {
+            ans += k;
+            break;
         }
-        sort(v.begin(), v.end());
-        for(int i = 0; i < p - k; ++i) {
-            sk += v[i];
+        if(n == 2) {
+            ans += 2 * k;
+            break;
         }
-    }
-
-    if(m < sk) {
-        writeln(0);
-        return;
-    }
-
-    int skk = kk;
-    if(n > k) {
-        vector<int> v;
-        for(int i = 1; i <= n; ++i) {
-            if(i == p) continue;
-            v.push_back(a[i]);
+        if(n == 3) {
+            ans += k * 4;
+            break;
         }
-        sort(v.begin(), v.end());
-        for(int i = 0; i < n - k; ++i) {
-            skk += v[i];
+        else {
+            int x = sqrt(n);
+
+            while(x * x < n) {++x;}
+            while((x - 1) * (x - 1) >= n) {--x;}
+            
+            if(x % 2 != n % 2) {++x;}
+
+            ans += (x * x - n) / 2 + 1;
+            n = x;
+            --k;
         }
     }
 
-    int ans = 1 + (m - sk) / skk;
     writeln(ans);
 }
 
 signed main() {
-
+    int c = read();
     int T = read();
 
     while(T--) {
