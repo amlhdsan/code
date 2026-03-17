@@ -1,5 +1,13 @@
 #include <bits/stdc++.h>
+
+#define N 2010
+#define MOD 100003
+
 using namespace std;
+
+int a, b, c, d, k;
+int C[N][N];
+int jc[N];
 
 inline int read() {
     int x = 0, f = 1;
@@ -31,5 +39,33 @@ inline void writeln(int x) {
 
 int main() {
 
+    a = read();
+    b = read();
+    c = read();
+    d = read();
+    k = read();
+
+    for(int i = 0; i <= N - 1; ++i) {
+        C[i][0] = C[i][i] = 1;
+    }
+    jc[0] = 1;
+    for(int i = 1; i <= N - 1; ++i) {
+        jc[i] = (jc[i - 1] * i) % MOD;
+    }
+
+
+    for(int i = 1; i <= N - 1; ++i) {
+        for(int j = 1; j <= N - 1; ++j) {
+            C[i][j] = (C[i - 1][j] + C[i - 1][j - 1]) % MOD;
+        }
+    }
+    
+    int ans = 0;
+
+    for(int i = 0; i <= k; ++i) {
+        ans = (ans + C[a][i] * C[b + d - (k  - i)][i] % MOD * jc[i] % MOD * C[c][k - i] * C[d][k - i] % MOD * jc[k - i]) % MOD;
+    }
+
+    writeln(ans);
     return 0;
 }
