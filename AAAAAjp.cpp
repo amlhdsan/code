@@ -49,7 +49,20 @@ inline void writeln(int x) {
 }
 
 inline void solve() {
+    n = read();
+    cin >> a >> b;
 
+    int ans = 0;
+
+    for (int i = 1; i < n - 1; i++) {
+        if (a[i] != b[i] && a[i - 1] == a[i + 1]) {
+            swap(a[i], a[i + 1]);
+            ans++;
+        }
+    }
+
+    if (a == b) writeln(ans);
+    else writeln(-1);
 }
 
 int main() {
