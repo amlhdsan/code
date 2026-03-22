@@ -2,6 +2,7 @@
 
 #define N 2010
 #define MOD 100003
+#define int long long
 
 using namespace std;
 
@@ -37,7 +38,7 @@ inline void writeln(int x) {
     putchar('\n');
 }
 
-int main() {
+signed main() {
 
     a = read();
     b = read();
